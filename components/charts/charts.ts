@@ -99,7 +99,7 @@ export class Charts {
 })
 @View({
   template: `
-  <canvas></canvas>
+  <canvas style="width: 600px; height: 300px;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
@@ -140,12 +140,13 @@ export class LineChart {
   }
 
   onInit() {
+
     let ctx = this.element.nativeElement.children[0].getContext('2d');
 
     let dataset:Array<any> = [];
 
     for (let i = 0, c = 0; i < this.data.length; ++i, c++) {
-      let data:any = Object.assign({label: '', data: this.data[i]}, this.colours[i % this.colours.length]);
+      let data:any = Object.assign(this.colours[i % this.colours.length], {label: this.series[i], data: this.data[i]});
       dataset.push(data);
     }
 

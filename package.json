@@ -45,7 +45,8 @@
     "reflect-metadata": "0.1.1",
     "rtts_assert": "2.0.0-alpha.36",
     "traceur-runtime": "0.0.59",
-    "zone.js": "0.5.4"
+    "zone.js": "0.5.4",
+    "chart.js": "^1.0.2"
   },
   "devDependencies": {
     "bootstrap": "^3.3.5",
@@ -71,7 +72,6 @@
     "typescript": "^1.5.3",
     "typescript-simple-loader": "^0.3.4",
     "webpack": "^1.11.0",
-    "webpack-dev-server": "^1.10.1",
-    "chart.js": "^1.0.2"
+    "webpack-dev-server": "^1.10.1"
   }
 }

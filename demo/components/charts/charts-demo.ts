@@ -26,10 +26,11 @@ export class ChartsDemo {
     [28, 48, 40, 19, 86, 27, 90]
   ];
   private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  private lineChartOptions:any = {
-    animation: false
-  };
   private lineChartSeries:Array<any> = ['Series A', 'Series B'];
+  private lineChartOptions:any = {
+    animation: false,
+    multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
+  };
   private lineChartColours:Array<any> = [
     { // grey
       fillColor: 'rgba(148,159,177,0.2)',
