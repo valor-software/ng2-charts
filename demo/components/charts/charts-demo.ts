@@ -21,6 +21,8 @@ let template = require('./charts-demo.html');
   directives: [charts, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class ChartsDemo {
+
+  // lineChart
   private lineChartData:Array<any> = [
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90]
@@ -55,6 +57,7 @@ export class ChartsDemo {
   constructor() {
     console.log('foo demo');
   }
+
   private randomize() {
     let _lineChartData = [];
     for (let i = 0; i < this.lineChartData.length; i++) {
@@ -66,7 +69,19 @@ export class ChartsDemo {
     }
     this.lineChartData = _lineChartData;
   }
+
   lineChartClicked(e:string) {
     console.log(e);
   }
+
+  // BarChart
+  private barChartOptions = {scaleShowVerticalLines: false};
+  private barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  private barChartSeries = ['Series A', 'Series B'];
+  private barChartData = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+  private barChartType = 'Bar';
+
 }
