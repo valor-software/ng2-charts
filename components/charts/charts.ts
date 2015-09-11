@@ -104,7 +104,8 @@ export class Charts {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 export class LineChart {
-  private data:Array<any> = [];
+  private ctx:any;
+  private _data:Array<any> = [];
   private labels:Array<any> = [];
   private options:any = {
     scaleShowGridLines: true,
@@ -134,18 +135,20 @@ export class LineChart {
   private chartType:string;
   private legend:boolean;
   private chartClick:EventEmitter = new EventEmitter();
+  private initFlag:boolean = false;
 
   constructor(public element:ElementRef) {
-
   }
 
   onInit() {
+    this.ctx = this.element.nativeElement.children[0].getContext('2d');
+    this.refresh();
+    this.initFlag = true;
+  }
 
-    let ctx = this.element.nativeElement.children[0].getContext('2d');
-
+  private refresh() {
     let dataset:Array<any> = [];
-
-    for (let i = 0, c = 0; i < this.data.length; ++i, c++) {
+    for (let i = 0; i < this.data.length; i++) {
       let data:any = Object.assign(this.colours[i % this.colours.length], {label: this.series[i], data: this.data[i]});
       dataset.push(data);
     }
@@ -155,18 +158,22 @@ export class LineChart {
       datasets: dataset
     };
 
-    let myLineChart = new Chart(ctx).Line(lineData, this.options);
+    new Chart(this.ctx).Line(lineData, this.options);
     /*let myLineChart = new Chart(ctx).Line(lineData, {
      //TODO: legend default = false
      //legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
      });*/
 
-    /*setTimeout(() => {
-     this.chartClick.next('chart clicked!!!');
-     }, 3000);
-     this.element*/
-    this.chartClick.next('chart clicked!!!');
+  }
 
+  private get data() {
+    return this._data;
+  }
+  private set data(value) {
+    this._data = value;
+    if (this.initFlag === true) {
+      this.refresh();
+    }
   }
 }
 

@@ -55,7 +55,17 @@ export class ChartsDemo {
   constructor() {
     console.log('foo demo');
   }
+  private randomize() {
+    let _lineChartData = [];
+    for (let i = 0; i < this.lineChartData.length; i++) {
+      _lineChartData[i] = [];
+      for (let j = 0; j < this.lineChartData[i].length; j++) {
+        _lineChartData[i].push(Math.floor((Math.random() * 100) + 1));
 
+      }
+    }
+    this.lineChartData = _lineChartData;
+  }
   lineChartClicked(e:string) {
     console.log(e);
   }
