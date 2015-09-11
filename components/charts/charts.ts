@@ -103,7 +103,7 @@ export class Charts {
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
-export class LineChart {
+export class LineChart2 {
   private ctx:any;
   private _data:Array<any> = [];
   private labels:Array<any> = [];
@@ -169,11 +169,160 @@ export class LineChart {
   private get data() {
     return this._data;
   }
+
   private set data(value) {
     this._data = value;
     if (this.initFlag === true) {
       this.refresh();
     }
+  }
+}
+
+export interface IChart {
+  getChartBuilder(ctx:any, data:Array<any>, options:any);
+  getDefaultOptions():any;
+  getDefaultColours():Array<any>;
+}
+
+export class LineChartImp implements IChart {
+
+  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+    return new Chart(ctx).Line(data, options);
+  }
+
+  getDefaultOptions():any {
+    return {
+      scaleShowGridLines: true,
+      scaleGridLineColor: 'rgba(0,0,0,.05)',
+      scaleGridLineWidth: 1,
+      bezierCurve: true,
+      bezierCurveTension: 0.4,
+      pointDot: true,
+      pointDotRadius: 4,
+      pointDotStrokeWidth: 1,
+      pointHitDetectionRadius: 20,
+      datasetStroke: true,
+      datasetStrokeWidth: 2,
+      datasetFill: true
+    };
+  }
+
+  getDefaultColours():Array<any> {
+    return [
+      {
+        fillColor: 'rgba(148,159,177,0.2)',
+        strokeColor: 'rgba(148,159,177,1)',
+        pointColor: 'rgba(148,159,177,1)',
+        pointStrokeColor: '#fff',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(148,159,177,0.8)'
+      }
+    ];
+  }
+}
+
+export class GenericChart {
+  private ctx:any;
+  private chart:any;
+  private _data:Array<any> = [];
+  private labels:Array<any> = [];
+  private options:any;
+  private series:Array<any> = [];
+  private colours:Array<any>;
+  private chartType:string;
+  private legend:boolean;
+  private initFlag:boolean = false;
+
+  constructor(private imp:IChart) {
+  }
+
+  init(ctx:any) {
+    this.ctx = ctx;
+    this.refresh();
+    this.initFlag = true;
+  }
+
+  destroy() {
+    if (this.chart) {
+      this.chart.destroy();
+      this.chart = null;
+    }
+  }
+
+  private get data() {
+    return this._data;
+  }
+
+  private set data(value) {
+    this._data = value;
+    if (this.initFlag === true) {
+      this.refresh();
+    }
+  }
+
+  private refresh() {
+    this.destroy();
+    let dataset:Array<any> = [];
+    for (let i = 0; i < this.data.length; i++) {
+      let data:any = Object.assign(this.colours[i % this.colours.length], {label: this.series[i], data: this.data[i]});
+      dataset.push(data);
+    }
+
+    let data:any = {
+      labels: this.labels,
+      datasets: dataset
+    };
+
+    this.chart = this.imp.getChartBuilder(this.ctx, data, this.options);
+  }
+}
+
+@Component({
+  selector: 'line-chart',
+  properties: [
+    'data',
+    'labels',
+    'series',
+    'colours',
+    // TODO
+    // 'getColour',
+    'chartType',
+    'legend',
+    'options',
+    /*'click',
+     'hover',
+
+     //TODO
+     'chartData',
+     'chartLabels',
+     'chartOptions',
+     'chartSeries',
+     'chartColours',
+     'chartLegend',
+     'chartClick',
+     'chartHover'*/
+  ],
+  evens: ['chartClick'],
+  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+})
+@View({
+  template: `
+  <canvas style="width: 600px; height: 300px;"></canvas>
+  `,
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
+})
+export class LineChart extends GenericChart {
+
+  constructor(private element:ElementRef) {
+    super(new LineChartImp());
+  }
+
+  onInit() {
+    super.init(this.element.nativeElement.children[0].getContext('2d'));
+  }
+
+  onDestroy() {
+    super.destroy();
   }
 }
 
