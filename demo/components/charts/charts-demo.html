@@ -15,7 +15,6 @@
               [options]="lineChartOptions"
               [series]="lineChartSeries"
               [colours]="lineChartColours"
-              [chart-type]="lineChartType"
               [legend]="lineChartLegend"
               (chart-click)="lineChartClicked($event)"></line-chart>
 
@@ -24,10 +23,37 @@
 
 <br>
 <div class="row">
+  <p>Bar Char</p>
   <bar-chart [data]="barChartData"
              [labels]="barChartLabels"
              [options]="barChartOptions"
-             [series]="barChartSeries"
-             [chart-type]="barChartType"></bar-chart>
+             [series]="barChartSeries"></bar-chart>
+</div>
+<br>
+
+
+<div class="row">
+  <p>PolarArea</p>
+  <polar-area-chart [data]="polarAreaChartData"
+                    [labels]="polarAreaChartLabels"
+                    [colours]="polarAreaChartColours"></polar-area-chart>
 </div>
 
+
+<div class="row">
+  <div class="panel-heading">Doughnut Chart</div>
+  <doughnut-chart [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"></doughnut-chart>
+</div>
+
+<div class="row">
+  <div class="panel-heading">Pie Chart</div>
+  <pie-chart [data]="pieChartData"
+             [labels]="pieChartLabels"></pie-chart>
+</div>
+
+<div class="row">
+  <div class="panel-heading">Radar Chart</div>
+  <radar-chart [data]="radarChartData"
+               [labels]="radarChartLabels"></radar-chart>
+</div>

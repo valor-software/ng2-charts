@@ -51,7 +51,6 @@ export class ChartsDemo {
       pointHighlightStroke: 'rgba(77,83,96,1)'
     }
   ];
-  private lineChartType:string = 'Line';
   private lineChartLegend:boolean = false;
 
   constructor() {
@@ -82,6 +81,56 @@ export class ChartsDemo {
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90]
   ];
-  private barChartType = 'Bar';
+
+
+  // PolarArea
+  private polarAreaChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
+  private polarAreaChartData = [300, 500, 100, 40, 120];
+  private polarAreaChartColours = [
+    {
+      fillColor: 'rgba(151,187,205,0.2)',
+      strokeColor: 'rgba(151,187,205,1)',
+      pointColor: 'rgba(151,187,205,1)',
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: 'rgba(151,187,205,0.8)',
+      color: 'rgba(151,187,205,1)',
+      highlight: 'rgba(151,187,205,0.8)'
+    }, {
+      fillColor: 'rgba(220,220,220,0.2)',
+      strokeColor: 'rgba(220,220,220,1)',
+      pointColor: 'rgba(220,220,220,1)',
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: 'rgba(220,220,220,0.8)',
+      color: 'rgba(220,220,220,1)',
+      highlight: 'rgba(220,220,220,0.8)'
+    },
+    {
+      fillColor: 'rgba(247,70,74,0.2)',
+      strokeColor: 'rgba(247,70,74,1)',
+      pointColor: 'rgba(247,70,74,1)',
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: 'rgba(247,70,74,0.8)',
+      color: 'rgba(247,70,74,1)',
+      highlight: 'rgba(247,70,74,0.8)'
+    }
+  ];
+
+  // Doughnut
+  private doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  private doughnutChartData = [350, 450, 100];
+
+  // Pie
+  private pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  private pieChartData = [300, 500, 100];
+
+  // Radar
+  private radarChartLabels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+  private radarChartData = [
+    [65, 59, 90, 81, 56, 55, 40],
+    [28, 48, 40, 19, 96, 27, 100]
+  ];
 
 }

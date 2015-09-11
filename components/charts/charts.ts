@@ -21,6 +21,7 @@ let Chart = require('chart.js');
 export class Charts {
   constructor(element:ElementRef) {
   }
+
 }
 
 // TODO: responsive size for chart(canvas)
@@ -31,7 +32,10 @@ export class Charts {
 
 
 export interface IChart {
+  // TODO: refactor in one method getDataObject and getChartData ???
   getChartBuilder(ctx:any, data:Array<any>, options:any);
+  getDataObject(label:string, value:any):any;
+  getChartData(labels:any, dataObject:any):any;
   // getDefaultOptions():any;
   // getDefaultColours():Array<any>;
 }
@@ -42,11 +46,115 @@ export class LineChartImp implements IChart {
     return new Chart(ctx).Line(data, options);
   }
 
+  getDataObject(label:string, value:any):any {
+    return {
+      label: label,
+      data: value
+    };
+  }
+
+  getChartData(labels:any, dataObject:any):any {
+    return {
+      labels: labels,
+      datasets: dataObject
+    };
+  }
 }
 export class BarChartImp implements IChart {
 
   getChartBuilder(ctx:any, data:Array<any>, options:any) {
     return new Chart(ctx).Bar(data, options);
+  }
+
+  getDataObject(label:string, value:any):any {
+    return {
+      label: label,
+      data: value
+    };
+  }
+
+  getChartData(labels:any, dataObject:any):any {
+    return {
+      labels: labels,
+      datasets: dataObject
+    };
+  }
+}
+export class PolarAreaChartImp implements IChart {
+
+  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+    return new Chart(ctx).PolarArea(data, options);
+  }
+
+  getDataObject(label:string, value:any):any {
+    return {
+      label: label,
+      value: value
+    };
+  }
+
+  getChartData(labels:any, dataObject:any):any {
+    return dataObject;
+  }
+}
+
+// DoughnutChartImp
+export class DoughnutChartImp implements IChart {
+
+  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+    return new Chart(ctx).Doughnut(data, options);
+  }
+
+  getDataObject(label:string, value:any):any {
+    return {
+      label: label,
+      value: value
+    };
+  }
+
+  getChartData(labels:any, dataObject:any):any {
+    return dataObject;
+  }
+}
+
+// PieChartImp
+export class PieChartImp implements IChart {
+
+  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+    return new Chart(ctx).Pie(data, options);
+  }
+
+  getDataObject(label:string, value:any):any {
+    return {
+      label: label,
+      value: value
+    };
+  }
+
+  getChartData(labels:any, dataObject:any):any {
+    return dataObject;
+  }
+}
+
+// RadarChartImp
+export class RadarChartImp implements IChart {
+
+  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+    return new Chart(ctx).Radar(data, options);
+  }
+
+  getDataObject(label:string, value:any):any {
+    return {
+      label: label,
+      data: value
+    };
+  }
+
+  getChartData(labels:any, dataObject:any):any {
+    return {
+      labels: labels,
+      datasets: dataObject
+    };
   }
 }
 
@@ -55,28 +163,7 @@ export class GenericChart {
   private chart:any;
   private _data:Array<any> = [];
   private labels:Array<any> = [];
-  private options:any = {
-    scaleShowGridLines: true,
-    scaleGridLineColor: 'rgba(0,0,0,.05)',
-    scaleGridLineWidth: 1,
-    bezierCurve: true,
-    bezierCurveTension: 0.4,
-    pointDot: true,
-    pointDotRadius: 4,
-    pointDotStrokeWidth: 1,
-    pointHitDetectionRadius: 20,
-    datasetStroke: true,
-    datasetStrokeWidth: 2,
-    datasetFill: true,
-    segmentShowStroke: true,
-    segmentStrokeColor: '#fff',
-    segmentStrokeWidth: 2,
-    percentageInnerCutout: 50,
-    animationSteps: 100,
-    animationEasing: 'easeOutBounce',
-    animateScale: false,
-    animateRotate: true
-  };
+  private options:any;
 
   private series:Array<any> = [];
   private colours:Array<any> = [
@@ -86,14 +173,28 @@ export class GenericChart {
       pointColor: 'rgba(151,187,205,1)',
       pointStrokeColor: '#fff',
       pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(151,187,205,0.8)'
+      pointHighlightStroke: 'rgba(151,187,205,0.8)',
+      color: 'rgba(151,187,205,1)',
+      highlight: 'rgba(151,187,205,0.8)'
     }, {
       fillColor: 'rgba(220,220,220,0.2)',
       strokeColor: 'rgba(220,220,220,1)',
       pointColor: 'rgba(220,220,220,1)',
       pointStrokeColor: '#fff',
       pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(220,220,220,0.8)'
+      pointHighlightStroke: 'rgba(220,220,220,0.8)',
+      color: 'rgba(220,220,220,1)',
+      highlight: 'rgba(220,220,220,0.8)'
+    },
+    {
+      fillColor: 'rgba(247,70,74,0.2)',
+      strokeColor: 'rgba(247,70,74,1)',
+      pointColor: 'rgba(247,70,74,1)',
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: 'rgba(247,70,74,0.8)',
+      color: 'rgba(247,70,74,1)',
+      highlight: 'rgba(247,70,74,0.8)'
     }
   ];
   private chartType:string;
@@ -131,17 +232,13 @@ export class GenericChart {
     this.destroy();
     let dataset:Array<any> = [];
     for (let i = 0; i < this.data.length; i++) {
-      let data:any = Object.assign(this.colours[i % this.colours.length], {
-        label: this.series[i],
-        data: this.data[i]
-      });
+      let data:any = Object.assign(this.colours[i % this.colours.length],
+        this.imp.getDataObject(this.series[i], this.data[i]));
       dataset.push(data);
     }
+    let data:any = this.imp.getChartData(this.labels, dataset);
+    console.log(data, 'data');
 
-    let data:any = {
-      labels: this.labels,
-      datasets: dataset
-    };
     this.chart = this.imp.getChartBuilder(this.ctx, data, this.options);
   }
 }
@@ -230,5 +327,176 @@ export class BarChart extends GenericChart {
   }
 }
 
+// PolarArea
+@Component({
+  selector: 'polar-area-chart',
+  properties: [
+    'data',
+    'labels',
+    'series',
+    'colours',
+    // TODO
+    // 'getColour',
+    'chartType',
+    'legend',
+    'options'
+    // TODO
+    /*'click',
+     'hover'*/
+  ],
+  evens: ['chartClick'],
+  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+})
+@View({
+  template: `
+  <canvas style="width: 600px; height: 300px;"></canvas>
+  `,
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
+})
 
-export const charts:Array<any> = [Charts, LineChart, BarChart];
+export class PolarAreaChart extends GenericChart {
+
+  constructor(private element:ElementRef) {
+    super(new PolarAreaChartImp());
+  }
+
+  onInit() {
+    super.init(this.element.nativeElement.children[0].getContext('2d'));
+  }
+
+  onDestroy() {
+    super.destroy();
+  }
+}
+
+
+// Doughnut
+@Component({
+  selector: 'doughnut-chart',
+  properties: [
+    'data',
+    'labels',
+    'series',
+    'colours',
+    // TODO
+    // 'getColour',
+    'chartType',
+    'legend',
+    'options'
+    // TODO
+    /*'click',
+     'hover'*/
+  ],
+  evens: ['chartClick'],
+  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+})
+@View({
+  template: `
+  <canvas style="width: 600px; height: 300px;"></canvas>
+  `,
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
+})
+
+export class DoughnutChart extends GenericChart {
+
+  constructor(private element:ElementRef) {
+    super(new DoughnutChartImp());
+  }
+
+  onInit() {
+    super.init(this.element.nativeElement.children[0].getContext('2d'));
+  }
+
+  onDestroy() {
+    super.destroy();
+  }
+}
+
+// Pie
+@Component({
+  selector: 'pie-chart',
+  properties: [
+    'data',
+    'labels',
+    'series',
+    'colours',
+    // TODO
+    // 'getColour',
+    'chartType',
+    'legend',
+    'options'
+    // TODO
+    /*'click',
+     'hover'*/
+  ],
+  evens: ['chartClick'],
+  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+})
+@View({
+  template: `
+  <canvas style="width: 600px; height: 300px;"></canvas>
+  `,
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
+})
+
+export class PieChart extends GenericChart {
+
+  constructor(private element:ElementRef) {
+    super(new PieChartImp());
+  }
+
+  onInit() {
+    super.init(this.element.nativeElement.children[0].getContext('2d'));
+  }
+
+  onDestroy() {
+    super.destroy();
+  }
+}
+
+
+// Radar
+@Component({
+  selector: 'radar-chart',
+  properties: [
+    'data',
+    'labels',
+    'series',
+    'colours',
+    // TODO
+    // 'getColour',
+    'chartType',
+    'legend',
+    'options'
+    // TODO
+    /*'click',
+     'hover'*/
+  ],
+  evens: ['chartClick'],
+  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+})
+@View({
+  template: `
+  <canvas style="width: 600px; height: 300px;"></canvas>
+  `,
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
+})
+
+export class RadarChart extends GenericChart {
+
+  constructor(private element:ElementRef) {
+    super(new RadarChartImp());
+  }
+
+  onInit() {
+    super.init(this.element.nativeElement.children[0].getContext('2d'));
+  }
+
+  onDestroy() {
+    super.destroy();
+  }
+}
+
+
+export const charts:Array<any> = [Charts, LineChart, BarChart, PolarAreaChart, DoughnutChart,
+  PieChart, RadarChart];
