@@ -24,7 +24,6 @@ export class Charts {
 
 }
 
-// TODO: responsive size for chart(canvas)
 // TODO: template legend
 // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\">
 // <% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\">
@@ -38,124 +37,6 @@ export interface IChart {
   getChartData(labels:any, dataObject:any):any;
   // getDefaultOptions():any;
   // getDefaultColours():Array<any>;
-}
-
-export class LineChartImp implements IChart {
-
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
-    return new Chart(ctx).Line(data, options);
-  }
-
-  getDataObject(label:string, value:any):any {
-    return {
-      label: label,
-      data: value
-    };
-  }
-
-  getChartData(labels:any, dataObject:any):any {
-    return {
-      labels: labels,
-      datasets: dataObject
-    };
-  }
-}
-export class BarChartImp implements IChart {
-
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
-    return new Chart(ctx).Bar(data, options);
-  }
-
-  getDataObject(label:string, value:any):any {
-    return {
-      label: label,
-      data: value
-    };
-  }
-
-  getChartData(labels:any, dataObject:any):any {
-    return {
-      labels: labels,
-      datasets: dataObject
-    };
-  }
-}
-export class PolarAreaChartImp implements IChart {
-
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
-    return new Chart(ctx).PolarArea(data, options);
-  }
-
-  getDataObject(label:string, value:any):any {
-    return {
-      label: label,
-      value: value
-    };
-  }
-
-  getChartData(labels:any, dataObject:any):any {
-    return dataObject;
-  }
-}
-
-// DoughnutChartImp
-export class DoughnutChartImp implements IChart {
-
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
-    return new Chart(ctx).Doughnut(data, options);
-  }
-
-  getDataObject(label:string, value:any):any {
-    return {
-      label: label,
-      value: value
-    };
-  }
-
-  getChartData(labels:any, dataObject:any):any {
-    return dataObject;
-  }
-}
-
-// PieChartImp
-export class PieChartImp implements IChart {
-
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
-    return new Chart(ctx).Pie(data, options);
-  }
-
-  getDataObject(label:string, value:any):any {
-    return {
-      label: label,
-      value: value
-    };
-  }
-
-  getChartData(labels:any, dataObject:any):any {
-    return dataObject;
-  }
-}
-
-// RadarChartImp
-export class RadarChartImp implements IChart {
-
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
-    return new Chart(ctx).Radar(data, options);
-  }
-
-  getDataObject(label:string, value:any):any {
-    return {
-      label: label,
-      data: value
-    };
-  }
-
-  getChartData(labels:any, dataObject:any):any {
-    return {
-      labels: labels,
-      datasets: dataObject
-    };
-  }
 }
 
 export class GenericChart {
@@ -270,7 +151,7 @@ export class GenericChart {
 export class LineChart extends GenericChart {
 
   constructor(private element:ElementRef) {
-    super(new LineChartImp());
+    super(new LineChart.Impl());
   }
 
   onInit() {
@@ -280,11 +161,32 @@ export class LineChart extends GenericChart {
   onDestroy() {
     super.destroy();
   }
-
 }
 
+export module LineChart {
+  export class Impl implements IChart {
 
-// BraChart
+    getChartBuilder(ctx:any, data:Array<any>, options:any) {
+      return new Chart(ctx).Line(data, options);
+    }
+
+    getDataObject(label:string, value:any):any {
+      return {
+        label: label,
+        data: value
+      };
+    }
+
+    getChartData(labels:any, dataObject:any):any {
+      return {
+        labels: labels,
+        datasets: dataObject
+      };
+    }
+  }
+}
+
+// BarChart
 @Component({
   selector: 'bar-chart',
   properties: [
@@ -314,7 +216,7 @@ export class LineChart extends GenericChart {
 export class BarChart extends GenericChart {
 
   constructor(private element:ElementRef) {
-    super(new BarChartImp());
+    super(new BarChart.Impl());
   }
 
   onInit() {
@@ -323,6 +225,29 @@ export class BarChart extends GenericChart {
 
   onDestroy() {
     super.destroy();
+  }
+}
+export module BarChart {
+  export class Impl implements IChart {
+
+    getChartBuilder(ctx:any, data:Array<any>, options:any) {
+      return new Chart(ctx).Bar(data, options);
+    }
+
+    getDataObject(label:string, value:any):any {
+      return {
+        label: label,
+        data: value
+      };
+    }
+
+    getChartData(labels:any, dataObject:any):any {
+      return {
+        labels: labels,
+        datasets: dataObject
+      };
+    }
+
   }
 }
 
@@ -356,7 +281,7 @@ export class BarChart extends GenericChart {
 export class PolarAreaChart extends GenericChart {
 
   constructor(private element:ElementRef) {
-    super(new PolarAreaChartImp());
+    super(new PolarAreaChart.Impl());
   }
 
   onInit() {
@@ -365,6 +290,27 @@ export class PolarAreaChart extends GenericChart {
 
   onDestroy() {
     super.destroy();
+  }
+}
+
+export module PolarAreaChart {
+  export class Impl implements IChart {
+
+    getChartBuilder(ctx:any, data:Array<any>, options:any) {
+      return new Chart(ctx).PolarArea(data, options);
+    }
+
+    getDataObject(label:string, value:any):any {
+      return {
+        label: label,
+        value: value
+      };
+    }
+
+    getChartData(labels:any, dataObject:any):any {
+      return dataObject;
+    }
+
   }
 }
 
@@ -399,7 +345,7 @@ export class PolarAreaChart extends GenericChart {
 export class DoughnutChart extends GenericChart {
 
   constructor(private element:ElementRef) {
-    super(new DoughnutChartImp());
+    super(new DoughnutChart.Impl());
   }
 
   onInit() {
@@ -408,6 +354,27 @@ export class DoughnutChart extends GenericChart {
 
   onDestroy() {
     super.destroy();
+  }
+}
+
+export module DoughnutChart {
+  export class Impl implements IChart {
+
+    getChartBuilder(ctx:any, data:Array<any>, options:any) {
+      return new Chart(ctx).Doughnut(data, options);
+    }
+
+    getDataObject(label:string, value:any):any {
+      return {
+        label: label,
+        value: value
+      };
+    }
+
+    getChartData(labels:any, dataObject:any):any {
+      return dataObject;
+    }
+
   }
 }
 
@@ -441,7 +408,7 @@ export class DoughnutChart extends GenericChart {
 export class PieChart extends GenericChart {
 
   constructor(private element:ElementRef) {
-    super(new PieChartImp());
+    super(new PieChart.Impl());
   }
 
   onInit() {
@@ -453,8 +420,27 @@ export class PieChart extends GenericChart {
   }
 }
 
+export module PieChart {
+  export class Impl implements IChart {
+    getChartBuilder(ctx:any, data:Array<any>, options:any) {
+      return new Chart(ctx).Pie(data, options);
+    }
 
-// Radar
+    getDataObject(label:string, value:any):any {
+      return {
+        label: label,
+        value: value
+      };
+    }
+
+    getChartData(labels:any, dataObject:any):any {
+      return dataObject;
+    }
+
+  }
+}
+
+// RadarChart
 @Component({
   selector: 'radar-chart',
   properties: [
@@ -484,7 +470,7 @@ export class PieChart extends GenericChart {
 export class RadarChart extends GenericChart {
 
   constructor(private element:ElementRef) {
-    super(new RadarChartImp());
+    super(new RadarChart.Impl());
   }
 
   onInit() {
@@ -496,6 +482,30 @@ export class RadarChart extends GenericChart {
   }
 }
 
+
+export module RadarChart {
+  export class Impl implements IChart {
+
+    getChartBuilder(ctx:any, data:Array<any>, options:any) {
+      return new Chart(ctx).Radar(data, options);
+    }
+
+    getDataObject(label:string, value:any):any {
+      return {
+        label: label,
+        data: value
+      };
+    }
+
+    getChartData(labels:any, dataObject:any):any {
+      return {
+        labels: labels,
+        datasets: dataObject
+      };
+    }
+
+  }
+}
 
 export const charts:Array<any> = [Charts, LineChart, BarChart, PolarAreaChart, DoughnutChart,
   PieChart, RadarChart];
