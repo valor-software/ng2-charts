@@ -163,7 +163,7 @@ export class GenericChart {
   private chart:any;
   private _data:Array<any> = [];
   private labels:Array<any> = [];
-  private options:any;
+  private options:any = {responsive: true};
 
   private series:Array<any> = [];
   private colours:Array<any> = [
@@ -237,7 +237,6 @@ export class GenericChart {
       dataset.push(data);
     }
     let data:any = this.imp.getChartData(this.labels, dataset);
-    console.log(data, 'data');
 
     this.chart = this.imp.getChartBuilder(this.ctx, data, this.options);
   }
@@ -264,7 +263,7 @@ export class GenericChart {
 })
 @View({
   template: `
-  <canvas style="width: 600px; height: 300px;"></canvas>
+  <canvas style="width: 100%; height: 100%;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
@@ -307,7 +306,7 @@ export class LineChart extends GenericChart {
 })
 @View({
   template: `
-  <canvas style="width: 600px; height: 300px;"></canvas>
+  <canvas style="width: 100%; height: 100%;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
@@ -349,7 +348,7 @@ export class BarChart extends GenericChart {
 })
 @View({
   template: `
-  <canvas style="width: 600px; height: 300px;"></canvas>
+  <canvas style="width: 100%; height: 100%;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
@@ -392,7 +391,7 @@ export class PolarAreaChart extends GenericChart {
 })
 @View({
   template: `
-  <canvas style="width: 600px; height: 300px;"></canvas>
+  <canvas style="width: 100%; height: 100%;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
@@ -434,7 +433,7 @@ export class DoughnutChart extends GenericChart {
 })
 @View({
   template: `
-  <canvas style="width: 600px; height: 300px;"></canvas>
+  <canvas style="width: 100%; height: 100%;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
@@ -477,7 +476,7 @@ export class PieChart extends GenericChart {
 })
 @View({
   template: `
-  <canvas style="width: 600px; height: 300px;"></canvas>
+  <canvas style="width: 100%; height: 100%;"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })

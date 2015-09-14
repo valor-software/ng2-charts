@@ -10,7 +10,8 @@
   <button (click)="randomize()">CLICK</button>
 </div>
 <div class="col-md-6">
-  <line-chart [data]="lineChartData"
+  <line-chart style="display: block; width: 100%;"
+              [data]="lineChartData"
               [labels]="lineChartLabels"
               [options]="lineChartOptions"
               [series]="lineChartSeries"
@@ -24,36 +25,55 @@
 <br>
 <div class="row">
   <p>Bar Char</p>
-  <bar-chart [data]="barChartData"
-             [labels]="barChartLabels"
-             [options]="barChartOptions"
-             [series]="barChartSeries"></bar-chart>
+
+  <div class="col-md-6">
+
+    <bar-chart style="display: block; width: 100%;"
+               [data]="barChartData"
+               [labels]="barChartLabels"
+               [options]="barChartOptions"
+               [series]="barChartSeries"></bar-chart>
+  </div>
 </div>
 <br>
 
 
 <div class="row">
   <p>PolarArea</p>
-  <polar-area-chart [data]="polarAreaChartData"
-                    [labels]="polarAreaChartLabels"
-                    [colours]="polarAreaChartColours"></polar-area-chart>
+
+  <div class="col-md-6">
+    <polar-area-chart style="display: block; width: 100%;"
+                      [data]="polarAreaChartData"
+                      [labels]="polarAreaChartLabels"
+                      [colours]="polarAreaChartColours"></polar-area-chart>
+  </div>
 </div>
 
 
 <div class="row">
   <div class="panel-heading">Doughnut Chart</div>
-  <doughnut-chart [data]="doughnutChartData"
-                  [labels]="doughnutChartLabels"></doughnut-chart>
+  <div class="col-md-6">
+    <doughnut-chart style="display: block; width: 100%;"
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"></doughnut-chart>
+  </div>
 </div>
 
 <div class="row">
   <div class="panel-heading">Pie Chart</div>
-  <pie-chart [data]="pieChartData"
-             [labels]="pieChartLabels"></pie-chart>
+  <div class="col-md-6">
+    <pie-chart style="display: block; width: 100%;"
+               [data]="pieChartData"
+               [labels]="pieChartLabels"></pie-chart>
+  </div>
 </div>
 
 <div class="row">
   <div class="panel-heading">Radar Chart</div>
-  <radar-chart [data]="radarChartData"
-               [labels]="radarChartLabels"></radar-chart>
+  <div class="col-md-6">
+
+    <radar-chart style="display: block; width: 100%;"
+                 [data]="radarChartData"
+                 [labels]="radarChartLabels"></radar-chart>
+  </div>
 </div>

@@ -31,6 +31,7 @@ export class ChartsDemo {
   private lineChartSeries:Array<any> = ['Series A', 'Series B'];
   private lineChartOptions:any = {
     animation: false,
+    responsive: true,
     multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
   };
   private lineChartColours:Array<any> = [
@@ -74,7 +75,7 @@ export class ChartsDemo {
   }
 
   // BarChart
-  private barChartOptions = {scaleShowVerticalLines: false};
+  private barChartOptions = {scaleShowVerticalLines: false, responsive: true};
   private barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   private barChartSeries = ['Series A', 'Series B'];
   private barChartData = [
