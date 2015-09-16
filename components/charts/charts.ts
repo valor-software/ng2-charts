@@ -41,43 +41,14 @@ export class GenericChart {
   private labels:Array<any> = [];
   private options:any = {responsive: true};
   private series:Array<any> = [];
-  private colours:Array<any> = [
-    {
-      fillColor: 'rgba(151,187,205,0.2)',
-      strokeColor: 'rgba(151,187,205,1)',
-      pointColor: 'rgba(151,187,205,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(151,187,205,0.8)',
-      color: 'rgba(151,187,205,1)',
-      highlight: 'rgba(151,187,205,0.8)'
-    }, {
-      fillColor: 'rgba(220,220,220,0.2)',
-      strokeColor: 'rgba(220,220,220,1)',
-      pointColor: 'rgba(220,220,220,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(220,220,220,0.8)',
-      color: 'rgba(220,220,220,1)',
-      highlight: 'rgba(220,220,220,0.8)'
-    },
-    {
-      fillColor: 'rgba(247,70,74,0.2)',
-      strokeColor: 'rgba(247,70,74,1)',
-      pointColor: 'rgba(247,70,74,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(247,70,74,0.8)',
-      color: 'rgba(247,70,74,1)',
-      highlight: 'rgba(247,70,74,0.8)'
-    }
-  ];
+  private colours:Array<any> = [];
   private chartType:string;
   private legend:boolean;
   private legendTemplate:any;
   private initFlag:boolean = false;
 
   constructor(private imp:IChart) {
+
   }
 
   init(element:ElementRef) {
@@ -85,6 +56,7 @@ export class GenericChart {
     this.parent = element.nativeElement;
     this.refresh();
     this.initFlag = true;
+
   }
 
   destroy() {
@@ -119,9 +91,29 @@ export class GenericChart {
     }
   }
 
+  getColour(colour:Array<number>):any {
+    return {
+      fillColor: this.rgba(colour, 0.2),
+      strokeColor: this.rgba(colour, 1),
+      pointColor: this.rgba(colour, 1),
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: this.rgba(colour, 0.8),
+      color: this.rgba(colour, 1),
+      highlight: this.rgba(colour, 0.8)
+    };
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  rgba(colour, alpha) {
+    return 'rgba(' + colour.concat(alpha).join(',') + ')';
+  }
+
 
   private refresh() {
-
     /* console.log(this._data,
      this.labels,
      this.options,
@@ -133,12 +125,16 @@ export class GenericChart {
 
     this.destroy();
     let dataset:Array<any> = [];
+
     for (let i = 0; i < this.data.length; i++) {
-      let data:any = Object.assign(this.colours[i % this.colours.length],
+
+      let colourDesc:Array<number> = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
+      let colour = i < this.colours.length ? this.colours[i] : this.getColour(colourDesc);
+
+      let data:any = Object.assign(colour,
         this.imp.getDataObject(this.series[i], this.data[i]));
 
       dataset.push(data);
-
     }
 
     let data:any = this.imp.getChartData(this.labels, dataset);
