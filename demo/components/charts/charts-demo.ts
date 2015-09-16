@@ -25,10 +25,11 @@ export class ChartsDemo {
   // lineChart
   private lineChartData:Array<any> = [
     [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
+    [28, 48, 40, 19, 86, 27, 90],
+    [18, 48, 77, 9, 100, 27, 40]
   ];
   private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  private lineChartSeries:Array<any> = ['Series A', 'Series B'];
+  private lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C'];
   private lineChartOptions:any = {
     animation: false,
     responsive: true,
@@ -50,9 +51,17 @@ export class ChartsDemo {
       pointStrokeColor: '#fff',
       pointHighlightFill: '#fff',
       pointHighlightStroke: 'rgba(77,83,96,1)'
+    },
+    { // grey
+      fillColor: 'rgba(148,159,177,0.2)',
+      strokeColor: 'rgba(148,159,177,1)',
+      pointColor: 'rgba(148,159,177,1)',
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: 'rgba(148,159,177,0.8)'
     }
   ];
-  private lineChartLegend:boolean = false;
+  private lineChartLegend:boolean = true;
 
   constructor() {
     console.log('foo demo');
@@ -75,9 +84,15 @@ export class ChartsDemo {
   }
 
   // BarChart
-  private barChartOptions = {scaleShowVerticalLines: false, responsive: true};
+  private barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
+  };
   private barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   private barChartSeries = ['Series A', 'Series B'];
+  private barChartLegend:boolean = true;
+
   private barChartData = [
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90]

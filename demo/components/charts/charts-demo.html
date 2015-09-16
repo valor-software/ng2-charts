@@ -18,7 +18,6 @@
               [colours]="lineChartColours"
               [legend]="lineChartLegend"
               (chart-click)="lineChartClicked($event)"></line-chart>
-
 </div>
 
 
@@ -32,6 +31,8 @@
                [data]="barChartData"
                [labels]="barChartLabels"
                [options]="barChartOptions"
+               [series]="barChartSeries"
+               [legend]="barChartLegend"
                [series]="barChartSeries"></bar-chart>
   </div>
 </div>

@@ -24,12 +24,6 @@ export class Charts {
 
 }
 
-// TODO: template legend
-// legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\">
-// <% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\">
-// </span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
-
-
 export interface IChart {
   // TODO: refactor in one method getDataObject and getChartData ???
   getChartBuilder(ctx:any, data:Array<any>, options:any);
@@ -41,11 +35,11 @@ export interface IChart {
 
 export class GenericChart {
   private ctx:any;
+  private parent:any;
   private chart:any;
   private _data:Array<any> = [];
   private labels:Array<any> = [];
   private options:any = {responsive: true};
-
   private series:Array<any> = [];
   private colours:Array<any> = [
     {
@@ -80,13 +74,15 @@ export class GenericChart {
   ];
   private chartType:string;
   private legend:boolean;
+  private legendTemplate:any;
   private initFlag:boolean = false;
 
   constructor(private imp:IChart) {
   }
 
-  init(ctx:any) {
-    this.ctx = ctx;
+  init(element:ElementRef) {
+    this.ctx = element.nativeElement.children[0].getContext('2d');
+    this.parent = element.nativeElement;
     this.refresh();
     this.initFlag = true;
   }
@@ -96,6 +92,10 @@ export class GenericChart {
       this.chart.destroy();
       this.chart = null;
     }
+    if (this.legendTemplate) {
+      this.legendTemplate.destroy();
+      this.legendTemplate = null;
+    }
   }
 
   private get data() {
@@ -104,22 +104,50 @@ export class GenericChart {
 
   private set data(value) {
     this._data = value;
-    if (this.initFlag === true) {
+    if (this.initFlag && this._data && this._data.length > 0) {
       this.refresh();
     }
   }
 
+  setLegend() {
+    let list = this.parent.getElementsByTagName('ul');
+    if (list.length) {
+      list[0].remove();
+      this.parent.insertAdjacentHTML('beforeend', this.chart.generateLegend());
+    } else {
+      this.parent.insertAdjacentHTML('beforeend', this.chart.generateLegend());
+    }
+  }
+
+
   private refresh() {
+
+    /* console.log(this._data,
+     this.labels,
+     this.options,
+     this.series,
+     this.colours,
+     this.chartType,
+     this.legend);
+     */
+
     this.destroy();
     let dataset:Array<any> = [];
     for (let i = 0; i < this.data.length; i++) {
       let data:any = Object.assign(this.colours[i % this.colours.length],
         this.imp.getDataObject(this.series[i], this.data[i]));
+
       dataset.push(data);
+
     }
+
     let data:any = this.imp.getChartData(this.labels, dataset);
 
     this.chart = this.imp.getChartBuilder(this.ctx, data, this.options);
+    if (this.legend) {
+      this.setLegend();
+    }
+
   }
 }
 
@@ -155,7 +183,7 @@ export class LineChart extends GenericChart {
   }
 
   onInit() {
-    super.init(this.element.nativeElement.children[0].getContext('2d'));
+    super.init(this.element);
   }
 
   onDestroy() {
@@ -220,7 +248,7 @@ export class BarChart extends GenericChart {
   }
 
   onInit() {
-    super.init(this.element.nativeElement.children[0].getContext('2d'));
+    super.init(this.element);
   }
 
   onDestroy() {
@@ -285,7 +313,7 @@ export class PolarAreaChart extends GenericChart {
   }
 
   onInit() {
-    super.init(this.element.nativeElement.children[0].getContext('2d'));
+    super.init(this.element);
   }
 
   onDestroy() {
@@ -349,7 +377,7 @@ export class DoughnutChart extends GenericChart {
   }
 
   onInit() {
-    super.init(this.element.nativeElement.children[0].getContext('2d'));
+    super.init(this.element);
   }
 
   onDestroy() {
@@ -412,7 +440,7 @@ export class PieChart extends GenericChart {
   }
 
   onInit() {
-    super.init(this.element.nativeElement.children[0].getContext('2d'));
+    super.init(this.element);
   }
 
   onDestroy() {
@@ -474,7 +502,7 @@ export class RadarChart extends GenericChart {
   }
 
   onInit() {
-    super.init(this.element.nativeElement.children[0].getContext('2d'));
+    super.init(this.element);
   }
 
   onDestroy() {
