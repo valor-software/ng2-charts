@@ -17,7 +17,8 @@
               [series]="lineChartSeries"
               [colours]="lineChartColours"
               [legend]="lineChartLegend"
-              (chart-click)="lineChartClicked($event)"></line-chart>
+              (chart-hover)="chartHovered($event)"
+              (chart-click)="chartClicked($event)"></line-chart>
 </div>
 
 
@@ -33,7 +34,9 @@
                [options]="barChartOptions"
                [series]="barChartSeries"
                [legend]="barChartLegend"
-               [series]="barChartSeries"></bar-chart>
+               [series]="barChartSeries"
+               (chart-hover)="chartHovered($event)"
+               (chart-click)="chartClicked($event)"></bar-chart>
   </div>
 </div>
 <br>
@@ -46,7 +49,9 @@
     <polar-area-chart style="display: block; width: 100%;"
                       [data]="polarAreaChartData"
                       [labels]="polarAreaChartLabels"
-                      [colours]="polarAreaChartColours"></polar-area-chart>
+                      [colours]="polarAreaChartColours"
+                      (chart-hover)="chartHovered($event)"
+                      (chart-click)="chartClicked($event)"></polar-area-chart>
   </div>
 </div>
 
@@ -56,7 +61,9 @@
   <div class="col-md-6">
     <doughnut-chart style="display: block; width: 100%;"
                     [data]="doughnutChartData"
-                    [labels]="doughnutChartLabels"></doughnut-chart>
+                    [labels]="doughnutChartLabels"
+                    (chart-hover)="chartHovered($event)"
+                    (chart-click)="chartClicked($event)"></doughnut-chart>
   </div>
 </div>
 
@@ -65,7 +72,9 @@
   <div class="col-md-6">
     <pie-chart style="display: block; width: 100%;"
                [data]="pieChartData"
-               [labels]="pieChartLabels"></pie-chart>
+               [labels]="pieChartLabels"
+               (chart-hover)="chartHovered($event)"
+               (chart-click)="chartClicked($event)"></pie-chart>
   </div>
 </div>
 
@@ -75,6 +84,8 @@
 
     <radar-chart style="display: block; width: 100%;"
                  [data]="radarChartData"
-                 [labels]="radarChartLabels"></radar-chart>
+                 [labels]="radarChartLabels"
+                 (chart-hover)="chartHovered($event)"
+                 (chart-click)="chartClicked($event)"></radar-chart>
   </div>
 </div>

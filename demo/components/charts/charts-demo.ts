@@ -11,10 +11,7 @@ import {charts} from '../../../components/index';
 let template = require('./charts-demo.html');
 
 @Component({
-  selector: 'charts-demo',
-  host: {
-    '(chartClick)': 'lineChartClicked($event)'
-  }
+  selector: 'charts-demo'
 })
 @View({
   template: template,
@@ -79,7 +76,11 @@ export class ChartsDemo {
     this.lineChartData = _lineChartData;
   }
 
-  lineChartClicked(e:string) {
+
+  chartClicked(e:any) {
+    console.log(e);
+  }
+  chartHovered(e:any) {
     console.log(e);
   }
 
