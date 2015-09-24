@@ -20,8 +20,8 @@ webpackJsonp([1],[
 	if (w && w.__theme === 'bs4') {
 	    index_1.Ng2ChartsConfig.theme = index_1.Ng2ChartsTheme.BS4;
 	}
-	var charts_section_1 = __webpack_require__(332);
-	var gettingStarted = __webpack_require__(287);
+	var charts_section_1 = __webpack_require__(331);
+	var gettingStarted = __webpack_require__(286);
 	var Demo = (function () {
 	    function Demo() {
 	        this.isBs3 = index_1.Ng2ChartsConfig.theme === index_1.Ng2ChartsTheme.BS3;
@@ -318,7 +318,7 @@ webpackJsonp([1],[
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(288)("./" + name);
+	                __webpack_require__(287)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -3346,7 +3346,7 @@ webpackJsonp([1],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var angular2_1 = __webpack_require__(5);
-	var date_formatter_1 = __webpack_require__(294);
+	var date_formatter_1 = __webpack_require__(293);
 	var FORMAT_DAY = 'DD';
 	var FORMAT_MONTH = 'MMMM';
 	var FORMAT_YEAR = 'YYYY';
@@ -16250,9 +16250,9 @@ webpackJsonp([1],[
 	var angular2_1 = __webpack_require__(5);
 	var moment = __webpack_require__(2);
 	var datepicker_inner_1 = __webpack_require__(44);
-	var daypicker_1 = __webpack_require__(296);
-	var monthpicker_1 = __webpack_require__(298);
-	var yearpicker_1 = __webpack_require__(299);
+	var daypicker_1 = __webpack_require__(295);
+	var monthpicker_1 = __webpack_require__(297);
+	var yearpicker_1 = __webpack_require__(298);
 	var DatePicker = (function (_super) {
 	    __extends(DatePicker, _super);
 	    function DatePicker(cd, renderer, elementRef) {
@@ -16546,22 +16546,16 @@ webpackJsonp([1],[
 /* 285 */
 /***/ function(module, exports) {
 
-	module.exports = "<h3 id=\"usage\">Usage</h3>\n<pre class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'ng2-charts'</span><span class=\"token punctuation\" >;</span>\n</code></pre>\n";
+	module.exports = "<h3 id=\"usage\">Usage</h3>\n<pre class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'ng2-charts'</span><span class=\"token punctuation\" >;</span>\n</code></pre>\n<h1 id=\"utilisation\">Utilisation</h1>\n<p>There are 6 types of charts so 6 directives: <code>line-chart</code>, <code>bar-chart</code>, <code>radar-chart</code>, <code>pie-chart</code>,\n<code>polar-area-chart</code>, <code>doughnut-chart</code>.</p>\n<h3 id=\"properties\">Properties</h3>\n<ul>\n<li><code>data</code> (<code>Array&lt;any&gt;</code>) - data for chart</li>\n<li><code>labels</code> (<code>?Array&lt;any&gt;</code>) - x axis labels (line, bar, radar) or series labels (pie, doughnut, polar area)</li>\n<li><code>options</code> (<code>?any</code>) - chart options (as from <a href=\"http://www.chartjs.org/docs/\">Chart.js documentation</a>)</li>\n<li><code>series</code> (<code>?Array&lt;any&gt;</code>) - series labels (line, bar, radar)</li>\n<li><code>colours</code> (<code>?Array&lt;any&gt;</code>) - data colours (will use default colours if not specified)</li>\n<li><code>legend</code>: (<code>?boolean=false</code>) - show legend below the chart</li>\n</ul>\n<h3 id=\"events\">Events</h3>\n<ul>\n<li><code>chart-click</code>: onclick event handler</li>\n<li><code>chart-hover</code>: mousemove event handler</li>\n</ul>\n<h1 id=\"colours\">Colours</h1>\n<p>There are a set of 7 default colours. Colours can be replaced using the <code>colours</code> attribute.\nIf there is more data than colours, colours are generated randomly or can be provided\nvia a function through the <code>getColour</code> attribute.</p>\n<p>Hex colours are converted to Chart.js colours automatically,\nincluding different shades for highlight, fill, stroke, etc.</p>\n";
 
 /***/ },
 /* 286 */
 /***/ function(module, exports) {
 
-	module.exports = "";
-
-/***/ },
-/* 287 */
-/***/ function(module, exports) {
-
 	module.exports = "<h1 id=\"getting-started\">Getting started</h1>\n<h3 id=\"first-of-all-welcome-\">First of all, Welcome!</h3>\n";
 
 /***/ },
-/* 288 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
@@ -16747,11 +16741,11 @@ webpackJsonp([1],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 288;
+	webpackContext.id = 287;
 
 
 /***/ },
-/* 289 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16896,7 +16890,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/accordion/accordion.js.map
 
 /***/ },
-/* 290 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16965,7 +16959,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/alert/alert.js.map
 
 /***/ },
-/* 291 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -17042,7 +17036,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/buttons/button-checkbox.js.map
 
 /***/ },
-/* 292 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -17118,7 +17112,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/buttons/button-radio.js.map
 
 /***/ },
-/* 293 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17320,7 +17314,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/carousel/carousel.js.map
 
 /***/ },
-/* 294 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var moment = __webpack_require__(2);
@@ -17336,7 +17330,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/date-formatter.js.map
 
 /***/ },
-/* 295 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17504,7 +17498,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/datepicker-popup.js.map
 
 /***/ },
-/* 296 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17621,17 +17615,17 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/daypicker.js.map
 
 /***/ },
-/* 297 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var datepicker_popup_1 = __webpack_require__(295);
+	var datepicker_popup_1 = __webpack_require__(294);
 	var datepicker_1 = __webpack_require__(221);
 	exports.datepicker = [datepicker_1.DatePicker, datepicker_popup_1.DatePickerPopup];
 	//# sourceMappingURL=../../components/dist/datepicker/index.js.map
 
 /***/ },
-/* 298 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17702,7 +17696,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/monthpicker.js.map
 
 /***/ },
-/* 299 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17773,7 +17767,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/yearpicker.js.map
 
 /***/ },
-/* 300 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var dropdown_1 = __webpack_require__(45);
@@ -17783,39 +17777,39 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/dropdown/index.js.map
 
 /***/ },
-/* 301 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	///<reference path="../tsd.d.ts"/>
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(288));
 	__export(__webpack_require__(289));
-	__export(__webpack_require__(290));
-	__export(__webpack_require__(292));
 	__export(__webpack_require__(291));
-	__export(__webpack_require__(297));
-	__export(__webpack_require__(300));
+	__export(__webpack_require__(290));
+	__export(__webpack_require__(296));
+	__export(__webpack_require__(299));
 	__export(__webpack_require__(45));
 	__export(__webpack_require__(222));
 	__export(__webpack_require__(223));
 	__export(__webpack_require__(224));
-	__export(__webpack_require__(293));
+	__export(__webpack_require__(292));
 	__export(__webpack_require__(219));
+	__export(__webpack_require__(301));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(303));
 	__export(__webpack_require__(304));
 	__export(__webpack_require__(305));
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(307));
-	__export(__webpack_require__(308));
 	__export(__webpack_require__(46));
 	__export(__webpack_require__(220));
 	__export(__webpack_require__(27));
 	//# sourceMappingURL=../components/dist/index.js.map
 
 /***/ },
-/* 302 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18032,7 +18026,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/pagination/pagination.js.map
 
 /***/ },
-/* 303 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18170,7 +18164,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/progressbar/progressbar.js.map
 
 /***/ },
-/* 304 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18283,7 +18277,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/rating/rating.js.map
 
 /***/ },
-/* 305 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18429,7 +18423,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/tabs/tabs.js.map
 
 /***/ },
-/* 306 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18712,7 +18706,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/timepicker/timepicker.js.map
 
 /***/ },
-/* 307 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18831,7 +18825,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/tooltip/tooltip.js.map
 
 /***/ },
-/* 308 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -19159,125 +19153,125 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/typeahead/typeahead.js.map
 
 /***/ },
-/* 309 */
+/* 308 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>bar-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartData<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartLabels<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[options]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartOptions<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartSeries<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[legend]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartLegend<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartSeries<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>bar-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 310 */
+/* 309 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>doughnut-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>doughnutChartData<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>doughnutChartLabels<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>doughnut-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 311 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>row<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-6<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>line-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartData<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartLabels<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[options]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartOptions<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartSeries<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[colours]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartColours<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[legend]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartLegend<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>line-chart</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-6<span class=\"token punctuation\" >\"</span></span><span class=\"token style-attr language-css\" ><span class=\"token attr-name\" > <span class=\"token attr-name\" >style</span></span><span class=\"token punctuation\" >=\"</span><span class=\"token attr-value\" ><span class=\"token property\" >margin-bottom</span><span class=\"token punctuation\" >:</span> 10px<span class=\"token punctuation\" >;</span></span><span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>table</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>table table-responsive table-condensed<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>tr</span><span class=\"token punctuation\" >></span></span>\n        <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>th</span> <span class=\"token attr-name\" >*ng-for</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>#label of lineChartLabels<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>{{label}}<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>th</span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>tr</span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>tr</span> <span class=\"token attr-name\" >*ng-for</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>#d of lineChartData<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n        <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>td</span> <span class=\"token attr-name\" >*ng-for</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>#label of lineChartLabels; #j<span class=\"token punctuation\" >=</span>index<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>{{d[j]}}<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>td</span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>tr</span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>table</span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>button</span> <span class=\"token attr-name\" >(click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>randomize()<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>CLICK<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>button</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>"
 
 /***/ },
-/* 312 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>pie-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartData<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartLabels<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>pie-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 313 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>polar-area-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                  <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartData<span class=\"token punctuation\" >\"</span></span>\n                  <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartLabels<span class=\"token punctuation\" >\"</span></span>\n                  <span class=\"token attr-name\" >[colours]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartColours<span class=\"token punctuation\" >\"</span></span>\n                  <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                  <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>polar-area-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 314 */
+/* 313 */
 /***/ function(module, exports) {
 
 	module.exports = " <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>radar-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                 <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>radarChartData<span class=\"token punctuation\" >\"</span></span>\n                 <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>radarChartLabels<span class=\"token punctuation\" >\"</span></span>\n                 <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                 <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>radar-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 315 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./bar-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'bar-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >BarChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'bar demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token keyword\" >private</span> barChartOptions <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >{</span>\n    scaleShowVerticalLines<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >false</span><span class=\"token punctuation\" >,</span>\n    responsive<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >,</span>\n    multiTooltipTemplate<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'&lt;%if (datasetLabel){%>&lt;%=datasetLabel %>: &lt;%}%>&lt;%= value %>'</span>\n  <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'2006'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2007'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2008'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2009'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2010'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2011'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2012'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartSeries <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Series A'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series B'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartLegend<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >boolean</span> <span class=\"token operator\" >=</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token keyword\" >private</span> barChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >80</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >86</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 316 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./doughnut-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'doughnut-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >DoughnutChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'doughnut demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Doughnut</span>\n  <span class=\"token keyword\" >private</span> doughnutChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail-Order Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> doughnutChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >350</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >450</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 317 */
+/* 316 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./line-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'line-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >LineChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'line demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// lineChart</span>\n  <span class=\"token keyword\" >private</span> lineChartData<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >80</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >86</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >18</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >77</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >9</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartLabels<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'January'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'February'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'March'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'April'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'May'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'June'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'July'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartSeries<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Series A'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series B'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series C'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartOptions<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >{</span>\n    animation<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >false</span><span class=\"token punctuation\" >,</span>\n    responsive<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >,</span>\n    multiTooltipTemplate<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'&lt;%if (datasetLabel){%>&lt;%=datasetLabel %>: &lt;%}%>&lt;%= value %>'</span>\n  <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartColours<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >{</span> <span class=\"token comment\" spellcheck=\"true\">// grey</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.8)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >{</span> <span class=\"token comment\" spellcheck=\"true\">// dark grey</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,1)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >{</span> <span class=\"token comment\" spellcheck=\"true\">// grey</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.8)'</span>\n    <span class=\"token punctuation\" >}</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartLegend<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >boolean</span> <span class=\"token operator\" >=</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token keyword\" >private</span> <span class=\"token function\" >randomize</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    <span class=\"token keyword\" >let</span> _lineChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n    <span class=\"token keyword\" >for</span> <span class=\"token punctuation\" >(</span><span class=\"token keyword\" >let</span> i <span class=\"token operator\" >=</span> <span class=\"token number\" >0</span><span class=\"token punctuation\" >;</span> i <span class=\"token operator\" >&lt;</span> <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartData<span class=\"token punctuation\" >.</span>length<span class=\"token punctuation\" >;</span> i<span class=\"token operator\" >++</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n      _lineChartData<span class=\"token punctuation\" >[</span>i<span class=\"token punctuation\" >]</span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n      <span class=\"token keyword\" >for</span> <span class=\"token punctuation\" >(</span><span class=\"token keyword\" >let</span> j <span class=\"token operator\" >=</span> <span class=\"token number\" >0</span><span class=\"token punctuation\" >;</span> j <span class=\"token operator\" >&lt;</span> <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartData<span class=\"token punctuation\" >[</span>i<span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >.</span>length<span class=\"token punctuation\" >;</span> j<span class=\"token operator\" >++</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n        _lineChartData<span class=\"token punctuation\" >[</span>i<span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >.</span><span class=\"token function\" >push</span><span class=\"token punctuation\" >(</span>Math<span class=\"token punctuation\" >.</span><span class=\"token function\" >floor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >(</span>Math<span class=\"token punctuation\" >.</span><span class=\"token function\" >random</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token operator\" >*</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >)</span> <span class=\"token operator\" >+</span> <span class=\"token number\" >1</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n      <span class=\"token punctuation\" >}</span>\n    <span class=\"token punctuation\" >}</span>\n    <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartData <span class=\"token operator\" >=</span> _lineChartData<span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 318 */
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./pie-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'pie-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >PieChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'pie demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Pie</span>\n  <span class=\"token keyword\" >private</span> pieChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> pieChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >300</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >500</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 319 */
+/* 318 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./polar-area-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'polar-area-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >PolarAreaChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'PolarArea demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// PolarArea</span>\n  <span class=\"token keyword\" >private</span> polarAreaChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Telesales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Corporate Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> polarAreaChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >300</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >500</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >120</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> polarAreaChartColours <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >{</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,0.8)'</span><span class=\"token punctuation\" >,</span>\n      color<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,1)'</span><span class=\"token punctuation\" >,</span>\n      highlight<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,0.8)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span> <span class=\"token punctuation\" >{</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,0.8)'</span><span class=\"token punctuation\" >,</span>\n      color<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,1)'</span><span class=\"token punctuation\" >,</span>\n      highlight<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,0.8)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >{</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,0.8)'</span><span class=\"token punctuation\" >,</span>\n      color<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,1)'</span><span class=\"token punctuation\" >,</span>\n      highlight<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,0.8)'</span>\n    <span class=\"token punctuation\" >}</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./radar-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'radar-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >RadarChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'radar demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Radar</span>\n  <span class=\"token keyword\" >private</span> radarChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Eating'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Drinking'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Sleeping'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Designing'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Coding'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Cycling'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Running'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> radarChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >96</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 321 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = "<bar-chart class=\"chart\"\n           [data]=\"barChartData\"\n           [labels]=\"barChartLabels\"\n           [options]=\"barChartOptions\"\n           [series]=\"barChartSeries\"\n           [legend]=\"barChartLegend\"\n           [series]=\"barChartSeries\"\n           (chart-hover)=\"chartHovered($event)\"\n           (chart-click)=\"chartClicked($event)\"></bar-chart>\n"
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"col-md-6\">\n  <table class=\"table table-responsive table-condensed\">\n    <tr>\n      <th *ng-for=\"#label of lineChartLabels\">{{label}}</th>\n    </tr>\n    <tr *ng-for=\"#d of lineChartData\">\n      <td *ng-for=\"#label of lineChartLabels; #j=index\">{{d[j]}}</td>\n    </tr>\n  </table>\n  <button (click)=\"randomize()\">CLICK</button>\n</div>\n<div class=\"col-md-6\">\n  <line-chart class=\"chart\"\n              [data]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [series]=\"lineChartSeries\"\n              [colours]=\"lineChartColours\"\n              [legend]=\"lineChartLegend\"\n              (chart-hover)=\"chartHovered($event)\"\n              (chart-click)=\"chartClicked($event)\"></line-chart>\n</div>\n\n\n<br>\n<div class=\"row\">\n  <p>Bar Char</p>\n\n  <div class=\"col-md-6\">\n\n    <bar-chart class=\"chart\"\n               [data]=\"barChartData\"\n               [labels]=\"barChartLabels\"\n               [options]=\"barChartOptions\"\n               [series]=\"barChartSeries\"\n               [legend]=\"barChartLegend\"\n               [series]=\"barChartSeries\"\n               (chart-hover)=\"chartHovered($event)\"\n               (chart-click)=\"chartClicked($event)\"></bar-chart>\n  </div>\n</div>\n<br>\n\n\n<div class=\"row\">\n  <p>PolarArea</p>\n\n  <div class=\"col-md-6\">\n    <polar-area-chart class=\"chart\"\n                      [data]=\"polarAreaChartData\"\n                      [labels]=\"polarAreaChartLabels\"\n                      [colours]=\"polarAreaChartColours\"\n                      (chart-hover)=\"chartHovered($event)\"\n                      (chart-click)=\"chartClicked($event)\"></polar-area-chart>\n  </div>\n</div>\n\n\n<div class=\"row\">\n  <div class=\"panel-heading\">Doughnut Chart</div>\n  <div class=\"col-md-6\">\n    <doughnut-chart class=\"chart\"\n                    [data]=\"doughnutChartData\"\n                    [labels]=\"doughnutChartLabels\"\n                    (chart-hover)=\"chartHovered($event)\"\n                    (chart-click)=\"chartClicked($event)\"></doughnut-chart>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"panel-heading\">Pie Chart</div>\n  <div class=\"col-md-6\">\n    <pie-chart class=\"chart\"\n               [data]=\"pieChartData\"\n               [labels]=\"pieChartLabels\"\n               (chart-hover)=\"chartHovered($event)\"\n               (chart-click)=\"chartClicked($event)\"></pie-chart>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"panel-heading\">Radar Chart</div>\n  <div class=\"col-md-6\">\n\n    <radar-chart class=\"chart\"\n                 [data]=\"radarChartData\"\n                 [labels]=\"radarChartLabels\"\n                 (chart-hover)=\"chartHovered($event)\"\n                 (chart-click)=\"chartClicked($event)\"></radar-chart>\n  </div>\n</div>\n"
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = "<doughnut-chart class=\"chart\"\n                [data]=\"doughnutChartData\"\n                [labels]=\"doughnutChartLabels\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></doughnut-chart>\n"
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"row\">\n  <div class=\"col-md-6\">\n    <line-chart class=\"chart\"\n                [data]=\"lineChartData\"\n                [labels]=\"lineChartLabels\"\n                [options]=\"lineChartOptions\"\n                [series]=\"lineChartSeries\"\n                [colours]=\"lineChartColours\"\n                [legend]=\"lineChartLegend\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></line-chart>\n  </div>\n  <div class=\"col-md-6\" style=\"margin-bottom: 10px;\">\n    <table class=\"table table-responsive table-condensed\">\n      <tr>\n        <th *ng-for=\"#label of lineChartLabels\">{{label}}</th>\n      </tr>\n      <tr *ng-for=\"#d of lineChartData\">\n        <td *ng-for=\"#label of lineChartLabels; #j=index\">{{d[j]}}</td>\n      </tr>\n    </table>\n    <button (click)=\"randomize()\">CLICK</button>\n  </div>\n</div>"
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = "<pie-chart class=\"chart\"\n           [data]=\"pieChartData\"\n           [labels]=\"pieChartLabels\"\n           (chart-hover)=\"chartHovered($event)\"\n           (chart-click)=\"chartClicked($event)\"></pie-chart>\n"
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports) {
 
 	module.exports = "<polar-area-chart class=\"chart\"\n                  [data]=\"polarAreaChartData\"\n                  [labels]=\"polarAreaChartLabels\"\n                  [colours]=\"polarAreaChartColours\"\n                  (chart-hover)=\"chartHovered($event)\"\n                  (chart-click)=\"chartClicked($event)\"></polar-area-chart>\n"
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports) {
 
 	module.exports = " <radar-chart class=\"chart\"\n                 [data]=\"radarChartData\"\n                 [labels]=\"radarChartLabels\"\n                 (chart-hover)=\"chartHovered($event)\"\n                 (chart-click)=\"chartClicked($event)\"></radar-chart>\n"
 
 /***/ },
+/* 327 */,
 /* 328 */,
 /* 329 */,
 /* 330 */,
-/* 331 */,
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -19293,54 +19287,53 @@ webpackJsonp([1],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_1 = __webpack_require__(301);
-	var charts_demo_1 = __webpack_require__(334);
-	var line_chart_demo_1 = __webpack_require__(336);
-	var bar_chart_demo_1 = __webpack_require__(333);
-	var doughnut_chart_demo_1 = __webpack_require__(335);
-	var pie_chart_demo_1 = __webpack_require__(337);
-	var polar_area_chart_demo_1 = __webpack_require__(338);
-	var radar_chart_demo_1 = __webpack_require__(339);
+	var ng2_bootstrap_1 = __webpack_require__(300);
+	var charts_demo_1 = __webpack_require__(333);
+	var line_chart_demo_1 = __webpack_require__(335);
+	var bar_chart_demo_1 = __webpack_require__(332);
+	var doughnut_chart_demo_1 = __webpack_require__(334);
+	var pie_chart_demo_1 = __webpack_require__(336);
+	var polar_area_chart_demo_1 = __webpack_require__(337);
+	var radar_chart_demo_1 = __webpack_require__(338);
 	var name = 'Charts';
 	var src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
 	var doc = __webpack_require__(285);
-	var titleDoc = __webpack_require__(286);
 	var chartDesc = [
 	    {
 	        heading: 'Line Chart',
 	        tag: 'line-chart-demo',
-	        ts: __webpack_require__(317),
-	        html: __webpack_require__(311)
-	    },
-	    {
-	        heading: 'Bar Chart',
-	        tag: 'bar-chart-demo',
-	        ts: __webpack_require__(315),
-	        html: __webpack_require__(309)
-	    },
-	    {
-	        heading: 'Doughnut Chart',
-	        tag: 'doughnut-chart-demo',
 	        ts: __webpack_require__(316),
 	        html: __webpack_require__(310)
 	    },
 	    {
+	        heading: 'Bar Chart',
+	        tag: 'bar-chart-demo',
+	        ts: __webpack_require__(314),
+	        html: __webpack_require__(308)
+	    },
+	    {
+	        heading: 'Doughnut Chart',
+	        tag: 'doughnut-chart-demo',
+	        ts: __webpack_require__(315),
+	        html: __webpack_require__(309)
+	    },
+	    {
 	        heading: 'Radar Chart',
 	        tag: 'radar-chart-demo',
-	        ts: __webpack_require__(320),
-	        html: __webpack_require__(314)
+	        ts: __webpack_require__(319),
+	        html: __webpack_require__(313)
 	    },
 	    {
 	        heading: 'Pie Chart',
 	        tag: 'pie-chart-demo',
-	        ts: __webpack_require__(318),
-	        html: __webpack_require__(312)
+	        ts: __webpack_require__(317),
+	        html: __webpack_require__(311)
 	    },
 	    {
 	        heading: 'Polar Area Chart',
 	        tag: 'polar-area-chart-demo',
-	        ts: __webpack_require__(319),
-	        html: __webpack_require__(313)
+	        ts: __webpack_require__(318),
+	        html: __webpack_require__(312)
 	    }
 	];
 	var chartContent = "";
@@ -19355,7 +19348,7 @@ webpackJsonp([1],[
 	            selector: 'charts-section'
 	        }),
 	        angular2_1.View({
-	            template: "\n  <br>\n  <section id=\"" + name.toLowerCase() + "\">\n    <div class=\"row\"><h1>" + name + "<small>(<a href=\"" + src + "\">src</a>)</small></h1></div>\n\n    <hr>\n\n    <div class=\"row\"><div class=\"col-md-12\">" + titleDoc + "</div></div>\n\n    <div class=\"row\">\n      <h2>Example</h2>\n      <div class=\"card card-block panel panel-default panel-body\">\n\n      <div class=\"row\">\n       " + chartContent + "\n       </div>\n        <!--<charts-demo></charts-demo>-->\n\n      </div>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n      <h2>API</h2>\n      <!--<div class=\"card card-block panel panel-default panel-body\">" + doc + "</div>-->\n    </div>\n  </section>\n  ",
+	            template: "\n  <br>\n  <section id=\"" + name.toLowerCase() + "\">\n    <div class=\"row\"><h1>" + name + "<small>(<a href=\"" + src + "\">src</a>)</small></h1></div>\n\n    <hr>\n\n    <div class=\"row\">\n      <h2>Example</h2>\n      <div class=\"card card-block panel panel-default panel-body\">\n\n      <div class=\"row\">\n       " + chartContent + "\n       </div>\n        <!--<charts-demo></charts-demo>-->\n\n      </div>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n      <h2>API</h2>\n      <div class=\"card card-block panel panel-default panel-body\">" + doc + "</div>\n    </div>\n  </section>\n  ",
 	            directives: [charts_demo_1.ChartsDemo, line_chart_demo_1.LineChartDemo, bar_chart_demo_1.BarChartDemo, doughnut_chart_demo_1.DoughnutChartDemo, pie_chart_demo_1.PieChartDemo,
 	                polar_area_chart_demo_1.PolarAreaChartDemo, radar_chart_demo_1.RadarChartDemo, ng2_bootstrap_1.tabs, angular2_1.CORE_DIRECTIVES, angular2_1.NgNonBindable]
 	        }), 
@@ -19367,7 +19360,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=charts-section.js.map
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19384,7 +19377,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(321);
+	var template = __webpack_require__(320);
 	var BarChartDemo = (function () {
 	    function BarChartDemo() {
 	        this.barChartOptions = {
@@ -19423,7 +19416,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=bar-chart-demo.js.map
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19440,7 +19433,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(322);
+	var template = __webpack_require__(321);
 	var ChartsDemo = (function () {
 	    function ChartsDemo() {
 	        this.lineChartData = [
@@ -19570,7 +19563,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=charts-demo.js.map
 
 /***/ },
-/* 335 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19587,7 +19580,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(323);
+	var template = __webpack_require__(322);
 	var DoughnutChartDemo = (function () {
 	    function DoughnutChartDemo() {
 	        this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
@@ -19616,7 +19609,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=doughnut-chart-demo.js.map
 
 /***/ },
-/* 336 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19633,7 +19626,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(324);
+	var template = __webpack_require__(323);
 	var LineChartDemo = (function () {
 	    function LineChartDemo() {
 	        this.lineChartData = [
@@ -19709,7 +19702,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=line-chart-demo.js.map
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19726,7 +19719,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(325);
+	var template = __webpack_require__(324);
 	var PieChartDemo = (function () {
 	    function PieChartDemo() {
 	        this.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
@@ -19755,7 +19748,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=pie-chart-demo.js.map
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19772,7 +19765,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(326);
+	var template = __webpack_require__(325);
 	var PolarAreaChartDemo = (function () {
 	    function PolarAreaChartDemo() {
 	        this.polarAreaChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
@@ -19832,7 +19825,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=polar-area-chart-demo.js.map
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19849,7 +19842,7 @@ webpackJsonp([1],[
 	};
 	var angular2_1 = __webpack_require__(5);
 	var index_1 = __webpack_require__(13);
-	var template = __webpack_require__(327);
+	var template = __webpack_require__(326);
 	var RadarChartDemo = (function () {
 	    function RadarChartDemo() {
 	        this.radarChartLabels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
