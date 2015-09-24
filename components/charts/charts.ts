@@ -2,7 +2,7 @@
 
 import {
   Component, View,
-  Directive, LifecycleEvent,
+  Directive, OnInit, OnDestroy,
   EventEmitter, ElementRef,
   CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
 } from 'angular2/angular2';
@@ -240,8 +240,7 @@ export class GenericChart {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover'],
-  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+  events: ['chartClick', 'chartHover']
 })
 @View({
   template: `
@@ -249,7 +248,7 @@ export class GenericChart {
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
-export class LineChart extends GenericChart {
+export class LineChart extends GenericChart implements  OnInit, OnDestroy  {
 
   constructor(private element:ElementRef) {
     super(new LineChart.Impl());
@@ -299,8 +298,7 @@ export module LineChart {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover'],
-  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+  events: ['chartClick', 'chartHover']
 })
 @View({
   template: `
@@ -309,7 +307,7 @@ export module LineChart {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 
-export class BarChart extends GenericChart {
+export class BarChart extends GenericChart implements  OnInit, OnDestroy {
 
   constructor(private element:ElementRef) {
     super(new BarChart.Impl());
@@ -359,8 +357,7 @@ export module BarChart {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover'],
-  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+  events: ['chartClick', 'chartHover']
 })
 @View({
   template: `
@@ -369,7 +366,7 @@ export module BarChart {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 
-export class PolarAreaChart extends GenericChart {
+export class PolarAreaChart extends GenericChart implements  OnInit, OnDestroy {
 
   constructor(private element:ElementRef) {
     super(new PolarAreaChart.Impl());
@@ -418,8 +415,7 @@ export module PolarAreaChart {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover'],
-  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+  events: ['chartClick', 'chartHover']
 })
 @View({
   template: `
@@ -428,7 +424,7 @@ export module PolarAreaChart {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 
-export class DoughnutChart extends GenericChart {
+export class DoughnutChart extends GenericChart implements  OnInit, OnDestroy {
 
   constructor(private element:ElementRef) {
     super(new DoughnutChart.Impl());
@@ -476,8 +472,7 @@ export module DoughnutChart {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover'],
-  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+  events: ['chartClick', 'chartHover']
 })
 @View({
   template: `
@@ -486,7 +481,7 @@ export module DoughnutChart {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 
-export class PieChart extends GenericChart {
+export class PieChart extends GenericChart implements  OnInit, OnDestroy {
 
   constructor(private element:ElementRef) {
     super(new PieChart.Impl());
@@ -533,8 +528,7 @@ export module PieChart {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover'],
-  lifecycle: [LifecycleEvent.onInit, LifecycleEvent.onDestroy]
+  events: ['chartClick', 'chartHover']
 })
 @View({
   template: `
@@ -543,7 +537,7 @@ export module PieChart {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 
-export class RadarChart extends GenericChart {
+export class RadarChart extends GenericChart implements  OnInit, OnDestroy {
 
   constructor(private element:ElementRef) {
     super(new RadarChart.Impl());
