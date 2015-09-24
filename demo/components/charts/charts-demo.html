@@ -1,0 +1,91 @@
+<div class="col-md-6">
+  <table class="table table-responsive table-condensed">
+    <tr>
+      <th *ng-for="#label of lineChartLabels">{{label}}</th>
+    </tr>
+    <tr *ng-for="#d of lineChartData">
+      <td *ng-for="#label of lineChartLabels; #j=index">{{d[j]}}</td>
+    </tr>
+  </table>
+  <button (click)="randomize()">CLICK</button>
+</div>
+<div class="col-md-6">
+  <line-chart class="chart"
+              [data]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [series]="lineChartSeries"
+              [colours]="lineChartColours"
+              [legend]="lineChartLegend"
+              (chart-hover)="chartHovered($event)"
+              (chart-click)="chartClicked($event)"></line-chart>
+</div>
+
+
+<br>
+<div class="row">
+  <p>Bar Char</p>
+
+  <div class="col-md-6">
+
+    <bar-chart class="chart"
+               [data]="barChartData"
+               [labels]="barChartLabels"
+               [options]="barChartOptions"
+               [series]="barChartSeries"
+               [legend]="barChartLegend"
+               [series]="barChartSeries"
+               (chart-hover)="chartHovered($event)"
+               (chart-click)="chartClicked($event)"></bar-chart>
+  </div>
+</div>
+<br>
+
+
+<div class="row">
+  <p>PolarArea</p>
+
+  <div class="col-md-6">
+    <polar-area-chart class="chart"
+                      [data]="polarAreaChartData"
+                      [labels]="polarAreaChartLabels"
+                      [colours]="polarAreaChartColours"
+                      (chart-hover)="chartHovered($event)"
+                      (chart-click)="chartClicked($event)"></polar-area-chart>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="panel-heading">Doughnut Chart</div>
+  <div class="col-md-6">
+    <doughnut-chart class="chart"
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    (chart-hover)="chartHovered($event)"
+                    (chart-click)="chartClicked($event)"></doughnut-chart>
+  </div>
+</div>
+
+<div class="row">
+  <div class="panel-heading">Pie Chart</div>
+  <div class="col-md-6">
+    <pie-chart class="chart"
+               [data]="pieChartData"
+               [labels]="pieChartLabels"
+               (chart-hover)="chartHovered($event)"
+               (chart-click)="chartClicked($event)"></pie-chart>
+  </div>
+</div>
+
+<div class="row">
+  <div class="panel-heading">Radar Chart</div>
+  <div class="col-md-6">
+
+    <radar-chart class="chart"
+                 [data]="radarChartData"
+                 [labels]="radarChartLabels"
+                 (chart-hover)="chartHovered($event)"
+                 (chart-click)="chartClicked($event)"></radar-chart>
+  </div>
+</div>
