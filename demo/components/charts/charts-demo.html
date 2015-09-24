@@ -10,7 +10,7 @@
   <button (click)="randomize()">CLICK</button>
 </div>
 <div class="col-md-6">
-  <line-chart style="display: block; width: 100%;"
+  <line-chart class="chart"
               [data]="lineChartData"
               [labels]="lineChartLabels"
               [options]="lineChartOptions"
@@ -28,7 +28,7 @@
 
   <div class="col-md-6">
 
-    <bar-chart style="display: block; width: 100%;"
+    <bar-chart class="chart"
                [data]="barChartData"
                [labels]="barChartLabels"
                [options]="barChartOptions"
@@ -46,7 +46,7 @@
   <p>PolarArea</p>
 
   <div class="col-md-6">
-    <polar-area-chart style="display: block; width: 100%;"
+    <polar-area-chart class="chart"
                       [data]="polarAreaChartData"
                       [labels]="polarAreaChartLabels"
                       [colours]="polarAreaChartColours"
@@ -59,7 +59,7 @@
 <div class="row">
   <div class="panel-heading">Doughnut Chart</div>
   <div class="col-md-6">
-    <doughnut-chart style="display: block; width: 100%;"
+    <doughnut-chart class="chart"
                     [data]="doughnutChartData"
                     [labels]="doughnutChartLabels"
                     (chart-hover)="chartHovered($event)"
@@ -70,7 +70,7 @@
 <div class="row">
   <div class="panel-heading">Pie Chart</div>
   <div class="col-md-6">
-    <pie-chart style="display: block; width: 100%;"
+    <pie-chart class="chart"
                [data]="pieChartData"
                [labels]="pieChartLabels"
                (chart-hover)="chartHovered($event)"
@@ -82,7 +82,7 @@
   <div class="panel-heading">Radar Chart</div>
   <div class="col-md-6">
 
-    <radar-chart style="display: block; width: 100%;"
+    <radar-chart class="chart"
                  [data]="radarChartData"
                  [labels]="radarChartLabels"
                  (chart-hover)="chartHovered($event)"

@@ -304,7 +304,7 @@ export module LineChart {
 })
 @View({
   template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)"></canvas>
+  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
