@@ -15,7 +15,6 @@ let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
 // webpack html imports
 let doc = require('../../components/charts/readme.md');
-let titleDoc = require('../../components/charts/title.md');
 // let ts = require('!!prismjs?lang=typescript!./charts/charts-demo.ts');
 // let html = require('!!prismjs?lang=markup!./charts/charts-demo.html');
 
@@ -112,8 +111,6 @@ chartDesc.forEach(desc => {
 
     <hr>
 
-    <div class="row"><div class="col-md-12">${titleDoc}</div></div>
-
     <div class="row">
       <h2>Example</h2>
       <div class="card card-block panel panel-default panel-body">
@@ -130,7 +127,7 @@ chartDesc.forEach(desc => {
 
     <div class="row">
       <h2>API</h2>
-      <!--<div class="card card-block panel panel-default panel-body">${doc}</div>-->
+      <div class="card card-block panel panel-default panel-body">${doc}</div>
     </div>
   </section>
   `,
