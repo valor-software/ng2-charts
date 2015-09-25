@@ -3706,7 +3706,7 @@ webpackJsonp([2],{
 	        for (var i = 0; i < this.data.length; i++) {
 	            var colourDesc = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
 	            var colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
-	            var data_1 = Object.assign(colour, this.imp.getDataObject(this.series[i], this.data[i]));
+	            var data_1 = Object.assign(colour, this.imp.getDataObject(this.series[i] || this.labels[i], this.data[i]));
 	            dataset.push(data_1);
 	        }
 	        var data = this.imp.getChartData(this.labels, dataset);
