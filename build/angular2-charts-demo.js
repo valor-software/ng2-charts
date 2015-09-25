@@ -21,7 +21,8 @@ webpackJsonp([1],[
 	    index_1.Ng2ChartsConfig.theme = index_1.Ng2ChartsTheme.BS4;
 	}
 	var charts_section_1 = __webpack_require__(331);
-	var gettingStarted = __webpack_require__(286);
+	var demo_header_1 = __webpack_require__(339);
+	var gettingStarted = __webpack_require__(287);
 	var Demo = (function () {
 	    function Demo() {
 	        this.isBs3 = index_1.Ng2ChartsConfig.theme === index_1.Ng2ChartsTheme.BS3;
@@ -31,9 +32,10 @@ webpackJsonp([1],[
 	            selector: 'app'
 	        }),
 	        angular2_1.View({
-	            template: "\n  <!--<demo-header>Loading header</demo-header>-->\n\n  <main class=\"bd-pageheader\">\n    <div class=\"container\">\n      <h1>ng2-charts</h1>\n      <p>Native Angular2 directives for Charts</p>\n      <a class=\"btn btn-primary\" href=\"https://github.com/valor-software/ng2-charts\">View on GitHub</a>\n      <div class=\"row\">\n        <!--<div class=\"col-lg-1\"><iframe src=\"https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-bootstrap&type=star&count=true\" frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe></div>\n        <div class=\"col-lg-1\"><iframe src=\"https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-bootstrap&type=fork&count=true\" frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe></div>-->\n      </div>\n    </div>\n  </main>\n\n  <div class=\"container\">\n    <div class=\"col-md-12 card card-block panel panel-default\">\n      <selection>\n          <h1>ng2-charts available with:\n          <a class=\"btn btn-default btn-secondary btn-lg\" [ng-class]=\"{active: isBs3}\" href=\"./\">Bootstrap 3</a>\n          <a class=\"btn btn-default btn-secondary btn-lg\" [ng-class]=\"{active: !isBs3}\" href=\"./index-bs4.html\">Bootstrap 4</a>\n          </h1>\n      </selection>\n    </div>\n    <br>\n    <section id=\"getting-started\">" + gettingStarted + "</section>\n\n    <charts-section class=\"col-md-12\"></charts-section>\n  </div>\n\n  </div>\n  <footer class=\"footer\">\n    <div class=\"container\">\n      <p class=\"text-muted text-center\"><a href=\"https://github.com/valor-software/ng2-charts\">ng2-charts</a> is maintained by <a href=\"https://github.com/valor-software\">valor-software</a>.</p>\n    </div>\n  </footer>\n  ",
+	            template: "\n  <demo-header>Loading header</demo-header>\n\n  <main class=\"bd-pageheader\">\n    <div class=\"container\">\n      <h1>ng2-charts</h1>\n      <p>Native Angular2 directives for Charts</p>\n      <a class=\"btn btn-primary\" href=\"https://github.com/valor-software/ng2-charts\">View on GitHub</a>\n      <div class=\"row\">\n        <!--<div class=\"col-lg-1\"><iframe src=\"https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-bootstrap&type=star&count=true\" frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe></div>\n        <div class=\"col-lg-1\"><iframe src=\"https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-bootstrap&type=fork&count=true\" frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe></div>-->\n      </div>\n    </div>\n  </main>\n\n  <div class=\"container\">\n    <div class=\"col-md-12 card card-block panel panel-default\">\n      <selection>\n          <h1>ng2-charts available with:\n          <a class=\"btn btn-default btn-secondary btn-lg\" [ng-class]=\"{active: isBs3}\" href=\"./\">Bootstrap 3</a>\n          <a class=\"btn btn-default btn-secondary btn-lg\" [ng-class]=\"{active: !isBs3}\" href=\"./index-bs4.html\">Bootstrap 4</a>\n          </h1>\n      </selection>\n    </div>\n    <br>\n    <section id=\"getting-started\">" + gettingStarted + "</section>\n\n    <charts-section class=\"col-md-12\"></charts-section>\n  </div>\n\n  </div>\n  <footer class=\"footer\">\n    <div class=\"container\">\n      <p class=\"text-muted text-center\"><a href=\"https://github.com/valor-software/ng2-charts\">ng2-charts</a> is maintained by <a href=\"https://github.com/valor-software\">valor-software</a>.</p>\n    </div>\n  </footer>\n  ",
 	            directives: [
 	                angular2_1.NgClass,
+	                demo_header_1.DemoHeader,
 	                charts_section_1.ChartsSection
 	            ]
 	        }), 
@@ -318,7 +320,7 @@ webpackJsonp([1],[
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(287)("./" + name);
+	                __webpack_require__(288)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -3245,7 +3247,7 @@ webpackJsonp([1],[
 	    return _moment;
 	
 	}));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(225)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(226)(module)))
 
 /***/ },
 /* 3 */,
@@ -3346,7 +3348,7 @@ webpackJsonp([1],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var angular2_1 = __webpack_require__(5);
-	var date_formatter_1 = __webpack_require__(293);
+	var date_formatter_1 = __webpack_require__(294);
 	var FORMAT_DAY = 'DD';
 	var FORMAT_MONTH = 'MMMM';
 	var FORMAT_YEAR = 'YYYY';
@@ -16250,9 +16252,9 @@ webpackJsonp([1],[
 	var angular2_1 = __webpack_require__(5);
 	var moment = __webpack_require__(2);
 	var datepicker_inner_1 = __webpack_require__(44);
-	var daypicker_1 = __webpack_require__(295);
-	var monthpicker_1 = __webpack_require__(297);
-	var yearpicker_1 = __webpack_require__(298);
+	var daypicker_1 = __webpack_require__(296);
+	var monthpicker_1 = __webpack_require__(298);
+	var yearpicker_1 = __webpack_require__(299);
 	var DatePicker = (function (_super) {
 	    __extends(DatePicker, _super);
 	    function DatePicker(cd, renderer, elementRef) {
@@ -16483,7 +16485,38 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/dropdown/dropdown-toggle.js.map
 
 /***/ },
-/* 225 */,
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	///<reference path="../tsd.d.ts"/>
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(289));
+	__export(__webpack_require__(290));
+	__export(__webpack_require__(292));
+	__export(__webpack_require__(291));
+	__export(__webpack_require__(297));
+	__export(__webpack_require__(300));
+	__export(__webpack_require__(45));
+	__export(__webpack_require__(222));
+	__export(__webpack_require__(223));
+	__export(__webpack_require__(224));
+	__export(__webpack_require__(293));
+	__export(__webpack_require__(219));
+	__export(__webpack_require__(301));
+	__export(__webpack_require__(302));
+	__export(__webpack_require__(303));
+	__export(__webpack_require__(304));
+	__export(__webpack_require__(305));
+	__export(__webpack_require__(306));
+	__export(__webpack_require__(307));
+	__export(__webpack_require__(46));
+	__export(__webpack_require__(220));
+	__export(__webpack_require__(27));
+	//# sourceMappingURL=../components/dist/index.js.map
+
+/***/ },
 /* 226 */,
 /* 227 */,
 /* 228 */,
@@ -16543,19 +16576,20 @@ webpackJsonp([1],[
 /* 282 */,
 /* 283 */,
 /* 284 */,
-/* 285 */
+/* 285 */,
+/* 286 */
 /***/ function(module, exports) {
 
 	module.exports = "<h3 id=\"usage\">Usage</h3>\n<pre class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'ng2-charts'</span><span class=\"token punctuation\" >;</span>\n</code></pre>\n<h1 id=\"utilisation\">Utilisation</h1>\n<p>There are 6 types of charts so 6 directives: <code>line-chart</code>, <code>bar-chart</code>, <code>radar-chart</code>, <code>pie-chart</code>,\n<code>polar-area-chart</code>, <code>doughnut-chart</code>.</p>\n<h3 id=\"properties\">Properties</h3>\n<ul>\n<li><code>data</code> (<code>Array&lt;any&gt;</code>) - data for chart</li>\n<li><code>labels</code> (<code>?Array&lt;any&gt;</code>) - x axis labels (line, bar, radar) or series labels (pie, doughnut, polar area)</li>\n<li><code>options</code> (<code>?any</code>) - chart options (as from <a href=\"http://www.chartjs.org/docs/\">Chart.js documentation</a>)</li>\n<li><code>series</code> (<code>?Array&lt;any&gt;</code>) - series labels (line, bar, radar)</li>\n<li><code>colours</code> (<code>?Array&lt;any&gt;</code>) - data colours (will use default colours if not specified)</li>\n<li><code>legend</code>: (<code>?boolean=false</code>) - show legend below the chart</li>\n</ul>\n<h3 id=\"events\">Events</h3>\n<ul>\n<li><code>chart-click</code>: onclick event handler</li>\n<li><code>chart-hover</code>: mousemove event handler</li>\n</ul>\n<h1 id=\"colours\">Colours</h1>\n<p>There are a set of 7 default colours. Colours can be replaced using the <code>colours</code> attribute.\nIf there is more data than colours, colours are generated randomly or can be provided\nvia a function through the <code>getColour</code> attribute.</p>\n<p>Hex colours are converted to Chart.js colours automatically,\nincluding different shades for highlight, fill, stroke, etc.</p>\n";
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports) {
 
 	module.exports = "<h1 id=\"getting-started\">Getting started</h1>\n<h3 id=\"first-of-all-welcome-\">First of all, Welcome!</h3>\n";
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
@@ -16741,11 +16775,11 @@ webpackJsonp([1],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 287;
+	webpackContext.id = 288;
 
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16890,7 +16924,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/accordion/accordion.js.map
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16959,7 +16993,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/alert/alert.js.map
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -17036,7 +17070,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/buttons/button-checkbox.js.map
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -17112,7 +17146,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/buttons/button-radio.js.map
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17314,7 +17348,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/carousel/carousel.js.map
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var moment = __webpack_require__(2);
@@ -17330,7 +17364,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/date-formatter.js.map
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17498,7 +17532,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/datepicker-popup.js.map
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17615,17 +17649,17 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/daypicker.js.map
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var datepicker_popup_1 = __webpack_require__(294);
+	var datepicker_popup_1 = __webpack_require__(295);
 	var datepicker_1 = __webpack_require__(221);
 	exports.datepicker = [datepicker_1.DatePicker, datepicker_popup_1.DatePickerPopup];
 	//# sourceMappingURL=../../components/dist/datepicker/index.js.map
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17696,7 +17730,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/monthpicker.js.map
 
 /***/ },
-/* 298 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17767,7 +17801,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/yearpicker.js.map
 
 /***/ },
-/* 299 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var dropdown_1 = __webpack_require__(45);
@@ -17775,38 +17809,6 @@ webpackJsonp([1],[
 	var dropdown_toggle_1 = __webpack_require__(224);
 	exports.dropdown = [dropdown_1.Dropdown, dropdown_menu_1.DropdownMenu, dropdown_toggle_1.DropdownToggle];
 	//# sourceMappingURL=../../components/dist/dropdown/index.js.map
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	///<reference path="../tsd.d.ts"/>
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(288));
-	__export(__webpack_require__(289));
-	__export(__webpack_require__(291));
-	__export(__webpack_require__(290));
-	__export(__webpack_require__(296));
-	__export(__webpack_require__(299));
-	__export(__webpack_require__(45));
-	__export(__webpack_require__(222));
-	__export(__webpack_require__(223));
-	__export(__webpack_require__(224));
-	__export(__webpack_require__(292));
-	__export(__webpack_require__(219));
-	__export(__webpack_require__(301));
-	__export(__webpack_require__(302));
-	__export(__webpack_require__(303));
-	__export(__webpack_require__(304));
-	__export(__webpack_require__(305));
-	__export(__webpack_require__(306));
-	__export(__webpack_require__(307));
-	__export(__webpack_require__(46));
-	__export(__webpack_require__(220));
-	__export(__webpack_require__(27));
-	//# sourceMappingURL=../components/dist/index.js.map
 
 /***/ },
 /* 301 */
@@ -19287,7 +19289,7 @@ webpackJsonp([1],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_1 = __webpack_require__(300);
+	var ng2_bootstrap_1 = __webpack_require__(225);
 	var charts_demo_1 = __webpack_require__(333);
 	var line_chart_demo_1 = __webpack_require__(335);
 	var bar_chart_demo_1 = __webpack_require__(332);
@@ -19297,48 +19299,54 @@ webpackJsonp([1],[
 	var radar_chart_demo_1 = __webpack_require__(338);
 	var name = 'Charts';
 	var src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
-	var doc = __webpack_require__(285);
+	var doc = __webpack_require__(286);
 	var chartDesc = [
 	    {
 	        heading: 'Line Chart',
 	        tag: 'line-chart-demo',
+	        id: 'lineChart',
 	        ts: __webpack_require__(316),
 	        html: __webpack_require__(310)
 	    },
 	    {
 	        heading: 'Bar Chart',
 	        tag: 'bar-chart-demo',
+	        id: 'barChart',
 	        ts: __webpack_require__(314),
 	        html: __webpack_require__(308)
 	    },
 	    {
 	        heading: 'Doughnut Chart',
 	        tag: 'doughnut-chart-demo',
+	        id: 'doughnutChart',
 	        ts: __webpack_require__(315),
 	        html: __webpack_require__(309)
 	    },
 	    {
 	        heading: 'Radar Chart',
 	        tag: 'radar-chart-demo',
+	        id: 'radarChart',
 	        ts: __webpack_require__(319),
 	        html: __webpack_require__(313)
 	    },
 	    {
 	        heading: 'Pie Chart',
 	        tag: 'pie-chart-demo',
+	        id: 'pieChart',
 	        ts: __webpack_require__(317),
 	        html: __webpack_require__(311)
 	    },
 	    {
 	        heading: 'Polar Area Chart',
 	        tag: 'polar-area-chart-demo',
+	        id: 'polarAreaChart',
 	        ts: __webpack_require__(318),
 	        html: __webpack_require__(312)
 	    }
 	];
 	var chartContent = "";
 	chartDesc.forEach(function (desc) {
-	    chartContent += "\n          <div class=\"col-md-12\">\n            <h4>" + desc.heading + "</h4>\n          </div>\n          <div *ng-if=\"'" + desc.heading + "' == 'Line Chart'\">\n            <div class=\"col-md-12\">\n              <" + desc.tag + "></" + desc.tag + ">\n            </div>\n          </div>\n          <div *ng-if=\"'" + desc.heading + "' != 'Line Chart'\">\n            <div class=\"col-md-3\"></div>\n            <div class=\"col-md-6\">\n              <" + desc.tag + "></" + desc.tag + ">\n            </div>\n            <div class=\"col-md-3\"></div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"row\" style=\"margin: 0px;\">\n              <tabset>\n                <tab heading=\"Markup\">\n                  <div class=\"card card-block panel panel-default panel-body\">\n                    <pre class=\"language-html\"><code class=\"language-html\" ng-non-bindable>" + desc.html + "</code></pre>\n                  </div>\n                </tab>\n                <tab heading=\"TypeScript\">\n                  <div class=\"card card-block panel panel-default panel-body\">\n                    <pre class=\"language-typescript\"><code class=\"language-typescript\" ng-non-bindable>" + desc.ts + "</code></pre>\n                  </div>\n                </tab>\n              </tabset>\n            </div>\n          </div>\n        </tab>\n  ";
+	    chartContent += "\n      <section id=\"" + desc.id + "\" style=\"padding-top: 40px;\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <h4>" + desc.heading + "</h4>\n          </div>\n        </div>\n        <div class=\"card card-block panel panel-default panel-body\">\n\n         <div class=\"row\">\n          <div *ng-if=\"'" + desc.heading + "' == 'Line Chart'\">\n            <div class=\"col-md-12\">\n              <" + desc.tag + "></" + desc.tag + ">\n            </div>\n          </div>\n          <div *ng-if=\"'" + desc.heading + "' != 'Line Chart'\">\n            <div class=\"col-md-3\"></div>\n            <div class=\"col-md-6\">\n              <" + desc.tag + "></" + desc.tag + ">\n            </div>\n            <div class=\"col-md-3\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <tabset>\n            <tab heading=\"Markup\">\n              <div class=\"card card-block panel panel-default panel-body\">\n                <pre class=\"language-html\"><code class=\"language-html\" ng-non-bindable>" + desc.html + "</code></pre>\n              </div>\n            </tab>\n            <tab heading=\"TypeScript\">\n              <div class=\"card card-block panel panel-default panel-body\">\n                <pre class=\"language-typescript\"><code class=\"language-typescript\" ng-non-bindable>" + desc.ts + "</code></pre>\n              </div>\n            </tab>\n          </tabset>\n        </div>\n      </div>\n    </section>\n  ";
 	});
 	var ChartsSection = (function () {
 	    function ChartsSection() {
@@ -19348,7 +19356,7 @@ webpackJsonp([1],[
 	            selector: 'charts-section'
 	        }),
 	        angular2_1.View({
-	            template: "\n  <br>\n  <section id=\"" + name.toLowerCase() + "\">\n    <div class=\"row\"><h1>" + name + "<small>(<a href=\"" + src + "\">src</a>)</small></h1></div>\n\n    <hr>\n\n    <div class=\"row\">\n      <h2>Example</h2>\n      <div class=\"card card-block panel panel-default panel-body\">\n\n      <div class=\"row\">\n       " + chartContent + "\n       </div>\n        <!--<charts-demo></charts-demo>-->\n\n      </div>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n      <h2>API</h2>\n      <div class=\"card card-block panel panel-default panel-body\">" + doc + "</div>\n    </div>\n  </section>\n  ",
+	            template: "\n  <br>\n  <section id=\"" + name.toLowerCase() + "\">\n    <div class=\"row\"><h1>" + name + "<small>(<a href=\"" + src + "\">src</a>)</small></h1></div>\n\n    <hr>\n\n    <div class=\"row\">\n      <h2>Example</h2>\n\n       " + chartContent + "\n        <!--<charts-demo></charts-demo>-->\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n      <h2>API</h2>\n      <div class=\"card card-block panel panel-default panel-body\">" + doc + "</div>\n    </div>\n  </section>\n  ",
 	            directives: [charts_demo_1.ChartsDemo, line_chart_demo_1.LineChartDemo, bar_chart_demo_1.BarChartDemo, doughnut_chart_demo_1.DoughnutChartDemo, pie_chart_demo_1.PieChartDemo,
 	                polar_area_chart_demo_1.PolarAreaChartDemo, radar_chart_demo_1.RadarChartDemo, ng2_bootstrap_1.tabs, angular2_1.CORE_DIRECTIVES, angular2_1.NgNonBindable]
 	        }), 
@@ -19872,6 +19880,70 @@ webpackJsonp([1],[
 	})();
 	exports.RadarChartDemo = RadarChartDemo;
 	//# sourceMappingURL=radar-chart-demo.js.map
+
+/***/ },
+/* 339 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	/// <reference path="../../tsd.d.ts" />
+	var angular2_1 = __webpack_require__(5);
+	var ng2_bootstrap_1 = __webpack_require__(225);
+	var components = [
+	    {
+	        name: 'Line Chart',
+	        href: 'lineChart'
+	    }, {
+	        name: 'Bar Chart',
+	        href: 'barChart'
+	    }, {
+	        name: 'Radar Chart',
+	        href: 'radarChart'
+	    }, {
+	        name: 'Pie Chart',
+	        href: 'pieChart'
+	    }, {
+	        name: 'Polar Area Chart',
+	        href: 'polarAreaChart'
+	    }, {
+	        name: 'Doughnut Chart',
+	        href: 'doughnutChart'
+	    }
+	];
+	var template = "\n    <header class=\"navbar navbar-default navbar-fixed-top navbar-inner bg-faded\">\n    <div class=\"container\">\n      <div class=\"navbar-header hidden-md-up\">\n        <button type=\"button\" class=\"navbar-toggle navbar-toggler pull-right\" (click)=\"isCollapsed = !isCollapsed\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand visible-xs\" href=\"{{prefix}}#\">ng2-charts</a>\n      </div>\n      <nav class=\"hidden-xs hidden-xs-down\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"nav-item\"><a href=\"{{prefix}}#top\" role=\"button\" class=\"navbar-brand\">ng2-charts</a></li>\n          <li class=\"nav-item dropdown\" dropdown>\n            <a role=\"button\" class=\"nav-link dropdown-toggle\" dropdown-toggle>Directives <b class=\"caret\"></b></a>\n            <ul class=\"dropdown-menu\">\n              <li *ng-for=\"#comp of components\">\n               <a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.href}}\">{{comp.name}}</a>\n              </li>\n            </ul>\n          </li>\n        </ul>\n      </nav>\n      <nav class=\"visible-xs hidden-md-up\">\n        <ul class=\"nav nav-pills nav-stacked scrollable-menu\" [collapse]=\"!isCollapsed\" (click)=\"isCollapsed = !isCollapsed; true\">\n          <li *ng-for=\"#comp of components\" class=\"nav-item\">\n            <a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.href}}\">{{comp.name}}</a>\n          </li>\n        </ul>\n      </nav>\n    </div>\n  </header>";
+	var DemoHeader = (function () {
+	    function DemoHeader() {
+	        this.components = components;
+	        this.prefix = ng2_bootstrap_1.Ng2BootstrapConfig.theme === ng2_bootstrap_1.Ng2BootstrapTheme.BS4 ? 'index-bs4.html' : '';
+	    }
+	    DemoHeader = __decorate([
+	        angular2_1.Component({
+	            selector: 'demo-header'
+	        }),
+	        angular2_1.View({
+	            template: template,
+	            directives: [
+	                angular2_1.NgFor,
+	                ng2_bootstrap_1.Collapse,
+	                ng2_bootstrap_1.dropdown
+	            ]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], DemoHeader);
+	    return DemoHeader;
+	})();
+	exports.DemoHeader = DemoHeader;
+	//# sourceMappingURL=demo-header.js.map
 
 /***/ }
 ]);
