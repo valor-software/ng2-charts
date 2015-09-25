@@ -11,7 +11,7 @@ if (w && w.__theme === 'bs4') {
 
 import {ChartsSection} from './components/charts-section';
 
-// import {DemoHeader} from './components/demo-header';
+import {DemoHeader} from './components/demo-header';
 
 let gettingStarted = require('./getting-started.md');
 
@@ -20,7 +20,7 @@ let gettingStarted = require('./getting-started.md');
 })
 @View({
   template: `
-  <!--<demo-header>Loading header</demo-header>-->
+  <demo-header>Loading header</demo-header>
 
   <main class="bd-pageheader">
     <div class="container">
@@ -58,8 +58,7 @@ let gettingStarted = require('./getting-started.md');
   `,
   directives: [
     NgClass,
-    // DemoHeader,
-
+    DemoHeader,
     ChartsSection
   ]
 })

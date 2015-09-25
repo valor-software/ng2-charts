@@ -23,18 +23,21 @@ let chartDesc:Array<any> = [
   {
     heading: 'Line Chart',
     tag: 'line-chart-demo',
+    id: 'lineChart',
     ts: require('!!prismjs?lang=typescript!./charts/line-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/line-chart-demo.html')
   },
   {
     heading: 'Bar Chart',
     tag: 'bar-chart-demo',
+    id: 'barChart',
     ts: require('!!prismjs?lang=typescript!./charts/bar-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/bar-chart-demo.html')
   },
   {
     heading: 'Doughnut Chart',
     tag: 'doughnut-chart-demo',
+    id: 'doughnutChart',
     ts: require('!!prismjs?lang=typescript!./charts/doughnut-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/doughnut-chart-demo.html')
   }
@@ -42,6 +45,7 @@ let chartDesc:Array<any> = [
   {
     heading: 'Radar Chart',
     tag: 'radar-chart-demo',
+    id: 'radarChart',
     ts: require('!!prismjs?lang=typescript!./charts/radar-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/radar-chart-demo.html')
 
@@ -49,12 +53,14 @@ let chartDesc:Array<any> = [
   {
     heading: 'Pie Chart',
     tag: 'pie-chart-demo',
+    id: 'pieChart',
     ts: require('!!prismjs?lang=typescript!./charts/pie-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/pie-chart-demo.html')
   },
   {
     heading: 'Polar Area Chart',
     tag: 'polar-area-chart-demo',
+    id: 'polarAreaChart',
     ts: require('!!prismjs?lang=typescript!./charts/polar-area-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/polar-area-chart-demo.html')
   }
@@ -65,9 +71,15 @@ let chartContent:string = ``;
 chartDesc.forEach(desc => {
 
   chartContent += `
+      <section id="${desc.id}" style="padding-top: 40px;">
+        <div class="row">
           <div class="col-md-12">
             <h4>${desc.heading}</h4>
           </div>
+        </div>
+        <div class="card card-block panel panel-default panel-body">
+
+         <div class="row">
           <div *ng-if="'${desc.heading}' == 'Line Chart'">
             <div class="col-md-12">
               <${desc.tag}></${desc.tag}>
@@ -80,23 +92,25 @@ chartDesc.forEach(desc => {
             </div>
             <div class="col-md-3"></div>
           </div>
-          <div class="col-md-12">
-            <div class="row" style="margin: 0px;">
-              <tabset>
-                <tab heading="Markup">
-                  <div class="card card-block panel panel-default panel-body">
-                    <pre class="language-html"><code class="language-html" ng-non-bindable>${desc.html}</code></pre>
-                  </div>
-                </tab>
-                <tab heading="TypeScript">
-                  <div class="card card-block panel panel-default panel-body">
-                    <pre class="language-typescript"><code class="language-typescript" ng-non-bindable>${desc.ts}</code></pre>
-                  </div>
-                </tab>
-              </tabset>
-            </div>
-          </div>
-        </tab>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <tabset>
+            <tab heading="Markup">
+              <div class="card card-block panel panel-default panel-body">
+                <pre class="language-html"><code class="language-html" ng-non-bindable>${desc.html}</code></pre>
+              </div>
+            </tab>
+            <tab heading="TypeScript">
+              <div class="card card-block panel panel-default panel-body">
+                <pre class="language-typescript"><code class="language-typescript" ng-non-bindable>${desc.ts}</code></pre>
+              </div>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </section>
   `;
 });
 
@@ -113,14 +127,9 @@ chartDesc.forEach(desc => {
 
     <div class="row">
       <h2>Example</h2>
-      <div class="card card-block panel panel-default panel-body">
 
-      <div class="row">
        ${chartContent}
-       </div>
         <!--<charts-demo></charts-demo>-->
-
-      </div>
     </div>
 
     <br>
