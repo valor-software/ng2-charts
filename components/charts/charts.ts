@@ -213,7 +213,7 @@ export class GenericChart {
       let colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
 
       let data:any = Object.assign(colour,
-        this.imp.getDataObject(this.series[i], this.data[i]));
+        this.imp.getDataObject(this.series[i] || this.labels[i] , this.data[i]));
 
       dataset.push(data);
 

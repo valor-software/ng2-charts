@@ -34,6 +34,8 @@ export class PolarAreaChartDemo {
   // PolarArea
   private polarAreaChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
   private polarAreaChartData = [300, 500, 100, 40, 120];
+  private polarAreaLegend:boolean = true;
+
   private polarAreaChartColours = [
     {
       fillColor: 'rgba(151,187,205,0.2)',
