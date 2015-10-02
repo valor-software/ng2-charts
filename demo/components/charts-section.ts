@@ -10,6 +10,7 @@ import {DoughnutChartDemo} from './charts/doughnut-chart-demo';
 import {PieChartDemo} from './charts/pie-chart-demo';
 import {PolarAreaChartDemo} from './charts/polar-area-chart-demo';
 import {RadarChartDemo} from './charts/radar-chart-demo';
+import {BaseChartDemo} from './charts/base-chart-demo';
 
 let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
@@ -63,6 +64,13 @@ let chartDesc:Array<any> = [
     id: 'polarAreaChart',
     ts: require('!!prismjs?lang=typescript!./charts/polar-area-chart-demo.ts'),
     html: require('!!prismjs?lang=markup!./charts/polar-area-chart-demo.html')
+  },
+  {
+    heading: 'Dynamic Chart',
+    tag: 'base-chart-demo',
+    id: 'baseChart',
+    ts: require('!!prismjs?lang=typescript!./charts/base-chart-demo.ts'),
+    html: require('!!prismjs?lang=markup!./charts/base-chart-demo.html')
   }
 ];
 
@@ -80,12 +88,12 @@ chartDesc.forEach(desc => {
         <div class="card card-block panel panel-default panel-body">
 
          <div class="row">
-          <div *ng-if="'${desc.heading}' == 'Line Chart'">
+          <div *ng-if="'${desc.heading}' == 'Line Chart' || '${desc.heading}' == 'Dynamic Chart'">
             <div class="col-md-12">
               <${desc.tag}></${desc.tag}>
             </div>
           </div>
-          <div *ng-if="'${desc.heading}' != 'Line Chart'">
+          <div *ng-if="'${desc.heading}' != 'Line Chart' && '${desc.heading}' != 'Dynamic Chart'">
             <div class="col-md-3"></div>
             <div class="col-md-6">
               <${desc.tag}></${desc.tag}>
@@ -142,7 +150,7 @@ chartDesc.forEach(desc => {
   `,
   // directives: [ChartsDemo, tabs, CORE_DIRECTIVES, NgNonBindable]
   directives: [ChartsDemo, LineChartDemo, BarChartDemo, DoughnutChartDemo, PieChartDemo,
-    PolarAreaChartDemo, RadarChartDemo, tabs, CORE_DIRECTIVES, NgNonBindable]
+    PolarAreaChartDemo, RadarChartDemo, BaseChartDemo, tabs, CORE_DIRECTIVES, NgNonBindable]
 })
 export class ChartsSection {
 }

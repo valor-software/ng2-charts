@@ -32,6 +32,16 @@ export class ChartsDemo {
     responsive: true,
     multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
   };
+  private lineChartType:string = 'Line';
+  private pieChartType:string = 'Pie';
+
+
+  private randomizeType() {
+    this.lineChartType = this.lineChartType === 'Line' ? 'Bar' : 'Line';
+    this.pieChartType = this.pieChartType === 'Doughnut' ? 'Pie' : 'Doughnut';
+  }
+
+
   private lineChartColours:Array<any> = [
     { // grey
       fillColor: 'rgba(148,159,177,0.2)',
@@ -80,9 +90,11 @@ export class ChartsDemo {
   chartClicked(e:any) {
     console.log(e);
   }
+
   chartHovered(e:any) {
     console.log(e);
   }
+
 
   // BarChart
   private barChartOptions = {

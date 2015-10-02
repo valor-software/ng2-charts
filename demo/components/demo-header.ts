@@ -21,6 +21,9 @@ let components = [
   }, {
     name: 'Doughnut Chart',
     href: 'doughnutChart'
+  }, {
+    name: 'Dynamic Chart',
+    href: 'baseChart'
   }
 ];
 

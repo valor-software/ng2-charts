@@ -1,0 +1,24 @@
+  <div class="col-md-6">
+
+    <base-chart class="chart"
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [series]="lineChartSeries"
+                [chart-type]="lineChartType"
+                (chart-hover)="chartHovered($event)"
+                (chart-click)="chartClicked($event)"></base-chart>
+  </div>
+  <div class="col-md-6">
+    <base-chart class="chart"
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chart-type]="pieChartType"
+                (chart-hover)="chartHovered($event)"
+                (chart-click)="chartClicked($event)"></base-chart>
+  </div>
+  <div class="col-md-12 text-center" style="margin-top: 10px;">
+    <button (click)="randomizeType()" style="display: inline-block">Toggle</button>
+  </div>
+
+
