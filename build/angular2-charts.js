@@ -3,12 +3,12 @@ webpackJsonp([2],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(13);
+	module.exports = __webpack_require__(11);
 
 
 /***/ },
 
-/***/ 13:
+/***/ 11:
 /***/ function(module, exports, __webpack_require__) {
 
 	///<reference path="../tsd.d.ts"/>
@@ -3649,6 +3649,19 @@ webpackJsonp([2],{
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(GenericChart.prototype, "chartType", {
+	        get: function () {
+	            return this._chartType;
+	        },
+	        set: function (value) {
+	            this._chartType = value;
+	            if (this.initFlag && this._chartType && this._chartType.length > 0) {
+	                this.refresh();
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    GenericChart.prototype.setLegend = function () {
 	        var list = this.parent.getElementsByTagName('ul');
 	        if (list.length) {
@@ -3706,11 +3719,11 @@ webpackJsonp([2],{
 	        for (var i = 0; i < this.data.length; i++) {
 	            var colourDesc = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
 	            var colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
-	            var data_1 = Object.assign(colour, this.imp.getDataObject(this.series[i] || this.labels[i], this.data[i]));
+	            var data_1 = Object.assign(colour, this.imp.getDataObject(this.chartType, this.series[i] || this.labels[i], this.data[i]));
 	            dataset.push(data_1);
 	        }
-	        var data = this.imp.getChartData(this.labels, dataset);
-	        this.chart = this.imp.getChartBuilder(this.ctx, data, this.options);
+	        var data = this.imp.getChartData(this.labels, dataset, this.chartType);
+	        this.chart = this.imp.getChartBuilder(this.ctx, this.chartType, data, this.options);
 	        if (this.legend) {
 	            this.setLegend();
 	        }
@@ -3718,6 +3731,82 @@ webpackJsonp([2],{
 	    return GenericChart;
 	})();
 	exports.GenericChart = GenericChart;
+	var BaseChart = (function (_super) {
+	    __extends(BaseChart, _super);
+	    function BaseChart(element) {
+	        _super.call(this, new BaseChart.Impl());
+	        this.element = element;
+	    }
+	    BaseChart.prototype.onInit = function () {
+	        _super.prototype.init.call(this, this.element);
+	    };
+	    BaseChart.prototype.onDestroy = function () {
+	        _super.prototype.destroy.call(this);
+	    };
+	    BaseChart = __decorate([
+	        angular2_1.Component({
+	            selector: 'base-chart',
+	            properties: [
+	                'data',
+	                'labels',
+	                'series',
+	                'colours',
+	                'chartType',
+	                'legend',
+	                'options'
+	            ],
+	            events: ['chartClick', 'chartHover']
+	        }),
+	        angular2_1.View({
+	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
+	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
+	        }), 
+	        __metadata('design:paramtypes', [angular2_1.ElementRef])
+	    ], BaseChart);
+	    return BaseChart;
+	})(GenericChart);
+	exports.BaseChart = BaseChart;
+	var BaseChart;
+	(function (BaseChart) {
+	    var Impl = (function () {
+	        function Impl() {
+	        }
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
+	            return new Chart(ctx)[chartType](data, options);
+	        };
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
+	            if (chartType === 'Line' || chartType === 'Bar' || chartType === 'Radar') {
+	                return {
+	                    label: label,
+	                    data: value
+	                };
+	            }
+	            if (chartType === 'Pie' || chartType === 'Doughnut' || chartType === 'PolarArea') {
+	                return {
+	                    label: label,
+	                    value: value
+	                };
+	            }
+	        };
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
+	            if (chartType === 'Line'
+	                || chartType === 'Bar'
+	                || chartType === 'Radar') {
+	                return {
+	                    labels: labels,
+	                    datasets: dataObject
+	                };
+	            }
+	            if (chartType === 'Pie'
+	                || chartType === 'Doughnut'
+	                || chartType === 'PolarArea') {
+	                return dataObject;
+	            }
+	        };
+	        return Impl;
+	    })();
+	    BaseChart.Impl = Impl;
+	})(BaseChart = exports.BaseChart || (exports.BaseChart = {}));
 	var LineChart = (function (_super) {
 	    __extends(LineChart, _super);
 	    function LineChart(element) {
@@ -3758,16 +3847,16 @@ webpackJsonp([2],{
 	    var Impl = (function () {
 	        function Impl() {
 	        }
-	        Impl.prototype.getChartBuilder = function (ctx, data, options) {
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
 	            return new Chart(ctx).Line(data, options);
 	        };
-	        Impl.prototype.getDataObject = function (label, value) {
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
 	            return {
 	                label: label,
 	                data: value
 	            };
 	        };
-	        Impl.prototype.getChartData = function (labels, dataObject) {
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
 	            return {
 	                labels: labels,
 	                datasets: dataObject
@@ -3817,16 +3906,16 @@ webpackJsonp([2],{
 	    var Impl = (function () {
 	        function Impl() {
 	        }
-	        Impl.prototype.getChartBuilder = function (ctx, data, options) {
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
 	            return new Chart(ctx).Bar(data, options);
 	        };
-	        Impl.prototype.getDataObject = function (label, value) {
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
 	            return {
 	                label: label,
 	                data: value
 	            };
 	        };
-	        Impl.prototype.getChartData = function (labels, dataObject) {
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
 	            return {
 	                labels: labels,
 	                datasets: dataObject
@@ -3876,16 +3965,16 @@ webpackJsonp([2],{
 	    var Impl = (function () {
 	        function Impl() {
 	        }
-	        Impl.prototype.getChartBuilder = function (ctx, data, options) {
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
 	            return new Chart(ctx).PolarArea(data, options);
 	        };
-	        Impl.prototype.getDataObject = function (label, value) {
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
 	            return {
 	                label: label,
 	                value: value
 	            };
 	        };
-	        Impl.prototype.getChartData = function (labels, dataObject) {
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
 	            return dataObject;
 	        };
 	        return Impl;
@@ -3932,16 +4021,16 @@ webpackJsonp([2],{
 	    var Impl = (function () {
 	        function Impl() {
 	        }
-	        Impl.prototype.getChartBuilder = function (ctx, data, options) {
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
 	            return new Chart(ctx).Doughnut(data, options);
 	        };
-	        Impl.prototype.getDataObject = function (label, value) {
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
 	            return {
 	                label: label,
 	                value: value
 	            };
 	        };
-	        Impl.prototype.getChartData = function (labels, dataObject) {
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
 	            return dataObject;
 	        };
 	        return Impl;
@@ -3988,16 +4077,16 @@ webpackJsonp([2],{
 	    var Impl = (function () {
 	        function Impl() {
 	        }
-	        Impl.prototype.getChartBuilder = function (ctx, data, options) {
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
 	            return new Chart(ctx).Pie(data, options);
 	        };
-	        Impl.prototype.getDataObject = function (label, value) {
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
 	            return {
 	                label: label,
 	                value: value
 	            };
 	        };
-	        Impl.prototype.getChartData = function (labels, dataObject) {
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
 	            return dataObject;
 	        };
 	        return Impl;
@@ -4044,16 +4133,16 @@ webpackJsonp([2],{
 	    var Impl = (function () {
 	        function Impl() {
 	        }
-	        Impl.prototype.getChartBuilder = function (ctx, data, options) {
+	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
 	            return new Chart(ctx).Radar(data, options);
 	        };
-	        Impl.prototype.getDataObject = function (label, value) {
+	        Impl.prototype.getDataObject = function (chartType, label, value) {
 	            return {
 	                label: label,
 	                data: value
 	            };
 	        };
-	        Impl.prototype.getChartData = function (labels, dataObject) {
+	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
 	            return {
 	                labels: labels,
 	                datasets: dataObject
@@ -4063,8 +4152,8 @@ webpackJsonp([2],{
 	    })();
 	    RadarChart.Impl = Impl;
 	})(RadarChart = exports.RadarChart || (exports.RadarChart = {}));
-	exports.charts = [Charts, LineChart, BarChart, PolarAreaChart, DoughnutChart,
-	    PieChart, RadarChart];
+	exports.charts = [Charts, BaseChart, LineChart, BarChart, PolarAreaChart,
+	    DoughnutChart, PieChart, RadarChart];
 	//# sourceMappingURL=charts.js.map
 
 /***/ },
