@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-md-6">
-    <line-chart class="chart"
+    <base-chart class="chart"
                 [data]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
                 [series]="lineChartSeries"
                 [colours]="lineChartColours"
+                [chart-type]="lineChartType"
                 [legend]="lineChartLegend"
                 (chart-hover)="chartHovered($event)"
-                (chart-click)="chartClicked($event)"></line-chart>
+                (chart-click)="chartClicked($event)"></base-chart>
   </div>
   <div class="col-md-6" style="margin-bottom: 10px;">
     <table class="table table-responsive table-condensed">

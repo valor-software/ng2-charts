@@ -35,5 +35,6 @@ export class PieChartDemo {
   // Pie
   private pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   private pieChartData = [300, 500, 100];
+  private pieChartType = 'Pie';
 
 }

@@ -30,6 +30,7 @@ export class BarChartDemo {
   };
   private barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   private barChartSeries = ['Series A', 'Series B'];
+  private barChartType = 'Bar';
   private barChartLegend:boolean = true;
 
   private barChartData = [

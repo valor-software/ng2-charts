@@ -37,6 +37,7 @@ Directive for [ng2-charts](https://github.com/valor-software/ng2-charts) compone
 
 - `data` (`Array<any>`) -  set of points of the chart, it should be Array&lt;Array&lt;number&gt;&gt; only for line, bar and radar, otherwise Array&lt;number&gt;
 - `labels` (`?Array<any>`) - x axis labels. It's necessary for charts: line, bar and radar. And just labels (on hover) for charts: polar area, pie and doughnut
+- `chart-type` (`?string`) - indicates the type of charts, it can be: 'Line', 'Bar', 'Radar', 'Pie', 'PolarArea', 'Doughnut'
 - `options` (`?any`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
 - `series` (`?Array<any>`) - name points on the chart, work for line, bar and radar
 - `colours` (`?Array<any>`) - data colours, will use default colours if not specified ([see readme for components](https://github.com/valor-software/ng2-charts/blob/master/components/charts/readme.md))

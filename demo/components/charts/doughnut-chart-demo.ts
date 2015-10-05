@@ -35,5 +35,6 @@ export class DoughnutChartDemo {
   // Doughnut
   private doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   private doughnutChartData = [350, 450, 100];
+  private doughnutChartType = 'Doughnut';
 
 }

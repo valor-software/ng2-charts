@@ -4,14 +4,13 @@ import {charts} from 'ng2-charts';
 ```
 
 # Utilisation
-
-There are 6 types of charts so 6 directives: `line-chart`, `bar-chart`, `radar-chart`, `pie-chart`,
-`polar-area-chart`, `doughnut-chart`.
+There are directive: `base-chart`, and there are 6 types of charts: , `Line`, `Bar`, `Radar`, `Pie`, `PolarArea`, `Doughnut`.
 
 ### Properties
 
 - `data` (`Array<any>`) -  set of points of the chart, it should be Array&lt;Array&lt;number&gt;&gt; only for line, bar and radar, otherwise Array&lt;number&gt;
 - `labels` (`?Array<any>`) - x axis labels. It's necessary for charts: line, bar and radar. And just labels (on hover) for charts: polar area, pie and doughnut
+- `chart-type` (`?string`) - indicates the type of charts, it can be: 'Line', 'Bar', 'Radar', 'Pie', 'PolarArea', 'Doughnut'
 - `options` (`?any`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
 - `series` (`?Array<any>`) - name points on the chart, work for line, bar and radar
 - `colours` (`?Array<any>`) - data colours, will use default colours if not specified (see below)

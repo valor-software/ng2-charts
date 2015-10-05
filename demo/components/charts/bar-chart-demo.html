@@ -1,9 +1,10 @@
-<bar-chart class="chart"
+<base-chart class="chart"
            [data]="barChartData"
            [labels]="barChartLabels"
            [options]="barChartOptions"
            [series]="barChartSeries"
            [legend]="barChartLegend"
            [series]="barChartSeries"
+           [chart-type]="barChartType"
            (chart-hover)="chartHovered($event)"
-           (chart-click)="chartClicked($event)"></bar-chart>
+           (chart-click)="chartClicked($event)"></base-chart>

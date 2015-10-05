@@ -36,6 +36,7 @@ export class PolarAreaChartDemo {
   private polarAreaChartData = [300, 500, 100, 40, 120];
   private polarAreaLegend:boolean = true;
 
+  private polarAreaChartType = 'PolarArea';
   private polarAreaChartColours = [
     {
       fillColor: 'rgba(151,187,205,0.2)',

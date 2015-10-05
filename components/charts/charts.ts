@@ -25,13 +25,28 @@ export class Charts {
 
 }
 
-export interface IChart {
-  getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any);
-  getDataObject(chartType:string, label:string, value:any):any;
-  getChartData(labels:any, dataObject:any, chartType:string):any;
-}
+@Component({
+  selector: 'base-chart',
+  properties: [
+    'data',
+    'labels',
+    'series',
+    'colours',
+    'chartType',
+    'legend',
+    'options'
+  ],
+  events: ['chartClick', 'chartHover']
+})
+@View({
+  template: `
+  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
+  `,
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
+})
 
-export class GenericChart {
+
+export class BaseChart implements OnInit, OnDestroy {
   private ctx:any;
   private cvs:any;
   private parent:any;
@@ -114,18 +129,18 @@ export class GenericChart {
     }];
 
 
-  constructor(private imp:IChart) {
+  constructor(private element:ElementRef) {
   }
 
-  init(element:ElementRef) {
-    this.ctx = element.nativeElement.children[0].getContext('2d');
-    this.cvs = element.nativeElement.children[0];
-    this.parent = element.nativeElement;
+  onInit() {
+    this.ctx = this.element.nativeElement.children[0].getContext('2d');
+    this.cvs = this.element.nativeElement.children[0];
+    this.parent = this.element.nativeElement;
     this.refresh();
     this.initFlag = true;
   }
 
-  destroy() {
+  onDestroy() {
     if (this.chart) {
       this.chart.destroy();
       this.chart = null;
@@ -213,9 +228,50 @@ export class GenericChart {
     }
   }
 
+  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+    return new Chart(ctx)[this.chartType](data, options);
+  }
+
+  getDataObject(label:string, value:any) {
+    if (this.chartType === 'Line'
+      || this.chartType === 'Bar'
+      || this.chartType === 'Radar') {
+      return {
+        label: label,
+        data: value
+      };
+    }
+
+    if (this.chartType === 'Pie'
+      || this.chartType === 'Doughnut'
+      || this.chartType === 'PolarArea') {
+      return {
+        label: label,
+        value: value
+      };
+    }
+  }
+
+  getChartData(labels:any, dataObject:any) {
+    if (this.chartType === 'Line'
+      || this.chartType === 'Bar'
+      || this.chartType === 'Radar') {
+      return {
+        labels: labels,
+        datasets: dataObject
+      };
+    }
+    if (this.chartType === 'Pie'
+      || this.chartType === 'Doughnut'
+      || this.chartType === 'PolarArea') {
+      return dataObject;
+    }
+
+  }
+
   private refresh() {
 
-    this.destroy();
+    this.onDestroy();
     let dataset:Array<any> = [];
 
     for (let i = 0; i < this.data.length; i++) {
@@ -223,15 +279,16 @@ export class GenericChart {
       let colourDesc:Array<number> = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
       let colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
 
+
       let data:any = Object.assign(colour,
-        this.imp.getDataObject(this.chartType, this.series[i] || this.labels[i] , this.data[i]));
+        this.getDataObject(this.series[i] || this.labels[i], this.data[i]));
 
       dataset.push(data);
 
     }
-    let data:any = this.imp.getChartData(this.labels, dataset, this.chartType);
+    let data:any = this.getChartData(this.labels, dataset);
 
-    this.chart = this.imp.getChartBuilder(this.ctx, this.chartType, data, this.options);
+    this.chart = this.getChartBuilder(this.ctx, data, this.options);
 
     if (this.legend) {
       this.setLegend();
@@ -241,436 +298,4 @@ export class GenericChart {
 }
 
 
-
-// Base Chart
-@Component({
-  selector: 'base-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-export class BaseChart extends GenericChart implements  OnInit, OnDestroy  {
-
-  constructor(private element:ElementRef) {
-    super(new BaseChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-
-export module BaseChart {
-  export class Impl implements IChart {
-
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx)[chartType](data, options);
-    }
-
-
-    getDataObject(chartType:string, label:string, value:any):any {
-
-      if (chartType === 'Line' || chartType === 'Bar' || chartType === 'Radar') {
-        return {
-          label: label,
-          data: value
-        };
-      }
-
-      if (chartType === 'Pie' || chartType === 'Doughnut' || chartType === 'PolarArea') {
-        return {
-          label: label,
-          value: value
-        };
-      }
-    }
-
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      if (chartType === 'Line'
-        || chartType === 'Bar'
-        || chartType === 'Radar') {
-        return {
-          labels: labels,
-          datasets: dataObject
-        };
-      }
-      if (chartType === 'Pie'
-        || chartType === 'Doughnut'
-        || chartType === 'PolarArea') {
-        return dataObject;
-      }
-
-    }
-  }
-}
-
-
-// Line Chart
-@Component({
-  selector: 'line-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-export class LineChart extends GenericChart implements  OnInit, OnDestroy  {
-
-  constructor(private element:ElementRef) {
-    super(new LineChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-
-export module LineChart {
-  export class Impl implements IChart {
-
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx).Line( data, options);
-    }
-
-    getDataObject(chartType:string, label:string, value:any):any {
-      return {
-        label: label,
-        data: value
-      };
-    }
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      return {
-        labels: labels,
-        datasets: dataObject
-      };
-    }
-  }
-}
-
-// BarChart
-@Component({
-  selector: 'bar-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-
-export class BarChart extends GenericChart implements  OnInit, OnDestroy {
-
-  constructor(private element:ElementRef) {
-    super(new BarChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-export module BarChart {
-  export class Impl implements IChart {
-
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx).Bar(data, options);
-    }
-
-    getDataObject(chartType:string, label:string, value:any):any {
-      return {
-        label: label,
-        data: value
-      };
-    }
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      return {
-        labels: labels,
-        datasets: dataObject
-      };
-    }
-
-  }
-}
-
-// PolarArea
-@Component({
-  selector: 'polar-area-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-
-export class PolarAreaChart extends GenericChart implements  OnInit, OnDestroy {
-
-  constructor(private element:ElementRef) {
-    super(new PolarAreaChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-
-export module PolarAreaChart {
-  export class Impl implements IChart {
-
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx).PolarArea(data, options);
-    }
-
-    getDataObject(chartType:string, label:string, value:any):any {
-      return {
-        label: label,
-        value: value
-      };
-    }
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      return dataObject;
-    }
-
-  }
-}
-
-
-// Doughnut
-@Component({
-  selector: 'doughnut-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-
-export class DoughnutChart extends GenericChart implements  OnInit, OnDestroy {
-
-  constructor(private element:ElementRef) {
-    super(new DoughnutChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-
-export module DoughnutChart {
-  export class Impl implements IChart {
-
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx).Doughnut(data, options);
-    }
-
-    getDataObject(chartType:string, label:string, value:any):any {
-      return {
-        label: label,
-        value: value
-      };
-    }
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      return dataObject;
-    }
-
-  }
-}
-
-// Pie
-@Component({
-  selector: 'pie-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-
-export class PieChart extends GenericChart implements  OnInit, OnDestroy {
-
-  constructor(private element:ElementRef) {
-    super(new PieChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-
-export module PieChart {
-  export class Impl implements IChart {
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx).Pie(data, options);
-    }
-
-    getDataObject(chartType:string, label:string, value:any):any {
-      return {
-        label: label,
-        value: value
-      };
-    }
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      return dataObject;
-    }
-
-  }
-}
-
-// RadarChart
-@Component({
-  selector: 'radar-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
-  template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
-  `,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
-})
-
-export class RadarChart extends GenericChart implements  OnInit, OnDestroy {
-
-  constructor(private element:ElementRef) {
-    super(new RadarChart.Impl());
-  }
-
-  onInit() {
-    super.init(this.element);
-  }
-
-  onDestroy() {
-    super.destroy();
-  }
-}
-
-
-export module RadarChart {
-  export class Impl implements IChart {
-
-    getChartBuilder(ctx:any, chartType:string, data:Array<any>, options:any) {
-      return new Chart(ctx).Radar(data, options);
-    }
-
-    getDataObject(chartType:string, label:string, value:any):any {
-      return {
-        label: label,
-        data: value
-      };
-    }
-
-    getChartData(labels:any, dataObject:any, chartType:string):any {
-      return {
-        labels: labels,
-        datasets: dataObject
-      };
-    }
-
-  }
-}
-
-export const charts:Array<any> = [Charts, BaseChart, LineChart, BarChart, PolarAreaChart,
-  DoughnutChart, PieChart, RadarChart];
+export const charts:Array<any> = [Charts, BaseChart];

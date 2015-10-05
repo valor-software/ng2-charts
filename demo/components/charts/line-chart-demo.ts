@@ -63,6 +63,7 @@ export class LineChartDemo {
     }
   ];
   private lineChartLegend:boolean = true;
+  private lineChartType:string = 'Line';
 
   private randomize() {
     let _lineChartData = [];

@@ -1,7 +1,8 @@
-<polar-area-chart class="chart"
-                  [data]="polarAreaChartData"
-                  [labels]="polarAreaChartLabels"
-                  [colours]="polarAreaChartColours"
-                  [legend]="polarAreaLegend"
-                  (chart-hover)="chartHovered($event)"
-                  (chart-click)="chartClicked($event)"></polar-area-chart>
+<base-chart class="chart"
+            [data]="polarAreaChartData"
+            [labels]="polarAreaChartLabels"
+            [colours]="polarAreaChartColours"
+            [legend]="polarAreaLegend"
+            [chart-type]="polarAreaChartType"
+            (chart-hover)="chartHovered($event)"
+            (chart-click)="chartClicked($event)"></base-chart>

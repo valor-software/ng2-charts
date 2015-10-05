@@ -1,5 +1,6 @@
- <radar-chart class="chart"
-                 [data]="radarChartData"
-                 [labels]="radarChartLabels"
-                 (chart-hover)="chartHovered($event)"
-                 (chart-click)="chartClicked($event)"></radar-chart>
+<base-chart class="chart"
+             [data]="radarChartData"
+             [labels]="radarChartLabels"
+             [chart-type]="radarChartType"
+             (chart-hover)="chartHovered($event)"
+             (chart-click)="chartClicked($event)"></base-chart>

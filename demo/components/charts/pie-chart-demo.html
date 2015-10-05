@@ -1,5 +1,6 @@
-<pie-chart class="chart"
+<base-chart class="chart"
            [data]="pieChartData"
            [labels]="pieChartLabels"
+           [chart-type]="pieChartType"
            (chart-hover)="chartHovered($event)"
-           (chart-click)="chartClicked($event)"></pie-chart>
+           (chart-click)="chartClicked($event)"></base-chart>
