@@ -3508,11 +3508,6 @@ webpackJsonp([2],{
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -3542,9 +3537,9 @@ webpackJsonp([2],{
 	    return Charts;
 	})();
 	exports.Charts = Charts;
-	var GenericChart = (function () {
-	    function GenericChart(imp) {
-	        this.imp = imp;
+	var BaseChart = (function () {
+	    function BaseChart(element) {
+	        this.element = element;
 	        this._data = [];
 	        this.labels = [];
 	        this.options = { responsive: true };
@@ -3619,14 +3614,14 @@ webpackJsonp([2],{
 	                highlight: 'rgba(77,83,96,0.8)'
 	            }];
 	    }
-	    GenericChart.prototype.init = function (element) {
-	        this.ctx = element.nativeElement.children[0].getContext('2d');
-	        this.cvs = element.nativeElement.children[0];
-	        this.parent = element.nativeElement;
+	    BaseChart.prototype.onInit = function () {
+	        this.ctx = this.element.nativeElement.children[0].getContext('2d');
+	        this.cvs = this.element.nativeElement.children[0];
+	        this.parent = this.element.nativeElement;
 	        this.refresh();
 	        this.initFlag = true;
 	    };
-	    GenericChart.prototype.destroy = function () {
+	    BaseChart.prototype.onDestroy = function () {
 	        if (this.chart) {
 	            this.chart.destroy();
 	            this.chart = null;
@@ -3636,7 +3631,7 @@ webpackJsonp([2],{
 	            this.legendTemplate = null;
 	        }
 	    };
-	    Object.defineProperty(GenericChart.prototype, "data", {
+	    Object.defineProperty(BaseChart.prototype, "data", {
 	        get: function () {
 	            return this._data;
 	        },
@@ -3649,7 +3644,7 @@ webpackJsonp([2],{
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(GenericChart.prototype, "chartType", {
+	    Object.defineProperty(BaseChart.prototype, "chartType", {
 	        get: function () {
 	            return this._chartType;
 	        },
@@ -3662,7 +3657,7 @@ webpackJsonp([2],{
 	        enumerable: true,
 	        configurable: true
 	    });
-	    GenericChart.prototype.setLegend = function () {
+	    BaseChart.prototype.setLegend = function () {
 	        var list = this.parent.getElementsByTagName('ul');
 	        if (list.length) {
 	            list[0].remove();
@@ -3672,7 +3667,7 @@ webpackJsonp([2],{
 	            this.parent.insertAdjacentHTML('beforeend', this.chart.generateLegend());
 	        }
 	    };
-	    GenericChart.prototype.getColour = function (colour) {
+	    BaseChart.prototype.getColour = function (colour) {
 	        return {
 	            fillColor: this.rgba(colour, 0.2),
 	            strokeColor: this.rgba(colour, 1),
@@ -3684,13 +3679,13 @@ webpackJsonp([2],{
 	            highlight: this.rgba(colour, 0.8)
 	        };
 	    };
-	    GenericChart.prototype.getRandomInt = function (min, max) {
+	    BaseChart.prototype.getRandomInt = function (min, max) {
 	        return Math.floor(Math.random() * (max - min + 1)) + min;
 	    };
-	    GenericChart.prototype.rgba = function (colour, alpha) {
+	    BaseChart.prototype.rgba = function (colour, alpha) {
 	        return 'rgba(' + colour.concat(alpha).join(',') + ')';
 	    };
-	    GenericChart.prototype.click = function (evt) {
+	    BaseChart.prototype.click = function (evt) {
 	        var atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
 	        var activePoints = atEvent.call(this.chart, evt);
 	        if (activePoints.length > 0) {
@@ -3701,7 +3696,7 @@ webpackJsonp([2],{
 	            console.log('not point');
 	        }
 	    };
-	    GenericChart.prototype.hover = function (evt) {
+	    BaseChart.prototype.hover = function (evt) {
 	        var atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
 	        var activePoints = atEvent.call(this.chart, evt);
 	        if (activePoints.length > 0) {
@@ -3713,35 +3708,56 @@ webpackJsonp([2],{
 	            console.log('not point');
 	        }
 	    };
-	    GenericChart.prototype.refresh = function () {
-	        this.destroy();
+	    BaseChart.prototype.getChartBuilder = function (ctx, data, options) {
+	        return new Chart(ctx)[this.chartType](data, options);
+	    };
+	    BaseChart.prototype.getDataObject = function (label, value) {
+	        if (this.chartType === 'Line'
+	            || this.chartType === 'Bar'
+	            || this.chartType === 'Radar') {
+	            return {
+	                label: label,
+	                data: value
+	            };
+	        }
+	        if (this.chartType === 'Pie'
+	            || this.chartType === 'Doughnut'
+	            || this.chartType === 'PolarArea') {
+	            return {
+	                label: label,
+	                value: value
+	            };
+	        }
+	    };
+	    BaseChart.prototype.getChartData = function (labels, dataObject) {
+	        if (this.chartType === 'Line'
+	            || this.chartType === 'Bar'
+	            || this.chartType === 'Radar') {
+	            return {
+	                labels: labels,
+	                datasets: dataObject
+	            };
+	        }
+	        if (this.chartType === 'Pie'
+	            || this.chartType === 'Doughnut'
+	            || this.chartType === 'PolarArea') {
+	            return dataObject;
+	        }
+	    };
+	    BaseChart.prototype.refresh = function () {
+	        this.onDestroy();
 	        var dataset = [];
 	        for (var i = 0; i < this.data.length; i++) {
 	            var colourDesc = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
 	            var colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
-	            var data_1 = Object.assign(colour, this.imp.getDataObject(this.chartType, this.series[i] || this.labels[i], this.data[i]));
+	            var data_1 = Object.assign(colour, this.getDataObject(this.series[i] || this.labels[i], this.data[i]));
 	            dataset.push(data_1);
 	        }
-	        var data = this.imp.getChartData(this.labels, dataset, this.chartType);
-	        this.chart = this.imp.getChartBuilder(this.ctx, this.chartType, data, this.options);
+	        var data = this.getChartData(this.labels, dataset);
+	        this.chart = this.getChartBuilder(this.ctx, data, this.options);
 	        if (this.legend) {
 	            this.setLegend();
 	        }
-	    };
-	    return GenericChart;
-	})();
-	exports.GenericChart = GenericChart;
-	var BaseChart = (function (_super) {
-	    __extends(BaseChart, _super);
-	    function BaseChart(element) {
-	        _super.call(this, new BaseChart.Impl());
-	        this.element = element;
-	    }
-	    BaseChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    BaseChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
 	    };
 	    BaseChart = __decorate([
 	        angular2_1.Component({
@@ -3764,396 +3780,9 @@ webpackJsonp([2],{
 	        __metadata('design:paramtypes', [angular2_1.ElementRef])
 	    ], BaseChart);
 	    return BaseChart;
-	})(GenericChart);
+	})();
 	exports.BaseChart = BaseChart;
-	var BaseChart;
-	(function (BaseChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx)[chartType](data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            if (chartType === 'Line' || chartType === 'Bar' || chartType === 'Radar') {
-	                return {
-	                    label: label,
-	                    data: value
-	                };
-	            }
-	            if (chartType === 'Pie' || chartType === 'Doughnut' || chartType === 'PolarArea') {
-	                return {
-	                    label: label,
-	                    value: value
-	                };
-	            }
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            if (chartType === 'Line'
-	                || chartType === 'Bar'
-	                || chartType === 'Radar') {
-	                return {
-	                    labels: labels,
-	                    datasets: dataObject
-	                };
-	            }
-	            if (chartType === 'Pie'
-	                || chartType === 'Doughnut'
-	                || chartType === 'PolarArea') {
-	                return dataObject;
-	            }
-	        };
-	        return Impl;
-	    })();
-	    BaseChart.Impl = Impl;
-	})(BaseChart = exports.BaseChart || (exports.BaseChart = {}));
-	var LineChart = (function (_super) {
-	    __extends(LineChart, _super);
-	    function LineChart(element) {
-	        _super.call(this, new LineChart.Impl());
-	        this.element = element;
-	    }
-	    LineChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    LineChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
-	    };
-	    LineChart = __decorate([
-	        angular2_1.Component({
-	            selector: 'line-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover']
-	        }),
-	        angular2_1.View({
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
-	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [angular2_1.ElementRef])
-	    ], LineChart);
-	    return LineChart;
-	})(GenericChart);
-	exports.LineChart = LineChart;
-	var LineChart;
-	(function (LineChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx).Line(data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            return {
-	                label: label,
-	                data: value
-	            };
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            return {
-	                labels: labels,
-	                datasets: dataObject
-	            };
-	        };
-	        return Impl;
-	    })();
-	    LineChart.Impl = Impl;
-	})(LineChart = exports.LineChart || (exports.LineChart = {}));
-	var BarChart = (function (_super) {
-	    __extends(BarChart, _super);
-	    function BarChart(element) {
-	        _super.call(this, new BarChart.Impl());
-	        this.element = element;
-	    }
-	    BarChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    BarChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
-	    };
-	    BarChart = __decorate([
-	        angular2_1.Component({
-	            selector: 'bar-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover']
-	        }),
-	        angular2_1.View({
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
-	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [angular2_1.ElementRef])
-	    ], BarChart);
-	    return BarChart;
-	})(GenericChart);
-	exports.BarChart = BarChart;
-	var BarChart;
-	(function (BarChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx).Bar(data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            return {
-	                label: label,
-	                data: value
-	            };
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            return {
-	                labels: labels,
-	                datasets: dataObject
-	            };
-	        };
-	        return Impl;
-	    })();
-	    BarChart.Impl = Impl;
-	})(BarChart = exports.BarChart || (exports.BarChart = {}));
-	var PolarAreaChart = (function (_super) {
-	    __extends(PolarAreaChart, _super);
-	    function PolarAreaChart(element) {
-	        _super.call(this, new PolarAreaChart.Impl());
-	        this.element = element;
-	    }
-	    PolarAreaChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    PolarAreaChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
-	    };
-	    PolarAreaChart = __decorate([
-	        angular2_1.Component({
-	            selector: 'polar-area-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover']
-	        }),
-	        angular2_1.View({
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
-	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [angular2_1.ElementRef])
-	    ], PolarAreaChart);
-	    return PolarAreaChart;
-	})(GenericChart);
-	exports.PolarAreaChart = PolarAreaChart;
-	var PolarAreaChart;
-	(function (PolarAreaChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx).PolarArea(data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            return {
-	                label: label,
-	                value: value
-	            };
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            return dataObject;
-	        };
-	        return Impl;
-	    })();
-	    PolarAreaChart.Impl = Impl;
-	})(PolarAreaChart = exports.PolarAreaChart || (exports.PolarAreaChart = {}));
-	var DoughnutChart = (function (_super) {
-	    __extends(DoughnutChart, _super);
-	    function DoughnutChart(element) {
-	        _super.call(this, new DoughnutChart.Impl());
-	        this.element = element;
-	    }
-	    DoughnutChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    DoughnutChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
-	    };
-	    DoughnutChart = __decorate([
-	        angular2_1.Component({
-	            selector: 'doughnut-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover']
-	        }),
-	        angular2_1.View({
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
-	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [angular2_1.ElementRef])
-	    ], DoughnutChart);
-	    return DoughnutChart;
-	})(GenericChart);
-	exports.DoughnutChart = DoughnutChart;
-	var DoughnutChart;
-	(function (DoughnutChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx).Doughnut(data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            return {
-	                label: label,
-	                value: value
-	            };
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            return dataObject;
-	        };
-	        return Impl;
-	    })();
-	    DoughnutChart.Impl = Impl;
-	})(DoughnutChart = exports.DoughnutChart || (exports.DoughnutChart = {}));
-	var PieChart = (function (_super) {
-	    __extends(PieChart, _super);
-	    function PieChart(element) {
-	        _super.call(this, new PieChart.Impl());
-	        this.element = element;
-	    }
-	    PieChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    PieChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
-	    };
-	    PieChart = __decorate([
-	        angular2_1.Component({
-	            selector: 'pie-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover']
-	        }),
-	        angular2_1.View({
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
-	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [angular2_1.ElementRef])
-	    ], PieChart);
-	    return PieChart;
-	})(GenericChart);
-	exports.PieChart = PieChart;
-	var PieChart;
-	(function (PieChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx).Pie(data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            return {
-	                label: label,
-	                value: value
-	            };
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            return dataObject;
-	        };
-	        return Impl;
-	    })();
-	    PieChart.Impl = Impl;
-	})(PieChart = exports.PieChart || (exports.PieChart = {}));
-	var RadarChart = (function (_super) {
-	    __extends(RadarChart, _super);
-	    function RadarChart(element) {
-	        _super.call(this, new RadarChart.Impl());
-	        this.element = element;
-	    }
-	    RadarChart.prototype.onInit = function () {
-	        _super.prototype.init.call(this, this.element);
-	    };
-	    RadarChart.prototype.onDestroy = function () {
-	        _super.prototype.destroy.call(this);
-	    };
-	    RadarChart = __decorate([
-	        angular2_1.Component({
-	            selector: 'radar-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover']
-	        }),
-	        angular2_1.View({
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (^click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
-	            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [angular2_1.ElementRef])
-	    ], RadarChart);
-	    return RadarChart;
-	})(GenericChart);
-	exports.RadarChart = RadarChart;
-	var RadarChart;
-	(function (RadarChart) {
-	    var Impl = (function () {
-	        function Impl() {
-	        }
-	        Impl.prototype.getChartBuilder = function (ctx, chartType, data, options) {
-	            return new Chart(ctx).Radar(data, options);
-	        };
-	        Impl.prototype.getDataObject = function (chartType, label, value) {
-	            return {
-	                label: label,
-	                data: value
-	            };
-	        };
-	        Impl.prototype.getChartData = function (labels, dataObject, chartType) {
-	            return {
-	                labels: labels,
-	                datasets: dataObject
-	            };
-	        };
-	        return Impl;
-	    })();
-	    RadarChart.Impl = Impl;
-	})(RadarChart = exports.RadarChart || (exports.RadarChart = {}));
-	exports.charts = [Charts, BaseChart, LineChart, BarChart, PolarAreaChart,
-	    DoughnutChart, PieChart, RadarChart];
+	exports.charts = [Charts, BaseChart];
 	//# sourceMappingURL=charts.js.map
 
 /***/ },
