@@ -43,7 +43,7 @@
     "angular2": "2.0.0-alpha.37",
     "es6-promise": "3.0.2",
     "moment": "^2.10.6",
-    "ng2-bootstrap": "^0.37.0",
+    "ng2-bootstrap": "^0.37.2",
     "reflect-metadata": "0.1.1",
     "rtts_assert": "2.0.0-alpha.37",
     "traceur-runtime": "0.0.59",

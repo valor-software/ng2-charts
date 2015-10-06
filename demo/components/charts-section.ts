@@ -79,7 +79,7 @@ let chartContent:string = ``;
 chartDesc.forEach(desc => {
 
   chartContent += `
-      <section id="${desc.id}" style="padding-top: 40px;">
+      <section id="${desc.id}" style="padding-top: 50px;">
         <div class="row">
           <div class="col-md-12">
             <h4>${desc.heading}</h4>
