@@ -3,7 +3,6 @@
 import {Component, View, CORE_DIRECTIVES, NgNonBindable} from 'angular2/angular2';
 
 import {tabs} from 'ng2-bootstrap';
-import {ChartsDemo} from './charts/charts-demo';
 import {LineChartDemo} from './charts/line-chart-demo';
 import {BarChartDemo} from './charts/bar-chart-demo';
 import {DoughnutChartDemo} from './charts/doughnut-chart-demo';
@@ -16,8 +15,6 @@ let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
 // webpack html imports
 let doc = require('../../components/charts/readme.md');
-// let ts = require('!!prismjs?lang=typescript!./charts/charts-demo.ts');
-// let html = require('!!prismjs?lang=markup!./charts/charts-demo.html');
 
 
 let chartDesc:Array<any> = [
@@ -135,9 +132,7 @@ chartDesc.forEach(desc => {
 
     <div class="row">
       <h2>Example</h2>
-
-       ${chartContent}
-        <!--<charts-demo></charts-demo>-->
+        ${chartContent}
     </div>
 
     <br>
@@ -148,8 +143,7 @@ chartDesc.forEach(desc => {
     </div>
   </section>
   `,
-  // directives: [ChartsDemo, tabs, CORE_DIRECTIVES, NgNonBindable]
-  directives: [ChartsDemo, LineChartDemo, BarChartDemo, DoughnutChartDemo, PieChartDemo,
+  directives: [LineChartDemo, BarChartDemo, DoughnutChartDemo, PieChartDemo,
     PolarAreaChartDemo, RadarChartDemo, BaseChartDemo, tabs, CORE_DIRECTIVES, NgNonBindable]
 })
 export class ChartsSection {
