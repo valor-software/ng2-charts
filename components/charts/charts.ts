@@ -232,7 +232,7 @@ export class BaseChart implements OnInit, OnDestroy {
     return new Chart(ctx)[this.chartType](data, options);
   }
 
-  getDataObject(label:string, value:any) {
+  getDataObject(label:string, value:any):any {
     if (this.chartType === 'Line'
       || this.chartType === 'Bar'
       || this.chartType === 'Radar') {
@@ -250,6 +250,8 @@ export class BaseChart implements OnInit, OnDestroy {
         value: value
       };
     }
+
+    return null;
   }
 
   getChartData(labels:any, dataObject:any) {

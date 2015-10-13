@@ -40,13 +40,11 @@
   },
   "homepage": "https://github.com/valor-software/ng2-charts#readme",
   "dependencies": {
-    "angular2": "2.0.0-alpha.37",
-    "es6-promise": "3.0.2",
+    "angular2": "2.0.0-alpha.40",
+    "ng2-bootstrap": "^0.40.0",
     "moment": "^2.10.6",
-    "ng2-bootstrap": "^0.37.2",
     "reflect-metadata": "0.1.1",
-    "rtts_assert": "2.0.0-alpha.37",
-    "traceur-runtime": "0.0.59",
+    "ts-loader": "0.5.6",
     "zone.js": "0.5.4",
     "chart.js": "^1.0.2"
   },
@@ -71,9 +69,8 @@
     "prismjs-loader": "0.0.2",
     "raw-loader": "^0.5.1",
     "require-dir": "^0.3.0",
-    "typescript": "^1.5.3",
-    "typescript-simple-loader": "^0.3.4",
-    "webpack": "^1.11.0",
-    "webpack-dev-server": "^1.10.1"
+    "typescript": "^1.6.2",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
   }
 }

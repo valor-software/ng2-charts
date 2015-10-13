@@ -1,5 +1,5 @@
 {
-    "version": "1.5.3",
+    "version": "1.6.2",
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -15,21 +15,14 @@
         "noImplicitAny": false
     },
     "filesGlob": [
-        "./**/*.ts",
         "!./node_modules/**/*.ts"
     ],
     "files": [
-        "./components/charts/charts.ts",
-        "./components/index.ts",
-        "./components/module.ts",
-        "./components/ng2-charts-config.ts",
-        "./demo/components/charts-demo.ts",
-        "./demo/index.ts",
-        "./dist/charts/charts.d.ts",
-        "./dist/index.d.ts",
-        "./dist/module.d.ts",
-        "./dist/ng2-charts-config.d.ts",
         "./tsd.d.ts",
-        "./typings/es6-object.d.ts"
+
+        "./components/charts/charts.ts",
+        "./components/ng2-charts-config.ts",
+        "./components/index.ts",
+        "./demo/index.ts"
     ]
 }
