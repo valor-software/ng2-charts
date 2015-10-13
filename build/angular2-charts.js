@@ -3,25 +3,25 @@ webpackJsonp([2],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(11);
+	module.exports = __webpack_require__(12);
 
 
 /***/ },
 
-/***/ 11:
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	///<reference path="../tsd.d.ts"/>
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(83));
-	__export(__webpack_require__(84));
-	//# sourceMappingURL=index.js.map
+	__export(__webpack_require__(95));
+	__export(__webpack_require__(96));
+
 
 /***/ },
 
-/***/ 82:
+/***/ 94:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -328,7 +328,7 @@ webpackJsonp([2],{
 				//Method for warning of errors
 				if (window.console && typeof window.console.warn == "function") console.warn(str);
 			},
-			amd = helpers.amd = ("function" == 'function' && __webpack_require__(85)),
+			amd = helpers.amd = ("function" == 'function' && __webpack_require__(97)),
 			//-- Math methods
 			isNumber = helpers.isNumber = function(n){
 				return !isNaN(parseFloat(n)) && isFinite(n);
@@ -3504,7 +3504,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 83:
+/***/ 95:
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -3519,8 +3519,8 @@ webpackJsonp([2],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var Chart = __webpack_require__(82);
+	var angular2_1 = __webpack_require__(6);
+	var Chart = __webpack_require__(94);
 	var Charts = (function () {
 	    function Charts(element) {
 	    }
@@ -3728,6 +3728,7 @@ webpackJsonp([2],{
 	                value: value
 	            };
 	        }
+	        return null;
 	    };
 	    BaseChart.prototype.getChartData = function (labels, dataObject) {
 	        if (this.chartType === 'Line'
@@ -3783,11 +3784,11 @@ webpackJsonp([2],{
 	})();
 	exports.BaseChart = BaseChart;
 	exports.charts = [Charts, BaseChart];
-	//# sourceMappingURL=charts.js.map
+
 
 /***/ },
 
-/***/ 84:
+/***/ 96:
 /***/ function(module, exports) {
 
 	(function (Ng2ChartsTheme) {
@@ -3815,11 +3816,11 @@ webpackJsonp([2],{
 	    return Ng2ChartsConfig;
 	})();
 	exports.Ng2ChartsConfig = Ng2ChartsConfig;
-	//# sourceMappingURL=ng2-charts-config.js.map
+
 
 /***/ },
 
-/***/ 85:
+/***/ 97:
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;

@@ -14,15 +14,15 @@ webpackJsonp([1],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	/// <reference path="../tsd.d.ts" />
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
 	var w = window;
 	if (w && w.__theme === 'bs4') {
 	    index_1.Ng2ChartsConfig.theme = index_1.Ng2ChartsTheme.BS4;
 	}
-	var charts_section_1 = __webpack_require__(334);
-	var demo_header_1 = __webpack_require__(343);
-	var gettingStarted = __webpack_require__(287);
+	var charts_section_1 = __webpack_require__(358);
+	var demo_header_1 = __webpack_require__(366);
+	var gettingStarted = __webpack_require__(315);
 	var Demo = (function () {
 	    function Demo() {
 	        this.isBs3 = index_1.Ng2ChartsConfig.theme === index_1.Ng2ChartsTheme.BS3;
@@ -45,7 +45,7 @@ webpackJsonp([1],[
 	})();
 	exports.Demo = Demo;
 	angular2_1.bootstrap(Demo);
-	//# sourceMappingURL=index.js.map
+
 
 /***/ },
 /* 1 */,
@@ -320,7 +320,7 @@ webpackJsonp([1],[
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(288)("./" + name);
+	                __webpack_require__(316)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -3247,7 +3247,7 @@ webpackJsonp([1],[
 	    return _moment;
 	
 	}));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(226)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(249)(module)))
 
 /***/ },
 /* 3 */,
@@ -3258,19 +3258,19 @@ webpackJsonp([1],[
 /* 8 */,
 /* 9 */,
 /* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	///<reference path="../tsd.d.ts"/>
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(83));
-	__export(__webpack_require__(84));
-	//# sourceMappingURL=index.js.map
+	__export(__webpack_require__(95));
+	__export(__webpack_require__(96));
+
 
 /***/ },
-/* 12 */,
 /* 13 */,
 /* 14 */,
 /* 15 */,
@@ -3285,7 +3285,10 @@ webpackJsonp([1],[
 /* 24 */,
 /* 25 */,
 /* 26 */,
-/* 27 */
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */
 /***/ function(module, exports) {
 
 	(function (Ng2BootstrapTheme) {
@@ -3316,9 +3319,6 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../components/dist/ng2-bootstrap-config.js.map
 
 /***/ },
-/* 28 */,
-/* 29 */,
-/* 30 */,
 /* 31 */,
 /* 32 */,
 /* 33 */,
@@ -3332,7 +3332,16 @@ webpackJsonp([1],[
 /* 41 */,
 /* 42 */,
 /* 43 */,
-/* 44 */
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -3347,8 +3356,8 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var date_formatter_1 = __webpack_require__(294);
+	var angular2_1 = __webpack_require__(6);
+	var date_formatter_1 = __webpack_require__(322);
 	var FORMAT_DAY = 'DD';
 	var FORMAT_MONTH = 'MMMM';
 	var FORMAT_YEAR = 'YYYY';
@@ -3592,7 +3601,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/datepicker-inner.js.map
 
 /***/ },
-/* 45 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -3607,8 +3616,8 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var dropdown_service_1 = __webpack_require__(223);
+	var angular2_1 = __webpack_require__(6);
+	var dropdown_service_1 = __webpack_require__(246);
 	var Dropdown = (function () {
 	    function Dropdown(el) {
 	        this.el = el;
@@ -3731,7 +3740,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/dropdown/dropdown.js.map
 
 /***/ },
-/* 46 */
+/* 55 */
 /***/ function(module, exports) {
 
 	/// <reference path="../tsd.d.ts" />
@@ -3866,15 +3875,6 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../components/dist/position.js.map
 
 /***/ },
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
 /* 56 */,
 /* 57 */,
 /* 58 */,
@@ -3901,7 +3901,19 @@ webpackJsonp([1],[
 /* 79 */,
 /* 80 */,
 /* 81 */,
-/* 82 */
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4208,7 +4220,7 @@ webpackJsonp([1],[
 				//Method for warning of errors
 				if (window.console && typeof window.console.warn == "function") console.warn(str);
 			},
-			amd = helpers.amd = ("function" == 'function' && __webpack_require__(85)),
+			amd = helpers.amd = ("function" == 'function' && __webpack_require__(97)),
 			//-- Math methods
 			isNumber = helpers.isNumber = function(n){
 				return !isNaN(parseFloat(n)) && isFinite(n);
@@ -7383,7 +7395,7 @@ webpackJsonp([1],[
 	}).call(this);
 
 /***/ },
-/* 83 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -7398,8 +7410,8 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var Chart = __webpack_require__(82);
+	var angular2_1 = __webpack_require__(6);
+	var Chart = __webpack_require__(94);
 	var Charts = (function () {
 	    function Charts(element) {
 	    }
@@ -7607,6 +7619,7 @@ webpackJsonp([1],[
 	                value: value
 	            };
 	        }
+	        return null;
 	    };
 	    BaseChart.prototype.getChartData = function (labels, dataObject) {
 	        if (this.chartType === 'Line'
@@ -7662,10 +7675,10 @@ webpackJsonp([1],[
 	})();
 	exports.BaseChart = BaseChart;
 	exports.charts = [Charts, BaseChart];
-	//# sourceMappingURL=charts.js.map
+
 
 /***/ },
-/* 84 */
+/* 96 */
 /***/ function(module, exports) {
 
 	(function (Ng2ChartsTheme) {
@@ -7693,10 +7706,10 @@ webpackJsonp([1],[
 	    return Ng2ChartsConfig;
 	})();
 	exports.Ng2ChartsConfig = Ng2ChartsConfig;
-	//# sourceMappingURL=ng2-charts-config.js.map
+
 
 /***/ },
-/* 85 */
+/* 97 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -7704,18 +7717,6 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
 /* 98 */,
 /* 99 */,
 /* 100 */,
@@ -7752,7 +7753,30 @@ webpackJsonp([1],[
 /* 131 */,
 /* 132 */,
 /* 133 */,
-/* 134 */
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -7829,7 +7853,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 135 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -7892,7 +7916,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 136 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -7999,7 +8023,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 137 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8060,7 +8084,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 138 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8200,7 +8224,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 139 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8308,7 +8332,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 140 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8459,7 +8483,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 141 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8553,7 +8577,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 142 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8670,7 +8694,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 143 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8784,7 +8808,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 144 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -8895,7 +8919,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 145 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9040,7 +9064,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 146 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9123,7 +9147,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 147 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9284,7 +9308,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 148 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9351,7 +9375,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 149 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9434,7 +9458,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 150 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9498,7 +9522,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 151 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9578,7 +9602,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 152 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9657,7 +9681,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 153 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9755,7 +9779,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 154 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9825,7 +9849,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 155 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9892,7 +9916,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 156 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -9963,7 +9987,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 157 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10040,7 +10064,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 158 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10123,7 +10147,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 159 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10207,7 +10231,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 160 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10275,7 +10299,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 161 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10384,7 +10408,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 162 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10495,7 +10519,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 163 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10559,7 +10583,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 164 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10621,7 +10645,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 165 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10687,7 +10711,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 166 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10762,7 +10786,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 167 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10841,7 +10865,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 168 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -10927,7 +10951,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 169 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11054,7 +11078,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 170 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11198,7 +11222,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 171 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11311,7 +11335,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 172 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11426,7 +11450,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 173 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11513,7 +11537,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 174 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11644,7 +11668,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 175 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11718,7 +11742,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 176 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11787,7 +11811,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 177 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11874,7 +11898,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 178 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -11981,7 +12005,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 179 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12043,7 +12067,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 180 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12115,7 +12139,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 181 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12253,7 +12277,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 182 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12382,7 +12406,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 183 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12482,7 +12506,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 184 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12595,7 +12619,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 185 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12689,7 +12713,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 186 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12764,7 +12788,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 187 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12889,7 +12913,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 188 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -12975,7 +12999,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 189 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13061,7 +13085,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 190 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13158,7 +13182,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 191 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13223,7 +13247,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 192 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13350,7 +13374,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 193 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13425,7 +13449,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 194 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13489,7 +13513,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 195 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13598,7 +13622,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 196 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13662,7 +13686,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 197 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13730,7 +13754,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 198 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13808,7 +13832,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 199 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -13976,7 +14000,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 200 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14045,7 +14069,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 201 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14207,7 +14231,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 202 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14371,7 +14395,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 203 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14444,7 +14468,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 204 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14556,7 +14580,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 205 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14668,7 +14692,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 206 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14739,7 +14763,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 207 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14838,7 +14862,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 208 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14907,7 +14931,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 209 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -14973,7 +14997,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 210 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15067,7 +15091,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 211 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15156,7 +15180,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 212 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15218,7 +15242,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 213 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15280,7 +15304,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 214 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15437,7 +15461,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 215 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15499,7 +15523,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 216 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15569,7 +15593,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 217 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15700,7 +15724,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 218 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -15805,7 +15829,7 @@ webpackJsonp([1],[
 	}));
 
 /***/ },
-/* 219 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -15820,7 +15844,7 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var Collapse = (function () {
 	    function Collapse(el) {
 	        this.el = el;
@@ -15894,7 +15918,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/collapse/collapse.js.map
 
 /***/ },
-/* 220 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -15912,7 +15936,7 @@ webpackJsonp([1],[
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	/// <reference path="../tsd.d.ts" />
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var NgTransclude = (function () {
 	    function NgTransclude(viewRef) {
 	        this.viewRef = viewRef;
@@ -15944,16 +15968,10 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../components/dist/common.js.map
 
 /***/ },
-/* 221 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -15968,16 +15986,18 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var moment = __webpack_require__(2);
-	var datepicker_inner_1 = __webpack_require__(44);
-	var daypicker_1 = __webpack_require__(296);
-	var monthpicker_1 = __webpack_require__(298);
-	var yearpicker_1 = __webpack_require__(299);
-	var DatePicker = (function (_super) {
-	    __extends(DatePicker, _super);
-	    function DatePicker(cd, renderer, elementRef) {
-	        _super.call(this, cd, renderer, elementRef);
+	var datepicker_inner_1 = __webpack_require__(53);
+	var daypicker_1 = __webpack_require__(324);
+	var monthpicker_1 = __webpack_require__(326);
+	var yearpicker_1 = __webpack_require__(327);
+	var DatePicker = (function () {
+	    function DatePicker(cd) {
+	        this.cd = cd;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	        cd.valueAccessor = this;
 	    }
 	    Object.defineProperty(DatePicker.prototype, "activeDate", {
 	        get: function () {
@@ -15994,12 +16014,21 @@ webpackJsonp([1],[
 	        this.writeValue(event);
 	    };
 	    DatePicker.prototype.writeValue = function (value) {
-	        if (value) {
-	            if (typeof value !== 'Date') {
-	                value = new Date(value);
-	            }
-	            this.activeDate = value;
+	        console.log(value);
+	        if (value === this.activeDate) {
+	            return;
 	        }
+	        if (value && value instanceof Date) {
+	            this.activeDate = value;
+	            return;
+	        }
+	        this.activeDate = value ? new Date(value) : null;
+	    };
+	    DatePicker.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    DatePicker.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
 	    };
 	    DatePicker = __decorate([
 	        angular2_1.Component({
@@ -16022,15 +16051,15 @@ webpackJsonp([1],[
 	            directives: [datepicker_inner_1.DatePickerInner, daypicker_1.DayPicker, monthpicker_1.MonthPicker, yearpicker_1.YearPicker, angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES]
 	        }),
 	        __param(0, angular2_1.Self()), 
-	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.Renderer, angular2_1.ElementRef])
+	        __metadata('design:paramtypes', [angular2_1.NgModel])
 	    ], DatePicker);
 	    return DatePicker;
-	})(angular2_1.DefaultValueAccessor);
+	})();
 	exports.DatePicker = DatePicker;
 	//# sourceMappingURL=../../components/dist/datepicker/datepicker.js.map
 
 /***/ },
-/* 222 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16048,8 +16077,8 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
-	var dropdown_1 = __webpack_require__(45);
+	var angular2_1 = __webpack_require__(6);
+	var dropdown_1 = __webpack_require__(54);
 	var DropdownMenu = (function () {
 	    function DropdownMenu(dropdown, el) {
 	        this.dropdown = dropdown;
@@ -16072,7 +16101,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/dropdown/dropdown-menu.js.map
 
 /***/ },
-/* 223 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16140,7 +16169,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/dropdown/dropdown-service.js.map
 
 /***/ },
-/* 224 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16158,8 +16187,8 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
-	var dropdown_1 = __webpack_require__(45);
+	var angular2_1 = __webpack_require__(6);
+	var dropdown_1 = __webpack_require__(54);
 	var DropdownToggle = (function () {
 	    function DropdownToggle(dropdown, el) {
 	        this.dropdown = dropdown;
@@ -16204,61 +16233,38 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/dropdown/dropdown-toggle.js.map
 
 /***/ },
-/* 225 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	///<reference path="../tsd.d.ts"/>
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(289));
-	__export(__webpack_require__(290));
-	__export(__webpack_require__(292));
-	__export(__webpack_require__(291));
-	__export(__webpack_require__(297));
-	__export(__webpack_require__(300));
-	__export(__webpack_require__(45));
-	__export(__webpack_require__(222));
-	__export(__webpack_require__(223));
-	__export(__webpack_require__(224));
-	__export(__webpack_require__(293));
-	__export(__webpack_require__(219));
-	__export(__webpack_require__(301));
-	__export(__webpack_require__(302));
-	__export(__webpack_require__(303));
-	__export(__webpack_require__(304));
-	__export(__webpack_require__(305));
-	__export(__webpack_require__(306));
-	__export(__webpack_require__(307));
-	__export(__webpack_require__(46));
-	__export(__webpack_require__(220));
-	__export(__webpack_require__(27));
+	__export(__webpack_require__(317));
+	__export(__webpack_require__(318));
+	__export(__webpack_require__(320));
+	__export(__webpack_require__(319));
+	__export(__webpack_require__(325));
+	__export(__webpack_require__(328));
+	__export(__webpack_require__(54));
+	__export(__webpack_require__(245));
+	__export(__webpack_require__(246));
+	__export(__webpack_require__(247));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(242));
+	__export(__webpack_require__(329));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
+	__export(__webpack_require__(55));
+	__export(__webpack_require__(243));
+	__export(__webpack_require__(30));
 	//# sourceMappingURL=../components/dist/index.js.map
 
 /***/ },
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
 /* 249 */,
 /* 250 */,
 /* 251 */,
@@ -16296,192 +16302,220 @@ webpackJsonp([1],[
 /* 283 */,
 /* 284 */,
 /* 285 */,
-/* 286 */
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = "<h3 id=\"usage\">Usage</h3>\n<pre class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'ng2-charts'</span><span class=\"token punctuation\" >;</span>\n</code></pre>\n<h1 id=\"utilisation\">Utilisation</h1>\n<p>There are directive: <code>base-chart</code>, and there are 6 types of charts: , <code>Line</code>, <code>Bar</code>, <code>Radar</code>, <code>Pie</code>, <code>PolarArea</code>, <code>Doughnut</code>.</p>\n<h3 id=\"properties\">Properties</h3>\n<ul>\n<li><code>data</code> (<code>Array&lt;any&gt;</code>) -  set of points of the chart, it should be Array&lt;Array&lt;number&gt;&gt; only for line, bar and radar, otherwise Array&lt;number&gt;</li>\n<li><code>labels</code> (<code>?Array&lt;any&gt;</code>) - x axis labels. It&#39;s necessary for charts: line, bar and radar. And just labels (on hover) for charts: polar area, pie and doughnut</li>\n<li><code>chart-type</code> (<code>?string</code>) - indicates the type of charts, it can be: &#39;Line&#39;, &#39;Bar&#39;, &#39;Radar&#39;, &#39;Pie&#39;, &#39;PolarArea&#39;, &#39;Doughnut&#39;</li>\n<li><code>options</code> (<code>?any</code>) - chart options (as from <a href=\"http://www.chartjs.org/docs/\">Chart.js documentation</a>)</li>\n<li><code>series</code> (<code>?Array&lt;any&gt;</code>) - name points on the chart, work for line, bar and radar</li>\n<li><code>colours</code> (<code>?Array&lt;any&gt;</code>) - data colours, will use default colours if not specified (see below)</li>\n<li><code>legend</code>: (<code>?boolean=false</code>) - if true show legend below the chart, otherwise not be shown</li>\n</ul>\n<h3 id=\"events\">Events</h3>\n<ul>\n<li><code>chart-click</code>: fires when click on a chart has occurred, returns information regarding active points and labels</li>\n<li><code>chart-hover</code>: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels</li>\n</ul>\n<h2 id=\"colours\">Colours</h2>\n<p>There are a set of 7 default colours. Colours can be replaced using the <code>colours</code> attribute.\nIf there is more data than colours, colours are generated randomly or can be provided\nvia a function through the <code>getColour</code> attribute.</p>\n<p>Hex colours are converted to Chart.js colours automatically,\nincluding different shades for highlight, fill, stroke, etc.</p>\n";
 
 /***/ },
-/* 287 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = "<h1 id=\"getting-started\">Getting started</h1>\n<h3 id=\"first-of-all-welcome-\">First of all, Welcome!</h3>\n";
 
 /***/ },
-/* 288 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 134,
-		"./af.js": 134,
-		"./ar": 138,
-		"./ar-ma": 135,
-		"./ar-ma.js": 135,
-		"./ar-sa": 136,
-		"./ar-sa.js": 136,
-		"./ar-tn": 137,
-		"./ar-tn.js": 137,
-		"./ar.js": 138,
-		"./az": 139,
-		"./az.js": 139,
-		"./be": 140,
-		"./be.js": 140,
-		"./bg": 141,
-		"./bg.js": 141,
-		"./bn": 142,
-		"./bn.js": 142,
-		"./bo": 143,
-		"./bo.js": 143,
-		"./br": 144,
-		"./br.js": 144,
-		"./bs": 145,
-		"./bs.js": 145,
-		"./ca": 146,
-		"./ca.js": 146,
-		"./cs": 147,
-		"./cs.js": 147,
-		"./cv": 148,
-		"./cv.js": 148,
-		"./cy": 149,
-		"./cy.js": 149,
-		"./da": 150,
-		"./da.js": 150,
-		"./de": 152,
-		"./de-at": 151,
-		"./de-at.js": 151,
-		"./de.js": 152,
-		"./el": 153,
-		"./el.js": 153,
-		"./en-au": 154,
-		"./en-au.js": 154,
-		"./en-ca": 155,
-		"./en-ca.js": 155,
-		"./en-gb": 156,
-		"./en-gb.js": 156,
-		"./eo": 157,
-		"./eo.js": 157,
-		"./es": 158,
-		"./es.js": 158,
-		"./et": 159,
-		"./et.js": 159,
-		"./eu": 160,
-		"./eu.js": 160,
-		"./fa": 161,
-		"./fa.js": 161,
-		"./fi": 162,
-		"./fi.js": 162,
-		"./fo": 163,
-		"./fo.js": 163,
-		"./fr": 165,
-		"./fr-ca": 164,
-		"./fr-ca.js": 164,
-		"./fr.js": 165,
-		"./fy": 166,
-		"./fy.js": 166,
-		"./gl": 167,
-		"./gl.js": 167,
-		"./he": 168,
-		"./he.js": 168,
-		"./hi": 169,
-		"./hi.js": 169,
-		"./hr": 170,
-		"./hr.js": 170,
-		"./hu": 171,
-		"./hu.js": 171,
-		"./hy-am": 172,
-		"./hy-am.js": 172,
-		"./id": 173,
-		"./id.js": 173,
-		"./is": 174,
-		"./is.js": 174,
-		"./it": 175,
-		"./it.js": 175,
-		"./ja": 176,
-		"./ja.js": 176,
-		"./jv": 177,
-		"./jv.js": 177,
-		"./ka": 178,
-		"./ka.js": 178,
-		"./km": 179,
-		"./km.js": 179,
-		"./ko": 180,
-		"./ko.js": 180,
-		"./lb": 181,
-		"./lb.js": 181,
-		"./lt": 182,
-		"./lt.js": 182,
-		"./lv": 183,
-		"./lv.js": 183,
-		"./me": 184,
-		"./me.js": 184,
-		"./mk": 185,
-		"./mk.js": 185,
-		"./ml": 186,
-		"./ml.js": 186,
-		"./mr": 187,
-		"./mr.js": 187,
-		"./ms": 189,
-		"./ms-my": 188,
-		"./ms-my.js": 188,
-		"./ms.js": 189,
-		"./my": 190,
-		"./my.js": 190,
-		"./nb": 191,
-		"./nb.js": 191,
-		"./ne": 192,
-		"./ne.js": 192,
-		"./nl": 193,
-		"./nl.js": 193,
-		"./nn": 194,
-		"./nn.js": 194,
-		"./pl": 195,
-		"./pl.js": 195,
-		"./pt": 197,
-		"./pt-br": 196,
-		"./pt-br.js": 196,
-		"./pt.js": 197,
-		"./ro": 198,
-		"./ro.js": 198,
-		"./ru": 199,
-		"./ru.js": 199,
-		"./si": 200,
-		"./si.js": 200,
-		"./sk": 201,
-		"./sk.js": 201,
-		"./sl": 202,
-		"./sl.js": 202,
-		"./sq": 203,
-		"./sq.js": 203,
-		"./sr": 205,
-		"./sr-cyrl": 204,
-		"./sr-cyrl.js": 204,
-		"./sr.js": 205,
-		"./sv": 206,
-		"./sv.js": 206,
-		"./ta": 207,
-		"./ta.js": 207,
-		"./th": 208,
-		"./th.js": 208,
-		"./tl-ph": 209,
-		"./tl-ph.js": 209,
-		"./tr": 210,
-		"./tr.js": 210,
-		"./tzl": 211,
-		"./tzl.js": 211,
-		"./tzm": 213,
-		"./tzm-latn": 212,
-		"./tzm-latn.js": 212,
-		"./tzm.js": 213,
-		"./uk": 214,
-		"./uk.js": 214,
-		"./uz": 215,
-		"./uz.js": 215,
-		"./vi": 216,
-		"./vi.js": 216,
-		"./zh-cn": 217,
-		"./zh-cn.js": 217,
-		"./zh-tw": 218,
-		"./zh-tw.js": 218
+		"./af": 157,
+		"./af.js": 157,
+		"./ar": 161,
+		"./ar-ma": 158,
+		"./ar-ma.js": 158,
+		"./ar-sa": 159,
+		"./ar-sa.js": 159,
+		"./ar-tn": 160,
+		"./ar-tn.js": 160,
+		"./ar.js": 161,
+		"./az": 162,
+		"./az.js": 162,
+		"./be": 163,
+		"./be.js": 163,
+		"./bg": 164,
+		"./bg.js": 164,
+		"./bn": 165,
+		"./bn.js": 165,
+		"./bo": 166,
+		"./bo.js": 166,
+		"./br": 167,
+		"./br.js": 167,
+		"./bs": 168,
+		"./bs.js": 168,
+		"./ca": 169,
+		"./ca.js": 169,
+		"./cs": 170,
+		"./cs.js": 170,
+		"./cv": 171,
+		"./cv.js": 171,
+		"./cy": 172,
+		"./cy.js": 172,
+		"./da": 173,
+		"./da.js": 173,
+		"./de": 175,
+		"./de-at": 174,
+		"./de-at.js": 174,
+		"./de.js": 175,
+		"./el": 176,
+		"./el.js": 176,
+		"./en-au": 177,
+		"./en-au.js": 177,
+		"./en-ca": 178,
+		"./en-ca.js": 178,
+		"./en-gb": 179,
+		"./en-gb.js": 179,
+		"./eo": 180,
+		"./eo.js": 180,
+		"./es": 181,
+		"./es.js": 181,
+		"./et": 182,
+		"./et.js": 182,
+		"./eu": 183,
+		"./eu.js": 183,
+		"./fa": 184,
+		"./fa.js": 184,
+		"./fi": 185,
+		"./fi.js": 185,
+		"./fo": 186,
+		"./fo.js": 186,
+		"./fr": 188,
+		"./fr-ca": 187,
+		"./fr-ca.js": 187,
+		"./fr.js": 188,
+		"./fy": 189,
+		"./fy.js": 189,
+		"./gl": 190,
+		"./gl.js": 190,
+		"./he": 191,
+		"./he.js": 191,
+		"./hi": 192,
+		"./hi.js": 192,
+		"./hr": 193,
+		"./hr.js": 193,
+		"./hu": 194,
+		"./hu.js": 194,
+		"./hy-am": 195,
+		"./hy-am.js": 195,
+		"./id": 196,
+		"./id.js": 196,
+		"./is": 197,
+		"./is.js": 197,
+		"./it": 198,
+		"./it.js": 198,
+		"./ja": 199,
+		"./ja.js": 199,
+		"./jv": 200,
+		"./jv.js": 200,
+		"./ka": 201,
+		"./ka.js": 201,
+		"./km": 202,
+		"./km.js": 202,
+		"./ko": 203,
+		"./ko.js": 203,
+		"./lb": 204,
+		"./lb.js": 204,
+		"./lt": 205,
+		"./lt.js": 205,
+		"./lv": 206,
+		"./lv.js": 206,
+		"./me": 207,
+		"./me.js": 207,
+		"./mk": 208,
+		"./mk.js": 208,
+		"./ml": 209,
+		"./ml.js": 209,
+		"./mr": 210,
+		"./mr.js": 210,
+		"./ms": 212,
+		"./ms-my": 211,
+		"./ms-my.js": 211,
+		"./ms.js": 212,
+		"./my": 213,
+		"./my.js": 213,
+		"./nb": 214,
+		"./nb.js": 214,
+		"./ne": 215,
+		"./ne.js": 215,
+		"./nl": 216,
+		"./nl.js": 216,
+		"./nn": 217,
+		"./nn.js": 217,
+		"./pl": 218,
+		"./pl.js": 218,
+		"./pt": 220,
+		"./pt-br": 219,
+		"./pt-br.js": 219,
+		"./pt.js": 220,
+		"./ro": 221,
+		"./ro.js": 221,
+		"./ru": 222,
+		"./ru.js": 222,
+		"./si": 223,
+		"./si.js": 223,
+		"./sk": 224,
+		"./sk.js": 224,
+		"./sl": 225,
+		"./sl.js": 225,
+		"./sq": 226,
+		"./sq.js": 226,
+		"./sr": 228,
+		"./sr-cyrl": 227,
+		"./sr-cyrl.js": 227,
+		"./sr.js": 228,
+		"./sv": 229,
+		"./sv.js": 229,
+		"./ta": 230,
+		"./ta.js": 230,
+		"./th": 231,
+		"./th.js": 231,
+		"./tl-ph": 232,
+		"./tl-ph.js": 232,
+		"./tr": 233,
+		"./tr.js": 233,
+		"./tzl": 234,
+		"./tzl.js": 234,
+		"./tzm": 236,
+		"./tzm-latn": 235,
+		"./tzm-latn.js": 235,
+		"./tzm.js": 236,
+		"./uk": 237,
+		"./uk.js": 237,
+		"./uz": 238,
+		"./uz.js": 238,
+		"./vi": 239,
+		"./vi.js": 239,
+		"./zh-cn": 240,
+		"./zh-cn.js": 240,
+		"./zh-tw": 241,
+		"./zh-tw.js": 241
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -16494,11 +16528,11 @@ webpackJsonp([1],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 288;
+	webpackContext.id = 316;
 
 
 /***/ },
-/* 289 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16516,7 +16550,7 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var Accordion = (function () {
 	    function Accordion() {
 	        this.groups = [];
@@ -16576,7 +16610,7 @@ webpackJsonp([1],[
 	    return AccordionTransclude;
 	})();
 	exports.AccordionTransclude = AccordionTransclude;
-	var collapse_1 = __webpack_require__(219);
+	var collapse_1 = __webpack_require__(242);
 	var AccordionGroup = (function () {
 	    function AccordionGroup(accordion) {
 	        this.accordion = accordion;
@@ -16643,7 +16677,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/accordion/accordion.js.map
 
 /***/ },
-/* 290 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16658,7 +16692,7 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var Alert = (function () {
 	    function Alert(el) {
 	        this.el = el;
@@ -16697,8 +16731,8 @@ webpackJsonp([1],[
 	    Alert = __decorate([
 	        angular2_1.Component({
 	            selector: 'alert',
-	            properties: ['type', 'dismissible', 'dismissOnTimeout'],
-	            events: ['close']
+	            inputs: ['type', 'dismissible', 'dismissOnTimeout'],
+	            outputs: ['close']
 	        }),
 	        angular2_1.View({
 	            template: "\n  <div class=\"alert\" role=\"alert\" [ng-class]=\"classes\" *ng-if=\"!closed\">\n    <button *ng-if=\"closeable\" type=\"button\" class=\"close\" (click)=\"onClose($event)\">\n      <span aria-hidden=\"true\">&times;</span>\n      <span class=\"sr-only\">Close</span>\n    </button>\n    <ng-content></ng-content>\n  </div>\n  ",
@@ -16712,15 +16746,9 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/alert/alert.js.map
 
 /***/ },
-/* 291 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -16736,12 +16764,14 @@ webpackJsonp([1],[
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	/// <reference path="../../tsd.d.ts" />
-	var angular2_1 = __webpack_require__(5);
-	var ButtonCheckbox = (function (_super) {
-	    __extends(ButtonCheckbox, _super);
-	    function ButtonCheckbox(cd, renderer, elementRef) {
-	        _super.call(this, cd, renderer, elementRef);
+	var angular2_1 = __webpack_require__(6);
+	var ButtonCheckbox = (function () {
+	    function ButtonCheckbox(cd) {
+	        this.cd = cd;
 	        this.state = false;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	        cd.valueAccessor = this;
 	    }
 	    ButtonCheckbox.prototype.onInit = function () {
 	        this.toggle(this.trueValue === this.value);
@@ -16764,13 +16794,19 @@ webpackJsonp([1],[
 	        this.state = state;
 	        this.value = this.state ? this.trueValue : this.falseValue;
 	    };
+	    ButtonCheckbox.prototype.onClick = function () {
+	        this.toggle(!this.state);
+	        this.cd.viewToModelUpdate(this.value);
+	    };
 	    ButtonCheckbox.prototype.writeValue = function (value) {
 	        this.state = this.trueValue === value;
 	        this.value = value;
 	    };
-	    ButtonCheckbox.prototype.onClick = function () {
-	        this.toggle(!this.state);
-	        this.cd.viewToModelUpdate(this.value);
+	    ButtonCheckbox.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    ButtonCheckbox.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
 	    };
 	    ButtonCheckbox = __decorate([
 	        angular2_1.Directive({
@@ -16782,23 +16818,17 @@ webpackJsonp([1],[
 	            }
 	        }),
 	        __param(0, angular2_1.Self()), 
-	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.Renderer, angular2_1.ElementRef])
+	        __metadata('design:paramtypes', [angular2_1.NgModel])
 	    ], ButtonCheckbox);
 	    return ButtonCheckbox;
-	})(angular2_1.DefaultValueAccessor);
+	})();
 	exports.ButtonCheckbox = ButtonCheckbox;
 	//# sourceMappingURL=../../components/dist/buttons/button-checkbox.js.map
 
 /***/ },
-/* 292 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -16814,11 +16844,14 @@ webpackJsonp([1],[
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	/// <reference path="../../tsd.d.ts" />
-	var angular2_1 = __webpack_require__(5);
-	var ButtonRadio = (function (_super) {
-	    __extends(ButtonRadio, _super);
-	    function ButtonRadio(cd, renderer, elementRef) {
-	        _super.call(this, cd, renderer, elementRef);
+	var angular2_1 = __webpack_require__(6);
+	var ButtonRadio = (function () {
+	    function ButtonRadio(cd, el) {
+	        this.cd = cd;
+	        this.el = el;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	        cd.valueAccessor = this;
 	    }
 	    ButtonRadio.prototype.onInit = function () {
 	        this.uncheckable = typeof this.uncheckable !== 'undefined';
@@ -16836,18 +16869,30 @@ webpackJsonp([1],[
 	        },
 	        set: function (value) {
 	            this.cd.viewModel = value;
+	            if (this.isActive) {
+	                this.el.nativeElement.classList.add('active');
+	            }
+	            else {
+	                this.el.nativeElement.classList.remove('active');
+	            }
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    ButtonRadio.prototype.writeValue = function (value) {
-	        this.value = value;
-	    };
 	    ButtonRadio.prototype.onClick = function () {
 	        if (this.uncheckable && this.btnRadio === this.value) {
 	            return this.cd.viewToModelUpdate(null);
 	        }
 	        this.cd.viewToModelUpdate(this.btnRadio);
+	    };
+	    ButtonRadio.prototype.writeValue = function (value) {
+	        this.value = value;
+	    };
+	    ButtonRadio.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    ButtonRadio.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
 	    };
 	    ButtonRadio = __decorate([
 	        angular2_1.Directive({
@@ -16859,15 +16904,15 @@ webpackJsonp([1],[
 	            }
 	        }),
 	        __param(0, angular2_1.Self()), 
-	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.Renderer, angular2_1.ElementRef])
+	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.ElementRef])
 	    ], ButtonRadio);
 	    return ButtonRadio;
-	})(angular2_1.DefaultValueAccessor);
+	})();
 	exports.ButtonRadio = ButtonRadio;
 	//# sourceMappingURL=../../components/dist/buttons/button-radio.js.map
 
 /***/ },
-/* 293 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -16882,8 +16927,8 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_config_1 = __webpack_require__(27);
+	var angular2_1 = __webpack_require__(6);
+	var ng2_bootstrap_config_1 = __webpack_require__(30);
 	(function (Direction) {
 	    Direction[Direction["UNKNOWN"] = 0] = "UNKNOWN";
 	    Direction[Direction["NEXT"] = 1] = "NEXT";
@@ -17069,7 +17114,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/carousel/carousel.js.map
 
 /***/ },
-/* 294 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var moment = __webpack_require__(2);
@@ -17085,7 +17130,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/date-formatter.js.map
 
 /***/ },
-/* 295 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17103,10 +17148,10 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
-	var di_1 = __webpack_require__(4);
-	var position_1 = __webpack_require__(46);
-	var datepicker_1 = __webpack_require__(221);
+	var angular2_1 = __webpack_require__(6);
+	var angular2_2 = __webpack_require__(6);
+	var position_1 = __webpack_require__(55);
+	var datepicker_1 = __webpack_require__(244);
 	var PopupOptions = (function () {
 	    function PopupOptions(options) {
 	        Object.assign(this, options);
@@ -17214,8 +17259,8 @@ webpackJsonp([1],[
 	        var options = new PopupOptions({
 	            placement: this.placement
 	        });
-	        var binding = di_1.Injector.resolve([
-	            di_1.bind(PopupOptions).toValue(options)
+	        var binding = angular2_2.Injector.resolve([
+	            angular2_2.bind(PopupOptions).toValue(options)
 	        ]);
 	        this.popup = this.loader
 	            .loadNextToLocation(PopupContainer, this.element, binding)
@@ -17253,7 +17298,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/datepicker-popup.js.map
 
 /***/ },
-/* 296 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17268,9 +17313,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_config_1 = __webpack_require__(27);
-	var datepicker_inner_1 = __webpack_require__(44);
+	var angular2_1 = __webpack_require__(6);
+	var ng2_bootstrap_config_1 = __webpack_require__(30);
+	var datepicker_inner_1 = __webpack_require__(53);
 	var TEMPLATE_OPTIONS = (_a = {},
 	    _a[ng2_bootstrap_config_1.Ng2BootstrapTheme.BS4] = {
 	        DAY_BUTTON: "\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-sm\"\n                [ng-class]=\"{'btn-secondary': !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected || !dtz.selected && datePicker.isActive(dtz), disabled: dtz.disabled}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n          <span [ng-class]=\"{'text-muted': dtz.secondary || dtz.current}\">{{dtz.label}}</span>\n        </button>\n    "
@@ -17370,17 +17415,17 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/daypicker.js.map
 
 /***/ },
-/* 297 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var datepicker_popup_1 = __webpack_require__(295);
-	var datepicker_1 = __webpack_require__(221);
+	var datepicker_popup_1 = __webpack_require__(323);
+	var datepicker_1 = __webpack_require__(244);
 	exports.datepicker = [datepicker_1.DatePicker, datepicker_popup_1.DatePickerPopup];
 	//# sourceMappingURL=../../components/dist/datepicker/index.js.map
 
 /***/ },
-/* 298 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17395,9 +17440,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var datepicker_inner_1 = __webpack_require__(44);
-	var ng2_bootstrap_config_1 = __webpack_require__(27);
+	var angular2_1 = __webpack_require__(6);
+	var datepicker_inner_1 = __webpack_require__(53);
+	var ng2_bootstrap_config_1 = __webpack_require__(30);
 	var TEMPLATE_OPTIONS = {
 	    bs4: {
 	        MONTH_BUTTON: "\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-default\"\n                [ng-class]=\"{'btn-info': dtz.selected, 'btn-link': !dtz.selected && !datePicker.isActive(dtz), 'btn-info': !dtz.selected && datePicker.isActive(dtz), disabled: dtz.disabled}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\"><span [ng-class]=\"{'text-success': dtz.current}\">{{dtz.label}}</span></button>\n    "
@@ -17451,7 +17496,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/monthpicker.js.map
 
 /***/ },
-/* 299 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17466,9 +17511,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_config_1 = __webpack_require__(27);
-	var datepicker_inner_1 = __webpack_require__(44);
+	var angular2_1 = __webpack_require__(6);
+	var ng2_bootstrap_config_1 = __webpack_require__(30);
+	var datepicker_inner_1 = __webpack_require__(53);
 	var TEMPLATE_OPTIONS = {
 	    bs4: {
 	        YEAR_BUTTON: "\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-default\"\n                [ng-class]=\"{'btn-info': dtz.selected, 'btn-link': !dtz.selected && !datePicker.isActive(dtz), 'btn-info': !dtz.selected && datePicker.isActive(dtz), disabled: dtz.disabled}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n          <span [ng-class]=\"{'text-success': dtz.current}\">{{dtz.label}}</span>\n        </button>\n    "
@@ -17522,25 +17567,24 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/datepicker/yearpicker.js.map
 
 /***/ },
-/* 300 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dropdown_1 = __webpack_require__(45);
-	var dropdown_menu_1 = __webpack_require__(222);
-	var dropdown_toggle_1 = __webpack_require__(224);
+	var dropdown_1 = __webpack_require__(54);
+	var dropdown_menu_1 = __webpack_require__(245);
+	var dropdown_toggle_1 = __webpack_require__(247);
 	exports.dropdown = [dropdown_1.Dropdown, dropdown_menu_1.DropdownMenu, dropdown_toggle_1.DropdownToggle];
 	//# sourceMappingURL=../../components/dist/dropdown/index.js.map
 
 /***/ },
-/* 301 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -17556,7 +17600,7 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var paginationConfig = {
 	    maxSize: undefined,
 	    itemsPerPage: 10,
@@ -17568,13 +17612,17 @@ webpackJsonp([1],[
 	    lastText: 'Last',
 	    rotate: true
 	};
-	var Pagination = (function (_super) {
-	    __extends(Pagination, _super);
+	var Pagination = (function () {
 	    function Pagination(cd, renderer, elementRef) {
-	        _super.call(this, cd, renderer, elementRef);
+	        this.cd = cd;
+	        this.renderer = renderer;
+	        this.elementRef = elementRef;
 	        this.numPages = new angular2_1.EventEmitter();
 	        this.pageChanged = new angular2_1.EventEmitter();
 	        this.inited = false;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	        cd.valueAccessor = this;
 	        this.config = this.config || paginationConfig;
 	    }
 	    Object.defineProperty(Pagination.prototype, "itemsPerPage", {
@@ -17649,7 +17697,8 @@ webpackJsonp([1],[
 	        }
 	        if (!this.disabled) {
 	            if (event && event.target) {
-	                event.target.blur();
+	                var target = event.target;
+	                target.blur();
 	            }
 	            this.writeValue(page);
 	            this.cd.viewToModelUpdate(this.page);
@@ -17710,6 +17759,12 @@ webpackJsonp([1],[
 	        var totalPages = this.itemsPerPage < 1 ? 1 : Math.ceil(this.totalItems / this.itemsPerPage);
 	        return Math.max(totalPages || 0, 1);
 	    };
+	    Pagination.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    Pagination.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
+	    };
 	    Pagination = __decorate([
 	        angular2_1.Component({
 	            selector: 'pagination[ng-model], [pagination][ng-model]',
@@ -17730,7 +17785,7 @@ webpackJsonp([1],[
 	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.Renderer, angular2_1.ElementRef])
 	    ], Pagination);
 	    return Pagination;
-	})(angular2_1.DefaultValueAccessor);
+	})();
 	exports.Pagination = Pagination;
 	var pagerConfig = {
 	    itemsPerPage: 10,
@@ -17768,7 +17823,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/pagination/pagination.js.map
 
 /***/ },
-/* 302 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -17786,7 +17841,7 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	var progressConfig = {
 	    animate: true,
 	    max: 100
@@ -17906,16 +17961,10 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/progressbar/progressbar.js.map
 
 /***/ },
-/* 303 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -17930,13 +17979,15 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
-	var Rating = (function (_super) {
-	    __extends(Rating, _super);
-	    function Rating(cd, renderer, elementRef) {
-	        _super.call(this, cd, renderer, elementRef);
+	var angular2_1 = __webpack_require__(6);
+	var Rating = (function () {
+	    function Rating(cd) {
+	        this.cd = cd;
 	        this.onHover = new angular2_1.EventEmitter();
 	        this.onLeave = new angular2_1.EventEmitter();
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	        cd.valueAccessor = this;
 	    }
 	    Rating.prototype.onInit = function () {
 	        this.max = typeof this.max !== 'undefined' ? this.max : 5;
@@ -17994,6 +18045,12 @@ webpackJsonp([1],[
 	        var sign = event.which === 38 || event.which === 39 ? 1 : -1;
 	        this.rate(this.value + sign);
 	    };
+	    Rating.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    Rating.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
+	    };
 	    Rating = __decorate([
 	        angular2_1.Component({
 	            selector: 'rating[ng-model]',
@@ -18012,15 +18069,15 @@ webpackJsonp([1],[
 	            directives: [angular2_1.NgClass, angular2_1.NgFor]
 	        }),
 	        __param(0, angular2_1.Self()), 
-	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.Renderer, angular2_1.ElementRef])
+	        __metadata('design:paramtypes', [angular2_1.NgModel])
 	    ], Rating);
 	    return Rating;
-	})(angular2_1.DefaultValueAccessor);
+	})();
 	exports.Rating = Rating;
 	//# sourceMappingURL=../../components/dist/rating/rating.js.map
 
 /***/ },
-/* 304 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18035,8 +18092,8 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var common_1 = __webpack_require__(220);
+	var angular2_1 = __webpack_require__(6);
+	var common_1 = __webpack_require__(243);
 	var Tabset = (function () {
 	    function Tabset() {
 	        this.tabs = [];
@@ -18166,16 +18223,10 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/tabs/tabs.js.map
 
 /***/ },
-/* 305 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -18190,7 +18241,7 @@ webpackJsonp([1],[
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var angular2_1 = __webpack_require__(5);
+	var angular2_1 = __webpack_require__(6);
 	exports.timepickerConfig = {
 	    hourStep: 1,
 	    minuteStep: 1,
@@ -18215,12 +18266,14 @@ webpackJsonp([1],[
 	    newDate.setHours(dt.getHours(), dt.getMinutes());
 	    return newDate;
 	}
-	var Timepicker = (function (_super) {
-	    __extends(Timepicker, _super);
-	    function Timepicker(cd, renderer, elementRef) {
-	        _super.call(this, cd, renderer, elementRef);
+	var Timepicker = (function () {
+	    function Timepicker(cd) {
+	        this.cd = cd;
 	        this._selected = new Date();
 	        this.meridians = ['AM', 'PM'];
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	        cd.valueAccessor = this;
 	    }
 	    Object.defineProperty(Timepicker.prototype, "selected", {
 	        get: function () {
@@ -18276,6 +18329,13 @@ webpackJsonp([1],[
 	        this.showSpinners = def(this.showSpinners, isDefined, exports.timepickerConfig.showSpinners);
 	    };
 	    Timepicker.prototype.writeValue = function (v) {
+	        if (v === this.selected) {
+	            return;
+	        }
+	        if (v && v instanceof Date) {
+	            this.selected = v;
+	            return;
+	        }
 	        this.selected = v ? new Date(v) : null;
 	    };
 	    Timepicker.prototype.refresh = function (type) {
@@ -18425,6 +18485,12 @@ webpackJsonp([1],[
 	            this.addMinutesToSelected(12 * 60 * sign);
 	        }
 	    };
+	    Timepicker.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    Timepicker.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
+	    };
 	    Timepicker = __decorate([
 	        angular2_1.Component({
 	            selector: 'timepicker[ng-model]',
@@ -18442,15 +18508,15 @@ webpackJsonp([1],[
 	            directives: [angular2_1.FORM_DIRECTIVES, angular2_1.NgClass]
 	        }),
 	        __param(0, angular2_1.Self()), 
-	        __metadata('design:paramtypes', [angular2_1.NgModel, angular2_1.Renderer, angular2_1.ElementRef])
+	        __metadata('design:paramtypes', [angular2_1.NgModel])
 	    ], Timepicker);
 	    return Timepicker;
-	})(angular2_1.DefaultValueAccessor);
+	})();
 	exports.Timepicker = Timepicker;
 	//# sourceMappingURL=../../components/dist/timepicker/timepicker.js.map
 
 /***/ },
-/* 306 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18465,9 +18531,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var di_1 = __webpack_require__(4);
-	var position_1 = __webpack_require__(46);
+	var angular2_1 = __webpack_require__(6);
+	var angular2_2 = __webpack_require__(6);
+	var position_1 = __webpack_require__(55);
 	var TooltipOptions = (function () {
 	    function TooltipOptions(options) {
 	        Object.assign(this, options);
@@ -18523,8 +18589,8 @@ webpackJsonp([1],[
 	            content: this.content,
 	            placement: this.placement
 	        });
-	        var binding = di_1.Injector.resolve([
-	            di_1.bind(TooltipOptions).toValue(options)
+	        var binding = angular2_2.Injector.resolve([
+	            angular2_2.bind(TooltipOptions).toValue(options)
 	        ]);
 	        this.tooltip = this.loader
 	            .loadNextToLocation(TooltipContainer, this.element, binding)
@@ -18569,7 +18635,7 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/tooltip/tooltip.js.map
 
 /***/ },
-/* 307 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -18584,11 +18650,13 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var shared_1 = __webpack_require__(13);
-	var di_1 = __webpack_require__(4);
-	var ng2_bootstrap_config_1 = __webpack_require__(27);
-	var position_1 = __webpack_require__(46);
+	var angular2_1 = __webpack_require__(6);
+	function setProperty(renderer, elementRef, propName, propValue) {
+	    renderer.setElementProperty(elementRef, propName, propValue);
+	}
+	var angular2_2 = __webpack_require__(6);
+	var ng2_bootstrap_config_1 = __webpack_require__(30);
+	var position_1 = __webpack_require__(55);
 	var TEMPLATE = (_a = {},
 	    _a[ng2_bootstrap_config_1.Ng2BootstrapTheme.BS4] = "\n  <div class=\"dropdown-menu\"\n      [ng-style]=\"{top: top, left: left, display: display}\"\n      style=\"display: block\">\n      <a href=\"#\"\n         *ng-for=\"#match of matches\"\n         (click)=\"selectMatch(match, $event)\"\n         [ng-class]=\"{active: isActive(match) }\"\n         (mouseenter)=\"selectActive(match)\"\n         class=\"dropdown-item\"\n         [inner-html]=\"hightlight(match, query)\"></a>\n  </div>\n  ",
 	    _a[ng2_bootstrap_config_1.Ng2BootstrapTheme.BS3] = "\n  <ul class=\"dropdown-menu\"\n      [ng-style]=\"{top: top, left: left, display: display}\"\n      style=\"display: block\">\n    <li *ng-for=\"#match of matches\"\n        [ng-class]=\"{active: isActive(match) }\"\n        (mouseenter)=\"selectActive(match)\">\n        <a href=\"#\" (click)=\"selectMatch(match, $event)\" tabindex=\"-1\" [inner-html]=\"hightlight(match, query)\"></a>\n    </li>\n  </ul>\n  ",
@@ -18828,7 +18896,7 @@ webpackJsonp([1],[
 	    };
 	    Typeahead.prototype.changeModel = function (value) {
 	        this.cd.viewToModelUpdate(value);
-	        shared_1.setProperty(this.renderer, this.element, 'value', value);
+	        setProperty(this.renderer, this.element, 'value', value);
 	        this.hide();
 	    };
 	    Typeahead.prototype.show = function (matches) {
@@ -18837,8 +18905,8 @@ webpackJsonp([1],[
 	            placement: this.placement,
 	            animation: false
 	        });
-	        var binding = di_1.Injector.resolve([
-	            di_1.bind(TypeaheadOptions).toValue(options)
+	        var binding = angular2_2.Injector.resolve([
+	            angular2_2.bind(TypeaheadOptions).toValue(options)
 	        ]);
 	        this.popup = this.loader
 	            .loadNextToLocation(TypeaheadContainer, this.element, binding)
@@ -18897,143 +18965,134 @@ webpackJsonp([1],[
 	//# sourceMappingURL=../../components/dist/typeahead/typeahead.js.map
 
 /***/ },
-/* 308 */
+/* 336 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartData<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartLabels<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[options]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartOptions<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartSeries<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[legend]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartLegend<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartSeries<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>barChartType<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 309 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = "  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-6<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartData<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartLabels<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[options]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartOptions<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartSeries<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartType<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-6<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartData<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartLabels<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartType<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-12 text-center<span class=\"token punctuation\" >\"</span></span><span class=\"token style-attr language-css\" ><span class=\"token attr-name\" > <span class=\"token attr-name\" >style</span></span><span class=\"token punctuation\" >=\"</span><span class=\"token attr-value\" ><span class=\"token property\" >margin-top</span><span class=\"token punctuation\" >:</span> 10px<span class=\"token punctuation\" >;</span></span><span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>button</span> <span class=\"token attr-name\" >(click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>randomizeType()<span class=\"token punctuation\" >\"</span></span><span class=\"token style-attr language-css\" ><span class=\"token attr-name\" > <span class=\"token attr-name\" >style</span></span><span class=\"token punctuation\" >=\"</span><span class=\"token attr-value\" ><span class=\"token property\" >display</span><span class=\"token punctuation\" >:</span> inline-block</span><span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>Toggle<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>button</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n\n\n"
 
 /***/ },
-/* 310 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>doughnutChartData<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>doughnutChartLabels<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>doughnutChartType<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 311 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>row<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-6<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartData<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartLabels<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[options]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartOptions<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[series]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartSeries<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[colours]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartColours<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartType<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >[legend]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>lineChartLegend<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n                <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>div</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>col-md-6<span class=\"token punctuation\" >\"</span></span><span class=\"token style-attr language-css\" ><span class=\"token attr-name\" > <span class=\"token attr-name\" >style</span></span><span class=\"token punctuation\" >=\"</span><span class=\"token attr-value\" ><span class=\"token property\" >margin-bottom</span><span class=\"token punctuation\" >:</span> 10px<span class=\"token punctuation\" >;</span></span><span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>table</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>table table-responsive table-condensed<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>tr</span><span class=\"token punctuation\" >></span></span>\n        <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>th</span> <span class=\"token attr-name\" >*ng-for</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>#label of lineChartLabels<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>{{label}}<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>th</span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>tr</span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>tr</span> <span class=\"token attr-name\" >*ng-for</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>#d of lineChartData<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>\n        <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>td</span> <span class=\"token attr-name\" >*ng-for</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>#label of lineChartLabels; #j<span class=\"token punctuation\" >=</span>index<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>{{d[j]}}<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>td</span><span class=\"token punctuation\" >></span></span>\n      <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>tr</span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>table</span><span class=\"token punctuation\" >></span></span>\n    <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>button</span> <span class=\"token attr-name\" >(click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>randomize()<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span>CLICK<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>button</span><span class=\"token punctuation\" >></span></span>\n  <span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>\n<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>div</span><span class=\"token punctuation\" >></span></span>"
 
 /***/ },
-/* 312 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartData<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartLabels<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>pieChartType<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n           <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 313 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartData<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartLabels<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >[colours]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartColours<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >[legend]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaLegend<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>polarAreaChartType<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n            <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 314 */
+/* 342 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;</span>base-chart</span> <span class=\"token attr-name\" >class</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chart<span class=\"token punctuation\" >\"</span></span>\n             <span class=\"token attr-name\" >[data]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>radarChartData<span class=\"token punctuation\" >\"</span></span>\n             <span class=\"token attr-name\" >[labels]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>radarChartLabels<span class=\"token punctuation\" >\"</span></span>\n             <span class=\"token attr-name\" >[chart-type]</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>radarChartType<span class=\"token punctuation\" >\"</span></span>\n             <span class=\"token attr-name\" >(chart-hover)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartHovered($event)<span class=\"token punctuation\" >\"</span></span>\n             <span class=\"token attr-name\" >(chart-click)</span><span class=\"token attr-value\" ><span class=\"token punctuation\" >=</span><span class=\"token punctuation\" >\"</span>chartClicked($event)<span class=\"token punctuation\" >\"</span></span><span class=\"token punctuation\" >></span></span><span class=\"token tag\" ><span class=\"token tag\" ><span class=\"token punctuation\" >&lt;/</span>base-chart</span><span class=\"token punctuation\" >></span></span>\n"
 
 /***/ },
-/* 315 */
+/* 343 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./bar-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'bar-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >BarChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'bar demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token keyword\" >private</span> barChartOptions <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >{</span>\n    scaleShowVerticalLines<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >false</span><span class=\"token punctuation\" >,</span>\n    responsive<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >,</span>\n    multiTooltipTemplate<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'&lt;%if (datasetLabel){%>&lt;%=datasetLabel %>: &lt;%}%>&lt;%= value %>'</span>\n  <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'2006'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2007'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2008'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2009'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2010'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2011'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'2012'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartSeries <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Series A'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series B'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartType <span class=\"token operator\" >=</span> <span class=\"token string\" >'Bar'</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> barChartLegend<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >boolean</span> <span class=\"token operator\" >=</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token keyword\" >private</span> barChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >80</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >86</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 316 */
+/* 344 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./base-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'base-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >BaseChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'foo demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// lineChart</span>\n  <span class=\"token keyword\" >private</span> lineChartData<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >80</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >86</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartLabels<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'January'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'February'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'March'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'April'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'May'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'June'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'July'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartSeries<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Series A'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series B'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series C'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartOptions<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >{</span>\n    multiTooltipTemplate<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'&lt;%if (datasetLabel){%>&lt;%=datasetLabel %>: &lt;%}%>&lt;%= value %>'</span>\n  <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartType<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >string</span> <span class=\"token operator\" >=</span> <span class=\"token string\" >'Line'</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> pieChartType<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >string</span> <span class=\"token operator\" >=</span> <span class=\"token string\" >'Pie'</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Pie</span>\n  <span class=\"token keyword\" >private</span> pieChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> pieChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >300</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >500</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token keyword\" >private</span> <span class=\"token function\" >randomizeType</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartType <span class=\"token operator\" >=</span> <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartType <span class=\"token operator\" >===</span> <span class=\"token string\" >'Line'</span> <span class=\"token operator\" >?</span> <span class=\"token string\" >'Bar'</span> <span class=\"token punctuation\" >:</span> <span class=\"token string\" >'Line'</span><span class=\"token punctuation\" >;</span>\n    <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>pieChartType <span class=\"token operator\" >=</span> <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>pieChartType <span class=\"token operator\" >===</span> <span class=\"token string\" >'Doughnut'</span> <span class=\"token operator\" >?</span> <span class=\"token string\" >'Pie'</span> <span class=\"token punctuation\" >:</span> <span class=\"token string\" >'Doughnut'</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 317 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./doughnut-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'doughnut-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >DoughnutChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'doughnut demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Doughnut</span>\n  <span class=\"token keyword\" >private</span> doughnutChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail-Order Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> doughnutChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >350</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >450</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> doughnutChartType <span class=\"token operator\" >=</span> <span class=\"token string\" >'Doughnut'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 318 */
+/* 346 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./line-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'line-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >LineChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'line demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// lineChart</span>\n  <span class=\"token keyword\" >private</span> lineChartData<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >80</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >86</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >18</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >77</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >9</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartLabels<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'January'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'February'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'March'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'April'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'May'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'June'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'July'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartSeries<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Series A'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series B'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Series C'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartOptions<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >{</span>\n    animation<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >false</span><span class=\"token punctuation\" >,</span>\n    responsive<span class=\"token punctuation\" >:</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >,</span>\n    multiTooltipTemplate<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'&lt;%if (datasetLabel){%>&lt;%=datasetLabel %>: &lt;%}%>&lt;%= value %>'</span>\n  <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartColours<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >Array</span><span class=\"token operator\" >&lt;</span><span class=\"token keyword\" >any</span><span class=\"token operator\" >></span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >{</span> <span class=\"token comment\" spellcheck=\"true\">// grey</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.8)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >{</span> <span class=\"token comment\" spellcheck=\"true\">// dark grey</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(77,83,96,1)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >{</span> <span class=\"token comment\" spellcheck=\"true\">// grey</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(148,159,177,0.8)'</span>\n    <span class=\"token punctuation\" >}</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartLegend<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >boolean</span> <span class=\"token operator\" >=</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> lineChartType<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >string</span> <span class=\"token operator\" >=</span> <span class=\"token string\" >'Line'</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token keyword\" >private</span> <span class=\"token function\" >randomize</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    <span class=\"token keyword\" >let</span> _lineChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n    <span class=\"token keyword\" >for</span> <span class=\"token punctuation\" >(</span><span class=\"token keyword\" >let</span> i <span class=\"token operator\" >=</span> <span class=\"token number\" >0</span><span class=\"token punctuation\" >;</span> i <span class=\"token operator\" >&lt;</span> <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartData<span class=\"token punctuation\" >.</span>length<span class=\"token punctuation\" >;</span> i<span class=\"token operator\" >++</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n      _lineChartData<span class=\"token punctuation\" >[</span>i<span class=\"token punctuation\" >]</span> <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n      <span class=\"token keyword\" >for</span> <span class=\"token punctuation\" >(</span><span class=\"token keyword\" >let</span> j <span class=\"token operator\" >=</span> <span class=\"token number\" >0</span><span class=\"token punctuation\" >;</span> j <span class=\"token operator\" >&lt;</span> <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartData<span class=\"token punctuation\" >[</span>i<span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >.</span>length<span class=\"token punctuation\" >;</span> j<span class=\"token operator\" >++</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n        _lineChartData<span class=\"token punctuation\" >[</span>i<span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >.</span><span class=\"token function\" >push</span><span class=\"token punctuation\" >(</span>Math<span class=\"token punctuation\" >.</span><span class=\"token function\" >floor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >(</span>Math<span class=\"token punctuation\" >.</span><span class=\"token function\" >random</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token operator\" >*</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >)</span> <span class=\"token operator\" >+</span> <span class=\"token number\" >1</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n      <span class=\"token punctuation\" >}</span>\n    <span class=\"token punctuation\" >}</span>\n    <span class=\"token keyword\" >this</span><span class=\"token punctuation\" >.</span>lineChartData <span class=\"token operator\" >=</span> _lineChartData<span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 319 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./pie-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'pie-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >PieChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'pie demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Pie</span>\n  <span class=\"token keyword\" >private</span> pieChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> pieChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >300</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >500</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> pieChartType <span class=\"token operator\" >=</span> <span class=\"token string\" >'Pie'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 320 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./polar-area-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'polar-area-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >PolarAreaChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'PolarArea demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// PolarArea</span>\n  <span class=\"token keyword\" >private</span> polarAreaChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Download Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'In-Store Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Mail Sales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Telesales'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Corporate Sales'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> polarAreaChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token number\" >300</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >500</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >120</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> polarAreaLegend<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >boolean</span> <span class=\"token operator\" >=</span> <span class=\"token keyword\" >true</span><span class=\"token punctuation\" >;</span>\n\n  <span class=\"token keyword\" >private</span> polarAreaChartType <span class=\"token operator\" >=</span> <span class=\"token string\" >'PolarArea'</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> polarAreaChartColours <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >{</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,0.8)'</span><span class=\"token punctuation\" >,</span>\n      color<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,1)'</span><span class=\"token punctuation\" >,</span>\n      highlight<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(151,187,205,0.8)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span> <span class=\"token punctuation\" >{</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,0.8)'</span><span class=\"token punctuation\" >,</span>\n      color<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,1)'</span><span class=\"token punctuation\" >,</span>\n      highlight<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(220,220,220,0.8)'</span>\n    <span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >{</span>\n      fillColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,0.2)'</span><span class=\"token punctuation\" >,</span>\n      strokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,1)'</span><span class=\"token punctuation\" >,</span>\n      pointColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,1)'</span><span class=\"token punctuation\" >,</span>\n      pointStrokeColor<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightFill<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'#fff'</span><span class=\"token punctuation\" >,</span>\n      pointHighlightStroke<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,0.8)'</span><span class=\"token punctuation\" >,</span>\n      color<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,1)'</span><span class=\"token punctuation\" >,</span>\n      highlight<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'rgba(247,70,74,0.8)'</span>\n    <span class=\"token punctuation\" >}</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 321 */
+/* 349 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"token comment\" spellcheck=\"true\">/// &lt;reference path=\"../../../tsd.d.ts\" /></span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>\n  Component<span class=\"token punctuation\" >,</span> View<span class=\"token punctuation\" >,</span> EventEmitter<span class=\"token punctuation\" >,</span>\n  CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >,</span> NgClass\n<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'angular2/angular2'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token keyword\" >import</span> <span class=\"token punctuation\" >{</span>charts<span class=\"token punctuation\" >}</span> from <span class=\"token string\" >'../../../components/index'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token comment\" spellcheck=\"true\">// webpack html imports</span>\n<span class=\"token keyword\" >let</span> template <span class=\"token operator\" >=</span> <span class=\"token function\" >require</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'./radar-chart-demo.html'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n\n@<span class=\"token function\" >Component</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  selector<span class=\"token punctuation\" >:</span> <span class=\"token string\" >'radar-chart-demo'</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n@<span class=\"token function\" >View</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >{</span>\n  template<span class=\"token punctuation\" >:</span> template<span class=\"token punctuation\" >,</span>\n  directives<span class=\"token punctuation\" >:</span> <span class=\"token punctuation\" >[</span>charts<span class=\"token punctuation\" >,</span> NgClass<span class=\"token punctuation\" >,</span> CORE_DIRECTIVES<span class=\"token punctuation\" >,</span> FORM_DIRECTIVES<span class=\"token punctuation\" >]</span>\n<span class=\"token punctuation\" >}</span><span class=\"token punctuation\" >)</span>\n<span class=\"token keyword\" >export</span> <span class=\"token keyword\" >class</span> <span class=\"token class-name\" >RadarChartDemo</span> <span class=\"token punctuation\" >{</span>\n\n  <span class=\"token keyword\" >constructor</span><span class=\"token punctuation\" >(</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span><span class=\"token string\" >'radar demo'</span><span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// events</span>\n  <span class=\"token function\" >chartClicked</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token function\" >chartHovered</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >:</span><span class=\"token keyword\" >any</span><span class=\"token punctuation\" >)</span> <span class=\"token punctuation\" >{</span>\n    console<span class=\"token punctuation\" >.</span><span class=\"token function\" >log</span><span class=\"token punctuation\" >(</span>e<span class=\"token punctuation\" >)</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token punctuation\" >}</span>\n\n  <span class=\"token comment\" spellcheck=\"true\">// Radar</span>\n  <span class=\"token keyword\" >private</span> radarChartLabels <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span><span class=\"token string\" >'Eating'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Drinking'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Sleeping'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Designing'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Coding'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Cycling'</span><span class=\"token punctuation\" >,</span> <span class=\"token string\" >'Running'</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> radarChartData <span class=\"token operator\" >=</span> <span class=\"token punctuation\" >[</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >65</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >59</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >90</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >81</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >56</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >55</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >,</span>\n    <span class=\"token punctuation\" >[</span><span class=\"token number\" >28</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >48</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >40</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >19</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >96</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >27</span><span class=\"token punctuation\" >,</span> <span class=\"token number\" >100</span><span class=\"token punctuation\" >]</span>\n  <span class=\"token punctuation\" >]</span><span class=\"token punctuation\" >;</span>\n  <span class=\"token keyword\" >private</span> radarChartType <span class=\"token operator\" >=</span> <span class=\"token string\" >'Radar'</span><span class=\"token punctuation\" >;</span>\n\n<span class=\"token punctuation\" >}</span>\n"
 
 /***/ },
-/* 322 */
+/* 350 */
 /***/ function(module, exports) {
 
 	module.exports = "<base-chart class=\"chart\"\n           [data]=\"barChartData\"\n           [labels]=\"barChartLabels\"\n           [options]=\"barChartOptions\"\n           [series]=\"barChartSeries\"\n           [legend]=\"barChartLegend\"\n           [series]=\"barChartSeries\"\n           [chart-type]=\"barChartType\"\n           (chart-hover)=\"chartHovered($event)\"\n           (chart-click)=\"chartClicked($event)\"></base-chart>\n"
 
 /***/ },
-/* 323 */
+/* 351 */
 /***/ function(module, exports) {
 
 	module.exports = "  <div class=\"col-md-6\">\n\n    <base-chart class=\"chart\"\n                [data]=\"lineChartData\"\n                [labels]=\"lineChartLabels\"\n                [options]=\"lineChartOptions\"\n                [series]=\"lineChartSeries\"\n                [chart-type]=\"lineChartType\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></base-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <base-chart class=\"chart\"\n                [data]=\"pieChartData\"\n                [labels]=\"pieChartLabels\"\n                [chart-type]=\"pieChartType\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></base-chart>\n  </div>\n  <div class=\"col-md-12 text-center\" style=\"margin-top: 10px;\">\n    <button (click)=\"randomizeType()\" style=\"display: inline-block\">Toggle</button>\n  </div>\n\n\n"
 
 /***/ },
-/* 324 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"row\">\n  BASE\n  <div class=\"col-md-6\">\n\n    <base-chart class=\"chart\"\n                [data]=\"lineChartData\"\n                [labels]=\"lineChartLabels\"\n                [options]=\"lineChartOptions\"\n                [series]=\"lineChartSeries\"\n                [chart-type]=\"lineChartType\"\n                [colours]=\"lineChartColours\"\n                [legend]=\"lineChartLegend\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></base-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <base-chart class=\"chart\"\n                [data]=\"pieChartData\"\n                [labels]=\"pieChartLabels\"\n                [chart-type]=\"pieChartType\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></base-chart>\n  </div>\n  <div class=\"col-md-12\" style=\"margin: 10px 0;\">\n    <button (click)=\"randomizeType()\">CLICK</button>\n  </div>\n\n</div>\n\n\n<div class=\"col-md-6\">\n  <table class=\"table table-responsive table-condensed\">\n    <tr>\n      <th *ng-for=\"#label of lineChartLabels\">{{label}}</th>\n    </tr>\n    <tr *ng-for=\"#d of lineChartData\">\n      <td *ng-for=\"#label of lineChartLabels; #j=index\">{{d[j]}}</td>\n    </tr>\n  </table>\n  <button (click)=\"randomize()\">CLICK</button>\n</div>\n<div class=\"col-md-6\">\n  <line-chart class=\"chart\"\n              [data]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [series]=\"lineChartSeries\"\n              [colours]=\"lineChartColours\"\n              [legend]=\"lineChartLegend\"\n              (chart-hover)=\"chartHovered($event)\"\n              (chart-click)=\"chartClicked($event)\"></line-chart>\n</div>\n\n\n<br>\n<div class=\"row\">\n  <p>Bar Char</p>\n\n  <div class=\"col-md-6\">\n\n    <bar-chart class=\"chart\"\n               [data]=\"barChartData\"\n               [labels]=\"barChartLabels\"\n               [options]=\"barChartOptions\"\n               [series]=\"barChartSeries\"\n               [legend]=\"barChartLegend\"\n               [series]=\"barChartSeries\"\n               (chart-hover)=\"chartHovered($event)\"\n               (chart-click)=\"chartClicked($event)\"></bar-chart>\n  </div>\n</div>\n<br>\n\n\n<div class=\"row\">\n  <p>PolarArea</p>\n\n  <div class=\"col-md-6\">\n    <polar-area-chart class=\"chart\"\n                      [data]=\"polarAreaChartData\"\n                      [labels]=\"polarAreaChartLabels\"\n                      [colours]=\"polarAreaChartColours\"\n                      (chart-hover)=\"chartHovered($event)\"\n                      (chart-click)=\"chartClicked($event)\"></polar-area-chart>\n  </div>\n</div>\n\n\n<div class=\"row\">\n  <div class=\"panel-heading\">Doughnut Chart</div>\n  <div class=\"col-md-6\">\n    <doughnut-chart class=\"chart\"\n                    [data]=\"doughnutChartData\"\n                    [labels]=\"doughnutChartLabels\"\n                    (chart-hover)=\"chartHovered($event)\"\n                    (chart-click)=\"chartClicked($event)\"></doughnut-chart>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"panel-heading\">Pie Chart</div>\n  <div class=\"col-md-6\">\n    <pie-chart class=\"chart\"\n               [data]=\"pieChartData\"\n               [labels]=\"pieChartLabels\"\n               (chart-hover)=\"chartHovered($event)\"\n               (chart-click)=\"chartClicked($event)\"></pie-chart>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"panel-heading\">Radar Chart</div>\n  <div class=\"col-md-6\">\n\n    <radar-chart class=\"chart\"\n                 [data]=\"radarChartData\"\n                 [labels]=\"radarChartLabels\"\n                 (chart-hover)=\"chartHovered($event)\"\n                 (chart-click)=\"chartClicked($event)\"></radar-chart>\n  </div>\n</div>\n"
-
-/***/ },
-/* 325 */
+/* 352 */
 /***/ function(module, exports) {
 
 	module.exports = "<base-chart class=\"chart\"\n                [data]=\"doughnutChartData\"\n                [labels]=\"doughnutChartLabels\"\n                [chart-type]=\"doughnutChartType\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></base-chart>\n"
 
 /***/ },
-/* 326 */
+/* 353 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"row\">\n  <div class=\"col-md-6\">\n    <base-chart class=\"chart\"\n                [data]=\"lineChartData\"\n                [labels]=\"lineChartLabels\"\n                [options]=\"lineChartOptions\"\n                [series]=\"lineChartSeries\"\n                [colours]=\"lineChartColours\"\n                [chart-type]=\"lineChartType\"\n                [legend]=\"lineChartLegend\"\n                (chart-hover)=\"chartHovered($event)\"\n                (chart-click)=\"chartClicked($event)\"></base-chart>\n  </div>\n  <div class=\"col-md-6\" style=\"margin-bottom: 10px;\">\n    <table class=\"table table-responsive table-condensed\">\n      <tr>\n        <th *ng-for=\"#label of lineChartLabels\">{{label}}</th>\n      </tr>\n      <tr *ng-for=\"#d of lineChartData\">\n        <td *ng-for=\"#label of lineChartLabels; #j=index\">{{d[j]}}</td>\n      </tr>\n    </table>\n    <button (click)=\"randomize()\">CLICK</button>\n  </div>\n</div>"
 
 /***/ },
-/* 327 */
+/* 354 */
 /***/ function(module, exports) {
 
 	module.exports = "<base-chart class=\"chart\"\n           [data]=\"pieChartData\"\n           [labels]=\"pieChartLabels\"\n           [chart-type]=\"pieChartType\"\n           (chart-hover)=\"chartHovered($event)\"\n           (chart-click)=\"chartClicked($event)\"></base-chart>\n"
 
 /***/ },
-/* 328 */
+/* 355 */
 /***/ function(module, exports) {
 
 	module.exports = "<base-chart class=\"chart\"\n            [data]=\"polarAreaChartData\"\n            [labels]=\"polarAreaChartLabels\"\n            [colours]=\"polarAreaChartColours\"\n            [legend]=\"polarAreaLegend\"\n            [chart-type]=\"polarAreaChartType\"\n            (chart-hover)=\"chartHovered($event)\"\n            (chart-click)=\"chartClicked($event)\"></base-chart>\n"
 
 /***/ },
-/* 329 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = "<base-chart class=\"chart\"\n             [data]=\"radarChartData\"\n             [labels]=\"radarChartLabels\"\n             [chart-type]=\"radarChartType\"\n             (chart-hover)=\"chartHovered($event)\"\n             (chart-click)=\"chartClicked($event)\"></base-chart>\n"
 
 /***/ },
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */
+/* 357 */,
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../tsd.d.ts" />
@@ -19048,68 +19107,67 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_1 = __webpack_require__(225);
-	var charts_demo_1 = __webpack_require__(337);
-	var line_chart_demo_1 = __webpack_require__(339);
-	var bar_chart_demo_1 = __webpack_require__(335);
-	var doughnut_chart_demo_1 = __webpack_require__(338);
-	var pie_chart_demo_1 = __webpack_require__(340);
-	var polar_area_chart_demo_1 = __webpack_require__(341);
-	var radar_chart_demo_1 = __webpack_require__(342);
-	var base_chart_demo_1 = __webpack_require__(336);
+	var angular2_1 = __webpack_require__(6);
+	var ng2_bootstrap_1 = __webpack_require__(248);
+	var line_chart_demo_1 = __webpack_require__(362);
+	var bar_chart_demo_1 = __webpack_require__(359);
+	var doughnut_chart_demo_1 = __webpack_require__(361);
+	var pie_chart_demo_1 = __webpack_require__(363);
+	var polar_area_chart_demo_1 = __webpack_require__(364);
+	var radar_chart_demo_1 = __webpack_require__(365);
+	var base_chart_demo_1 = __webpack_require__(360);
 	var name = 'Charts';
 	var src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
-	var doc = __webpack_require__(286);
+	var doc = __webpack_require__(314);
 	var chartDesc = [
 	    {
 	        heading: 'Line Chart',
 	        tag: 'line-chart-demo',
 	        id: 'lineChart',
-	        ts: __webpack_require__(318),
-	        html: __webpack_require__(311)
+	        ts: __webpack_require__(346),
+	        html: __webpack_require__(339)
 	    },
 	    {
 	        heading: 'Bar Chart',
 	        tag: 'bar-chart-demo',
 	        id: 'barChart',
-	        ts: __webpack_require__(315),
-	        html: __webpack_require__(308)
+	        ts: __webpack_require__(343),
+	        html: __webpack_require__(336)
 	    },
 	    {
 	        heading: 'Doughnut Chart',
 	        tag: 'doughnut-chart-demo',
 	        id: 'doughnutChart',
-	        ts: __webpack_require__(317),
-	        html: __webpack_require__(310)
+	        ts: __webpack_require__(345),
+	        html: __webpack_require__(338)
 	    },
 	    {
 	        heading: 'Radar Chart',
 	        tag: 'radar-chart-demo',
 	        id: 'radarChart',
-	        ts: __webpack_require__(321),
-	        html: __webpack_require__(314)
+	        ts: __webpack_require__(349),
+	        html: __webpack_require__(342)
 	    },
 	    {
 	        heading: 'Pie Chart',
 	        tag: 'pie-chart-demo',
 	        id: 'pieChart',
-	        ts: __webpack_require__(319),
-	        html: __webpack_require__(312)
+	        ts: __webpack_require__(347),
+	        html: __webpack_require__(340)
 	    },
 	    {
 	        heading: 'Polar Area Chart',
 	        tag: 'polar-area-chart-demo',
 	        id: 'polarAreaChart',
-	        ts: __webpack_require__(320),
-	        html: __webpack_require__(313)
+	        ts: __webpack_require__(348),
+	        html: __webpack_require__(341)
 	    },
 	    {
 	        heading: 'Dynamic Chart',
 	        tag: 'base-chart-demo',
 	        id: 'baseChart',
-	        ts: __webpack_require__(316),
-	        html: __webpack_require__(309)
+	        ts: __webpack_require__(344),
+	        html: __webpack_require__(337)
 	    }
 	];
 	var chartContent = "";
@@ -19124,19 +19182,19 @@ webpackJsonp([1],[
 	            selector: 'charts-section'
 	        }),
 	        angular2_1.View({
-	            template: "\n  <br>\n  <section id=\"" + name.toLowerCase() + "\">\n    <div class=\"row\"><h1>" + name + "<small>(<a href=\"" + src + "\">src</a>)</small></h1></div>\n\n    <hr>\n\n    <div class=\"row\">\n      <h2>Example</h2>\n\n       " + chartContent + "\n        <!--<charts-demo></charts-demo>-->\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n      <h2>API</h2>\n      <div class=\"card card-block panel panel-default panel-body\">" + doc + "</div>\n    </div>\n  </section>\n  ",
-	            directives: [charts_demo_1.ChartsDemo, line_chart_demo_1.LineChartDemo, bar_chart_demo_1.BarChartDemo, doughnut_chart_demo_1.DoughnutChartDemo, pie_chart_demo_1.PieChartDemo,
-	                polar_area_chart_demo_1.PolarAreaChartDemo, radar_chart_demo_1.RadarChartDemo, base_chart_demo_1.BaseChartDemo, ng2_bootstrap_1.tabs, angular2_1.CORE_DIRECTIVES, angular2_1.NgNonBindable]
+	            template: "\n  <br>\n  <section id=\"" + name.toLowerCase() + "\">\n    <div class=\"row\"><h1>" + name + "<small>(<a href=\"" + src + "\">src</a>)</small></h1></div>\n\n    <hr>\n\n    <div class=\"row\">\n      <h2>Example</h2>\n        " + chartContent + "\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n      <h2>API</h2>\n      <div class=\"card card-block panel panel-default panel-body\">" + doc + "</div>\n    </div>\n  </section>\n  ",
+	            directives: [line_chart_demo_1.LineChartDemo, bar_chart_demo_1.BarChartDemo, doughnut_chart_demo_1.DoughnutChartDemo, pie_chart_demo_1.PieChartDemo,
+	                polar_area_chart_demo_1.PolarAreaChartDemo, radar_chart_demo_1.RadarChartDemo, base_chart_demo_1.BaseChartDemo, ng2_bootstrap_1.tabs, angular2_1.CORE_DIRECTIVES]
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ChartsSection);
 	    return ChartsSection;
 	})();
 	exports.ChartsSection = ChartsSection;
-	//# sourceMappingURL=charts-section.js.map
+
 
 /***/ },
-/* 335 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19151,9 +19209,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(322);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(350);
 	var BarChartDemo = (function () {
 	    function BarChartDemo() {
 	        this.barChartOptions = {
@@ -19190,10 +19248,10 @@ webpackJsonp([1],[
 	    return BarChartDemo;
 	})();
 	exports.BarChartDemo = BarChartDemo;
-	//# sourceMappingURL=bar-chart-demo.js.map
+
 
 /***/ },
-/* 336 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19208,9 +19266,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(323);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(351);
 	var BaseChartDemo = (function () {
 	    function BaseChartDemo() {
 	        this.lineChartData = [
@@ -19251,10 +19309,10 @@ webpackJsonp([1],[
 	    return BaseChartDemo;
 	})();
 	exports.BaseChartDemo = BaseChartDemo;
-	//# sourceMappingURL=base-chart-demo.js.map
+
 
 /***/ },
-/* 337 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19269,162 +19327,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(324);
-	var ChartsDemo = (function () {
-	    function ChartsDemo() {
-	        this.lineChartData = [
-	            [65, 59, 80, 81, 56, 55, 40],
-	            [28, 48, 40, 19, 86, 27, 90],
-	            [18, 48, 77, 9, 100, 27, 40]
-	        ];
-	        this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-	        this.lineChartSeries = ['Series A', 'Series B', 'Series C'];
-	        this.lineChartOptions = {
-	            animation: false,
-	            responsive: true,
-	            multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
-	        };
-	        this.lineChartType = 'Line';
-	        this.pieChartType = 'Pie';
-	        this.lineChartColours = [
-	            {
-	                fillColor: 'rgba(148,159,177,0.2)',
-	                strokeColor: 'rgba(148,159,177,1)',
-	                pointColor: 'rgba(148,159,177,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(148,159,177,0.8)'
-	            },
-	            {
-	                fillColor: 'rgba(77,83,96,0.2)',
-	                strokeColor: 'rgba(77,83,96,1)',
-	                pointColor: 'rgba(77,83,96,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(77,83,96,1)'
-	            },
-	            {
-	                fillColor: 'rgba(148,159,177,0.2)',
-	                strokeColor: 'rgba(148,159,177,1)',
-	                pointColor: 'rgba(148,159,177,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(148,159,177,0.8)'
-	            }
-	        ];
-	        this.lineChartLegend = true;
-	        this.barChartOptions = {
-	            scaleShowVerticalLines: false,
-	            responsive: true,
-	            multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
-	        };
-	        this.barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-	        this.barChartSeries = ['Series A', 'Series B'];
-	        this.barChartLegend = true;
-	        this.barChartData = [
-	            [65, 59, 80, 81, 56, 55, 40],
-	            [28, 48, 40, 19, 86, 27, 90]
-	        ];
-	        this.polarAreaChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-	        this.polarAreaChartData = [300, 500, 100, 40, 120];
-	        this.polarAreaChartColours = [
-	            {
-	                fillColor: 'rgba(151,187,205,0.2)',
-	                strokeColor: 'rgba(151,187,205,1)',
-	                pointColor: 'rgba(151,187,205,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(151,187,205,0.8)',
-	                color: 'rgba(151,187,205,1)',
-	                highlight: 'rgba(151,187,205,0.8)'
-	            }, {
-	                fillColor: 'rgba(220,220,220,0.2)',
-	                strokeColor: 'rgba(220,220,220,1)',
-	                pointColor: 'rgba(220,220,220,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(220,220,220,0.8)',
-	                color: 'rgba(220,220,220,1)',
-	                highlight: 'rgba(220,220,220,0.8)'
-	            },
-	            {
-	                fillColor: 'rgba(247,70,74,0.2)',
-	                strokeColor: 'rgba(247,70,74,1)',
-	                pointColor: 'rgba(247,70,74,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(247,70,74,0.8)',
-	                color: 'rgba(247,70,74,1)',
-	                highlight: 'rgba(247,70,74,0.8)'
-	            }
-	        ];
-	        this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-	        this.doughnutChartData = [350, 450, 100];
-	        this.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-	        this.pieChartData = [300, 500, 100];
-	        this.radarChartLabels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
-	        this.radarChartData = [
-	            [65, 59, 90, 81, 56, 55, 40],
-	            [28, 48, 40, 19, 96, 27, 100]
-	        ];
-	        console.log('foo demo');
-	    }
-	    ChartsDemo.prototype.randomizeType = function () {
-	        this.lineChartType = this.lineChartType === 'Line' ? 'Bar' : 'Line';
-	        this.pieChartType = this.pieChartType === 'Doughnut' ? 'Pie' : 'Doughnut';
-	    };
-	    ChartsDemo.prototype.randomize = function () {
-	        var _lineChartData = [];
-	        for (var i = 0; i < this.lineChartData.length; i++) {
-	            _lineChartData[i] = [];
-	            for (var j = 0; j < this.lineChartData[i].length; j++) {
-	                _lineChartData[i].push(Math.floor((Math.random() * 100) + 1));
-	            }
-	        }
-	        this.lineChartData = _lineChartData;
-	    };
-	    ChartsDemo.prototype.chartClicked = function (e) {
-	        console.log(e);
-	    };
-	    ChartsDemo.prototype.chartHovered = function (e) {
-	        console.log(e);
-	    };
-	    ChartsDemo = __decorate([
-	        angular2_1.Component({
-	            selector: 'charts-demo'
-	        }),
-	        angular2_1.View({
-	            template: template,
-	            directives: [index_1.charts, angular2_1.NgClass, angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ChartsDemo);
-	    return ChartsDemo;
-	})();
-	exports.ChartsDemo = ChartsDemo;
-	//# sourceMappingURL=charts-demo.js.map
-
-/***/ },
-/* 338 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/// <reference path="../../../tsd.d.ts" />
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
-	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
-	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
-	    }
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(325);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(352);
 	var DoughnutChartDemo = (function () {
 	    function DoughnutChartDemo() {
 	        this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
@@ -19451,10 +19356,10 @@ webpackJsonp([1],[
 	    return DoughnutChartDemo;
 	})();
 	exports.DoughnutChartDemo = DoughnutChartDemo;
-	//# sourceMappingURL=doughnut-chart-demo.js.map
+
 
 /***/ },
-/* 339 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19469,9 +19374,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(326);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(353);
 	var LineChartDemo = (function () {
 	    function LineChartDemo() {
 	        this.lineChartData = [
@@ -19545,10 +19450,10 @@ webpackJsonp([1],[
 	    return LineChartDemo;
 	})();
 	exports.LineChartDemo = LineChartDemo;
-	//# sourceMappingURL=line-chart-demo.js.map
+
 
 /***/ },
-/* 340 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19563,9 +19468,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(327);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(354);
 	var PieChartDemo = (function () {
 	    function PieChartDemo() {
 	        this.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
@@ -19592,10 +19497,10 @@ webpackJsonp([1],[
 	    return PieChartDemo;
 	})();
 	exports.PieChartDemo = PieChartDemo;
-	//# sourceMappingURL=pie-chart-demo.js.map
+
 
 /***/ },
-/* 341 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19610,9 +19515,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(328);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(355);
 	var PolarAreaChartDemo = (function () {
 	    function PolarAreaChartDemo() {
 	        this.polarAreaChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
@@ -19671,10 +19576,10 @@ webpackJsonp([1],[
 	    return PolarAreaChartDemo;
 	})();
 	exports.PolarAreaChartDemo = PolarAreaChartDemo;
-	//# sourceMappingURL=polar-area-chart-demo.js.map
+
 
 /***/ },
-/* 342 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../../tsd.d.ts" />
@@ -19689,9 +19594,9 @@ webpackJsonp([1],[
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var angular2_1 = __webpack_require__(5);
-	var index_1 = __webpack_require__(11);
-	var template = __webpack_require__(329);
+	var angular2_1 = __webpack_require__(6);
+	var index_1 = __webpack_require__(12);
+	var template = __webpack_require__(356);
 	var RadarChartDemo = (function () {
 	    function RadarChartDemo() {
 	        this.radarChartLabels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
@@ -19721,10 +19626,10 @@ webpackJsonp([1],[
 	    return RadarChartDemo;
 	})();
 	exports.RadarChartDemo = RadarChartDemo;
-	//# sourceMappingURL=radar-chart-demo.js.map
+
 
 /***/ },
-/* 343 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -19739,8 +19644,8 @@ webpackJsonp([1],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	/// <reference path="../../tsd.d.ts" />
-	var angular2_1 = __webpack_require__(5);
-	var ng2_bootstrap_1 = __webpack_require__(225);
+	var angular2_1 = __webpack_require__(6);
+	var ng2_bootstrap_1 = __webpack_require__(248);
 	var components = [
 	    {
 	        name: 'Line Chart',
@@ -19788,7 +19693,7 @@ webpackJsonp([1],[
 	    return DemoHeader;
 	})();
 	exports.DemoHeader = DemoHeader;
-	//# sourceMappingURL=demo-header.js.map
+
 
 /***/ }
 ]);
