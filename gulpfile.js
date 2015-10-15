@@ -9,7 +9,7 @@ gulp.paths = {
     '!**/*.{ts,coffee}.js'],
   jssrc: [
     '*.js',
-    '!angular2-charts.js',
+    '!angular2-bootstrap.js',
     'gulp-tasks/*.js',
     '!node_modules',
     '!**/*.{ts,coffee}.js']
@@ -17,39 +17,10 @@ gulp.paths = {
 
 require('require-dir')('./gulp-tasks');
 
-var typescript = require('gulp-tsc');
-var options = require('./tsconfig.json').compilerOptions;
-options.emitError = false;
-
-var o = {
-  target: 'es5',
-  module: 'commonjs',
-  outDir: 'dist',
-  sourceRoot: 'dist',
-  mapRoot: 'dist',
-  keepTree: true,
-  declaration: true,
-  noEmitOnError: true,
-  emitError: false,
-  sourceMap: true,
-  removeComments: true,
-  noResolve: false,
-  suppressImplicitAnyIndexErrors: true,
-  safe: false,
-  emitDecoratorMetadata: true,
-  experimentalDecorators: true
-};
-
 var clean = require('gulp-clean');
 gulp.task('clean', function () {
   return gulp.src('dist', {read: false})
     .pipe(clean());
-});
-
-gulp.task('compile', ['clean'], function () {
-  gulp.src(['components/**/*.ts'])
-    .pipe(typescript(o))
-    .pipe(gulp.dest(options.outDir));
 });
 
 gulp.task('default', function () {

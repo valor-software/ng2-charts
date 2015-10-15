@@ -4,13 +4,14 @@
   "description": "angular2 charts components",
   "scripts": {
     "deploy": "NODE_ENV=production webpack -p --progress --color --optimize-minimize --optimize-dedupe --optimize-occurence-order",
-    "prepublish": "gulp compile",
+    "prepublish": "gulp clean && tsc && cp ./node_modules/chart.js/Chart.min.js ./components/external-lib",
     "prestart": "npm install",
     "server": "webpack-dev-server --hot --inline --colors --display-error-details --display-cached",
     "start": "npm run server",
     "test": "gulp lint"
   },
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "typescript": {
     "definition": [
       "dist/module.d.ts",
@@ -19,9 +20,7 @@
   },
   "files": [
     "dist",
-    "components",
-    "typings",
-    "tsd.d.ts"
+    "components"
   ],
   "keywords": [
     "angular2",
@@ -40,8 +39,8 @@
   },
   "homepage": "https://github.com/valor-software/ng2-charts#readme",
   "dependencies": {
-    "angular2": "2.0.0-alpha.40",
-    "ng2-bootstrap": "^0.40.0",
+    "angular2": "2.0.0-alpha.42",
+    "ng2-bootstrap": "^0.42.0",
     "moment": "^2.10.6",
     "reflect-metadata": "0.1.1",
     "ts-loader": "0.5.6",
@@ -49,28 +48,28 @@
     "chart.js": "^1.0.2"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.5",
-    "clean-webpack-plugin": "^0.1.3",
-    "compression-webpack-plugin": "^0.2.0",
-    "eslint": "^1.1.0",
-    "exports-loader": "^0.6.2",
-    "file-loader": "^0.8.4",
-    "gulp": "^3.9.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-eslint": "^1.0.0",
-    "gulp-size": "^2.0.0",
-    "gulp-tsc": "^1.1.1",
-    "gulp-tslint": "^3.1.2",
-    "html-loader": "^0.3.0",
-    "markdown-loader": "^0.1.7",
-    "marked": "^0.3.5",
-    "pre-commit": "^1.1.1",
+    "bootstrap": "3.3.5",
+    "clean-webpack-plugin": "0.1.3",
+    "compression-webpack-plugin": "0.2.0",
+    "eslint": "1.6.0",
+    "exports-loader": "0.6.2",
+    "gulp": "3.9.0",
+    "gulp-clean": "0.3.1",
+    "gulp-eslint": "1.0.0",
+    "gulp-size": "2.0.0",
+    "gulp-tsc": "1.1.1",
+    "gulp-tslint": "3.3.1",
+    "html-loader": "0.3.0",
+    "markdown-loader": "0.1.7",
+    "marked": "0.3.5",
+    "pre-commit": "1.1.1",
     "prismjs": "valorkin/prism",
     "prismjs-loader": "0.0.2",
-    "raw-loader": "^0.5.1",
-    "require-dir": "^0.3.0",
-    "typescript": "^1.6.2",
-    "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0"
+    "raw-loader": "0.5.1",
+    "require-dir": "0.3.0",
+    "transfer-webpack-plugin": "^0.1.4",
+    "typescript": "1.6.2",
+    "webpack": "1.12.2",
+    "webpack-dev-server": "1.12.0"
   }
 }

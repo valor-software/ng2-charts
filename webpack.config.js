@@ -4,6 +4,7 @@ var webpack = require('webpack');
 
 var Clean = require('clean-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
+var TransferWebpackPlugin = require('transfer-webpack-plugin');
 
 // marked renderer hack
 marked.Renderer.prototype.code = function (code, lang) {
@@ -107,6 +108,7 @@ var config = {
         loader: 'ts',
         query: {
           ignoreDiagnostics: [
+            6053
             // 2300, // 2300 -> Duplicate identifier
             // 2309 // 2309 -> An export assignment cannot be used in a module with other exported elements.
           ]
@@ -134,6 +136,9 @@ var config = {
       minChunks: Infinity,
       filename: 'angular2.js'
     }),
+    new TransferWebpackPlugin([
+      { from: 'components/external-lib' }
+    ]),
     new webpack.optimize.DedupePlugin({
       __isProduction: isProduction
     }),

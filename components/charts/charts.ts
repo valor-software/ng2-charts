@@ -1,14 +1,13 @@
-/// <reference path="../../tsd.d.ts" />
-
 import {
   Component, View,
   Directive, OnInit, OnDestroy,
   EventEmitter, ElementRef,
   CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
 } from 'angular2/angular2';
+
 // import EventEmitter = ng.EventEmitter;
 
-let Chart = require('chart.js');
+declare var Chart:any;
 
 @Component({
   selector: 'chart, canvas[chart]'
@@ -282,7 +281,7 @@ export class BaseChart implements OnInit, OnDestroy {
       let colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
 
 
-      let data:any = Object.assign(colour,
+      let data:any = (<any>Object).assign(colour,
         this.getDataObject(this.series[i] || this.labels[i], this.data[i]));
 
       dataset.push(data);

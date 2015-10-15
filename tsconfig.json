@@ -1,28 +1,23 @@
 {
-    "version": "1.6.2",
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "outDir": "dist",
-        "sourceMap": true,
-        "declaration": true,
-        "removeComments": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "listFiles": false,
-        "noLib": false,
-        "noEmitOnError": false,
-        "noImplicitAny": false
-    },
-    "filesGlob": [
-        "!./node_modules/**/*.ts"
-    ],
-    "files": [
-        "./tsd.d.ts",
-
-        "./components/charts/charts.ts",
-        "./components/ng2-charts-config.ts",
-        "./components/index.ts",
-        "./demo/index.ts"
-    ]
+  "version": "1.6.2",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "listFiles": false,
+    "noLib": false,
+    "noEmitOnError": false,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "./components/index.ts"
+  ]
 }
