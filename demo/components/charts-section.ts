@@ -2,7 +2,7 @@
 
 import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
 
-import {tabs} from 'ng2-bootstrap';
+import {tabs} from 'ng2-bootstrap/ng2-bootstrap';
 import {LineChartDemo} from './charts/line-chart-demo';
 import {BarChartDemo} from './charts/bar-chart-demo';
 import {DoughnutChartDemo} from './charts/doughnut-chart-demo';
