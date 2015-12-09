@@ -43,7 +43,6 @@
     "ng2-bootstrap": "0.46.0",
     "moment": "2.10.6",
     "reflect-metadata": "0.1.1",
-    "ts-loader": "0.7.2",
     "zone.js": "0.5.4",
     "chart.js": "1.0.2"
   },
@@ -67,6 +66,7 @@
     "prismjs-loader": "0.0.2",
     "raw-loader": "0.5.1",
     "require-dir": "0.3.0",
+    "ts-loader": "0.7.2",
     "transfer-webpack-plugin": "^0.1.4",
     "typescript": "1.7.3",
     "webpack": "1.12.9",
