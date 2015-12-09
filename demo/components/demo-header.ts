@@ -1,6 +1,6 @@
 /// <reference path="../../tsd.d.ts" />
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-import {Collapse, dropdown, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap';
+import {Collapse, dropdown, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
 
 let components = [
   {

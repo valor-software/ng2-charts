@@ -59,8 +59,8 @@ export class BaseChart implements OnInit, OnDestroy {
   private legend:boolean;
   private legendTemplate:any;
   private initFlag:boolean = false;
-  private chartClick:EventEmitter = new EventEmitter();
-  private chartHover:EventEmitter = new EventEmitter();
+  private chartClick:EventEmitter<BaseChart> = new EventEmitter();
+  private chartHover:EventEmitter<BaseChart> = new EventEmitter();
   private defaultsColours:Array<any> = [
     {
       fillColor: 'rgba(151,187,205,0.2)',
