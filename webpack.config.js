@@ -49,12 +49,12 @@ var config = {
   entry: {
     angular2: [
       // Angular 2 Deps
-      'zone.js',
+      'zone.js/dist/zone-microtask',
       'reflect-metadata',
-      'angular2/angular2',
+      'angular2/common',
       'angular2/core'
     ],
-    'angular2-charts': ['components'],
+    'angular2-charts': ['ng2-charts'],
     'angular2-charts-demo': 'demo'
   },
 
@@ -91,7 +91,7 @@ var config = {
   module: {
     loaders: [
       // support markdown
-      {test: /\.md$/, loader: 'html!markdown'},
+      {test: /\.md$/, loader: 'html?minimize=false!markdown'},
 
       // Support for *.json files.
       {test: /\.json$/, loader: 'json'},
@@ -106,13 +106,6 @@ var config = {
       {
         test: /\.ts$/,
         loader: 'ts',
-        query: {
-          ignoreDiagnostics: [
-            6053
-            // 2300, // 2300 -> Duplicate identifier
-            // 2309 // 2309 -> An export assignment cannot be used in a module with other exported elements.
-          ]
-        },
         exclude: [
           /\.min\.js$/,
           /\.spec\.ts$/,
@@ -135,9 +128,6 @@ var config = {
       minChunks: Infinity,
       filename: 'angular2.js'
     }),
-    new TransferWebpackPlugin([
-      { from: 'components/external-lib' }
-    ]),
     new webpack.optimize.DedupePlugin({
       __isProduction: isProduction
     }),

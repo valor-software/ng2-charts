@@ -1,21 +1,15 @@
 import {
   Component, View,
-  Directive, OnInit, OnDestroy,
-  EventEmitter, ElementRef,
-  CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
-} from 'angular2/angular2';
-
-// import EventEmitter = ng.EventEmitter;
+  Directive, AfterViewChecked, OnDestroy, OnInit,
+  EventEmitter, ElementRef, Input
+} from 'angular2/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
 
 declare var Chart:any;
 
 @Component({
-  selector: 'chart, canvas[chart]'
-})
-@View({
-  template: `
-  <canvas></canvas>
-  `,
+  selector: 'chart, canvas[chart]',
+  template: `<canvas></canvas>`,
   directives: [CORE_DIRECTIVES, NgClass]
 })
 export class Charts {
@@ -35,16 +29,12 @@ export class Charts {
     'legend',
     'options'
   ],
-  events: ['chartClick', 'chartHover']
-})
-@View({
+  events: ['chartClick', 'chartHover'],
   template: `
-  <canvas style="width: 100%; height: 100%;" (^click)="click($event)" (mousemove)="hover($event)"></canvas>
+  <canvas style="width: 100%; height: 100%;" (click)="click($event)" (mousemove)="hover($event)"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
-
-
 export class BaseChart implements OnInit, OnDestroy {
   private ctx:any;
   private cvs:any;
@@ -59,8 +49,8 @@ export class BaseChart implements OnInit, OnDestroy {
   private legend:boolean;
   private legendTemplate:any;
   private initFlag:boolean = false;
-  private chartClick:EventEmitter<BaseChart> = new EventEmitter();
-  private chartHover:EventEmitter<BaseChart> = new EventEmitter();
+  private chartClick:EventEmitter<any> = new EventEmitter();
+  private chartHover:EventEmitter<any> = new EventEmitter();
   private defaultsColours:Array<any> = [
     {
       fillColor: 'rgba(151,187,205,0.2)',
@@ -131,7 +121,7 @@ export class BaseChart implements OnInit, OnDestroy {
   constructor(private element:ElementRef) {
   }
 
-  onInit() {
+  ngOnInit() {
     this.ctx = this.element.nativeElement.children[0].getContext('2d');
     this.cvs = this.element.nativeElement.children[0];
     this.parent = this.element.nativeElement;
@@ -139,7 +129,7 @@ export class BaseChart implements OnInit, OnDestroy {
     this.initFlag = true;
   }
 
-  onDestroy() {
+  ngOnDestroy() {
     if (this.chart) {
       this.chart.destroy();
       this.chart = null;
@@ -208,7 +198,7 @@ export class BaseChart implements OnInit, OnDestroy {
     let activePoints = atEvent.call(this.chart, evt);
     if (activePoints.length > 0) {
       let activeLabel = activePoints[0].label;
-      this.chartClick.next({activePoints: activePoints, activeLabel: activeLabel});
+      this.chartClick.emit({activePoints: activePoints, activeLabel: activeLabel});
     } else {
       console.log('not point');
     }
@@ -220,8 +210,7 @@ export class BaseChart implements OnInit, OnDestroy {
     if (activePoints.length > 0) {
       let activeLabel = activePoints[0].label;
       let activePoint = activePoints[0].value;
-      this.chartClick.next({activePoints: activePoints, activePoint: activePoint, activeLabel: activeLabel});
-
+      this.chartHover.emit({activePoints: activePoints, activePoint: activePoint, activeLabel: activeLabel});
     } else {
       console.log('not point');
     }
@@ -272,7 +261,7 @@ export class BaseChart implements OnInit, OnDestroy {
 
   private refresh() {
 
-    this.onDestroy();
+    this.ngOnDestroy();
     let dataset:Array<any> = [];
 
     for (let i = 0; i < this.data.length; i++) {
@@ -294,9 +283,8 @@ export class BaseChart implements OnInit, OnDestroy {
     if (this.legend) {
       this.setLegend();
     }
-
   }
 }
 
 
-export const charts:Array<any> = [Charts, BaseChart];
+export const CHART_DIRECTIVES:Array<any> = [Charts, BaseChart];

@@ -13,6 +13,9 @@ npm-debug.log
 /build
 /dist
 
+ng2-charts.d.ts
+ng2-charts.js
+ng2-charts.js.map
 /demo/**/*.js
 /demo/**/*.js.map
 /components/**/*.js

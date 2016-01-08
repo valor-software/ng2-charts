@@ -1,6 +1,5 @@
-/// <reference path="../../tsd.d.ts" />
-
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/core';
+import {CORE_DIRECTIVES} from 'angular2/common';
 
 import {tabs} from 'ng2-bootstrap/ng2-bootstrap';
 import {LineChartDemo} from './charts/line-chart-demo';
@@ -85,12 +84,12 @@ chartDesc.forEach(desc => {
         <div class="card card-block panel panel-default panel-body">
 
          <div class="row">
-          <div *ng-if="'${desc.heading}' == 'Line Chart' || '${desc.heading}' == 'Dynamic Chart'">
+          <div *ngIf="'${desc.heading}' == 'Line Chart' || '${desc.heading}' == 'Dynamic Chart'">
             <div class="col-md-12">
               <${desc.tag}></${desc.tag}>
             </div>
           </div>
-          <div *ng-if="'${desc.heading}' != 'Line Chart' && '${desc.heading}' != 'Dynamic Chart'">
+          <div *ngIf="'${desc.heading}' != 'Line Chart' && '${desc.heading}' != 'Dynamic Chart'">
             <div class="col-md-3"></div>
             <div class="col-md-6">
               <${desc.tag}></${desc.tag}>
@@ -120,11 +119,14 @@ chartDesc.forEach(desc => {
 });
 
 @Component({
-  selector: 'charts-section'
-})
-@View({
+  selector: 'charts-section',
   template: `
   <br>
+  <div class="row">
+    <h2>API</h2>
+    <div class="card card-block panel panel-default panel-body">${doc}</div>
+  </div>
+
   <section id="${name.toLowerCase()}">
     <div class="row"><h1>${name}<small>(<a href="${src}">src</a>)</small></h1></div>
 
@@ -137,10 +139,6 @@ chartDesc.forEach(desc => {
 
     <br>
 
-    <div class="row">
-      <h2>API</h2>
-      <div class="card card-block panel panel-default panel-body">${doc}</div>
-    </div>
   </section>
   `,
   directives: [LineChartDemo, BarChartDemo, DoughnutChartDemo, PieChartDemo,

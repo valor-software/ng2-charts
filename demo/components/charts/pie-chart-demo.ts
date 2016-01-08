@@ -1,21 +1,15 @@
-/// <reference path="../../../tsd.d.ts" />
+import {Component, EventEmitter} from 'angular2/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
 
-import {
-  Component, View, EventEmitter,
-  CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
-} from 'angular2/angular2';
-
-import {charts} from '../../../components/index';
+import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
 // webpack html imports
 let template = require('./pie-chart-demo.html');
 
 @Component({
-  selector: 'pie-chart-demo'
-})
-@View({
+  selector: 'pie-chart-demo',
   template: template,
-  directives: [charts, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class PieChartDemo {
 
