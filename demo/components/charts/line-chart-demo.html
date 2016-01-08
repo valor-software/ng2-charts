@@ -6,18 +6,18 @@
                 [options]="lineChartOptions"
                 [series]="lineChartSeries"
                 [colours]="lineChartColours"
-                [chart-type]="lineChartType"
                 [legend]="lineChartLegend"
-                (chart-hover)="chartHovered($event)"
-                (chart-click)="chartClicked($event)"></base-chart>
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></base-chart>
   </div>
   <div class="col-md-6" style="margin-bottom: 10px;">
     <table class="table table-responsive table-condensed">
       <tr>
-        <th *ng-for="#label of lineChartLabels">{{label}}</th>
+        <th *ngFor="#label of lineChartLabels">{{label}}</th>
       </tr>
-      <tr *ng-for="#d of lineChartData">
-        <td *ng-for="#label of lineChartLabels; #j=index">{{d[j]}}</td>
+      <tr *ngFor="#d of lineChartData">
+        <td *ngFor="#label of lineChartLabels; #j=index">{{d && j && d[j]}}</td>
       </tr>
     </table>
     <button (click)="randomize()">CLICK</button>

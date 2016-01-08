@@ -1,21 +1,15 @@
-/// <reference path="../../../tsd.d.ts" />
+import {Component, EventEmitter} from 'angular2/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
 
-import {
-  Component, View, EventEmitter,
-  CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
-} from 'angular2/angular2';
-
-import {charts} from '../../../components/index';
+import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
 // webpack html imports
 let template = require('./bar-chart-demo.html');
 
 @Component({
-  selector: 'bar-chart-demo'
-})
-@View({
+  selector: 'bar-chart-demo',
   template: template,
-  directives: [charts, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class BarChartDemo {
 
@@ -30,7 +24,7 @@ export class BarChartDemo {
   };
   private barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   private barChartSeries = ['Series A', 'Series B'];
-  private barChartType = 'Bar';
+  public barChartType = 'Bar';
   private barChartLegend:boolean = true;
 
   private barChartData = [

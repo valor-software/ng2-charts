@@ -2,6 +2,7 @@
 Beautiful charts for Angular2 based on Chart.js
 Directive for [ng2-charts](https://github.com/valor-software/ng2-charts) component.
 
+Follow to be notified about new releases: [twitter](https://twitter.com/valorkin)
 
 # Usage & Demo
 [http://valor-software.github.io/ng2-charts/](http://valor-software.github.io/ng2-charts/)
@@ -15,18 +16,23 @@ Directive for [ng2-charts](https://github.com/valor-software/ng2-charts) compone
 
   `npm i ng2-charts --save`
 
-  Alternatively, you can [download it in a ZIP file](https://github.com/valor-software/ng2-charts/archive/master.zip).
 
-2. A recommended way to install Chart.js component is through [Bower](http://bower.io/search/?q=chartjs) package manager using the following command:
+2. A way to install Chart.js component is through [npm](http://bower.io/search/?q=chartjs) package manager using the following command:
 
   `bower install Chart.js --save`
 
   Alternatively, you can [download it in a ZIP file](https://github.com/nnnick/Chart.js/archive/master.zip).
-3. After Chart.js component is downloaded, embed the code into your project.
+
+  After Chart.js component is downloaded, embed the code into your project.
 
   ```html
   <script src="bower_components/Chart.js/Chart.min.js"></script>
   ```
+
+3. Or you can link `charts.js` at cdn
+```html
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+```
 
 4. More information regarding using of ***ng2-charts*** is located in
   [demo](http://valor-software.github.io/ng2-charts/) and [demo sources](https://github.com/valor-software/ng2-charts/tree/master/demo).

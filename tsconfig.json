@@ -1,9 +1,9 @@
 {
-  "version": "1.6.2",
+  "version": "1.7.5",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": ".",
     "sourceMap": true,
     "declaration": true,
     "removeComments": true,
@@ -18,6 +18,6 @@
     "node_modules"
   ],
   "files": [
-    "./components/index.ts"
+    "./ng2-charts.ts"
   ]
 }
