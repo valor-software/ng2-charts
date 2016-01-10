@@ -1,12 +1,16 @@
-# ng2-charts
+# ng2-charts [![npm version](https://badge.fury.io/js/ng2-charts.svg)](http://badge.fury.io/js/ng2-charts)
 Beautiful charts for Angular2 based on Chart.js
-Directive for [ng2-charts](https://github.com/valor-software/ng2-charts) component.
 
-Follow to be notified about new releases: [twitter](https://twitter.com/valorkin)
+Follow me at [twitter](https://twitter.com/valorkin) to be notified about new releases.
+
+[![Code Climate](https://codeclimate.com/github/valor-software/ng2-charts/badges/gpa.svg)](https://codeclimate.com/github/valor-software/ng2-charts)
+[![Join the chat at https://gitter.im/valor-software/ng2-bootstrap](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/valor-software/ng2-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Dependency Status](https://david-dm.org/valor-software/ng2-charts.svg)](https://david-dm.org/valor-software/ng2-charts)
+[![devDependency Status](https://david-dm.org/valor-software/ng2-charts/dev-status.svg)](https://david-dm.org/valor-software/ng2-charts#info=devDependencies)
+[![Throughput Graph](https://graphs.waffle.io/valor-software/ng2-charts/throughput.svg)](https://waffle.io/valor-software/ng2-charts/metrics)
 
 # Usage & Demo
 [http://valor-software.github.io/ng2-charts/](http://valor-software.github.io/ng2-charts/)
-
 
 - - -
 
