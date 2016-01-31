@@ -31,7 +31,7 @@
     "angular2": "2.0.0-beta.0",
     "bootstrap": "3.3.6",
     "chart.js": "1.0.2",
-    "clean-webpack-plugin": "0.1.5",
+    "clean-webpack-plugin": "0.1.7",
     "compression-webpack-plugin": "0.3.0",
     "es6-shim": "0.33.13",
     "eslint": "1.10.3",
