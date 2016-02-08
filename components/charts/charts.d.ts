@@ -1,20 +1,20 @@
-import { OnDestroy, OnInit, ElementRef } from 'angular2/core';
+import { OnDestroy, OnInit, OnChanges, ElementRef } from 'angular2/core';
 export declare class Charts {
     constructor(element: ElementRef);
 }
-export declare class BaseChart implements OnInit, OnDestroy {
+export declare class BaseChart implements OnInit, OnDestroy, OnChanges {
     private element;
+    data: Array<any>;
+    labels: Array<any>;
+    options: any;
+    chartType: string;
+    series: Array<any>;
+    colours: Array<any>;
+    legend: boolean;
     private ctx;
     private cvs;
     private parent;
     private chart;
-    private _data;
-    private labels;
-    private options;
-    private _chartType;
-    private series;
-    private colours;
-    private legend;
     private legendTemplate;
     private initFlag;
     private chartClick;
@@ -22,9 +22,8 @@ export declare class BaseChart implements OnInit, OnDestroy {
     private defaultsColours;
     constructor(element: ElementRef);
     ngOnInit(): void;
+    ngOnChanges(changes: any): void;
     ngOnDestroy(): void;
-    private data;
-    private chartType;
     setLegend(): void;
     getColour(colour: Array<number>): any;
     getRandomInt(min: any, max: any): any;
