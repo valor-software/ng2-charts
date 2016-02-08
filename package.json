@@ -45,7 +45,7 @@
     "html-loader": "0.4.0",
     "markdown-loader": "0.1.7",
     "marked": "0.3.5",
-    "ng2-bootstrap": "1.0.0-beta.2",
+    "ng2-bootstrap": "1.0.3",
     "pre-commit": "1.1.2",
     "prismjs": "valorkin/prism",
     "prismjs-loader": "0.0.2",
