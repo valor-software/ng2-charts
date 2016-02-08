@@ -199,8 +199,6 @@ export class BaseChart implements OnInit, OnDestroy {
     if (activePoints.length > 0) {
       let activeLabel = activePoints[0].label;
       this.chartClick.emit({activePoints: activePoints, activeLabel: activeLabel});
-    } else {
-      console.log('not point');
     }
   }
 
@@ -211,8 +209,6 @@ export class BaseChart implements OnInit, OnDestroy {
       let activeLabel = activePoints[0].label;
       let activePoint = activePoints[0].value;
       this.chartHover.emit({activePoints: activePoints, activePoint: activePoint, activeLabel: activeLabel});
-    } else {
-      console.log('not point');
     }
   }
 
