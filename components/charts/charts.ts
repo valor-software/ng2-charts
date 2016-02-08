@@ -260,9 +260,8 @@ export class BaseChart implements OnInit, OnDestroy {
   }
 
   private refresh() {
-
-    if(this.options.responsive && this.parent.clientHeight === 0){
-      return setTimeout(()=>this.refresh(), 50);
+    if (this.options.responsive && this.parent.clientHeight === 0) {
+      return setTimeout(() => this.refresh(), 50);
     }
 
     this.ngOnDestroy();
