@@ -33,7 +33,7 @@
     "chart.js": "1.0.2",
     "clean-webpack-plugin": "0.1.8",
     "compression-webpack-plugin": "0.3.0",
-    "es6-shim": "0.33.13",
+    "es6-shim": "0.34.4",
     "eslint": "1.10.3",
     "exports-loader": "0.6.2",
     "gulp": "3.9.1",
