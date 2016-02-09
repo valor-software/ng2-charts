@@ -1,6 +1,6 @@
 import {
-  Component, View,
-  Directive, AfterViewChecked, OnDestroy, OnInit,
+  Component, View, Directive,
+  AfterViewChecked, OnDestroy, OnInit, OnChanges,
   EventEmitter, ElementRef, Input
 } from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
@@ -35,18 +35,19 @@ export class Charts {
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
-export class BaseChart implements OnInit, OnDestroy {
+export class BaseChart implements OnInit, OnDestroy, OnChanges {
+  @Input() data:Array<any> = [];
+  @Input() labels:Array<any> = [];
+  @Input() options:any = {responsive: true};
+  @Input() chartType:string;
+  @Input() series:Array<any> = [];
+  @Input() colours:Array<any> = [];
+  @Input() legend:boolean;
+
   private ctx:any;
   private cvs:any;
   private parent:any;
   private chart:any;
-  private _data:Array<any> = [];
-  private labels:Array<any> = [];
-  private options:any = {responsive: true};
-  private _chartType:string;
-  private series:Array<any> = [];
-  private colours:Array<any> = [];
-  private legend:boolean;
   private legendTemplate:any;
   private initFlag:boolean = false;
   private chartClick:EventEmitter<any> = new EventEmitter();
@@ -129,6 +130,12 @@ export class BaseChart implements OnInit, OnDestroy {
     this.initFlag = true;
   }
 
+  ngOnChanges(changes) {
+    if (this.initFlag) {
+      this.refresh();
+    }
+  }
+
   ngOnDestroy() {
     if (this.chart) {
       this.chart.destroy();
@@ -137,28 +144,6 @@ export class BaseChart implements OnInit, OnDestroy {
     if (this.legendTemplate) {
       this.legendTemplate.destroy();
       this.legendTemplate = null;
-    }
-  }
-
-  private get data() {
-    return this._data;
-  }
-
-  private set data(value) {
-    this._data = value;
-    if (this.initFlag && this._data && this._data.length > 0) {
-      this.refresh();
-    }
-  }
-
-  private get chartType() {
-    return this._chartType;
-  }
-
-  private set chartType(value) {
-    this._chartType = value;
-    if (this.initFlag && this._chartType && this._chartType.length > 0) {
-      this.refresh();
     }
   }
 
@@ -256,7 +241,6 @@ export class BaseChart implements OnInit, OnDestroy {
   }
 
   private refresh() {
-
     if(this.options.responsive && this.parent.clientHeight === 0){
       return setTimeout(()=>this.refresh(), 50);
     }
@@ -265,19 +249,16 @@ export class BaseChart implements OnInit, OnDestroy {
     let dataset:Array<any> = [];
 
     for (let i = 0; i < this.data.length; i++) {
-
       let colourDesc:Array<number> = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
       let colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
-
 
       let data:any = (<any>Object).assign(colour,
         this.getDataObject(this.series[i] || this.labels[i], this.data[i]));
 
       dataset.push(data);
-
     }
-    let data:any = this.getChartData(this.labels, dataset);
 
+    let data:any = this.getChartData(this.labels, dataset);
     this.chart = this.getChartBuilder(this.ctx, data, this.options);
 
     if (this.legend) {
