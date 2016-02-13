@@ -35,7 +35,7 @@
     "compression-webpack-plugin": "0.3.0",
     "es6-shim": "0.33.13",
     "eslint": "1.10.3",
-    "exports-loader": "0.6.2",
+    "exports-loader": "0.6.3",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.1",
     "gulp-eslint": "1.1.1",
