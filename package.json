@@ -37,7 +37,7 @@
     "eslint": "1.10.3",
     "exports-loader": "0.6.3",
     "gulp": "3.9.1",
-    "gulp-clean": "0.3.1",
+    "gulp-clean": "0.3.2",
     "gulp-eslint": "1.1.1",
     "gulp-size": "2.1.0",
     "gulp-tsc": "1.1.4",
