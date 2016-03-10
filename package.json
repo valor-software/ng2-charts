@@ -39,7 +39,7 @@
     "gulp": "3.9.1",
     "gulp-clean": "0.3.1",
     "gulp-eslint": "1.1.1",
-    "gulp-size": "2.0.0",
+    "gulp-size": "2.1.0",
     "gulp-tsc": "1.1.4",
     "gulp-tslint": "4.3.3",
     "html-loader": "0.4.2",
