@@ -59,7 +59,7 @@
     "typescript": "1.8.9",
     "webpack": "1.12.14",
     "webpack-dev-server": "1.14.0",
-    "zone.js": "0.6.4"
+    "zone.js": "0.6.5"
   },
   "contributors": [
     {
