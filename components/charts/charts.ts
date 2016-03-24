@@ -1,5 +1,5 @@
 import {
-  Component, View, Directive,
+  Component, Directive,
   AfterViewChecked, OnDestroy, OnInit, OnChanges,
   EventEmitter, ElementRef, Input
 } from 'angular2/core';
