@@ -32,7 +32,7 @@
     "bootstrap": "3.3.6",
     "chart.js": "1.0.2",
     "clean-webpack-plugin": "0.1.8",
-    "compression-webpack-plugin": "0.3.0",
+    "compression-webpack-plugin": "0.3.1",
     "es6-shim": "0.33.13",
     "eslint": "1.10.3",
     "exports-loader": "0.6.3",
