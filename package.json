@@ -57,7 +57,7 @@
     "ts-loader": "0.8.1",
     "tslint": "3.5.0",
     "typescript": "1.8.9",
-    "webpack": "1.12.14",
+    "webpack": "1.12.15",
     "webpack-dev-server": "1.14.0",
     "zone.js": "0.6.6"
   },
