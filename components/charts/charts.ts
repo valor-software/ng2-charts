@@ -1,6 +1,5 @@
 import {
-  Component, Directive,
-  AfterViewChecked, OnDestroy, OnInit, OnChanges,
+  Component, OnDestroy, OnInit, OnChanges,
   EventEmitter, ElementRef, Input
 } from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';

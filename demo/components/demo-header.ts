@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {NgFor} from 'angular2/common';
 
 import {Collapse, DROPDOWN_DIRECTIVES, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
