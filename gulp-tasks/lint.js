@@ -1,23 +1,20 @@
-var gulp = require('gulp');
-var esLint = require('gulp-eslint');
-var tslint = require('gulp-tslint');
 
-var paths = gulp.paths;
+'use strict';
 
-gulp.task('eslint', function() {
-  return gulp.src(paths.jssrc)
-    .pipe(esLint({useEslintrc: true}))
-    .pipe(esLint.format())
-    .pipe(esLint.failOnError());
-});
+const gulp = require('gulp');
+const tslint = require('gulp-tslint');
+const paths = gulp.paths;
+const tslintConf = require('../tslint.json');
 
-gulp.task('tslint', function() {
-  return gulp.src(paths.tssrc)
-    .pipe(tslint())
-    .pipe(tslint.report('verbose', {
+gulp.task('tslint', () =>
+  gulp
+    .src(paths.tssrc)
+    .pipe(tslint(tslintConf))
+    .pipe(tslint.report('prose', {
       emitError: true,
-      reportLimit: 0
-    }));
-});
+      summarizeFailureOutput: true,
+      reportLimit: 50
+    }))
+);
 
-gulp.task('lint', ['tslint', 'eslint']);
+gulp.task('lint', ['tslint']);
