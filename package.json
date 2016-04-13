@@ -67,6 +67,7 @@
     "es6-shim": "0.35.0",
     "eslint-config-valorsoft": "0.0.10",
     "exports-loader": "0.6.3",
+    "gh-pages": "0.11.0",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
     "gulp-eslint": "2.0.0",
