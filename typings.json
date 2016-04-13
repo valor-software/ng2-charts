@@ -1,0 +1,5 @@
+{
+  "ambientDependencies": {
+    "require": "github:DefinitelyTyped/DefinitelyTyped/requirejs/require.d.ts"
+  }
+}

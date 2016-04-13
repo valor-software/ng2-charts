@@ -18,6 +18,7 @@
     "node_modules"
   ],
   "files": [
-    "./ng2-charts.ts"
+    "./ng2-charts.ts",
+    "./components/charts/typings.d.ts"
   ]
 }

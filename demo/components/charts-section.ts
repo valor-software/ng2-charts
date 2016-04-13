@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
-import {tabs} from 'ng2-bootstrap/ng2-bootstrap';
+import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {LineChartDemo} from './charts/line-chart-demo';
 import {BarChartDemo} from './charts/bar-chart-demo';
 import {DoughnutChartDemo} from './charts/doughnut-chart-demo';
@@ -142,7 +142,7 @@ chartDesc.forEach(desc => {
   </section>
   `,
   directives: [LineChartDemo, BarChartDemo, DoughnutChartDemo, PieChartDemo,
-    PolarAreaChartDemo, RadarChartDemo, BaseChartDemo, tabs, CORE_DIRECTIVES]
+    PolarAreaChartDemo, RadarChartDemo, BaseChartDemo, TAB_DIRECTIVES, CORE_DIRECTIVES]
 })
 export class ChartsSection {
 }
