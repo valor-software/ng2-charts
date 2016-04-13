@@ -1,23 +1,23 @@
 {
-  "version": "1.7.5",
+  "version": "1.8.9",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "outDir": ".",
-    "sourceMap": true,
+    "moduleResolution": "node",
+    "sourceMap": false,
     "declaration": true,
-    "removeComments": true,
+    "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
     "listFiles": false,
-    "noLib": false,
-    "noEmitOnError": false,
-    "noImplicitAny": false
+    "noLib": false
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "./ng2-charts.ts"
+    "./ng2-charts.ts",
+    "./typings/browser.d.ts"
   ]
 }
