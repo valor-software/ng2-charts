@@ -60,7 +60,7 @@ export class LineChartDemo {
   private lineChartType:string = 'Line';
 
   private randomize() {
-    let _lineChartData = [];
+    let _lineChartData:Array<any> = [];
     for (let i = 0; i < this.lineChartData.length; i++) {
       _lineChartData[i] = [];
       for (let j = 0; j < this.lineChartData[i].length; j++) {
