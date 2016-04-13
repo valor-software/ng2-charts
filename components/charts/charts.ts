@@ -129,7 +129,7 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     this.initFlag = true;
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges() {
     if (this.initFlag) {
       this.refresh();
     }
@@ -169,15 +169,15 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     };
   }
 
-  getRandomInt(min, max) {
+  getRandomInt(min:number, max:number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  rgba(colour, alpha) {
+  rgba(colour:Array<number>, alpha:number) {
     return 'rgba(' + colour.concat(alpha).join(',') + ')';
   }
 
-  public click(evt) {
+  public click(evt:any) {
     let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
     let activePoints = atEvent.call(this.chart, evt);
     if (activePoints.length > 0) {
@@ -186,7 +186,7 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  public hover(evt) {
+  public hover(evt:any) {
     let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
     let activePoints = atEvent.call(this.chart, evt);
     if (activePoints.length > 0) {
