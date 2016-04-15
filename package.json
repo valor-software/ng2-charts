@@ -46,13 +46,13 @@
   },
   "homepage": "https://github.com/valor-software/ng2-charts#readme",
   "peerDependencies": {
-    "angular2": "2.0.0-beta.14"
+    "angular2": "2.0.0-beta.15"
   },
   "dependencies": {
     "chart.js": "1.0.2"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.14",
+    "angular2": "2.0.0-beta.15",
     "async": "2.0.0-rc.3",
     "bootstrap": "3.3.6",
     "chart.js": "1.0.2",
@@ -60,7 +60,7 @@
     "compression-webpack-plugin": "0.3.1",
     "conventional-changelog-cli": "1.1.1",
     "conventional-github-releaser": "1.1.1",
-    "copy-webpack-plugin": "1.1.1",
+    "copy-webpack-plugin": "2.0.1",
     "cpy-cli": "1.0.0",
     "del-cli": "0.2.0",
     "es6-promise": "3.1.2",
@@ -78,7 +78,7 @@
     "html-webpack-plugin": "2.15.0",
     "markdown-loader": "0.1.7",
     "marked": "0.3.5",
-    "ng2-bootstrap": "1.0.11",
+    "ng2-bootstrap": "1.0.13",
     "pre-commit": "1.1.2",
     "prismjs": "1.4.1",
     "prismjs-loader": "0.0.2",
@@ -92,7 +92,7 @@
     "tslint-config-valorsoft": "0.0.3",
     "typescript": "1.8.10",
     "typings": "0.7.12",
-    "webpack": "1.12.15",
+    "webpack": "1.13.0",
     "webpack-dev-server": "1.14.1",
     "zone.js": "0.6.11"
   },
