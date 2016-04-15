@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/valor-software/ng2-charts/compare/v1.0.2...v1.0.3) (2016-04-15)
+
+
+### Features
+
+* **package:** updated to angular2 beta.15 ([4f44c83](https://github.com/valor-software/ng2-charts/commit/4f44c83))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2016-04-13)
 
