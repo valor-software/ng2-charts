@@ -72,6 +72,7 @@ const config = {
     colors: true,
     historyApiFallback: true,
     contentBase: dest,
+    outputPath: dest,
     //publicPath: dest,
     watchOptions: {aggregateTimeout: 300, poll: 1000}
   },
