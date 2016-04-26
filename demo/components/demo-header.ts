@@ -4,28 +4,13 @@ import {NgFor} from 'angular2/common';
 import {Collapse, DROPDOWN_DIRECTIVES, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
 
 let components = [
-  {
-    name: 'Line Chart',
-    href: 'lineChart'
-  }, {
-    name: 'Bar Chart',
-    href: 'barChart'
-  }, {
-    name: 'Radar Chart',
-    href: 'radarChart'
-  }, {
-    name: 'Pie Chart',
-    href: 'pieChart'
-  }, {
-    name: 'Polar Area Chart',
-    href: 'polarAreaChart'
-  }, {
-    name: 'Doughnut Chart',
-    href: 'doughnutChart'
-  }, {
-    name: 'Dynamic Chart',
-    href: 'baseChart'
-  }
+  { name: 'Line Chart', href: 'lineChart' },
+  { name: 'Bar Chart', href: 'barChart' },
+  { name: 'Radar Chart', href: 'radarChart' },
+  { name: 'Pie Chart', href: 'pieChart' },
+  { name: 'Polar Area Chart', href: 'polarAreaChart' },
+  { name: 'Doughnut Chart', href: 'doughnutChart' },
+  { name: 'Dynamic Chart', href: 'baseChart' }
 ];
 
 let template = `
@@ -73,10 +58,10 @@ let template = `
   ]
 })
 export class DemoHeader {
-  private components:Array<any> = components;
-  private prefix:string;
+  public components:Array<any> = components;
+  public prefix:string;
 
-  constructor() {
+  public constructor() {
     this.prefix = Ng2BootstrapConfig.theme === Ng2BootstrapTheme.BS4 ? 'index-bs4.html' : '';
   }
 }

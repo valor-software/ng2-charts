@@ -43,7 +43,7 @@ let gettingStarted = require('./getting-started.md');
   ]
 })
 export class Demo {
-  constructor(){
+  public constructor() {
     console.log('global', global as any);
   }
 }

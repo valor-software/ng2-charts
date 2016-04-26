@@ -12,23 +12,21 @@ let template = require('./pie-chart-demo.html');
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class PieChartDemo {
+  // Pie
+  public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  public pieChartData:number[] = [300, 500, 100];
+  public pieChartType:string = 'Pie';
 
-  constructor() {
+  public constructor() {
     console.log('pie demo');
   }
 
   // events
-  chartClicked(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
-  chartHovered(e:any) {
+  public chartHovered(e:any):void {
     console.log(e);
   }
-
-  // Pie
-  private pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  private pieChartData = [300, 500, 100];
-  private pieChartType = 'Pie';
-
 }

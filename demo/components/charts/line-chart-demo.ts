@@ -13,24 +13,24 @@ let template = require('./line-chart-demo.html');
 })
 export class LineChartDemo {
 
-  constructor() {
+  public constructor() {
     console.log('line demo');
   }
 
   // lineChart
-  private lineChartData:Array<any> = [
+  public lineChartData:Array<any> = [
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90],
     [18, 48, 77, 9, 100, 27, 40]
   ];
-  private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  private lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C'];
-  private lineChartOptions:any = {
+  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C'];
+  public lineChartOptions:any = {
     animation: false,
     responsive: true,
     multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
   };
-  private lineChartColours:Array<any> = [
+  public lineChartColours:Array<any> = [
     { // grey
       fillColor: 'rgba(148,159,177,0.2)',
       strokeColor: 'rgba(148,159,177,1)',
@@ -56,10 +56,10 @@ export class LineChartDemo {
       pointHighlightStroke: 'rgba(148,159,177,0.8)'
     }
   ];
-  private lineChartLegend:boolean = true;
-  private lineChartType:string = 'Line';
+  public lineChartLegend:boolean = true;
+  public lineChartType:string = 'Line';
 
-  private randomize() {
+  public randomize():void {
     let _lineChartData:Array<any> = [];
     for (let i = 0; i < this.lineChartData.length; i++) {
       _lineChartData[i] = [];
@@ -72,11 +72,11 @@ export class LineChartDemo {
   }
 
   // events
-  chartClicked(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
-  chartHovered(e:any) {
+  public chartHovered(e:any):void {
     console.log(e);
   }
 

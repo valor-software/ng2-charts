@@ -7,15 +7,11 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
 declare var Chart:any;
 
 @Component({
-  selector: 'chart, canvas[chart]',
+  selector: 'chart',
   template: `<canvas></canvas>`,
   directives: [CORE_DIRECTIVES, NgClass]
 })
-export class Charts {
-  constructor(element:ElementRef) {
-  }
-
-}
+export class Charts {}
 
 @Component({
   selector: 'base-chart',
@@ -35,13 +31,13 @@ export class Charts {
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
 export class BaseChart implements OnInit, OnDestroy, OnChanges {
-  @Input() data:Array<any> = [];
-  @Input() labels:Array<any> = [];
-  @Input() options:any = {responsive: true};
-  @Input() chartType:string;
-  @Input() series:Array<any> = [];
-  @Input() colours:Array<any> = [];
-  @Input() legend:boolean;
+  @Input() public data:Array<any> = [];
+  @Input() public labels:Array<any> = [];
+  @Input() public options:any = {responsive: true};
+  @Input() public chartType:string;
+  @Input() public series:Array<any> = [];
+  @Input() public colours:Array<any> = [];
+  @Input() public legend:boolean;
 
   private ctx:any;
   private cvs:any;
@@ -117,11 +113,12 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
       highlight: 'rgba(77,83,96,0.8)'
     }];
 
-
-  constructor(private element:ElementRef) {
+  private element:ElementRef;
+  public constructor(element:ElementRef) {
+    this.element = element;
   }
 
-  ngOnInit() {
+  public ngOnInit():any {
     this.ctx = this.element.nativeElement.children[0].getContext('2d');
     this.cvs = this.element.nativeElement.children[0];
     this.parent = this.element.nativeElement;
@@ -129,24 +126,24 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     this.initFlag = true;
   }
 
-  ngOnChanges() {
+  public ngOnChanges():any {
     if (this.initFlag) {
       this.refresh();
     }
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy():any {
     if (this.chart) {
       this.chart.destroy();
-      this.chart = null;
+      this.chart = void 0;
     }
     if (this.legendTemplate) {
       this.legendTemplate.destroy();
-      this.legendTemplate = null;
+      this.legendTemplate = void 0;
     }
   }
 
-  setLegend() {
+  public setLegend():void {
     let list = this.parent.getElementsByTagName('ul');
     if (list.length) {
       list[0].remove();
@@ -156,7 +153,7 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  getColour(colour:Array<number>):any {
+  public getColour(colour:Array<number>):any {
     return {
       fillColor: this.rgba(colour, 0.2),
       strokeColor: this.rgba(colour, 1),
@@ -169,15 +166,15 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     };
   }
 
-  getRandomInt(min:number, max:number) {
+  public getRandomInt(min:number, max:number):number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  rgba(colour:Array<number>, alpha:number) {
+  public rgba(colour:Array<number>, alpha:number):number {
     return 'rgba(' + colour.concat(alpha).join(',') + ')';
   }
 
-  public click(evt:any) {
+  public click(evt:any):void {
     let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
     let activePoints = atEvent.call(this.chart, evt);
     if (activePoints.length > 0) {
@@ -186,7 +183,7 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  public hover(evt:any) {
+  public hover(evt:any):void {
     let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
     let activePoints = atEvent.call(this.chart, evt);
     if (activePoints.length > 0) {
@@ -196,11 +193,11 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  getChartBuilder(ctx:any, data:Array<any>, options:any) {
+  public getChartBuilder(ctx:any, data:Array<any>, options:any):any {
     return new Chart(ctx)[this.chartType](data, options);
   }
 
-  getDataObject(label:string, value:any):any {
+  public getDataObject(label:string, value:any):any {
     if (this.chartType === 'Line'
       || this.chartType === 'Bar'
       || this.chartType === 'Radar') {
@@ -219,10 +216,10 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
       };
     }
 
-    return null;
+    return void 0;
   }
 
-  getChartData(labels:any, dataObject:any) {
+  public getChartData(labels:any, dataObject:any):any {
     if (this.chartType === 'Line'
       || this.chartType === 'Bar'
       || this.chartType === 'Radar') {
@@ -236,10 +233,9 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
       || this.chartType === 'PolarArea') {
       return dataObject;
     }
-
   }
 
-  private refresh() {
+  private refresh():any {
     if (this.options.responsive && this.parent.clientHeight === 0) {
       return setTimeout(() => this.refresh(), 50);
     }
@@ -251,7 +247,7 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
       let colourDesc:Array<number> = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
       let colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
 
-      let data:any = (<any>Object).assign(colour,
+      let data:any = Object.assign(colour,
         this.getDataObject(this.series[i] || this.labels[i], this.data[i]));
 
       dataset.push(data);
@@ -265,6 +261,5 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     }
   }
 }
-
 
 export const CHART_DIRECTIVES:Array<any> = [Charts, BaseChart];

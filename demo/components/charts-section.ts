@@ -15,7 +15,6 @@ let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/c
 // webpack html imports
 let doc = require('../../components/charts/readme.md');
 
-
 let chartDesc:Array<any> = [
   {
     heading: 'Line Chart',
@@ -70,9 +69,8 @@ let chartDesc:Array<any> = [
   }
 ];
 
-
 let chartContent:string = ``;
-chartDesc.forEach(desc => {
+chartDesc.forEach((desc:any) => {
 
   chartContent += `
       <section id="${desc.id}" style="padding-top: 50px;">

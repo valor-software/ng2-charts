@@ -13,25 +13,13 @@ let template = require('./polar-area-chart-demo.html');
 })
 export class PolarAreaChartDemo {
 
-  constructor() {
-    console.log('PolarArea demo');
-  }
-
-  // events
-  chartClicked(e:any) {
-    console.log(e);
-  }
-  chartHovered(e:any) {
-    console.log(e);
-  }
-
   // PolarArea
-  private polarAreaChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-  private polarAreaChartData = [300, 500, 100, 40, 120];
-  private polarAreaLegend:boolean = true;
+  public polarAreaChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
+  public polarAreaChartData:number[] = [300, 500, 100, 40, 120];
+  public polarAreaLegend:boolean = true;
 
-  private polarAreaChartType = 'PolarArea';
-  private polarAreaChartColours = [
+  public polarAreaChartType:string = 'PolarArea';
+  public polarAreaChartColours:any[] = [
     {
       fillColor: 'rgba(151,187,205,0.2)',
       strokeColor: 'rgba(151,187,205,1)',
@@ -63,4 +51,16 @@ export class PolarAreaChartDemo {
     }
   ];
 
+  public constructor() {
+    console.log('PolarArea demo');
+  }
+
+  // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
 }

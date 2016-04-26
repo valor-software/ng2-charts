@@ -13,31 +13,31 @@ let template = require('./bar-chart-demo.html');
 })
 export class BarChartDemo {
 
-  constructor() {
+  public constructor() {
     console.log('bar demo');
   }
 
-  private barChartOptions = {
+  public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true,
     multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
   };
-  private barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  private barChartSeries = ['Series A', 'Series B'];
-  public barChartType = 'Bar';
-  private barChartLegend:boolean = true;
+  public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartSeries:string[] = ['Series A', 'Series B'];
+  public barChartType:string = 'Bar';
+  public barChartLegend:boolean = true;
 
-  private barChartData = [
+  public barChartData:any[] = [
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90]
   ];
 
   // events
-  chartClicked(e:any) {
-    console.log(e);
-  }
-  chartHovered(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
 }

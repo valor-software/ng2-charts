@@ -12,23 +12,21 @@ let template = require('./doughnut-chart-demo.html');
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class DoughnutChartDemo {
+  // Doughnut
+  public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData:number[] = [350, 450, 100];
+  public doughnutChartType:string = 'Doughnut';
 
-  constructor() {
+  public constructor() {
     console.log('doughnut demo');
   }
 
   // events
-  chartClicked(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
-  chartHovered(e:any) {
+  public chartHovered(e:any):void {
     console.log(e);
   }
-
-  // Doughnut
-  private doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  private doughnutChartData = [350, 450, 100];
-  private doughnutChartType = 'Doughnut';
-
 }
