@@ -11,7 +11,7 @@ declare var Chart:any;
   template: `<canvas></canvas>`,
   directives: [CORE_DIRECTIVES, NgClass]
 })
-export class Charts {}
+export class ChartsComponent {}
 
 @Component({
   selector: 'base-chart',
@@ -30,7 +30,7 @@ export class Charts {}
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
-export class BaseChart implements OnInit, OnDestroy, OnChanges {
+export class BaseChartComponent implements OnInit, OnDestroy, OnChanges {
   @Input() public data:Array<any> = [];
   @Input() public labels:Array<any> = [];
   @Input() public options:any = {responsive: true};
@@ -170,7 +170,7 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  public rgba(colour:Array<number>, alpha:number):number {
+  public rgba(colour:Array<number>, alpha:number):string {
     return 'rgba(' + colour.concat(alpha).join(',') + ')';
   }
 
@@ -262,4 +262,4 @@ export class BaseChart implements OnInit, OnDestroy, OnChanges {
   }
 }
 
-export const CHART_DIRECTIVES:Array<any> = [Charts, BaseChart];
+export const CHART_DIRECTIVES:Array<any> = [ChartsComponent, BaseChartComponent];

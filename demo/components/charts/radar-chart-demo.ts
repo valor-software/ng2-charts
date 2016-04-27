@@ -11,7 +11,7 @@ let template = require('./radar-chart-demo.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class RadarChartDemo {
+export class RadarChartDemoComponent {
   // Radar
   public radarChartLabels:string[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
 

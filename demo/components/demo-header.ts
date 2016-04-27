@@ -57,7 +57,7 @@ let template = `
     DROPDOWN_DIRECTIVES
   ]
 })
-export class DemoHeader {
+export class DemoHeaderComponent {
   public components:Array<any> = components;
   public prefix:string;
 

@@ -11,7 +11,7 @@ let template = require('./pie-chart-demo.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class PieChartDemo {
+export class PieChartDemoComponent {
   // Pie
   public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData:number[] = [300, 500, 100];

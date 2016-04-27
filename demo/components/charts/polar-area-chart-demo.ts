@@ -11,7 +11,7 @@ let template = require('./polar-area-chart-demo.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class PolarAreaChartDemo {
+export class PolarAreaChartDemoComponent {
 
   // PolarArea
   public polarAreaChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];

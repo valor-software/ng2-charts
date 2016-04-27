@@ -11,7 +11,7 @@ let template = require('./doughnut-chart-demo.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class DoughnutChartDemo {
+export class DoughnutChartDemoComponent {
   // Doughnut
   public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public doughnutChartData:number[] = [350, 450, 100];

@@ -11,7 +11,7 @@ let template = require('./base-chart-demo.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class BaseChartDemo {
+export class BaseChartDemoComponent {
 
   public constructor() {
     console.log('foo demo');

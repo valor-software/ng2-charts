@@ -2,13 +2,13 @@ import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
-import {LineChartDemo} from './charts/line-chart-demo';
-import {BarChartDemo} from './charts/bar-chart-demo';
-import {DoughnutChartDemo} from './charts/doughnut-chart-demo';
-import {PieChartDemo} from './charts/pie-chart-demo';
-import {PolarAreaChartDemo} from './charts/polar-area-chart-demo';
-import {RadarChartDemo} from './charts/radar-chart-demo';
-import {BaseChartDemo} from './charts/base-chart-demo';
+import {LineChartDemoComponent} from './charts/line-chart-demo';
+import {BarChartDemoComponent} from './charts/bar-chart-demo';
+import {DoughnutChartDemoComponent} from './charts/doughnut-chart-demo';
+import {PieChartDemoComponent} from './charts/pie-chart-demo';
+import {PolarAreaChartDemoComponent} from './charts/polar-area-chart-demo';
+import {RadarChartDemoComponent} from './charts/radar-chart-demo';
+import {BaseChartDemoComponent} from './charts/base-chart-demo';
 
 let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
@@ -139,8 +139,8 @@ chartDesc.forEach((desc:any) => {
 
   </section>
   `,
-  directives: [LineChartDemo, BarChartDemo, DoughnutChartDemo, PieChartDemo,
-    PolarAreaChartDemo, RadarChartDemo, BaseChartDemo, TAB_DIRECTIVES, CORE_DIRECTIVES]
+  directives: [LineChartDemoComponent, BarChartDemoComponent, DoughnutChartDemoComponent, PieChartDemoComponent,
+    PolarAreaChartDemoComponent, RadarChartDemoComponent, BaseChartDemoComponent, TAB_DIRECTIVES, CORE_DIRECTIVES]
 })
-export class ChartsSection {
+export class ChartsSectionComponent {
 }

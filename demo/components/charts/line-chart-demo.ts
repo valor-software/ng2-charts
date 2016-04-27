@@ -11,7 +11,7 @@ let template = require('./line-chart-demo.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class LineChartDemo {
+export class LineChartDemoComponent {
 
   public constructor() {
     console.log('line demo');

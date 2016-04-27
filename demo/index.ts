@@ -2,8 +2,8 @@ import {bootstrap} from 'angular2/platform/browser';
 import {Component} from 'angular2/core';
 import {NgClass} from 'angular2/common';
 
-import {ChartsSection} from './components/charts-section';
-import {DemoHeader} from './components/demo-header';
+import {ChartsSectionComponent} from './components/charts-section';
+import {DemoHeaderComponent} from './components/demo-header';
 import {global} from 'angular2/src/facade/lang';
 let gettingStarted = require('./getting-started.md');
 
@@ -38,14 +38,14 @@ let gettingStarted = require('./getting-started.md');
   `,
   directives: [
     NgClass,
-    DemoHeader,
-    ChartsSection
+    DemoHeaderComponent,
+    ChartsSectionComponent
   ]
 })
-export class Demo {
+export class DemoComponent {
   public constructor() {
     console.log('global', global as any);
   }
 }
 
-bootstrap(Demo);
+bootstrap(DemoComponent);
