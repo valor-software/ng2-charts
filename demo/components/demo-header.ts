@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core';
-import {NgFor} from 'angular2/common';
+import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';
 
-import {Collapse, DROPDOWN_DIRECTIVES, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
+import {CollapseDirective, DROPDOWN_DIRECTIVES, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
 
 let components = [
   { name: 'Line Chart', href: 'lineChart' },
@@ -31,7 +31,7 @@ let template = `
           <li class="nav-item dropdown" dropdown>
             <a role="button" class="nav-link dropdown-toggle" dropdown-toggle>Directives <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li *ngFor="#comp of components">
+              <li *ngFor="let comp of components">
                <a class="dropdown-item" href="{{prefix}}#{{comp.href}}">{{comp.name}}</a>
               </li>
             </ul>
@@ -40,7 +40,7 @@ let template = `
       </nav>
       <nav class="visible-xs hidden-md-up">
         <ul class="nav nav-pills nav-stacked scrollable-menu" [collapse]="!isCollapsed" (click)="isCollapsed = !isCollapsed; true">
-          <li *ngFor="#comp of components" class="nav-item">
+          <li *ngFor="let comp of components" class="nav-item">
             <a class="dropdown-item" href="{{prefix}}#{{comp.href}}">{{comp.name}}</a>
           </li>
         </ul>
@@ -53,7 +53,7 @@ let template = `
   template: template,
   directives: [
     NgFor,
-    Collapse,
+    CollapseDirective,
     DROPDOWN_DIRECTIVES
   ]
 })

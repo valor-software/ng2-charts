@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
@@ -12,11 +12,6 @@ let template = require('./line-chart-demo.html');
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class LineChartDemoComponent {
-
-  public constructor() {
-    console.log('line demo');
-  }
-
   // lineChart
   public lineChartData:Array<any> = [
     [65, 59, 80, 81, 56, 55, 40],
@@ -57,7 +52,7 @@ export class LineChartDemoComponent {
     }
   ];
   public lineChartLegend:boolean = true;
-  public lineChartType:string = 'Line';
+  public lineChartType:string = 'line';
 
   public randomize():void {
     let _lineChartData:Array<any> = [];

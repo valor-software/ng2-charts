@@ -1,8 +1,8 @@
 import {
   Component, OnDestroy, OnInit, OnChanges,
-  EventEmitter, ElementRef, Input
-} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+  EventEmitter, ElementRef, Input, HostBinding
+} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 declare var Chart:any;
 
@@ -15,22 +15,12 @@ export class ChartsComponent {}
 
 @Component({
   selector: 'base-chart',
-  properties: [
-    'data',
-    'labels',
-    'series',
-    'colours',
-    'chartType',
-    'legend',
-    'options'
-  ],
-  events: ['chartClick', 'chartHover'],
   template: `
   <canvas style="width: 100%; height: 100%;" (click)="click($event)" (mousemove)="hover($event)"></canvas>
   `,
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass]
 })
-export class BaseChartComponent implements OnInit, OnDestroy, OnChanges {
+export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
   @Input() public data:Array<any> = [];
   @Input() public labels:Array<any> = [];
   @Input() public options:any = {responsive: true};
@@ -39,14 +29,16 @@ export class BaseChartComponent implements OnInit, OnDestroy, OnChanges {
   @Input() public colours:Array<any> = [];
   @Input() public legend:boolean;
 
+  @HostBinding() public chartClick:EventEmitter<any> = new EventEmitter();
+  @HostBinding() public chartHover:EventEmitter<any> = new EventEmitter();
+
   private ctx:any;
   private cvs:any;
   private parent:any;
   private chart:any;
   private legendTemplate:any;
   private initFlag:boolean = false;
-  private chartClick:EventEmitter<any> = new EventEmitter();
-  private chartHover:EventEmitter<any> = new EventEmitter();
+
   private defaultsColours:Array<any> = [
     {
       fillColor: 'rgba(151,187,205,0.2)',
@@ -122,11 +114,15 @@ export class BaseChartComponent implements OnInit, OnDestroy, OnChanges {
     this.ctx = this.element.nativeElement.children[0].getContext('2d');
     this.cvs = this.element.nativeElement.children[0];
     this.parent = this.element.nativeElement;
-    this.refresh();
     this.initFlag = true;
+    console.log(this.data)
+    if (this.data) {
+      this.refresh();
+    }
   }
 
   public ngOnChanges():any {
+    console.log(this.data)
     if (this.initFlag) {
       this.refresh();
     }
@@ -194,22 +190,26 @@ export class BaseChartComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public getChartBuilder(ctx:any, data:Array<any>, options:any):any {
-    return new Chart(ctx)[this.chartType](data, options);
+    let opts = options;
+    opts.data = data;
+    opts.type = this.chartType;
+    return new Chart(ctx,opts);
+    // return new Chart(ctx)[this.chartType](data, options);
   }
 
   public getDataObject(label:string, value:any):any {
-    if (this.chartType === 'Line'
-      || this.chartType === 'Bar'
-      || this.chartType === 'Radar') {
+    if (this.chartType === 'line'
+      || this.chartType === 'bar'
+      || this.chartType === 'radar') {
       return {
         label: label,
         data: value
       };
     }
 
-    if (this.chartType === 'Pie'
-      || this.chartType === 'Doughnut'
-      || this.chartType === 'PolarArea') {
+    if (this.chartType === 'pie'
+      || this.chartType === 'doughnut'
+      || this.chartType === 'polarArea') {
       return {
         label: label,
         value: value
@@ -220,17 +220,17 @@ export class BaseChartComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public getChartData(labels:any, dataObject:any):any {
-    if (this.chartType === 'Line'
-      || this.chartType === 'Bar'
-      || this.chartType === 'Radar') {
+    if (this.chartType === 'line'
+      || this.chartType === 'bar'
+      || this.chartType === 'radar') {
       return {
         labels: labels,
         datasets: dataObject
       };
     }
-    if (this.chartType === 'Pie'
-      || this.chartType === 'Doughnut'
-      || this.chartType === 'PolarArea') {
+    if (this.chartType === 'pie'
+      || this.chartType === 'doughnut'
+      || this.chartType === 'polarArea') {
       return dataObject;
     }
   }

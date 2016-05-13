@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
@@ -19,11 +19,7 @@ export class RadarChartDemoComponent {
     [65, 59, 90, 81, 56, 55, 40],
     [28, 48, 40, 19, 96, 27, 100]
   ];
-  public radarChartType:string = 'Radar';
-
-  public constructor() {
-    console.log('radar demo');
-  }
+  public radarChartType:string = 'radar';
 
   // events
   public chartClicked(e:any):void {

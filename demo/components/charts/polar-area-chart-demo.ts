@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
@@ -18,7 +18,7 @@ export class PolarAreaChartDemoComponent {
   public polarAreaChartData:number[] = [300, 500, 100, 40, 120];
   public polarAreaLegend:boolean = true;
 
-  public polarAreaChartType:string = 'PolarArea';
+  public polarAreaChartType:string = 'polarArea';
   public polarAreaChartColours:any[] = [
     {
       fillColor: 'rgba(151,187,205,0.2)',
@@ -50,10 +50,6 @@ export class PolarAreaChartDemoComponent {
       highlight: 'rgba(247,70,74,0.8)'
     }
   ];
-
-  public constructor() {
-    console.log('PolarArea demo');
-  }
 
   // events
   public chartClicked(e:any):void {

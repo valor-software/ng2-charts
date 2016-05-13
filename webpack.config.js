@@ -6,7 +6,7 @@ const marked = require('marked');
 const webpack = require('webpack');
 const reqPrism = require('prismjs');
 const CompressionPlugin = require('compression-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin').default;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // marked renderer hack
@@ -52,10 +52,11 @@ const config = {
       'es6-promise',
       'zone.js',
       'reflect-metadata',
-      'angular2/common',
-      'angular2/core'
+      '@angular/common',
+      '@angular/core',
+      'chart.js'
     ],
-    'angular2-charts': ['ng2-charts'],
+    'angular2-bootstrap': ['ng2-charts'],
     'angular2-bootstrap-demo': 'demo'
   },
 
@@ -72,8 +73,8 @@ const config = {
     colors: true,
     historyApiFallback: true,
     contentBase: dest,
-    outputPath: dest,
     //publicPath: dest,
+    outputPath: dest,
     watchOptions: {aggregateTimeout: 300, poll: 1000}
   },
 
