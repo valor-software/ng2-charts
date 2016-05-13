@@ -9,6 +9,9 @@ script:
 - npm run flow.install:typings
 - npm test
 
+after_success:
+  - ./node_modules/.bin/codecov
+
 addons:
   # sauce labs tunel connector (read more https://docs.travis-ci.com/user/sauce-connect/ )
   sauce_connect: true

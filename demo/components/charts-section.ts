@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 
 import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {LineChartDemoComponent} from './charts/line-chart-demo';
@@ -88,11 +88,9 @@ chartDesc.forEach((desc:any) => {
             </div>
           </div>
           <div *ngIf="'${desc.heading}' != 'Line Chart' && '${desc.heading}' != 'Dynamic Chart'">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <${desc.tag}></${desc.tag}>
             </div>
-            <div class="col-md-3"></div>
           </div>
         </div>
       </div>
@@ -139,8 +137,16 @@ chartDesc.forEach((desc:any) => {
 
   </section>
   `,
-  directives: [LineChartDemoComponent, BarChartDemoComponent, DoughnutChartDemoComponent, PieChartDemoComponent,
-    PolarAreaChartDemoComponent, RadarChartDemoComponent, BaseChartDemoComponent, TAB_DIRECTIVES, CORE_DIRECTIVES]
+  directives: [
+    LineChartDemoComponent,
+    BarChartDemoComponent,
+    DoughnutChartDemoComponent,
+    PieChartDemoComponent,
+    PolarAreaChartDemoComponent,
+    RadarChartDemoComponent,
+    BaseChartDemoComponent,
+    TAB_DIRECTIVES,
+    CORE_DIRECTIVES]
 })
 export class ChartsSectionComponent {
 }

@@ -1,10 +1,9 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {Component} from 'angular2/core';
-import {NgClass} from 'angular2/common';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Component} from '@angular/core';
+import {NgClass} from '@angular/common';
 
 import {ChartsSectionComponent} from './components/charts-section';
 import {DemoHeaderComponent} from './components/demo-header';
-import {global} from 'angular2/src/facade/lang';
 let gettingStarted = require('./getting-started.md');
 
 @Component({
@@ -14,8 +13,9 @@ let gettingStarted = require('./getting-started.md');
 
   <main class="bd-pageheader">
     <div class="container">
+      <img src="http://www.chartjs.org/img/chartjs-logo.svg" alt="" style="background: url('//angular.io/resources/images/logos/angular2/angular.svg') top center no-repeat;background-size: contain;">
       <h1>ng2-charts</h1>
-      <p>Native Angular2 directives for Charts</p>
+      <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
       <a class="btn btn-primary" href="https://github.com/valor-software/ng2-charts">View on GitHub</a>
       <div class="row">
       <div class="col-lg-1"><iframe src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></div>
@@ -43,9 +43,6 @@ let gettingStarted = require('./getting-started.md');
   ]
 })
 export class DemoComponent {
-  public constructor() {
-    console.log('global', global as any);
-  }
 }
 
 bootstrap(DemoComponent);
