@@ -1,8 +1,7 @@
-export declare class PieChartDemo {
-    constructor();
+export declare class PieChartDemoComponent {
+    pieChartLabels: string[];
+    pieChartData: number[];
+    pieChartType: string;
     chartClicked(e: any): void;
     chartHovered(e: any): void;
-    private pieChartLabels;
-    private pieChartData;
-    private pieChartType;
 }

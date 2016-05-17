@@ -1,14 +1,11 @@
-export declare class BaseChartDemo {
-    constructor();
-    private lineChartData;
-    private lineChartLabels;
-    private lineChartSeries;
-    private lineChartOptions;
-    private lineChartType;
-    private pieChartType;
-    private pieChartLabels;
-    private pieChartData;
-    private randomizeType();
+export declare class BaseChartDemoComponent {
+    lineChartData: Array<any>;
+    lineChartLabels: Array<any>;
+    lineChartType: string;
+    pieChartType: string;
+    pieChartLabels: string[];
+    pieChartData: number[];
+    randomizeType(): void;
     chartClicked(e: any): void;
     chartHovered(e: any): void;
 }

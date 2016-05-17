@@ -1,13 +1,11 @@
-export declare class LineChartDemo {
-    constructor();
-    private lineChartData;
-    private lineChartLabels;
-    private lineChartSeries;
-    private lineChartOptions;
-    private lineChartColours;
-    private lineChartLegend;
-    private lineChartType;
-    private randomize();
+export declare class LineChartDemoComponent {
+    lineChartData: Array<any>;
+    lineChartLabels: Array<any>;
+    lineChartOptions: any;
+    lineChartColours: Array<any>;
+    lineChartLegend: boolean;
+    lineChartType: string;
+    randomize(): void;
     chartClicked(e: any): void;
     chartHovered(e: any): void;
 }

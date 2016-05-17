@@ -1,38 +1,52 @@
-import { OnDestroy, OnInit, OnChanges, ElementRef } from 'angular2/core';
-export declare class Charts {
-    constructor(element: ElementRef);
-}
-export declare class BaseChart implements OnInit, OnDestroy, OnChanges {
-    private element;
-    data: Array<any>;
+import { OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef } from '@angular/core';
+export declare class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
+    static defaultColors: Array<number[]>;
+    data: number[] | Array<number[]>;
+    datasets: any[];
     labels: Array<any>;
     options: any;
     chartType: string;
-    series: Array<any>;
-    colours: Array<any>;
+    colors: Array<any>;
     legend: boolean;
+    chartClick: EventEmitter<any>;
+    chartHover: EventEmitter<any>;
     private ctx;
     private cvs;
     private parent;
     private chart;
-    private legendTemplate;
     private initFlag;
-    private chartClick;
-    private chartHover;
-    private defaultsColours;
+    private element;
     constructor(element: ElementRef);
-    ngOnInit(): void;
-    ngOnChanges(): void;
-    ngOnDestroy(): void;
-    setLegend(): void;
-    getColour(colour: Array<number>): any;
-    getRandomInt(min: number, max: number): number;
-    rgba(colour: Array<number>, alpha: number): string;
-    click(evt: any): void;
-    hover(evt: any): void;
-    getChartBuilder(ctx: any, data: Array<any>, options: any): any;
-    getDataObject(label: string, value: any): any;
-    getChartData(labels: any, dataObject: any): any;
+    ngOnInit(): any;
+    ngOnChanges(): any;
+    ngOnDestroy(): any;
+    getChartBuilder(ctx: any): any;
     private refresh();
+}
+export interface Color {
+    backgroundColor?: string | string[];
+    borderWidth?: number | number[];
+    borderColor?: string | string[];
+    borderCapStyle?: string;
+    borderDash?: number[];
+    borderDashOffset?: number;
+    borderJoinStyle?: string;
+    pointBorderColor?: string | string[];
+    pointBackgroundColor?: string | string[];
+    pointBorderWidth?: number | number[];
+    pointRadius?: number | number[];
+    pointHoverRadius?: number | number[];
+    pointHitRadius?: number | number[];
+    pointHoverBackgroundColor?: string | string[];
+    pointHoverBorderColor?: string | string[];
+    pointHoverBorderWidth?: number | number[];
+    pointStyle?: string | string[];
+    hoverBackgroundColor?: string | string[];
+    hoverBorderColor?: string | string[];
+    hoverBorderWidth?: number;
+}
+export interface Colors extends Color {
+    data?: number[];
+    label?: string;
 }
 export declare const CHART_DIRECTIVES: Array<any>;

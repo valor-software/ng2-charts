@@ -3,24 +3,31 @@ webpackJsonp([2],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(15);
+	module.exports = __webpack_require__(23);
 
 
 /***/ },
 
-/***/ 15:
+/***/ 23:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(118));
+	var charts_1 = __webpack_require__(44);
+	__export(__webpack_require__(44));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = {
+	    directives: [
+	        charts_1.CHART_DIRECTIVES
+	    ]
+	};
 
 
 /***/ },
 
-/***/ 118:
+/***/ 44:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -33,272 +40,235 @@ webpackJsonp([2],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var common_1 = __webpack_require__(7);
-	var Charts = (function () {
-	    function Charts(element) {
-	    }
-	    Charts = __decorate([
-	        core_1.Component({
-	            selector: 'chart, canvas[chart]',
-	            template: "<canvas></canvas>",
-	            directives: [common_1.CORE_DIRECTIVES, common_1.NgClass]
-	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
-	    ], Charts);
-	    return Charts;
-	}());
-	exports.Charts = Charts;
-	var BaseChart = (function () {
-	    function BaseChart(element) {
-	        this.element = element;
-	        this.data = [];
+	var core_1 = __webpack_require__(1);
+	var common_1 = __webpack_require__(6);
+	var BaseChartComponent = (function () {
+	    function BaseChartComponent(element) {
 	        this.labels = [];
 	        this.options = { responsive: true };
-	        this.series = [];
-	        this.colours = [];
-	        this.initFlag = false;
 	        this.chartClick = new core_1.EventEmitter();
 	        this.chartHover = new core_1.EventEmitter();
-	        this.defaultsColours = [
-	            {
-	                fillColor: 'rgba(151,187,205,0.2)',
-	                strokeColor: 'rgba(151,187,205,1)',
-	                pointColor: 'rgba(151,187,205,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(151,187,205,0.8)',
-	                color: 'rgba(151,187,205,1)',
-	                highlight: 'rgba(151,187,205,0.8)'
-	            }, {
-	                fillColor: 'rgba(220,220,220,0.2)',
-	                strokeColor: 'rgba(220,220,220,1)',
-	                pointColor: 'rgba(220,220,220,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(220,220,220,0.8)',
-	                color: 'rgba(220,220,220,1)',
-	                highlight: 'rgba(220,220,220,0.8)'
-	            }, {
-	                fillColor: 'rgba(247,70,74,0.2)',
-	                strokeColor: 'rgba(247,70,74,1)',
-	                pointColor: 'rgba(247,70,74,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(247,70,74,0.8)',
-	                color: 'rgba(247,70,74,1)',
-	                highlight: 'rgba(247,70,74,0.8)'
-	            }, {
-	                fillColor: 'rgba(70,191,189,0.2)',
-	                strokeColor: 'rgba(70,191,189,1)',
-	                pointColor: 'rgba(70,191,189,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(70,191,189,0.8)',
-	                color: 'rgba(70,191,189,1)',
-	                highlight: 'rgba(70,191,189,0.8)'
-	            }, {
-	                fillColor: 'rgba(253,180,92,0.2)',
-	                strokeColor: 'rgba(253,180,92,1)',
-	                pointColor: 'rgba(253,180,92,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(253,180,92,0.8)',
-	                color: 'rgba(253,180,92,1)',
-	                highlight: 'rgba(253,180,92,0.8)'
-	            }, {
-	                fillColor: 'rgba(148,159,177,0.2)',
-	                strokeColor: 'rgba(148,159,177,1)',
-	                pointColor: 'rgba(148,159,177,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(148,159,177,0.8)',
-	                color: 'rgba(148,159,177,1)',
-	                highlight: 'rgba(148,159,177,0.8)'
-	            }, {
-	                fillColor: 'rgba(77,83,96,0.2)',
-	                strokeColor: 'rgba(77,83,96,1)',
-	                pointColor: 'rgba(77,83,96,1)',
-	                pointStrokeColor: '#fff',
-	                pointHighlightFill: '#fff',
-	                pointHighlightStroke: 'rgba(77,83,96,0.8)',
-	                color: 'rgba(77,83,96,1)',
-	                highlight: 'rgba(77,83,96,0.8)'
-	            }];
+	        this.initFlag = false;
+	        this.element = element;
 	    }
-	    BaseChart.prototype.ngOnInit = function () {
+	    BaseChartComponent.prototype.ngOnInit = function () {
 	        this.ctx = this.element.nativeElement.children[0].getContext('2d');
 	        this.cvs = this.element.nativeElement.children[0];
 	        this.parent = this.element.nativeElement;
-	        this.refresh();
 	        this.initFlag = true;
+	        if (this.data || this.datasets) {
+	            this.refresh();
+	        }
 	    };
-	    BaseChart.prototype.ngOnChanges = function () {
+	    BaseChartComponent.prototype.ngOnChanges = function () {
 	        if (this.initFlag) {
 	            this.refresh();
 	        }
 	    };
-	    BaseChart.prototype.ngOnDestroy = function () {
+	    BaseChartComponent.prototype.ngOnDestroy = function () {
 	        if (this.chart) {
 	            this.chart.destroy();
-	            this.chart = null;
-	        }
-	        if (this.legendTemplate) {
-	            this.legendTemplate.destroy();
-	            this.legendTemplate = null;
+	            this.chart = void 0;
 	        }
 	    };
-	    BaseChart.prototype.setLegend = function () {
-	        var list = this.parent.getElementsByTagName('ul');
-	        if (list.length) {
-	            list[0].remove();
-	            this.parent.insertAdjacentHTML('beforeend', this.chart.generateLegend());
-	        }
-	        else {
-	            this.parent.insertAdjacentHTML('beforeend', this.chart.generateLegend());
-	        }
-	    };
-	    BaseChart.prototype.getColour = function (colour) {
-	        return {
-	            fillColor: this.rgba(colour, 0.2),
-	            strokeColor: this.rgba(colour, 1),
-	            pointColor: this.rgba(colour, 1),
-	            pointStrokeColor: '#fff',
-	            pointHighlightFill: '#fff',
-	            pointHighlightStroke: this.rgba(colour, 0.8),
-	            color: this.rgba(colour, 1),
-	            highlight: this.rgba(colour, 0.8)
-	        };
-	    };
-	    BaseChart.prototype.getRandomInt = function (min, max) {
-	        return Math.floor(Math.random() * (max - min + 1)) + min;
-	    };
-	    BaseChart.prototype.rgba = function (colour, alpha) {
-	        return 'rgba(' + colour.concat(alpha).join(',') + ')';
-	    };
-	    BaseChart.prototype.click = function (evt) {
-	        var atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
-	        var activePoints = atEvent.call(this.chart, evt);
-	        if (activePoints.length > 0) {
-	            var activeLabel = activePoints[0].label;
-	            this.chartClick.emit({ activePoints: activePoints, activeLabel: activeLabel });
-	        }
-	    };
-	    BaseChart.prototype.hover = function (evt) {
-	        var atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
-	        var activePoints = atEvent.call(this.chart, evt);
-	        if (activePoints.length > 0) {
-	            var activeLabel = activePoints[0].label;
-	            var activePoint = activePoints[0].value;
-	            this.chartHover.emit({ activePoints: activePoints, activePoint: activePoint, activeLabel: activeLabel });
-	        }
-	    };
-	    BaseChart.prototype.getChartBuilder = function (ctx, data, options) {
-	        return new Chart(ctx)[this.chartType](data, options);
-	    };
-	    BaseChart.prototype.getDataObject = function (label, value) {
-	        if (this.chartType === 'Line'
-	            || this.chartType === 'Bar'
-	            || this.chartType === 'Radar') {
-	            return {
-	                label: label,
-	                data: value
-	            };
-	        }
-	        if (this.chartType === 'Pie'
-	            || this.chartType === 'Doughnut'
-	            || this.chartType === 'PolarArea') {
-	            return {
-	                label: label,
-	                value: value
-	            };
-	        }
-	        return null;
-	    };
-	    BaseChart.prototype.getChartData = function (labels, dataObject) {
-	        if (this.chartType === 'Line'
-	            || this.chartType === 'Bar'
-	            || this.chartType === 'Radar') {
-	            return {
-	                labels: labels,
-	                datasets: dataObject
-	            };
-	        }
-	        if (this.chartType === 'Pie'
-	            || this.chartType === 'Doughnut'
-	            || this.chartType === 'PolarArea') {
-	            return dataObject;
-	        }
-	    };
-	    BaseChart.prototype.refresh = function () {
+	    BaseChartComponent.prototype.getChartBuilder = function (ctx) {
 	        var _this = this;
-	        if (this.options.responsive && this.parent.clientHeight === 0) {
+	        var datasets = void 0;
+	        if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
+	            if (Array.isArray(this.data[0])) {
+	                datasets = this.data.map(function (data, index) {
+	                    return { data: data, label: _this.labels[index] || "Label " + index };
+	                });
+	            }
+	            else {
+	                datasets = [{ data: this.data, label: "Label 0" }];
+	            }
+	        }
+	        if (this.datasets && this.datasets.length ||
+	            (datasets && datasets.length)) {
+	            datasets = (this.datasets || datasets)
+	                .map(function (elm, index) {
+	                var newElm = Object.assign({}, elm);
+	                if (_this.colors && _this.colors.length) {
+	                    Object.assign(newElm, _this.colors[index]);
+	                }
+	                else {
+	                    Object.assign(newElm, getColors(_this.chartType, index, newElm.data.length));
+	                }
+	                return newElm;
+	            });
+	        }
+	        if (!datasets) {
+	            throw new Error("ng-charts configuration error, \n      data or datasets field are required to render char " + this.chartType);
+	        }
+	        var options = Object.assign({}, this.options);
+	        options.hover = options.hover || {};
+	        if (!options.hover.onHover) {
+	            options.hover.onHover = function (active) {
+	                if (active && !active.length) {
+	                    return;
+	                }
+	                _this.chartHover.emit({ active: active });
+	            };
+	        }
+	        if (!options.onClick) {
+	            options.onClick = function (event, active) {
+	                _this.chartClick.emit({ event: event, active: active });
+	            };
+	        }
+	        var opts = {
+	            type: this.chartType,
+	            data: {
+	                labels: this.labels,
+	                datasets: datasets
+	            },
+	            options: options
+	        };
+	        if (typeof Chart === 'undefined') {
+	            throw new Error('ng2-charts configuration issue: Embedding Chart.js lib is mandatory');
+	        }
+	        return new Chart(ctx, opts);
+	    };
+	    BaseChartComponent.prototype.refresh = function () {
+	        var _this = this;
+	        if (this.options && this.options.responsive && this.parent.clientHeight === 0) {
 	            return setTimeout(function () { return _this.refresh(); }, 50);
 	        }
 	        this.ngOnDestroy();
-	        var dataset = [];
-	        for (var i = 0; i < this.data.length; i++) {
-	            var colourDesc = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
-	            var colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
-	            var data_1 = Object.assign(colour, this.getDataObject(this.series[i] || this.labels[i], this.data[i]));
-	            dataset.push(data_1);
-	        }
-	        var data = this.getChartData(this.labels, dataset);
-	        this.chart = this.getChartBuilder(this.ctx, data, this.options);
-	        if (this.legend) {
-	            this.setLegend();
-	        }
+	        this.chart = this.getChartBuilder(this.ctx);
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Array)
-	    ], BaseChart.prototype, "data", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Array)
-	    ], BaseChart.prototype, "labels", void 0);
+	    BaseChartComponent.defaultColors = [
+	        [255, 99, 132],
+	        [54, 162, 235],
+	        [255, 206, 86],
+	        [231, 233, 237],
+	        [75, 192, 192],
+	        [151, 187, 205],
+	        [220, 220, 220],
+	        [247, 70, 74],
+	        [70, 191, 189],
+	        [253, 180, 92],
+	        [148, 159, 177],
+	        [77, 83, 96]
+	    ];
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], BaseChart.prototype, "options", void 0);
+	    ], BaseChartComponent.prototype, "data", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Array)
+	    ], BaseChartComponent.prototype, "datasets", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Array)
+	    ], BaseChartComponent.prototype, "labels", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], BaseChartComponent.prototype, "options", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
-	    ], BaseChart.prototype, "chartType", void 0);
+	    ], BaseChartComponent.prototype, "chartType", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Array)
-	    ], BaseChart.prototype, "series", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Array)
-	    ], BaseChart.prototype, "colours", void 0);
+	    ], BaseChartComponent.prototype, "colors", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
-	    ], BaseChart.prototype, "legend", void 0);
-	    BaseChart = __decorate([
+	    ], BaseChartComponent.prototype, "legend", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], BaseChartComponent.prototype, "chartClick", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], BaseChartComponent.prototype, "chartHover", void 0);
+	    BaseChartComponent = __decorate([
 	        core_1.Component({
 	            selector: 'base-chart',
-	            properties: [
-	                'data',
-	                'labels',
-	                'series',
-	                'colours',
-	                'chartType',
-	                'legend',
-	                'options'
-	            ],
-	            events: ['chartClick', 'chartHover'],
-	            template: "\n  <canvas style=\"width: 100%; height: 100%;\" (click)=\"click($event)\" (mousemove)=\"hover($event)\"></canvas>\n  ",
+	            template: "<canvas style=\"width: 100%; height: 100%;\"></canvas>",
 	            directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES, common_1.NgClass]
 	        }), 
 	        __metadata('design:paramtypes', [core_1.ElementRef])
-	    ], BaseChart);
-	    return BaseChart;
+	    ], BaseChartComponent);
+	    return BaseChartComponent;
 	}());
-	exports.BaseChart = BaseChart;
-	exports.CHART_DIRECTIVES = [Charts, BaseChart];
+	exports.BaseChartComponent = BaseChartComponent;
+	function rgba(colour, alpha) {
+	    return 'rgba(' + colour.concat(alpha).join(',') + ')';
+	}
+	function getRandomInt(min, max) {
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	function formatLineColor(colors) {
+	    return {
+	        backgroundColor: rgba(colors, 0.4),
+	        borderColor: rgba(colors, 1),
+	        pointBackgroundColor: rgba(colors, 1),
+	        pointBorderColor: '#fff',
+	        pointHoverBackgroundColor: '#fff',
+	        pointHoverBorderColor: rgba(colors, 0.8)
+	    };
+	}
+	function formatBarColor(colors) {
+	    return {
+	        backgroundColor: rgba(colors, 0.6),
+	        borderColor: rgba(colors, 1),
+	        hoverBackgroundColor: rgba(colors, 0.8),
+	        hoverBorderColor: rgba(colors, 1)
+	    };
+	}
+	function formatPieColors(colors) {
+	    return {
+	        backgroundColor: colors.map(function (color) { return rgba(color, 0.6); }),
+	        borderColor: colors.map(function () { return '#fff'; }),
+	        pointBackgroundColor: colors.map(function (color) { return rgba(color, 1); }),
+	        pointBorderColor: colors.map(function () { return '#fff'; }),
+	        pointHoverBackgroundColor: colors.map(function (color) { return rgba(color, 1); }),
+	        pointHoverBorderColor: colors.map(function (color) { return rgba(color, 1); })
+	    };
+	}
+	function formatPolarAreaColors(colors) {
+	    return {
+	        backgroundColor: colors.map(function (color) { return rgba(color, 0.6); }),
+	        borderColor: colors.map(function (color) { return rgba(color, 1); }),
+	        hoverBackgroundColor: colors.map(function (color) { return rgba(color, 0.8); }),
+	        hoverBorderColor: colors.map(function (color) { return rgba(color, 1); })
+	    };
+	}
+	function getRandomColor() {
+	    return [getRandomInt(0, 255), getRandomInt(0, 255), getRandomInt(0, 255)];
+	}
+	function generateColor(index) {
+	    return BaseChartComponent.defaultColors[index] || getRandomColor();
+	}
+	function generateColors(count) {
+	    var colorsArr = new Array(count);
+	    for (var i = 0; i < count; i++) {
+	        colorsArr[i] = BaseChartComponent.defaultColors[i] || getRandomColor();
+	    }
+	    return colorsArr;
+	}
+	function getColors(chartType, index, count) {
+	    if (chartType === 'pie' || chartType === 'doughnut') {
+	        return formatPieColors(generateColors(count));
+	    }
+	    if (chartType === 'polarArea') {
+	        return formatPolarAreaColors(generateColors(count));
+	    }
+	    if (chartType === 'line' || chartType === 'radar') {
+	        return formatLineColor(generateColor(index));
+	    }
+	    if (chartType === 'bar') {
+	        return formatBarColor(generateColor(index));
+	    }
+	    return generateColor(index);
+	}
+	exports.CHART_DIRECTIVES = [BaseChartComponent];
 
 
 /***/ }

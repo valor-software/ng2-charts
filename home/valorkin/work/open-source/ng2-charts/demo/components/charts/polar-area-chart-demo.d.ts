@@ -1,10 +1,8 @@
-export declare class PolarAreaChartDemo {
-    constructor();
+export declare class PolarAreaChartDemoComponent {
+    polarAreaChartLabels: string[];
+    polarAreaChartData: number[];
+    polarAreaLegend: boolean;
+    polarAreaChartType: string;
     chartClicked(e: any): void;
     chartHovered(e: any): void;
-    private polarAreaChartLabels;
-    private polarAreaChartData;
-    private polarAreaLegend;
-    private polarAreaChartType;
-    private polarAreaChartColours;
 }

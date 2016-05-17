@@ -1,11 +1,9 @@
-export declare class BarChartDemo {
-    constructor();
-    private barChartOptions;
-    private barChartLabels;
-    private barChartSeries;
+export declare class BarChartDemoComponent {
+    barChartOptions: any;
+    barChartLabels: string[];
     barChartType: string;
-    private barChartLegend;
-    private barChartData;
+    barChartLegend: boolean;
+    barChartData: any[];
     chartClicked(e: any): void;
     chartHovered(e: any): void;
 }

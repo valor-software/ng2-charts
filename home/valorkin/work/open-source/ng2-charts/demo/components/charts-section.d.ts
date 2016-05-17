@@ -1,2 +1,2 @@
-export declare class ChartsSection {
+export declare class ChartsSectionComponent {
 }

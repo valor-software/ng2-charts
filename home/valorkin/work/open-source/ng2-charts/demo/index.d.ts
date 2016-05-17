@@ -1,3 +1,2 @@
-export declare class Demo {
-    constructor();
+export declare class DemoComponent {
 }

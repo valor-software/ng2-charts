@@ -1,8 +1,7 @@
-export declare class RadarChartDemo {
-    constructor();
+export declare class RadarChartDemoComponent {
+    radarChartLabels: string[];
+    radarChartData: any;
+    radarChartType: string;
     chartClicked(e: any): void;
     chartHovered(e: any): void;
-    private radarChartLabels;
-    private radarChartData;
-    private radarChartType;
 }
