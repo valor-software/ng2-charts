@@ -14,49 +14,65 @@ Follow me at [twitter](https://twitter.com/valorkin) to be notified about new re
 
 - - -
 
-## Quick start
+### Installation
 
-1. A recommended way to install ***ng2-charts*** is through [npm](https://www.npmjs.com/search?q=ng2-charts) package manager using the following command:
+1. You can install ***ng2-charts*** using npm
 
-  `npm i ng2-charts --save`
+  ```bash
+  npm install ng2-charts --save
+  ```
+2. You need to install and include `Chart.js` library in application via `html` or `webpack bundler` (more options can be found in official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
-
-2. A way to install Chart.js component is through [npm](http://bower.io/search/?q=chartjs) package manager using the following command:
-
-  `bower install Chart.js --save`
-
-  Alternatively, you can [download it in a ZIP file](https://github.com/nnnick/Chart.js/archive/master.zip).
-
-  After Chart.js component is downloaded, embed the code into your project.
-
-  ```html
-  <script src="bower_components/Chart.js/Chart.min.js"></script>
+  ```bash
+  npm install chart.js --save
   ```
 
-3. Or you can link `charts.js` at cdn
-```html
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-```
+  **Important**: Embedding `Chart.js` in application is mandatory!
 
-4. More information regarding using of ***ng2-charts*** is located in
-  [demo](http://valor-software.github.io/ng2-charts/) and [demo sources](https://github.com/valor-software/ng2-charts/tree/master/demo).
+  ```html
+  <script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+  ```
+### Usage & Demo
+ Demo and API details of ***ng2-charts*** can be found here:
+  [demo](http://valor-software.github.io/ng2-charts/) and [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
+
+### System.js
+
+System.js bundles can be found in `bundles` directory of npm package or at [npm cdn](https://npmcdn.com/ng2-charts/bundles/)
+
 
 ## API
 
+### Import
+```typescript
+import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
+```
+
+### Chart types
+There are one directive for all chart types: `base-chart`, and there are 6 types of charts: , `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
+
 ### Properties
 
-- `data` (`Array<any>`) -  set of points of the chart, it should be Array&lt;Array&lt;number&gt;&gt; only for line, bar and radar, otherwise Array&lt;number&gt;
-- `labels` (`?Array<any>`) - x axis labels. It's necessary for charts: line, bar and radar. And just labels (on hover) for charts: polar area, pie and doughnut
-- `chartType` (`?string`) - indicates the type of charts, it can be: 'Line', 'Bar', 'Radar', 'Pie', 'PolarArea', 'Doughnut'
+**Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
+
+- `data` (`Array<number[]> | number[]`) -  set of points of the chart, it should be `Array<number[]>` only for `line`, `bar` and `radar`, otherwise `number[]`;
+- `datasets` (`Array<{data: Array<number[]> | number[], label: string}>`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
+- `labels` (`?Array<any>`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`
+- `chartType` (`?string`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
 - `options` (`?any`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
-- `series` (`?Array<any>`) - name points on the chart, work for line, bar and radar
-- `colours` (`?Array<any>`) - data colours, will use default colours if not specified ([see readme for components](https://github.com/valor-software/ng2-charts/blob/master/components/charts/readme.md))
+- `colours` (`?Array<any>`) - data colours, will use default and|or random colours if not specified (see below)
 - `legend`: (`?boolean=false`) - if true show legend below the chart, otherwise not be shown
 
 ### Events
 
 - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and labels
 - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
+
+
+### Colours
+
+There are a set several default colours. Colours can be replaced using the `colours` attribute. If there is more data than colours, colours are generated randomly.
+
 
 
 ## Troubleshooting

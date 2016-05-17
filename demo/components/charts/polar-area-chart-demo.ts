@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
@@ -18,42 +18,7 @@ export class PolarAreaChartDemoComponent {
   public polarAreaChartData:number[] = [300, 500, 100, 40, 120];
   public polarAreaLegend:boolean = true;
 
-  public polarAreaChartType:string = 'PolarArea';
-  public polarAreaChartColours:any[] = [
-    {
-      fillColor: 'rgba(151,187,205,0.2)',
-      strokeColor: 'rgba(151,187,205,1)',
-      pointColor: 'rgba(151,187,205,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(151,187,205,0.8)',
-      color: 'rgba(151,187,205,1)',
-      highlight: 'rgba(151,187,205,0.8)'
-    }, {
-      fillColor: 'rgba(220,220,220,0.2)',
-      strokeColor: 'rgba(220,220,220,1)',
-      pointColor: 'rgba(220,220,220,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(220,220,220,0.8)',
-      color: 'rgba(220,220,220,1)',
-      highlight: 'rgba(220,220,220,0.8)'
-    },
-    {
-      fillColor: 'rgba(247,70,74,0.2)',
-      strokeColor: 'rgba(247,70,74,1)',
-      pointColor: 'rgba(247,70,74,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(247,70,74,0.8)',
-      color: 'rgba(247,70,74,1)',
-      highlight: 'rgba(247,70,74,0.8)'
-    }
-  ];
-
-  public constructor() {
-    console.log('PolarArea demo');
-  }
+  public polarAreaChartType:string = 'polarArea';
 
   // events
   public chartClicked(e:any):void {

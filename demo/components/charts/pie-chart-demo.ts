@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
@@ -15,11 +15,7 @@ export class PieChartDemoComponent {
   // Pie
   public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData:number[] = [300, 500, 100];
-  public pieChartType:string = 'Pie';
-
-  public constructor() {
-    console.log('pie demo');
-  }
+  public pieChartType:string = 'pie';
 
   // events
   public chartClicked(e:any):void {
