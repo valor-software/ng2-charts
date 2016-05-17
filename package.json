@@ -8,7 +8,7 @@
     "flow.compile:common": "./node_modules/.bin/tsc",
     "flow.compile:system": "./.config/bundle-system.js",
     "flow.copy:src": "./node_modules/.bin/cpy ng2-charts.ts \"components/**/*.ts\" ts --parents",
-    "flow.clean": "./node_modules/.bin/del bundles coverage demo-build typings \"components/**/*.+(js|d.ts|js.map)\" dist \"ng2-bootstrap.+(js|d.ts|js.map)\"",
+    "flow.clean": "./node_modules/.bin/del bundles coverage demo-build typings \"components/**/*.+(js|d.ts|js.map)\" dist \"ng2-charts.+(js|d.ts|js.map)\"",
     "flow.deploy:gh-pages": "npm run flow.build:prod && ./node_modules/.bin/gh-pages -d demo-build",
     "flow.eslint": "./node_modules/.bin/eslint --ignore-path .gitignore  --ext js --fix . .config",
     "flow.tslint": "./node_modules/.bin/gulp lint",
@@ -96,7 +96,7 @@
     "ts-loader": "0.8.2",
     "tslint-config-valorsoft": "1.0.3",
     "typescript": "1.8.10",
-    "typings": "1.0.3",
+    "typings": "0.8.1",
     "webpack": "1.13.0",
     "webpack-dev-server": "1.14.1",
     "zone.js": "0.6.12"
