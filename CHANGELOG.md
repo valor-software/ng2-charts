@@ -1,3 +1,21 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/valor-software/ng2-charts/compare/v1.0.3...v1.1.0) (2016-05-17)
+
+
+### Features
+
+* **package:** update to ng2 rc.1 and chart.js 2.* ([73e3ffa](https://github.com/valor-software/ng2-charts/commit/73e3ffa))
+
+
+### BREAKING CHANGES
+
+* package: S:
+- series property removed
+- datasets property added (please prefer it over data property)
+- all chart type names lower cased (because of chart.js 2 changes)
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/valor-software/ng2-charts/compare/v1.0.2...v1.0.3) (2016-04-15)
 
