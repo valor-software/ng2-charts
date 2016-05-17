@@ -9,7 +9,6 @@
 
 ### BREAKING CHANGES
 
-* package: S:
 - series property removed
 - datasets property added (please prefer it over data property)
 - all chart type names lower cased (because of chart.js 2 changes)
