@@ -69,7 +69,7 @@
     "del-cli": "0.2.0",
     "es6-promise": "3.2.1",
     "es6-shim": "0.35.1",
-    "eslint-config-valorsoft": "0.0.13",
+    "eslint-config-valorsoft": "0.0.14",
     "exports-loader": "0.6.3",
     "gh-pages": "0.11.0",
     "gitignore-to-glob": "0.2.1",
