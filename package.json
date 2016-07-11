@@ -94,7 +94,7 @@
     "systemjs-builder": "0.15.19",
     "transfer-webpack-plugin": "0.1.4",
     "ts-loader": "0.8.2",
-    "tslint-config-valorsoft": "1.0.3",
+    "tslint-config-valorsoft": "1.1.0",
     "typescript": "1.8.10",
     "typings": "0.8.1",
     "webpack": "1.13.1",
