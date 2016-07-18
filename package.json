@@ -60,7 +60,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
     "async": "2.0.0-rc.3",
     "bootstrap": "3.3.6",
-    "clean-webpack-plugin": "0.1.9",
+    "clean-webpack-plugin": "0.1.10",
     "compression-webpack-plugin": "0.3.1",
     "conventional-changelog-cli": "1.2.0",
     "conventional-github-releaser": "1.1.2",
