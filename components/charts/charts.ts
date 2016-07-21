@@ -107,6 +107,9 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     }
 
     let options:any = Object.assign({}, this.options);
+    if (this.legend === false) {
+      options.legend = { display: false };
+    }
     // hock for onHover and onClick events
     options.hover = options.hover || {};
     if (!options.hover.onHover) {
