@@ -50,7 +50,7 @@
     "@angular/common": "^2.0.0-rc.1"
   },
   "dependencies": {
-    "chart.js": "2.1.4"
+    "chart.js": "2.2.0"
   },
   "devDependencies": {
     "@angular/common": "2.0.0-rc.1",
