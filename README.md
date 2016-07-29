@@ -11,6 +11,7 @@ Follow me at [twitter](https://twitter.com/valorkin) to be notified about new re
 
 # Usage & Demo
 [http://valor-software.github.io/ng2-charts/](http://valor-software.github.io/ng2-charts/)
+[http://plnkr.co/edit/7fGsiuRjcF0M0Ffeoml2?p=preview](http://plnkr.co/edit/7fGsiuRjcF0M0Ffeoml2?p=preview)
 
 - - -
 
