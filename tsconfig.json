@@ -17,7 +17,7 @@
     "node_modules"
   ],
   "files": [
-    "./typings/browser.d.ts",
+    "./typings/index.d.ts",
     "./ng2-charts.ts"
   ]
 }
