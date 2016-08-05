@@ -1,10 +1,11 @@
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Component} from '@angular/core';
 import {NgClass} from '@angular/common';
+import {disableDeprecatedForms, provideForms} from '@angular/forms';
 
 import {ChartsSectionComponent} from './components/charts-section';
 import {DemoHeaderComponent} from './components/demo-header';
-let gettingStarted = require('./getting-started.md');
+const gettingStarted = require('./getting-started.md');
 
 @Component({
   selector: 'app',
@@ -45,4 +46,7 @@ let gettingStarted = require('./getting-started.md');
 export class DemoComponent {
 }
 
-bootstrap(DemoComponent);
+bootstrap(DemoComponent, [
+  disableDeprecatedForms(),
+  provideForms()
+]);

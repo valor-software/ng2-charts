@@ -2,7 +2,8 @@ import {
   Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
   Output
 } from '@angular/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
+import {CORE_DIRECTIVES, NgClass} from '@angular/common';
+import {FORM_DIRECTIVES} from '@angular/forms';
 
 declare var Chart:any;
 

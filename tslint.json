@@ -1,4 +1,10 @@
 {
   "extends": "tslint-config-valorsoft",
-  "rulesDirectory": "./node_modules/codelyzer"
+  "rulesDirectory": "./node_modules/codelyzer",
+  "rules": {
+    "component-selector-name": [false, ""],
+    "import-destructuring-spacing": false,
+    "only-arrow-functions": false,
+    "ordered-imports": false
+  }
 }
