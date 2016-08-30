@@ -15,7 +15,7 @@ There are one directive for all chart types: `base-chart`, and there are 6 types
 - `labels` (`?Array<any>`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`
 - `chartType` (`?string`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
 - `options` (`?any`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
-- `colours` (`?Array<any>`) - data colours, will use default and|or random colours if not specified (see below)
+- `colors` (`?Array<any>`) - data colors, will use default and|or random colors if not specified (see below)
 - `legend`: (`?boolean=false`) - if true show legend below the chart, otherwise not be shown
 
 ### Events
@@ -24,6 +24,6 @@ There are one directive for all chart types: `base-chart`, and there are 6 types
 - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
 
 
-### Colours
+### Colors
 
-There are a set several default colours. Colours can be replaced using the `colours` attribute. If there is more data than colours, colours are generated randomly.
+There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.

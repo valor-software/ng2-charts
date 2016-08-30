@@ -24,7 +24,7 @@ export class LineChartDemoComponent {
     animation: false,
     responsive: true
   };
-  public lineChartColours:Array<any> = [
+  public lineChartColors:Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
