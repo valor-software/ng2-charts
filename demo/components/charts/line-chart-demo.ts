@@ -57,7 +57,7 @@ export class LineChartDemo {
     }
   ];
   private lineChartLegend:boolean = true;
-  private lineChartType:string = 'Line';
+  private lineChartType:string = 'line';
 
   private randomize() {
     let _lineChartData:Array<any> = [];
