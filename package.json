@@ -80,7 +80,7 @@
     "gulp-clean": "0.3.2",
     "gulp-eslint": "3.0.1",
     "gulp-size": "2.1.0",
-    "gulp-tsc": "1.2.0",
+    "gulp-tsc": "1.2.2",
     "gulp-tslint": "6.0.2",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
