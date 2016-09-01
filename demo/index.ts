@@ -15,7 +15,7 @@ import {BaseChartDemoComponent} from './components/charts/base-chart-demo';
 
 import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
-import { ChartsModule } from '../components/charts/charts.module';
+import { ChartsModule } from '../ng2-charts';
 
 const gettingStarted = require('./getting-started.md');
 

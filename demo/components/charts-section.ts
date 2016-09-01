@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
 // webpack html imports
-let doc = require('../../components/charts/readme.md');
+let doc = ''; // require('../../components/charts/readme.md');
 
 let chartDesc:Array<any> = [
   {
@@ -94,7 +94,6 @@ chartDesc.forEach((desc:any) => {
             </tab>
             <tab heading="TypeScript">
               <div class="card card-block panel panel-default panel-body">
-                <pre class="language-typescript"><code class="language-typescript" ng-non-bindable>${desc.ts}</code></pre>
               </div>
             </tab>
           </tabset>
@@ -127,6 +126,7 @@ chartDesc.forEach((desc:any) => {
 
   </section>
   `
+
 })
 export class ChartsSectionComponent {
 }
