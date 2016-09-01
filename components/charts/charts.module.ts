@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { BaseChartComponent, Color } from './charts.ts';
+import { BaseChartComponent } from './charts.ts';
 
 @NgModule({
     declarations: [

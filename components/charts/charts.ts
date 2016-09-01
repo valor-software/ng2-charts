@@ -286,4 +286,3 @@ function getColors(chartType:string, index:number, count:number):Color {
   }
   return generateColor(index);
 }
-

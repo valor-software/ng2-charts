@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 
-
 // webpack html imports
 let template = require('./polar-area-chart-demo.html');
 

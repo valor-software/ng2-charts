@@ -1,6 +1,4 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Component} from '@angular/core';
-import {NgClass} from '@angular/common';
 import { NgModule } from '@angular/core';
 import {ChartsSectionComponent} from './components/charts-section';
 import {DemoHeaderComponent} from './components/demo-header';
@@ -14,6 +12,8 @@ import {PieChartDemoComponent} from './components/charts/pie-chart-demo';
 import {PolarAreaChartDemoComponent} from './components/charts/polar-area-chart-demo';
 import {RadarChartDemoComponent} from './components/charts/radar-chart-demo';
 import {BaseChartDemoComponent} from './components/charts/base-chart-demo';
+
+import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 import { ChartsModule } from '../components/charts/charts.module';
 
@@ -48,7 +48,7 @@ const gettingStarted = require('./getting-started.md');
       <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts">ng2-charts</a> is maintained by <a href="https://github.com/valor-software">valor-software</a>.</p>
     </div>
   </footer>
-  `,
+  `
 })
 export class DemoComponent {
 }
@@ -66,6 +66,7 @@ export class DemoComponent {
     PolarAreaChartDemoComponent,
     RadarChartDemoComponent,
     BaseChartDemoComponent,
+    TAB_DIRECTIVES
   ],
   imports: [
     BrowserModule,

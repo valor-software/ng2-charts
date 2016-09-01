@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 
-
 // webpack html imports
 let template = require('./bar-chart-demo.html');
 

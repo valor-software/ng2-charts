@@ -1,13 +1,9 @@
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
-
-import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
-
 
 let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
 // webpack html imports
-let doc = ''; //require('../../components/charts/readme.md');
+let doc = require('../../components/charts/readme.md');
 
 let chartDesc:Array<any> = [
   {
@@ -130,8 +126,7 @@ chartDesc.forEach((desc:any) => {
     <br>
 
   </section>
-  `,
-
+  `
 })
 export class ChartsSectionComponent {
 }
