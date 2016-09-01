@@ -1,6 +1,6 @@
 import {
   Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
-  Output
+  Output, NgModule
 } from '@angular/core';
 
 declare var Chart:any;
@@ -286,3 +286,16 @@ function getColors(chartType:string, index:number, count:number):Color {
   }
   return generateColor(index);
 }
+
+@NgModule({
+    declarations: [
+        BaseChartComponent
+    ],
+    exports: [
+        BaseChartComponent
+    ],
+    imports: [
+
+    ]
+})
+export class ChartsModule {}
