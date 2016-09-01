@@ -1,16 +1,12 @@
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES, NgClass} from '@angular/common';
-import {FORM_DIRECTIVES} from '@angular/forms';
 
-import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
 // webpack html imports
 let template = require('./polar-area-chart-demo.html');
 
 @Component({
   selector: 'polar-area-chart-demo',
-  template: template,
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  template: template
 })
 export class PolarAreaChartDemoComponent {
 
