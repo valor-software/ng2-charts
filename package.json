@@ -46,20 +46,20 @@
   },
   "homepage": "https://github.com/valor-software/ng2-charts#readme",
   "peerDependencies": {
-    "@angular/core": "2.0.0-rc.5",
-    "@angular/compiler": "2.0.0-rc.5",
-    "@angular/common": "2.0.0-rc.5"
+    "@angular/core": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/common": "^2.0.0-rc.5"
   },
   "dependencies": {
     "chart.js": "2.2.1",
     "del": "^2.2.2"
   },
   "devDependencies": {
-    "@angular/common": "2.0.0-rc.5",
-    "@angular/compiler": "2.0.0-rc.5",
-    "@angular/core": "2.0.0-rc.5",
-    "@angular/platform-browser": "2.0.0-rc.5",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.5",
+    "@angular/common": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/core": "^2.0.0-rc.5",
+    "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
     "async": "2.0.1",
     "bootstrap": "3.3.7",
     "clean-webpack-plugin": "0.1.10",
