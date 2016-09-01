@@ -48,7 +48,7 @@
   "peerDependencies": {
     "@angular/core": "2.0.0-rc.5",
     "@angular/compiler": "2.0.0-rc.5",
-    "@angular/common": "2.0.0-rc.5",
+    "@angular/common": "2.0.0-rc.5"
   },
   "dependencies": {
     "chart.js": "2.2.1",
