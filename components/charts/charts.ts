@@ -1,16 +1,13 @@
 import {
   Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
-  Output
+  Output, NgModule
 } from '@angular/core';
-import {CORE_DIRECTIVES, NgClass} from '@angular/common';
-import {FORM_DIRECTIVES} from '@angular/forms';
 
 declare var Chart:any;
 
 @Component({
   selector: 'base-chart',
   template: `<canvas style="width: 100%; height: 100%;"></canvas>`,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass],
   styles: [`:host { display: block; }`]
 })
 export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
@@ -290,4 +287,15 @@ function getColors(chartType:string, index:number, count:number):Color {
   return generateColor(index);
 }
 
-export const CHART_DIRECTIVES:Array<any> = [BaseChartComponent];
+@NgModule({
+    declarations: [
+        BaseChartComponent
+    ],
+    exports: [
+        BaseChartComponent
+    ],
+    imports: [
+
+    ]
+})
+export class ChartsModule {}

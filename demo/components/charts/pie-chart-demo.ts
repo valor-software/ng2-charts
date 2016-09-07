@@ -1,16 +1,11 @@
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES, NgClass} from '@angular/common';
-import {FORM_DIRECTIVES} from '@angular/forms';
-
-import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
 // webpack html imports
 let template = require('./pie-chart-demo.html');
 
 @Component({
   selector: 'pie-chart-demo',
-  template: template,
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  template: template
 })
 export class PieChartDemoComponent {
   // Pie

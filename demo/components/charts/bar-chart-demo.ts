@@ -1,16 +1,11 @@
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES, NgClass} from '@angular/common';
-import {FORM_DIRECTIVES} from '@angular/forms';
-
-import {CHART_DIRECTIVES} from '../../../ng2-charts';
 
 // webpack html imports
 let template = require('./bar-chart-demo.html');
 
 @Component({
   selector: 'bar-chart-demo',
-  template: template,
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  template: template
 })
 export class BarChartDemoComponent {
   public barChartOptions:any = {

@@ -1,19 +1,9 @@
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
-
-import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
-import {LineChartDemoComponent} from './charts/line-chart-demo';
-import {BarChartDemoComponent} from './charts/bar-chart-demo';
-import {DoughnutChartDemoComponent} from './charts/doughnut-chart-demo';
-import {PieChartDemoComponent} from './charts/pie-chart-demo';
-import {PolarAreaChartDemoComponent} from './charts/polar-area-chart-demo';
-import {RadarChartDemoComponent} from './charts/radar-chart-demo';
-import {BaseChartDemoComponent} from './charts/base-chart-demo';
 
 let name = 'Charts';
 let src = 'https://github.com/valor-software/ng2-charts/blob/master/components/charts/charts.ts';
 // webpack html imports
-let doc = require('../../components/charts/readme.md');
+let doc = ''; // require('../../components/charts/readme.md');
 
 let chartDesc:Array<any> = [
   {
@@ -104,7 +94,6 @@ chartDesc.forEach((desc:any) => {
             </tab>
             <tab heading="TypeScript">
               <div class="card card-block panel panel-default panel-body">
-                <pre class="language-typescript"><code class="language-typescript" ng-non-bindable>${desc.ts}</code></pre>
               </div>
             </tab>
           </tabset>
@@ -136,17 +125,8 @@ chartDesc.forEach((desc:any) => {
     <br>
 
   </section>
-  `,
-  directives: [
-    LineChartDemoComponent,
-    BarChartDemoComponent,
-    DoughnutChartDemoComponent,
-    PieChartDemoComponent,
-    PolarAreaChartDemoComponent,
-    RadarChartDemoComponent,
-    BaseChartDemoComponent,
-    TAB_DIRECTIVES,
-    CORE_DIRECTIVES]
+  `
+
 })
 export class ChartsSectionComponent {
 }

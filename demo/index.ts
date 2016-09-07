@@ -1,10 +1,22 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Component} from '@angular/core';
-import {NgClass} from '@angular/common';
-import {disableDeprecatedForms, provideForms} from '@angular/forms';
-
+import { NgModule } from '@angular/core';
 import {ChartsSectionComponent} from './components/charts-section';
 import {DemoHeaderComponent} from './components/demo-header';
+import {BrowserModule} from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import {LineChartDemoComponent} from './components/charts/line-chart-demo';
+import {BarChartDemoComponent} from './components/charts/bar-chart-demo';
+import {DoughnutChartDemoComponent} from './components/charts/doughnut-chart-demo';
+import {PieChartDemoComponent} from './components/charts/pie-chart-demo';
+import {PolarAreaChartDemoComponent} from './components/charts/polar-area-chart-demo';
+import {RadarChartDemoComponent} from './components/charts/radar-chart-demo';
+import {BaseChartDemoComponent} from './components/charts/base-chart-demo';
+
+import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+
+import { ChartsModule } from '../ng2-charts';
+
 const gettingStarted = require('./getting-started.md');
 
 @Component({
@@ -36,17 +48,31 @@ const gettingStarted = require('./getting-started.md');
       <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts">ng2-charts</a> is maintained by <a href="https://github.com/valor-software">valor-software</a>.</p>
     </div>
   </footer>
-  `,
-  directives: [
-    NgClass,
-    DemoHeaderComponent,
-    ChartsSectionComponent
-  ]
+  `
 })
 export class DemoComponent {
 }
 
-bootstrap(DemoComponent, [
-  disableDeprecatedForms(),
-  provideForms()
-]);
+@NgModule({
+  bootstrap: [DemoComponent],
+  declarations: [
+    DemoHeaderComponent,
+    ChartsSectionComponent,
+    DemoComponent,
+    LineChartDemoComponent,
+    BarChartDemoComponent,
+    DoughnutChartDemoComponent,
+    PieChartDemoComponent,
+    PolarAreaChartDemoComponent,
+    RadarChartDemoComponent,
+    BaseChartDemoComponent,
+    TAB_DIRECTIVES
+  ],
+  imports: [
+    BrowserModule,
+    ChartsModule
+  ]
+})
+export class DemoModule { }
+
+platformBrowserDynamic().bootstrapModule(DemoModule);
