@@ -49,4 +49,5 @@ export interface Colors extends Color {
     data?: number[];
     label?: string;
 }
-export declare const CHART_DIRECTIVES: Array<any>;
+export declare class ChartsModule {
+}

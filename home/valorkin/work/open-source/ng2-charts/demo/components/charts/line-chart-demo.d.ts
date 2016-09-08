@@ -2,7 +2,7 @@ export declare class LineChartDemoComponent {
     lineChartData: Array<any>;
     lineChartLabels: Array<any>;
     lineChartOptions: any;
-    lineChartColours: Array<any>;
+    lineChartColors: Array<any>;
     lineChartLegend: boolean;
     lineChartType: string;
     randomize(): void;
