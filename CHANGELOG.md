@@ -1,3 +1,14 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/valor-software/ng2-charts/compare/v1.1.0...v1.1.1) (2016-09-08)
+
+
+### Features
+
+* **docs:** add issue template with a starting plunkr ([#335](https://github.com/valor-software/ng2-charts/issues/335)) ([a69bca4](https://github.com/valor-software/ng2-charts/commit/a69bca4))
+* **options:** disable legend if not provided ([#318](https://github.com/valor-software/ng2-charts/issues/318)) ([516fb6e](https://github.com/valor-software/ng2-charts/commit/516fb6e))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/valor-software/ng2-charts/compare/v1.0.3...v1.1.0) (2016-05-17)
 

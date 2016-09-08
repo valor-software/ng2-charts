@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "scripts": {
     "flow.install:typings": "./node_modules/.bin/typings install",
