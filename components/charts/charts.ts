@@ -107,7 +107,7 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
 
     let options:any = Object.assign({}, this.options);
     if (this.legend === false) {
-      options.legend = { display: false };
+      options.legend = {display: false};
     }
     // hock for onHover and onClick events
     options.hover = options.hover || {};
@@ -288,14 +288,13 @@ function getColors(chartType:string, index:number, count:number):Color {
 }
 
 @NgModule({
-    declarations: [
-        BaseChartComponent
-    ],
-    exports: [
-        BaseChartComponent
-    ],
-    imports: [
-
-    ]
+  declarations: [
+    BaseChartComponent
+  ],
+  exports: [
+    BaseChartComponent
+  ],
+  imports: []
 })
-export class ChartsModule {}
+export class ChartsModule {
+}

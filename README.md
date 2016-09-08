@@ -46,7 +46,7 @@ System.js bundles can be found in `bundles` directory of npm package or at [npm 
 
 ### Import
 ```typescript
-import {ChartsModule} from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 // In your App's module:
 imports: [
@@ -78,7 +78,6 @@ There are one directive for all chart types: `base-chart`, and there are 6 types
 ### Colors
 
 There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
-
 
 
 ## Troubleshooting

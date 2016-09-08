@@ -2,12 +2,14 @@ language: node_js
 node_js:
   - "6"
 
+before_install: npm i -g npm@latest
+
 script:
   - npm run flow.install:typings
   - npm test
 
 after_success:
-  - ./node_modules/.bin/codecov
+  - ./node_modules/.bin/codecov  -f coverage/coverage-final.json
 
 addons:
   # sauce labs tunel connector (read more https://docs.travis-ci.com/user/sauce-connect/ )
