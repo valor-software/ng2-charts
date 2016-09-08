@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 // webpack html imports
 let template = require('./line-chart-demo.html');
 
 @Component({
   selector: 'line-chart-demo',
-  template: template
+  template
 })
 export class LineChartDemoComponent {
   // lineChart
@@ -19,7 +19,7 @@ export class LineChartDemoComponent {
     animation: false,
     responsive: true
   };
-  public lineChartColours:Array<any> = [
+  public lineChartColors:Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',

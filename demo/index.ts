@@ -1,19 +1,20 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { NgModule } from '@angular/core';
-import {ChartsSectionComponent} from './components/charts-section';
-import {DemoHeaderComponent} from './components/demo-header';
-import {BrowserModule} from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { ChartsSectionComponent } from './components/charts-section';
+import { DemoHeaderComponent } from './components/demo-header';
+import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import {LineChartDemoComponent} from './components/charts/line-chart-demo';
-import {BarChartDemoComponent} from './components/charts/bar-chart-demo';
-import {DoughnutChartDemoComponent} from './components/charts/doughnut-chart-demo';
-import {PieChartDemoComponent} from './components/charts/pie-chart-demo';
-import {PolarAreaChartDemoComponent} from './components/charts/polar-area-chart-demo';
-import {RadarChartDemoComponent} from './components/charts/radar-chart-demo';
-import {BaseChartDemoComponent} from './components/charts/base-chart-demo';
+import { LineChartDemoComponent } from './components/charts/line-chart-demo';
+import { BarChartDemoComponent } from './components/charts/bar-chart-demo';
+import { DoughnutChartDemoComponent } from './components/charts/doughnut-chart-demo';
+import { PieChartDemoComponent } from './components/charts/pie-chart-demo';
+import { PolarAreaChartDemoComponent } from './components/charts/polar-area-chart-demo';
+import { RadarChartDemoComponent } from './components/charts/radar-chart-demo';
+import { BaseChartDemoComponent } from './components/charts/base-chart-demo';
 
-import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import { TabsModule, CollapseModule, DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { ChartsModule } from '../ng2-charts';
 
@@ -56,23 +57,27 @@ export class DemoComponent {
 @NgModule({
   bootstrap: [DemoComponent],
   declarations: [
+    DemoComponent,
     DemoHeaderComponent,
     ChartsSectionComponent,
-    DemoComponent,
     LineChartDemoComponent,
     BarChartDemoComponent,
     DoughnutChartDemoComponent,
     PieChartDemoComponent,
     PolarAreaChartDemoComponent,
     RadarChartDemoComponent,
-    BaseChartDemoComponent,
-    TAB_DIRECTIVES
+    BaseChartDemoComponent
   ],
   imports: [
     BrowserModule,
-    ChartsModule
+    FormsModule,
+    ChartsModule,
+    TabsModule,
+    CollapseModule,
+    DropdownModule
   ]
 })
-export class DemoModule { }
+export class DemoModule {
+}
 
 platformBrowserDynamic().bootstrapModule(DemoModule);

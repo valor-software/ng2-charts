@@ -1,24 +1,21 @@
 {
-  "version": "1.8.9",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": false,
-    "declaration": true,
-    "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "sourceMap": false,
+    "noEmitHelpers": false,
     "noImplicitAny": true,
-    "listFiles": false,
-    "noLib": false
+    "declaration": true
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "./demo/custom-typings.d.ts",
     "./typings/index.d.ts",
+    "./demo/custom-typings.d.ts",
     "./ng2-charts.ts"
   ]
 }
