@@ -1,3 +1,13 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/valor-software/ng2-charts/compare/v1.1.1...v1.1.2) (2016-09-09)
+
+
+### Bug Fixes
+
+* **options:** to have colors on horizontalBar graphs ([#394](https://github.com/valor-software/ng2-charts/issues/394)) ([ab06ad2](https://github.com/valor-software/ng2-charts/commit/ab06ad2))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/valor-software/ng2-charts/compare/v1.1.0...v1.1.1) (2016-09-08)
 
