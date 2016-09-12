@@ -10,8 +10,12 @@ Follow me at [twitter](https://twitter.com/valorkin) to be notified about new re
 [![Throughput Graph](https://graphs.waffle.io/valor-software/ng2-charts/throughput.svg)](https://waffle.io/valor-software/ng2-charts/metrics)
 
 # Usage & Demo
+
+Sample in below website uses ng2-charts@1.1.0
+
 [http://valor-software.github.io/ng2-charts/](http://valor-software.github.io/ng2-charts/)
 [http://plnkr.co/edit/7fGsiuRjcF0M0Ffeoml2?p=preview](http://plnkr.co/edit/7fGsiuRjcF0M0Ffeoml2?p=preview)
+
 
 - - -
 
