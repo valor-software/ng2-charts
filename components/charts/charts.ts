@@ -1,6 +1,6 @@
 import {
   Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
-  Output, NgModule
+  Output, NgModule, SimpleChanges
 } from '@angular/core';
 
 declare var Chart: any;
@@ -59,9 +59,15 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  public ngOnChanges(): any {
+  public ngOnChanges(changes: SimpleChanges): any {
     if (this.initFlag) {
-      this.refresh();
+      //Check if the changes are in the data or datasets
+      if(changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')){
+        this.chart.data.datasets = this.getDatasets();
+        this.chart.update();
+      }else{
+        this.refresh();
+      }
     }
   }
 
@@ -72,9 +78,8 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  public getChartBuilder(ctx: any/*, data:Array<any>, options:any*/): any {
+  private getDatasets(){
     let datasets: any = void 0;
-
     // in case if datasets is not provided, but data is present
     if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
       if (Array.isArray(this.data[0])) {
@@ -104,6 +109,14 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
       throw new Error(`ng-charts configuration error, 
       data or datasets field are required to render char ${this.chartType}`);
     }
+
+    return datasets;
+  }
+
+  public getChartBuilder(ctx: any/*, data:Array<any>, options:any*/): any {
+    let datasets: any = this.getDatasets();
+
+    
 
     let options: any = Object.assign({}, this.options);
     if (this.legend === false) {
