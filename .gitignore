@@ -32,3 +32,5 @@ ng2-charts.js.map
 /logs
 
 factories
+
+/**/*.metadata.json
