@@ -22,3 +22,5 @@ webpack.config.js
 /components/**/*.ts
 !/components/**/*.d.ts
 /ts/**/*.d.ts
+
+factories

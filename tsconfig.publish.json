@@ -17,5 +17,8 @@
     "./typings/index.d.ts",
     "./demo/custom-typings.d.ts",
     "./ng2-charts.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "factories"
+  }
 }
