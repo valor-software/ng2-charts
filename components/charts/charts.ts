@@ -1,6 +1,6 @@
 import {
   Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
-  Output, NgModule
+  Output, NgModule, SimpleChanges
 } from '@angular/core';
 
 declare var Chart: any;
@@ -59,7 +59,8 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  public ngOnChanges(): any {
+  // tslint:disable-next-line:no-unused-variable
+  public ngOnChanges(changes: SimpleChanges): any {
     if (this.initFlag) {
       this.refresh();
     }
