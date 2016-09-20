@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 // webpack html imports
 let template = require('./bar-chart-demo.html');
@@ -7,7 +7,7 @@ let template = require('./bar-chart-demo.html');
   selector: 'bar-chart-demo',
   template: template
 })
-export class BarChartDemoComponent implements OnInit {
+export class BarChartDemoComponent {
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -30,19 +30,15 @@ export class BarChartDemoComponent implements OnInit {
     console.log(e);
   }
 
-  ngOnInit() {
-    
-  }
-
-  randomize(){
-    //Only Change 3 values
+  public randomize():void {
+    // Only Change 3 values
     let data = [
-      Math.round(Math.random()*100), 
-      59, 
-      80, 
-      (Math.random()*100), 
-      56, 
-      (Math.random()*100), 
+      Math.round(Math.random() * 100),
+      59,
+      80,
+      (Math.random() * 100),
+      56,
+      (Math.random() * 100),
       40];
     let clone = JSON.parse(JSON.stringify(this.barChartData));
     clone[0].data = data;
@@ -50,7 +46,7 @@ export class BarChartDemoComponent implements OnInit {
     /**
      * (My guess), for Angular to recognize the change in the dataset
      * it has to change the dataset variable directly,
-     * so one way around it, is to clone the data, change it and then 
+     * so one way around it, is to clone the data, change it and then
      * assign it;
      */
   }
