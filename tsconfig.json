@@ -1,24 +1,29 @@
 {
-  "version": "1.8.9",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": false,
-    "declaration": true,
-    "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmitHelpers": true,
     "noImplicitAny": true,
-    "listFiles": false,
-    "noLib": false
+    "declaration": false,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "lib": ["dom", "es6"],
+    "types": [
+      "jasmine",
+      "node",
+      "webpack"
+    ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules", "bundles", "dist"
   ],
   "files": [
     "./demo/custom-typings.d.ts",
-    "./typings/index.d.ts",
     "./ng2-charts.ts"
-  ]
+  ],
+  "atom": { "rewriteTsconfig": false }
 }
