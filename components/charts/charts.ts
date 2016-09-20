@@ -1,9 +1,9 @@
 import {
   Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
-  Output, NgModule
+  Output, NgModule, SimpleChanges
 } from '@angular/core';
 
-declare var Chart: any;
+declare var Chart:any;
 
 @Component({
   selector: 'base-chart',
@@ -11,7 +11,7 @@ declare var Chart: any;
   styles: [`:host { display: block; }`]
 })
 export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
-  public static defaultColors: Array<number[]> = [
+  public static defaultColors:Array<number[]> = [
     [255, 99, 132],
     [54, 162, 235],
     [255, 206, 86],
@@ -26,30 +26,30 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     [77, 83, 96]
   ];
 
-  @Input() public data: number[] | Array<number[]>;
-  @Input() public datasets: any[];
-  @Input() public labels: Array<any> = [];
-  @Input() public options: any = { responsive: true };
-  @Input() public chartType: string;
-  @Input() public colors: Array<any>;
-  @Input() public legend: boolean;
+  @Input() public data:number[] | Array<number[]>;
+  @Input() public datasets:any[];
+  @Input() public labels:Array<any> = [];
+  @Input() public options:any = {responsive: true};
+  @Input() public chartType:string;
+  @Input() public colors:Array<any>;
+  @Input() public legend:boolean;
 
-  @Output() public chartClick: EventEmitter<any> = new EventEmitter();
-  @Output() public chartHover: EventEmitter<any> = new EventEmitter();
+  @Output() public chartClick:EventEmitter<any> = new EventEmitter();
+  @Output() public chartHover:EventEmitter<any> = new EventEmitter();
 
-  private ctx: any;
-  private cvs: any;
-  private parent: any;
-  private chart: any;
-  private initFlag: boolean = false;
+  private ctx:any;
+  private cvs:any;
+  private parent:any;
+  private chart:any;
+  private initFlag:boolean = false;
 
-  private element: ElementRef;
+  private element:ElementRef;
 
-  public constructor(element: ElementRef) {
+  public constructor(element:ElementRef) {
     this.element = element;
   }
 
-  public ngOnInit(): any {
+  public ngOnInit():any {
     this.ctx = this.element.nativeElement.children[0].getContext('2d');
     this.cvs = this.element.nativeElement.children[0];
     this.parent = this.element.nativeElement;
@@ -59,70 +59,46 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  public ngOnChanges(): any {
+  public ngOnChanges(changes:SimpleChanges):any {
     if (this.initFlag) {
-      this.refresh();
+      // Check if the changes are in the data or datasets
+      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
+        this.chart.data.datasets = this.getDatasets();
+        this.chart.update();
+      } else {
+        this.refresh();
+      }
     }
   }
 
-  public ngOnDestroy(): any {
+  public ngOnDestroy():any {
     if (this.chart) {
       this.chart.destroy();
       this.chart = void 0;
     }
   }
 
-  public getChartBuilder(ctx: any/*, data:Array<any>, options:any*/): any {
-    let datasets: any = void 0;
+  public getChartBuilder(ctx:any/*, data:Array<any>, options:any*/):any {
+    let datasets:any = this.getDatasets();
 
-    // in case if datasets is not provided, but data is present
-    if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
-      if (Array.isArray(this.data[0])) {
-        datasets = (this.data as Array<number[]>).map((data: number[], index: number) => {
-          return { data, label: this.labels[index] || `Label ${index}` };
-        });
-      } else {
-        datasets = [{ data: this.data, label: `Label 0` }];
-      }
-    }
-
-    if (this.datasets && this.datasets.length ||
-      (datasets && datasets.length)) {
-      datasets = (this.datasets || datasets)
-        .map((elm: number, index: number) => {
-          let newElm: any = Object.assign({}, elm);
-          if (this.colors && this.colors.length) {
-            Object.assign(newElm, this.colors[index]);
-          } else {
-            Object.assign(newElm, getColors(this.chartType, index, newElm.data.length));
-          }
-          return newElm;
-        });
-    }
-
-    if (!datasets) {
-      throw new Error(`ng-charts configuration error, 
-      data or datasets field are required to render char ${this.chartType}`);
-    }
-
-    let options: any = Object.assign({}, this.options);
+    let options:any = Object.assign({}, this.options);
     if (this.legend === false) {
-      options.legend = { display: false };
+      options.legend = {display: false};
     }
     // hock for onHover and onClick events
     options.hover = options.hover || {};
     if (!options.hover.onHover) {
-      options.hover.onHover = (active: Array<any>) => {
+      options.hover.onHover = (active:Array<any>) => {
         if (active && !active.length) {
           return;
         }
-        this.chartHover.emit({ active });
+        this.chartHover.emit({active});
       };
     }
 
     if (!options.onClick) {
-      options.onClick = (event: any, active: Array<any>) => {
-        this.chartClick.emit({ event, active });
+      options.onClick = (event:any, active:Array<any>) => {
+        this.chartClick.emit({event, active});
       };
     }
 
@@ -142,7 +118,42 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
     return new Chart(ctx, opts);
   }
 
-  private refresh(): any {
+  private getDatasets():any {
+    let datasets:any = void 0;
+    // in case if datasets is not provided, but data is present
+    if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
+      if (Array.isArray(this.data[0])) {
+        datasets = (this.data as Array<number[]>).map((data:number[], index:number) => {
+          return {data, label: this.labels[index] || `Label ${index}`};
+        });
+      } else {
+        datasets = [{data: this.data, label: `Label 0`}];
+      }
+    }
+
+    if (this.datasets && this.datasets.length ||
+      (datasets && datasets.length)) {
+      datasets = (this.datasets || datasets)
+        .map((elm:number, index:number) => {
+          let newElm:any = Object.assign({}, elm);
+          if (this.colors && this.colors.length) {
+            Object.assign(newElm, this.colors[index]);
+          } else {
+            Object.assign(newElm, getColors(this.chartType, index, newElm.data.length));
+          }
+          return newElm;
+        });
+    }
+
+    if (!datasets) {
+      throw new Error(`ng-charts configuration error, 
+      data or datasets field are required to render char ${this.chartType}`);
+    }
+
+    return datasets;
+  }
+
+  private refresh():any {
     if (this.options && this.options.responsive && this.parent.clientHeight === 0) {
       return setTimeout(() => this.refresh(), 50);
     }
@@ -155,47 +166,47 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
 
 // private helper functions
 export interface Color {
-  backgroundColor?: string | string[];
-  borderWidth?: number | number[];
-  borderColor?: string | string[];
-  borderCapStyle?: string;
-  borderDash?: number[];
-  borderDashOffset?: number;
-  borderJoinStyle?: string;
+  backgroundColor?:string | string[];
+  borderWidth?:number | number[];
+  borderColor?:string | string[];
+  borderCapStyle?:string;
+  borderDash?:number[];
+  borderDashOffset?:number;
+  borderJoinStyle?:string;
 
-  pointBorderColor?: string | string[];
-  pointBackgroundColor?: string | string[];
-  pointBorderWidth?: number | number[];
+  pointBorderColor?:string | string[];
+  pointBackgroundColor?:string | string[];
+  pointBorderWidth?:number | number[];
 
-  pointRadius?: number | number[];
-  pointHoverRadius?: number | number[];
-  pointHitRadius?: number | number[];
+  pointRadius?:number | number[];
+  pointHoverRadius?:number | number[];
+  pointHitRadius?:number | number[];
 
-  pointHoverBackgroundColor?: string | string[];
-  pointHoverBorderColor?: string | string[];
-  pointHoverBorderWidth?: number | number[];
-  pointStyle?: string | string[];
+  pointHoverBackgroundColor?:string | string[];
+  pointHoverBorderColor?:string | string[];
+  pointHoverBorderWidth?:number | number[];
+  pointStyle?:string | string[];
 
-  hoverBackgroundColor?: string | string[];
-  hoverBorderColor?: string | string[];
-  hoverBorderWidth?: number;
+  hoverBackgroundColor?:string | string[];
+  hoverBorderColor?:string | string[];
+  hoverBorderWidth?:number;
 }
 
 // pie | doughnut
 export interface Colors extends Color {
-  data?: number[];
-  label?: string;
+  data?:number[];
+  label?:string;
 }
 
-function rgba(colour: Array<number>, alpha: number): string {
+function rgba(colour:Array<number>, alpha:number):string {
   return 'rgba(' + colour.concat(alpha).join(',') + ')';
 }
 
-function getRandomInt(min: number, max: number): number {
+function getRandomInt(min:number, max:number):number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function formatLineColor(colors: Array<number>): Color {
+function formatLineColor(colors:Array<number>):Color {
   return {
     backgroundColor: rgba(colors, 0.4),
     borderColor: rgba(colors, 1),
@@ -206,7 +217,7 @@ function formatLineColor(colors: Array<number>): Color {
   };
 }
 
-function formatBarColor(colors: Array<number>): Color {
+function formatBarColor(colors:Array<number>):Color {
   return {
     backgroundColor: rgba(colors, 0.6),
     borderColor: rgba(colors, 1),
@@ -215,27 +226,27 @@ function formatBarColor(colors: Array<number>): Color {
   };
 }
 
-function formatPieColors(colors: Array<number[]>): Colors {
+function formatPieColors(colors:Array<number[]>):Colors {
   return {
-    backgroundColor: colors.map((color: number[]) => rgba(color, 0.6)),
+    backgroundColor: colors.map((color:number[]) => rgba(color, 0.6)),
     borderColor: colors.map(() => '#fff'),
-    pointBackgroundColor: colors.map((color: number[]) => rgba(color, 1)),
+    pointBackgroundColor: colors.map((color:number[]) => rgba(color, 1)),
     pointBorderColor: colors.map(() => '#fff'),
-    pointHoverBackgroundColor: colors.map((color: number[]) => rgba(color, 1)),
-    pointHoverBorderColor: colors.map((color: number[]) => rgba(color, 1))
+    pointHoverBackgroundColor: colors.map((color:number[]) => rgba(color, 1)),
+    pointHoverBorderColor: colors.map((color:number[]) => rgba(color, 1))
   };
 }
 
-function formatPolarAreaColors(colors: Array<number[]>): Color {
+function formatPolarAreaColors(colors:Array<number[]>):Color {
   return {
-    backgroundColor: colors.map((color: number[]) => rgba(color, 0.6)),
-    borderColor: colors.map((color: number[]) => rgba(color, 1)),
-    hoverBackgroundColor: colors.map((color: number[]) => rgba(color, 0.8)),
-    hoverBorderColor: colors.map((color: number[]) => rgba(color, 1))
+    backgroundColor: colors.map((color:number[]) => rgba(color, 0.6)),
+    borderColor: colors.map((color:number[]) => rgba(color, 1)),
+    hoverBackgroundColor: colors.map((color:number[]) => rgba(color, 0.8)),
+    hoverBorderColor: colors.map((color:number[]) => rgba(color, 1))
   };
 }
 
-function getRandomColor(): number[] {
+function getRandomColor():number[] {
   return [getRandomInt(0, 255), getRandomInt(0, 255), getRandomInt(0, 255)];
 }
 
@@ -244,7 +255,7 @@ function getRandomColor(): number[] {
  * @param index
  * @returns {number[]|Color}
  */
-function generateColor(index: number): number[] {
+function generateColor(index:number):number[] {
   return BaseChartComponent.defaultColors[index] || getRandomColor();
 }
 
@@ -253,8 +264,8 @@ function generateColor(index: number): number[] {
  * @param count
  * @returns {Colors}
  */
-function generateColors(count: number): Array<number[]> {
-  let colorsArr: Array<number[]> = new Array(count);
+function generateColors(count:number):Array<number[]> {
+  let colorsArr:Array<number[]> = new Array(count);
   for (let i = 0; i < count; i++) {
     colorsArr[i] = BaseChartComponent.defaultColors[i] || getRandomColor();
   }
@@ -268,7 +279,7 @@ function generateColors(count: number): Array<number[]> {
  * @param count
  * @returns {Color}
  */
-function getColors(chartType: string, index: number, count: number): Color {
+function getColors(chartType:string, index:number, count:number):Color {
   if (chartType === 'pie' || chartType === 'doughnut') {
     return formatPieColors(generateColors(count));
   }

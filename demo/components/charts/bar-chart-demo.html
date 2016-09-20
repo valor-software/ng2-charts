@@ -1,8 +1,10 @@
 <base-chart class="chart"
-           [datasets]="barChartData"
-           [labels]="barChartLabels"
-           [options]="barChartOptions"
-           [legend]="barChartLegend"
-           [chartType]="barChartType"
-           (chartHover)="chartHovered($event)"
-           (chartClick)="chartClicked($event)"></base-chart>
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></base-chart>
+
+<button (click)="randomize()">Update</button>

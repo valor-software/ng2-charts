@@ -1,6 +1,6 @@
 ### Usage
 ```typescript
-import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
+import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
 ```
 
 ### Chart types
