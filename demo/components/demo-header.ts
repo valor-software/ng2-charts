@@ -1,31 +1,14 @@
-import {Component} from 'angular2/core';
-import {NgFor} from 'angular2/common';
-
-import {Collapse, DROPDOWN_DIRECTIVES, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
+import { Component } from '@angular/core';
+import { Ng2BootstrapConfig, Ng2BootstrapTheme } from 'ng2-bootstrap/ng2-bootstrap';
 
 let components = [
-  {
-    name: 'Line Chart',
-    href: 'lineChart'
-  }, {
-    name: 'Bar Chart',
-    href: 'barChart'
-  }, {
-    name: 'Radar Chart',
-    href: 'radarChart'
-  }, {
-    name: 'Pie Chart',
-    href: 'pieChart'
-  }, {
-    name: 'Polar Area Chart',
-    href: 'polarAreaChart'
-  }, {
-    name: 'Doughnut Chart',
-    href: 'doughnutChart'
-  }, {
-    name: 'Dynamic Chart',
-    href: 'baseChart'
-  }
+  {name: 'Line Chart', href: 'lineChart'},
+  {name: 'Bar Chart', href: 'barChart'},
+  {name: 'Radar Chart', href: 'radarChart'},
+  {name: 'Pie Chart', href: 'pieChart'},
+  {name: 'Polar Area Chart', href: 'polarAreaChart'},
+  {name: 'Doughnut Chart', href: 'doughnutChart'},
+  {name: 'Dynamic Chart', href: 'baseChart'}
 ];
 
 let template = `
@@ -44,9 +27,9 @@ let template = `
         <ul class="nav navbar-nav">
           <li class="nav-item"><a href="{{prefix}}#top" role="button" class="navbar-brand">ng2-charts</a></li>
           <li class="nav-item dropdown" dropdown>
-            <a role="button" class="nav-link dropdown-toggle" dropdown-toggle>Directives <b class="caret"></b></a>
+            <a role="button" class="nav-link dropdown-toggle" dropdownToggle>Directives <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li *ngFor="#comp of components">
+              <li *ngFor="let comp of components">
                <a class="dropdown-item" href="{{prefix}}#{{comp.href}}">{{comp.name}}</a>
               </li>
             </ul>
@@ -55,7 +38,7 @@ let template = `
       </nav>
       <nav class="visible-xs hidden-md-up">
         <ul class="nav nav-pills nav-stacked scrollable-menu" [collapse]="!isCollapsed" (click)="isCollapsed = !isCollapsed; true">
-          <li *ngFor="#comp of components" class="nav-item">
+          <li *ngFor="let comp of components" class="nav-item">
             <a class="dropdown-item" href="{{prefix}}#{{comp.href}}">{{comp.name}}</a>
           </li>
         </ul>
@@ -65,18 +48,13 @@ let template = `
 
 @Component({
   selector: 'demo-header',
-  template: template,
-  directives: [
-    NgFor,
-    Collapse,
-    DROPDOWN_DIRECTIVES
-  ]
+  template
 })
-export class DemoHeader {
-  private components:Array<any> = components;
-  private prefix:string;
+export class DemoHeaderComponent {
+  public components:Array<any> = components;
+  public prefix:string;
 
-  constructor() {
+  public constructor() {
     this.prefix = Ng2BootstrapConfig.theme === Ng2BootstrapTheme.BS4 ? 'index-bs4.html' : '';
   }
 }

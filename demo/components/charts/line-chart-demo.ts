@@ -1,83 +1,70 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
-
-import {CHART_DIRECTIVES} from '../../../ng2-charts';
+import { Component } from '@angular/core';
 
 // webpack html imports
 let template = require('./line-chart-demo.html');
 
 @Component({
   selector: 'line-chart-demo',
-  template: template,
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  template
 })
-export class LineChartDemo {
-
-  constructor() {
-    console.log('line demo');
-  }
-
+export class LineChartDemoComponent {
   // lineChart
-  private lineChartData:Array<any> = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90],
-    [18, 48, 77, 9, 100, 27, 40]
+  public lineChartData:Array<any> = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
+    {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
   ];
-  private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  private lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C'];
-  private lineChartOptions:any = {
+  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartOptions:any = {
     animation: false,
-    responsive: true,
-    multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
+    responsive: true
   };
-  private lineChartColours:Array<any> = [
+  public lineChartColors:Array<any> = [
     { // grey
-      fillColor: 'rgba(148,159,177,0.2)',
-      strokeColor: 'rgba(148,159,177,1)',
-      pointColor: 'rgba(148,159,177,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(148,159,177,0.8)'
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     },
     { // dark grey
-      fillColor: 'rgba(77,83,96,0.2)',
-      strokeColor: 'rgba(77,83,96,1)',
-      pointColor: 'rgba(77,83,96,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(77,83,96,1)'
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
     },
     { // grey
-      fillColor: 'rgba(148,159,177,0.2)',
-      strokeColor: 'rgba(148,159,177,1)',
-      pointColor: 'rgba(148,159,177,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(148,159,177,0.8)'
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
-  private lineChartLegend:boolean = true;
-  private lineChartType:string = 'Line';
+  public lineChartLegend:boolean = true;
+  public lineChartType:string = 'line';
 
-  private randomize() {
-    let _lineChartData:Array<any> = [];
+  public randomize():void {
+    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
     for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = [];
-      for (let j = 0; j < this.lineChartData[i].length; j++) {
-        _lineChartData[i].push(Math.floor((Math.random() * 100) + 1));
-
+      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
+      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
+        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
       }
     }
     this.lineChartData = _lineChartData;
   }
 
   // events
-  chartClicked(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
-  chartHovered(e:any) {
+  public chartHovered(e:any):void {
     console.log(e);
   }
-
 }

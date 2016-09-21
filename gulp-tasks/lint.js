@@ -1,20 +1,21 @@
-
 'use strict';
 
 const gulp = require('gulp');
 const tslint = require('gulp-tslint');
-const paths = gulp.paths;
-const tslintConf = require('../tslint.json');
+const gitignore = require('gitignore-to-glob')();
+
+gitignore.push('**/*.ts');
 
 gulp.task('tslint', () =>
   gulp
-    .src(paths.tssrc)
-    .pipe(tslint(tslintConf))
-    .pipe(tslint.report('prose', {
+    .src(gitignore)
+    .pipe(tslint({
+      formatter: 'verbose',
       emitError: true,
       summarizeFailureOutput: true,
       reportLimit: 50
     }))
+    .pipe(tslint.report())
 );
 
 gulp.task('lint', ['tslint']);

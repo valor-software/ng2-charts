@@ -1,37 +1,25 @@
-# Getting started
+### Installation
 
-### First of all, Welcome! ;)
+1. You can install ***ng2-charts*** using npm
 
-## Quick start
-
-1. A recommended way to install ***ng2-charts*** is through [npm](https://www.npmjs.com/search?q=ng2-charts) package manager using the following command:
-
-  `npm i ng2-charts --save`
-
-
-2. A way to install Chart.js component is through package manager using the following command:
+  ```bash
+  npm install ng2-charts --save
+  ```
+2. You need to install and include `Chart.js` library in application via `html` or `webpack bundler` (more options can be found in official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
   ```bash
   npm install chart.js --save
-  # or
-  bower install Chart.js --save
   ```
 
-  Alternatively, you can [download it in a ZIP file](https://github.com/nnnick/Chart.js/archive/master.zip).
-
-  After Chart.js component is downloaded, embed the code into your project.
+  **Important**: Embedding `Chart.js` in application is mandatory!
 
   ```html
-  <script src="bower_components/Chart.js/Chart.min.js"></script>
-   <!--or-->
-  <script src="node_modules/chart.js/Chart.min.js"></script>
+  <script src="node_modules/chart.js/src/chart.js"></script>
   ```
+### Usage & Demo
+ Demo and API details of ***ng2-charts*** can be found here:
+  [demo](http://valor-software.github.io/ng2-charts/) and [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
 
-3. Or you can link `charts.js` at cdn
-```html
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-```
+### System.js
 
-4. More information regarding using of ***ng2-charts*** is located in
-  [demo](http://valor-software.github.io/ng2-charts/) and [demo sources](https://github.com/valor-software/ng2-charts/tree/master/demo).
-
+System.js bundles can be found in `bundles` directory of npm package or at [npm cdn](https://npmcdn.com/ng2-charts/bundles/)

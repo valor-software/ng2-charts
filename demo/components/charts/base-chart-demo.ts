@@ -1,50 +1,36 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
-
-import {CHART_DIRECTIVES} from '../../../ng2-charts';
+import { Component } from '@angular/core';
 
 // webpack html imports
 let template = require('./base-chart-demo.html');
 
 @Component({
   selector: 'base-chart-demo',
-  template: template,
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  template: template
 })
-export class BaseChartDemo {
-
-  constructor() {
-    console.log('foo demo');
-  }
-
+export class BaseChartDemoComponent {
   // lineChart
-  private lineChartData:Array<any> = [
+  public lineChartData:Array<any> = [
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90]
   ];
-  private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  private lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C'];
-  private lineChartOptions:any = {
-    multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
-  };
-  private lineChartType:string = 'Line';
-  private pieChartType:string = 'Pie';
+  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartType:string = 'line';
+  public pieChartType:string = 'pie';
 
   // Pie
-  private pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  private pieChartData = [300, 500, 100];
+  public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  public pieChartData:number[] = [300, 500, 100];
 
-  private randomizeType() {
-    this.lineChartType = this.lineChartType === 'Line' ? 'Bar' : 'Line';
-    this.pieChartType = this.pieChartType === 'Doughnut' ? 'Pie' : 'Doughnut';
+  public randomizeType():void {
+    this.lineChartType = this.lineChartType === 'line' ? 'bar' : 'line';
+    this.pieChartType = this.pieChartType === 'doughnut' ? 'pie' : 'doughnut';
   }
 
-  chartClicked(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
-  chartHovered(e:any) {
+  public chartHovered(e:any):void {
     console.log(e);
   }
-
 }

@@ -1,34 +1,24 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
-
-import {CHART_DIRECTIVES} from '../../../ng2-charts';
+import { Component } from '@angular/core';
 
 // webpack html imports
 let template = require('./pie-chart-demo.html');
 
 @Component({
   selector: 'pie-chart-demo',
-  template: template,
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  template: template
 })
-export class PieChartDemo {
-
-  constructor() {
-    console.log('pie demo');
-  }
+export class PieChartDemoComponent {
+  // Pie
+  public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  public pieChartData:number[] = [300, 500, 100];
+  public pieChartType:string = 'pie';
 
   // events
-  chartClicked(e:any) {
+  public chartClicked(e:any):void {
     console.log(e);
   }
 
-  chartHovered(e:any) {
+  public chartHovered(e:any):void {
     console.log(e);
   }
-
-  // Pie
-  private pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  private pieChartData = [300, 500, 100];
-  private pieChartType = 'Pie';
-
 }
