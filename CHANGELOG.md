@@ -1,3 +1,18 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/valor-software/ng2-charts/compare/v1.2.0...v1.3.0) (2016-09-21)
+
+
+### Bug Fixes
+
+* **docs:** Updates for ng2-charts[@1](https://github.com/1).2.0 ([#399](https://github.com/valor-software/ng2-charts/issues/399)) ([2bcb549](https://github.com/valor-software/ng2-charts/commit/2bcb549))
+
+
+### Features
+
+* **package:** upgrade to ng2 2.0.0 and use [@types](https://github.com/types) instead of typings ([#413](https://github.com/valor-software/ng2-charts/issues/413)) ([e5eae04](https://github.com/valor-software/ng2-charts/commit/e5eae04))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/valor-software/ng2-charts/compare/v1.1.2...v1.2.0) (2016-09-09)
 

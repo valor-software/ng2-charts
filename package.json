@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "scripts": {
     "flow.compile": "npm run flow.compile:common && npm run flow.compile:system",
