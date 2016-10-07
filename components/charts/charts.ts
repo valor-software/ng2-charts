@@ -1,16 +1,21 @@
 import {
-  Component, OnDestroy, OnInit, OnChanges, EventEmitter, ElementRef, Input,
-  Output, NgModule, SimpleChanges
+  OnDestroy,
+  OnInit,
+  OnChanges,
+  EventEmitter,
+  ElementRef,
+  Input,
+  Output,
+  NgModule,
+  SimpleChanges,
+  Directive
 } from '@angular/core';
 
 declare var Chart:any;
 
-@Component({
-  selector: 'base-chart',
-  template: `<canvas width="100%" height="100%"></canvas>`,
-  styles: [`:host { display: block; }`]
-})
-export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
+/* tslint:disable-next-line */
+@Directive({selector: 'canvas[baseChart]'})
+export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   public static defaultColors:Array<number[]> = [
     [255, 99, 132],
     [54, 162, 235],
@@ -29,7 +34,7 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
   @Input() public data:number[] | Array<number[]>;
   @Input() public datasets:any[];
   @Input() public labels:Array<any> = [];
-  @Input() public options:any = {responsive: true};
+  @Input() public options:any = {};
   @Input() public chartType:string;
   @Input() public colors:Array<any>;
   @Input() public legend:boolean;
@@ -39,7 +44,6 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
 
   private ctx:any;
   private cvs:any;
-  private parent:any;
   private chart:any;
   private initFlag:boolean = false;
 
@@ -50,9 +54,8 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
   }
 
   public ngOnInit():any {
-    this.ctx = this.element.nativeElement.children[0].getContext('2d');
-    this.cvs = this.element.nativeElement.children[0];
-    this.parent = this.element.nativeElement;
+    this.ctx = this.element.nativeElement.getContext('2d');
+    this.cvs = this.element.nativeElement;
     this.initFlag = true;
     if (this.data || this.datasets) {
       this.refresh();
@@ -154,9 +157,9 @@ export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
   }
 
   private refresh():any {
-    if (this.options && this.options.responsive && this.parent.clientHeight === 0) {
-      return setTimeout(() => this.refresh(), 50);
-    }
+    // if (this.options && this.options.responsive) {
+    //   setTimeout(() => this.refresh(), 50);
+    // }
 
     // todo: remove this line, it is producing flickering
     this.ngOnDestroy();
@@ -256,7 +259,7 @@ function getRandomColor():number[] {
  * @returns {number[]|Color}
  */
 function generateColor(index:number):number[] {
-  return BaseChartComponent.defaultColors[index] || getRandomColor();
+  return BaseChartDirective.defaultColors[index] || getRandomColor();
 }
 
 /**
@@ -267,7 +270,7 @@ function generateColor(index:number):number[] {
 function generateColors(count:number):Array<number[]> {
   let colorsArr:Array<number[]> = new Array(count);
   for (let i = 0; i < count; i++) {
-    colorsArr[i] = BaseChartComponent.defaultColors[i] || getRandomColor();
+    colorsArr[i] = BaseChartDirective.defaultColors[i] || getRandomColor();
   }
   return colorsArr;
 }
@@ -300,10 +303,10 @@ function getColors(chartType:string, index:number, count:number):Color {
 
 @NgModule({
   declarations: [
-    BaseChartComponent
+    BaseChartDirective
   ],
   exports: [
-    BaseChartComponent
+    BaseChartDirective
   ],
   imports: []
 })
