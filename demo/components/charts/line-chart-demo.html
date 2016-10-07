@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-6">
-    <base-chart class="chart"
+    <div style="display: block;">
+    <canvas baseChart width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -8,9 +9,10 @@
                 [legend]="lineChartLegend"
                 [chartType]="lineChartType"
                 (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></base-chart>
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
   </div>
-  <div class="col-md-6" style="margin-bottom: 10px;">
+  <div class="col-md-6" style="margin-bottom: 10px">
     <table class="table table-responsive table-condensed">
       <tr>
         <th *ngFor="let label of lineChartLabels">{{label}}</th>

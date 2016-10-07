@@ -1,6 +1,8 @@
-<base-chart class="chart"
-             [datasets]="radarChartData"
-             [labels]="radarChartLabels"
-             [chartType]="radarChartType"
-             (chartHover)="chartHovered($event)"
-             (chartClick)="chartClicked($event)"></base-chart>
+<div style="display: block">
+  <canvas baseChart
+          [datasets]="radarChartData"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
