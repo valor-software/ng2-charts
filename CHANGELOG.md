@@ -1,3 +1,26 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/valor-software/ng2-charts/compare/v1.2.0...v1.4.0) (2016-10-07)
+
+
+### Bug Fixes
+
+* **docs:** Updates for ng2-charts[@1](https://github.com/1).2.0 ([#399](https://github.com/valor-software/ng2-charts/issues/399)) ([2bcb549](https://github.com/valor-software/ng2-charts/commit/2bcb549))
+* **pie&doughnut:** Sizing issue on doughnut and pie charts ([#444](https://github.com/valor-software/ng2-charts/issues/444)) ([cfb1033](https://github.com/valor-software/ng2-charts/commit/cfb1033))
+
+
+### Features
+
+* **charts:** base charts now is directive ([7c9e782](https://github.com/valor-software/ng2-charts/commit/7c9e782))
+* **package:** upgrade to ng2 2.0.0 and use [@types](https://github.com/types) instead of typings ([#413](https://github.com/valor-software/ng2-charts/issues/413)) ([e5eae04](https://github.com/valor-software/ng2-charts/commit/e5eae04))
+
+
+### BREAKING CHANGES
+
+* charts: - base-chart component became baseChart directive
+so you need to convert <base-chart...><&lt;base-chart> to <canvas baseChart...><&lt;canvas> and most probably wrap in <div style='display:block'>...<&lt;div>
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/valor-software/ng2-charts/compare/v1.2.0...v1.3.0) (2016-09-21)
 
