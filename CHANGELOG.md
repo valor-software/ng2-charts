@@ -17,7 +17,7 @@
 ### BREAKING CHANGES
 
 * charts: - base-chart component became baseChart directive
-so you need to convert <base-chart...><&lt;base-chart> to <canvas baseChart...><&lt;canvas> and most probably wrap in <div style='display:block'>...<&lt;div>
+so you need to convert &lt;base-chart...>&lt;/base-chart> to &lt;canvas baseChart...>&lt;/canvas> and most probably wrap in &lt;div style='display:block'>...&lt;/div>
 
 
 
