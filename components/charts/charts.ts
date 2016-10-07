@@ -7,7 +7,7 @@ declare var Chart:any;
 
 @Component({
   selector: 'base-chart',
-  template: `<canvas style="width: 100%; height: 100%;"></canvas>`,
+  template: `<canvas width="100%" height="100%"></canvas>`,
   styles: [`:host { display: block; }`]
 })
 export class BaseChartComponent implements OnDestroy, OnChanges, OnInit {
