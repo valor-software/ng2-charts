@@ -153,7 +153,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     }
 
     if (!datasets) {
-      throw new Error(`ng-charts configuration error,
+      throw new Error(`ng-charts configuration error, 
       data or datasets field are required to render char ${this.chartType}`);
     }
 
