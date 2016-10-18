@@ -14,7 +14,7 @@ import {
 declare var Chart:any;
 
 /* tslint:disable-next-line */
-@Directive({selector: 'canvas[baseChart]'})
+@Directive({selector: 'canvas[baseChart]', exportAs: 'base-chart'})
 export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   public static defaultColors:Array<number[]> = [
     [255, 99, 132],
@@ -42,9 +42,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   @Output() public chartClick:EventEmitter<any> = new EventEmitter();
   @Output() public chartHover:EventEmitter<any> = new EventEmitter();
 
-  private ctx:any;
+  public ctx:any;
+  public chart:any;
   private cvs:any;
-  private chart:any;
   private initFlag:boolean = false;
 
   private element:ElementRef;
@@ -152,7 +152,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     }
 
     if (!datasets) {
-      throw new Error(`ng-charts configuration error, 
+      throw new Error(`ng-charts configuration error,
       data or datasets field are required to render char ${this.chartType}`);
     }
 
