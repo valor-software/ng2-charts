@@ -63,17 +63,25 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   }
 
   public ngOnChanges(changes:SimpleChanges):any {
+
     if (this.initFlag) {
-      // Check if the changes are in the data or datasets
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
+      let changeRequiresChartUpdate = false;
+      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets') ) {
         this.chart.data.datasets = this.getDatasets();
-        if (changes.hasOwnProperty('labels')) {
-          this.chart.data.labels = this.labels;
-        }
-        this.chart.update();
-      } else {
-        this.refresh();
+        changeRequiresChartUpdate = true;
       }
+
+      if (changes.hasOwnProperty('options')) {
+        this.chart.options = this.options;
+        changeRequiresChartUpdate = true;
+      }
+
+      if (changes.hasOwnProperty('labels')) {
+        this.chart.data.labels = this.labels;
+        changeRequiresChartUpdate = true;
+      }
+
+      changeRequiresChartUpdate ? this.chart.update() : this.refresh();
     }
   }
 
