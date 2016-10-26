@@ -65,23 +65,23 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   public ngOnChanges(changes:SimpleChanges):any {
 
     if (this.initFlag) {
-      let changeRequiresChartUpdate = false;
+      let changeRequiresChartRefresh = false;
       if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets') ) {
         this.chart.data.datasets = this.getDatasets();
-        changeRequiresChartUpdate = true;
       }
 
-      if (changes.hasOwnProperty('options')) {
-        this.chart.options = this.options;
-        changeRequiresChartUpdate = true;
-      }
-
-      if (changes.hasOwnProperty('labels')) {
+      if (changes.hasOwnProperty('labels'))
+      {
         this.chart.data.labels = this.labels;
-        changeRequiresChartUpdate = true;
       }
 
-      changeRequiresChartUpdate ? this.chart.update() : this.refresh();
+      if (changes.hasOwnProperty('options'))
+      {
+        this.chart.options = this.options;
+        changeRequiresChartRefresh = true;
+      }
+
+      changeRequiresChartRefresh ? this.refresh() : this.chart.update();
     }
   }
 
@@ -179,6 +179,28 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 }
 
 // private helper functions
+
+function isObject(item) {
+  return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
+}
+
+function mergeDeep(target, source) {
+  let output = Object.assign({}, target);
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach(key => {
+      if (isObject(source[key])) {
+        if (!(key in target))
+          Object.assign(output, { [key]: source[key] });
+        else
+          output[key] = mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(output, { [key]: source[key] });
+      }
+    });
+  }
+  return output;
+}
+
 export interface Color {
   backgroundColor?:string | string[];
   borderWidth?:number | number[];
