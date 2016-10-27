@@ -1,3 +1,18 @@
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/valor-software/ng2-charts/compare/v1.4.0...v1.4.1) (2016-10-27)
+
+
+### Bug Fixes
+
+* **labels:** Update chart labels ([#456](https://github.com/valor-software/ng2-charts/issues/456)) ([7175c1e](https://github.com/valor-software/ng2-charts/commit/7175c1e)), closes [#420](https://github.com/valor-software/ng2-charts/issues/420) [#445](https://github.com/valor-software/ng2-charts/issues/445)
+
+
+### Features
+
+* **package:** dependecies updated ([1c95440](https://github.com/valor-software/ng2-charts/commit/1c95440))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/valor-software/ng2-charts/compare/v1.2.0...v1.4.0) (2016-10-07)
 
