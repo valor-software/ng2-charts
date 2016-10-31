@@ -1,6 +1,11 @@
 ### Usage
 ```typescript
-import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+// In your App's module:
+imports: [
+   ChartsModule
+]
 ```
 
 ### Chart types
