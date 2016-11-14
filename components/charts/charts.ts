@@ -317,7 +317,7 @@ function getColors(chartType:string, index:number, count:number):Color {
 function copyInputColors(colors:any[]):Color {
   let copy:any = {};
   colors.forEach((element:any) => {
-    for (colorProp in element) {
+    for (let colorProp in element) {
       if (element.hasOwnProperty(colorProp)) {
         if (!copy.hasOwnProperty(colorProp)) {
           copy[colorProp] = [];
