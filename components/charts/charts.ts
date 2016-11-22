@@ -189,8 +189,7 @@ function mergeDeep(target: any, source: any): any {
       if (isObject(source[key])) {
         if (!(key in target)) {
           Object.assign(output, {[key]: source[key]});
-        }
-        else {
+        } else {
           output[key] = mergeDeep(target[key], source[key]);
         }
       } else {
