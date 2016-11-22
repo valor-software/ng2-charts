@@ -1,5 +1,5 @@
 {
-  "name": "ng2-charts",
+  "name": "bradyliles-ng2-charts",
   "version": "1.4.1",
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "scripts": {
@@ -35,11 +35,11 @@
     "angularjs",
     "charts"
   ],
-  "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
+  "author": "Brady Liles <bradyliles@outlook.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ng2-charts.git"
+    "url": "git+ssh://git@github.com/BradyLiles/ng2-charts.git"
   },
   "bugs": {
     "url": "https://github.com/valor-software/ng2-charts/issues"
@@ -100,15 +100,7 @@
     "zone.js": "0.6.26"
   },
   "contributors": [
-    {
-      "name": "Dmitriy Shekhovtsov",
-      "email": "valorkin@gmail.com",
-      "url": "https://github.com/valorkin"
-    },
-    {
-      "name": "Soloviova Nataliya",
-      "email": "nataliya.soloviova@valor-software.com",
-      "url": "https://github.com/natali-abyss"
-    }
+    "Dmitriy Shekhovtsov <valorkin@gmail.com> (https://github.com/valorkin)",
+    "Soloviova Nataliya <nataliya.soloviova@valor-software.com> (https://github.com/natali-abyss)"
   ]
 }
