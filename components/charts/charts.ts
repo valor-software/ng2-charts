@@ -180,12 +180,12 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
 // private helper functions
 
-function isObject(item) {
+function isObject(item:any) {
   return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
 }
 
-function mergeDeep(target, source) {
-  let output = Object.assign({}, target);
+function mergeDeep(target:any, source:any) {
+  let output:any = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach(key => {
       if (isObject(source[key])) {
