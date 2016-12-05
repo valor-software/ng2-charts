@@ -52,7 +52,7 @@
     "@angular/forms": "^2.0.0"
   },
   "dependencies": {
-    "chart.js": "2.3.0"
+    "chart.js": "^2.3.0"
   },
   "devDependencies": {
     "@angular/common": "2.1.1",
