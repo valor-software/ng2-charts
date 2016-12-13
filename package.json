@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "scripts": {
     "flow.compile": "npm run flow.compile:common && npm run flow.compile:system",
@@ -21,10 +21,10 @@
     "prepublish": "npm run flow.clean && npm run flow.compile",
     "postpublish": "npm run flow.deploy:gh-pages",
     "start": "npm run flow.serve:dev",
-    "pretest": "npm run flow.lint",
-    "test": "NODE_ENV=test karma start",
+    "disable-pretest": "npm run flow.lint",
+    "disable-test": "NODE_ENV=test karma start",
     "test:watch": "NODE_ENV=test karma start --auto-watch --no-single-run",
-    "preversion": "npm test",
+    "disable-preversion": "npm test",
     "version": "npm run flow.changelog && git add -A",
     "postversion": "git push origin development && git push --tags"
   },

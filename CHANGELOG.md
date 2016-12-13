@@ -1,3 +1,29 @@
+<a name="1.4.2"></a>
+## [1.4.2](https://github.com/valor-software/ng2-charts/compare/v1.3.0...v1.4.2) (2016-12-13)
+
+
+### Bug Fixes
+
+* **labels:** Update chart labels ([#456](https://github.com/valor-software/ng2-charts/issues/456)) ([7175c1e](https://github.com/valor-software/ng2-charts/commit/7175c1e)), closes [#420](https://github.com/valor-software/ng2-charts/issues/420) [#445](https://github.com/valor-software/ng2-charts/issues/445)
+* **pie&doughnut:** Sizing issue on doughnut and pie charts ([#444](https://github.com/valor-software/ng2-charts/issues/444)) ([cfb1033](https://github.com/valor-software/ng2-charts/commit/cfb1033))
+* **readme:** update instruction for import ([a9f07a8](https://github.com/valor-software/ng2-charts/commit/a9f07a8))
+
+
+### Features
+
+* **charts:** base charts now is directive ([7c9e782](https://github.com/valor-software/ng2-charts/commit/7c9e782))
+* **charts:** Expose chart object ([#472](https://github.com/valor-software/ng2-charts/issues/472)) ([e46b5d1](https://github.com/valor-software/ng2-charts/commit/e46b5d1))
+* **label:** Update Labels onChange ([#488](https://github.com/valor-software/ng2-charts/issues/488)) ([527d9a3](https://github.com/valor-software/ng2-charts/commit/527d9a3))
+* **package:** dependecies updated ([1c95440](https://github.com/valor-software/ng2-charts/commit/1c95440))
+
+
+### BREAKING CHANGES
+
+* charts: - base-chart component became baseChart directive
+so you need to convert <base-chart...><&lt;base-chart> to <canvas baseChart...><&lt;canvas> and most probably wrap in <div style='display:block'>...<&lt;div>
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/valor-software/ng2-charts/compare/v1.4.0...v1.4.1) (2016-10-27)
 
