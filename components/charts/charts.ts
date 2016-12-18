@@ -141,7 +141,14 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         .map((elm:number, index:number) => {
           let newElm:any = Object.assign({}, elm);
           if (this.colors && this.colors.length) {
-            Object.assign(newElm, this.colors[index]);
+            // Support similar color api for all chart types
+            if ((this.chartType === 'pie' ||
+                this.chartType === 'doughnut' ||
+                this.chartType === 'polarArea') && this.colors.length > 1 ) {
+              Object.assign(newElm, copyInputColors(this.colors));
+            } else {
+              Object.assign(newElm, this.colors[index]);
+            }
           } else {
             Object.assign(newElm, getColors(this.chartType, index, newElm.data.length));
           }
@@ -300,6 +307,26 @@ function getColors(chartType:string, index:number, count:number):Color {
     return formatBarColor(generateColor(index));
   }
   return generateColor(index);
+}
+
+/**
+ * Copy colors into correct object type for pie|doughnut|polar charts
+ * @param colors
+ * @returns {Color}
+ */
+function copyInputColors(colors:any[]):Color {
+  let copy:any = {};
+  colors.forEach((element:any) => {
+    for (let colorProp in element) {
+      if (element.hasOwnProperty(colorProp)) {
+        if (!copy.hasOwnProperty(colorProp)) {
+          copy[colorProp] = [];
+        }
+        copy[colorProp].push(element[colorProp]);
+      }
+    }
+  });
+  return copy;
 }
 
 @NgModule({
