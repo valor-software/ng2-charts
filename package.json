@@ -83,7 +83,7 @@
     "gulp-eslint": "3.0.1",
     "gulp-size": "2.1.0",
     "gulp-tsc": "1.2.4",
-    "gulp-tslint": "6.1.2",
+    "gulp-tslint": "7.0.1",
     "marked": "0.3.6",
     "ng2-bootstrap": "1.1.16",
     "ng2-webpack-config": "0.0.5",
