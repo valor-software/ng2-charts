@@ -4,10 +4,10 @@ import { Ng2BootstrapConfig, Ng2BootstrapTheme } from 'ng2-bootstrap/ng2-bootstr
 let components = [
   {name: 'Line Chart', href: 'lineChart'},
   {name: 'Bar Chart', href: 'barChart'},
+  {name: 'Doughnut Chart', href: 'doughnutChart'},
   {name: 'Radar Chart', href: 'radarChart'},
   {name: 'Pie Chart', href: 'pieChart'},
   {name: 'Polar Area Chart', href: 'polarAreaChart'},
-  {name: 'Doughnut Chart', href: 'doughnutChart'},
   {name: 'Dynamic Chart', href: 'baseChart'}
 ];
 
