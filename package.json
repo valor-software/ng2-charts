@@ -96,7 +96,7 @@
     "systemjs-builder": "0.15.33",
     "transfer-webpack-plugin": "0.1.4",
     "tslint-config-valorsoft": "1.1.1",
-    "typescript": "2.0.6",
+    "typescript": "2.1.5",
     "zone.js": "0.6.26"
   },
   "contributors": [
