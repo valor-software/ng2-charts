@@ -1,3 +1,19 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/valor-software/ng2-charts/compare/v1.4.4...v1.5.0) (2017-01-17)
+
+
+### Bug Fixes
+
+* **charts:** Make charts dynamic and avoid re-rendering full chart on data change ([905183b](https://github.com/valor-software/ng2-charts/commit/905183b))
+
+
+### Features
+
+* **package:** relax dependencies ([#543](https://github.com/valor-software/ng2-charts/issues/543)) ([51b581d](https://github.com/valor-software/ng2-charts/commit/51b581d))
+* **package:** upgrade to ng v2.3+ ([#574](https://github.com/valor-software/ng2-charts/issues/574)) ([ce5011c](https://github.com/valor-software/ng2-charts/commit/ce5011c))
+
+
+
 <a name="1.4.4"></a>
 ## [1.4.4](https://github.com/valor-software/ng2-charts/compare/v1.3.0...v1.4.4) (2016-12-13)
 
