@@ -31,7 +31,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     [77, 83, 96]
   ];
 
-  @Input() public data:number[] | Array<number[]>;
+  @Input() public data:number[] | any[];
   @Input() public datasets:any[];
   @Input() public labels:Array<any> = [];
   @Input() public options:any = {};
@@ -62,14 +62,19 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  public ngOnChanges(changes:SimpleChanges):any {
+  public ngOnChanges(changes: SimpleChanges): void {
     if (this.initFlag) {
       // Check if the changes are in the data or datasets
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets') || changes.hasOwnProperty('labels')) {
-        this.chart.data.datasets = this.getDatasets();
-        this.chart.data.labels = this.labels;
+      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
+        if (changes['data']) {
+          this.updateChartData(changes['data'].currentValue);
+        } else {
+          this.updateChartData(changes['datasets'].currentValue);
+        }
+
         this.chart.update();
       } else {
+      // otherwise rebuild the chart
         this.refresh();
       }
     }
@@ -120,6 +125,20 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     }
 
     return new Chart(ctx, opts);
+  }
+
+  private updateChartData(newDataValues: number[] | any[]): void {
+    if (Array.isArray(newDataValues[0].data)) {
+      this.chart.data.datasets.forEach((dataset: any, i: number) => {
+        dataset.data = newDataValues[i].data;
+
+        if (newDataValues[i].label) {
+          dataset.label = newDataValues[i].label;
+        }
+      });
+    } else {
+      this.chart.data.datasets[0].data = newDataValues;
+    }
   }
 
   private getDatasets():any {
