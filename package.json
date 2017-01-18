@@ -97,7 +97,7 @@
     "markdown-loader": "github:valorkin/markdown-loader",
     "marked": "0.3.6",
     "ng2-page-scroll": "4.0.0-beta.2",
-    "ng2-bootstrap": "1.2.2",
+    "ng2-bootstrap": "1.2.5",
     "ngm-cli": "0.4.0",
     "npm-run-all": "4.0.0",
     "pre-commit": "1.2.2",
