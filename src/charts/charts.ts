@@ -11,7 +11,7 @@ import {
   Directive
 } from '@angular/core';
 
-declare var Chart:any;
+import { Chart } from 'chart.js';
 
 /* tslint:disable-next-line */
 @Directive({selector: 'canvas[baseChart]', exportAs: 'base-chart'})
@@ -119,10 +119,6 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
       },
       options: options
     };
-
-    if (typeof Chart === 'undefined') {
-      throw new Error('ng2-charts configuration issue: Embedding Chart.js lib is mandatory');
-    }
 
     return new Chart(ctx, opts);
   }
