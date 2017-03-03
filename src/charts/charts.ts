@@ -56,28 +56,37 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   public ngOnInit():any {
     this.ctx = this.element.nativeElement.getContext('2d');
     this.cvs = this.element.nativeElement;
-    this.initFlag = true;
     if (this.data || this.datasets) {
+      this.initFlag = true;
       this.refresh();
     }
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (this.initFlag) {
       // Check if the changes are in the data or datasets
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
+      if ((changes.hasOwnProperty('data') && changes['data'].currentValue) ||
+       (changes.hasOwnProperty('datasets') && changes['datasets'].currentValue)) {
+
+        if(!this.initFlag)
+        {
+            this.refresh();
+            return;
+        }
+
         if (changes['data']) {
           this.updateChartData(changes['data'].currentValue);
         } else {
           this.updateChartData(changes['datasets'].currentValue);
         }
-
         this.chart.update();
       } else {
-      // otherwise rebuild the chart
-        this.refresh();
+      // otherwise destroy the chart
+        if(this.initFlag && this.chart)
+        {
+            this.chart.destroy();
+            this.chart = void 0;
+        }
       }
-    }
   }
 
   public ngOnDestroy():any {
@@ -128,16 +137,23 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   }
 
   private updateChartData(newDataValues: number[] | any[]): void {
-    if (Array.isArray(newDataValues[0].data)) {
-      this.chart.data.datasets.forEach((dataset: any, i: number) => {
-        dataset.data = newDataValues[i].data;
+    if(this.chart.data.datasets!=newDataValues)
+    {
+        this.chart.data = newDataValues;
+    }
+    else
+    {
+        if (Array.isArray(newDataValues[0].data)) {
+          this.chart.data.datasets.forEach((dataset: any, i: number) => {
+            dataset.data = newDataValues[i].data;
 
-        if (newDataValues[i].label) {
-          dataset.label = newDataValues[i].label;
+            if (newDataValues[i].label) {
+              dataset.label = newDataValues[i].label;
+            }
+          });
+        } else {
+          this.chart.data.datasets[0].data = newDataValues;
         }
-      });
-    } else {
-      this.chart.data.datasets[0].data = newDataValues;
     }
   }
 
