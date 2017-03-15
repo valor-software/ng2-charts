@@ -45,7 +45,6 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   public ctx:any;
   public chart:any;
   private cvs:any;
-  private initFlag:boolean = false;
 
   private element:ElementRef;
 
@@ -56,27 +55,31 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   public ngOnInit():any {
     this.ctx = this.element.nativeElement.getContext('2d');
     this.cvs = this.element.nativeElement;
-    this.initFlag = true;
-    if (this.data || this.datasets) {
-      this.refresh();
-    }
+    this.refresh();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (this.initFlag) {
+    if (this.chart) {
       // Check if the changes are in the data or datasets
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
+      if (!changes.hasOwnProperty('colors') && (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets'))) {
+        let hasDatalengthChanged = false;
         if (changes['data']) {
-          this.updateChartData(changes['data'].currentValue);
+          hasDatalengthChanged = this.updateChartData(changes['data'].currentValue);
         } else {
-          this.updateChartData(changes['datasets'].currentValue);
+          hasDatalengthChanged = this.updateChartData(changes['datasets'].currentValue);
         }
 
-        this.chart.update();
+        if (hasDatalengthChanged) {
+          this.refresh();
+        } else {
+          this.chart.update();
+        }
       } else {
-      // otherwise rebuild the chart
+        // otherwise rebuild the chart
         this.refresh();
       }
+    } else {
+      this.refresh();
     }
   }
 
@@ -127,18 +130,30 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     return new Chart(ctx, opts);
   }
 
-  private updateChartData(newDataValues: number[] | any[]): void {
-    if (Array.isArray(newDataValues[0].data)) {
-      this.chart.data.datasets.forEach((dataset: any, i: number) => {
-        dataset.data = newDataValues[i].data;
-
-        if (newDataValues[i].label) {
-          dataset.label = newDataValues[i].label;
-        }
-      });
-    } else {
-      this.chart.data.datasets[0].data = newDataValues;
+  private updateChartData(newDataValues: number[] | any[]): boolean {
+    if (!newDataValues[0] || !Array.isArray(newDataValues[0].data)) {
+      newDataValues = [{data: newDataValues}];
     }
+
+    if (newDataValues.length !== this.chart.data.datasets.length) {
+      return true;
+    }
+
+    for (let i = 0; i < this.chart.data.datasets.length; i++) {
+      let dataset = this.chart.data.datasets[i];
+
+      if (dataset.data.length !== newDataValues[i].data.length) {
+        return true;
+      }
+
+      dataset.data = newDataValues[i].data;
+
+      if (newDataValues[i].label) {
+        dataset.label = newDataValues[i].label;
+      }
+    }
+
+    return false;
   }
 
   private getDatasets():any {
@@ -183,7 +198,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
     // todo: remove this line, it is producing flickering
     this.ngOnDestroy();
-    this.chart = this.getChartBuilder(this.ctx/*, data, this.options*/);
+    if (this.ctx && (this.data || (this.datasets && this.datasets.length))) {
+      this.chart = this.getChartBuilder(this.ctx/*, data, this.options*/);
+    }
   }
 }
 
