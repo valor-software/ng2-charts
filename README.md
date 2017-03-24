@@ -32,7 +32,7 @@ Sample in below website uses ng2-charts@1.1.0
   **Important**: Embedding `Chart.js` in application is mandatory!
 
   ```html
-  <script src="node_modules/chart.js/src/chart.js"></script>
+  <script src="node_modules/chart.js/dist/chart.js"></script>
   ```
 ### Usage & Demo
  Demo and API details of ***ng2-charts*** can be found here:
