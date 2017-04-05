@@ -11,7 +11,7 @@ import {
   Directive
 } from '@angular/core';
 
-import { Chart } from 'chart.js';
+import Chart from 'chart.js';
 
 /* tslint:disable-next-line */
 @Directive({selector: 'canvas[baseChart]', exportAs: 'base-chart'})
