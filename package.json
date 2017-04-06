@@ -102,7 +102,7 @@
     "npm-run-all": "^4.0.1",
     "pre-commit": "1.2.2",
     "protractor": "5.0.0",
-    "reflect-metadata": "0.1.9",
+    "reflect-metadata": "0.1.10",
     "require-dir": "0.3.1",
     "rxjs": "5.0.3",
     "systemjs-builder": "0.15.34",
