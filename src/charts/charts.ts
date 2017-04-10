@@ -123,7 +123,6 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     return new Chart(ctx, opts);
   }
   private updateChartData(newDataValues: number[] | any[]): void {
-    console.log("Im running the right code");
     if (Array.isArray(newDataValues[0].data)) {
       let last_idx = Math.max(newDataValues.length, this.chart.data.datasets.length);
       for (var i=0; i<last_idx;i++) {
