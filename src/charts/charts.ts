@@ -181,6 +181,14 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     this.ngOnDestroy();
     this.chart = this.getChartBuilder(this.ctx/*, data, this.options*/);
   }
+  
+  /**
+   * Register a plugin.
+   * @param plugin
+   */
+  public static registerPlugin( plugin: any ): void {
+    Chart.plugins.register(plugin);
+  }
 }
 
 // private helper functions
