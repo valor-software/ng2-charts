@@ -1,4 +1,6 @@
 # ng2-charts [![npm version](https://badge.fury.io/js/ng2-charts.svg)](http://badge.fury.io/js/ng2-charts) [![npm downloads](https://img.shields.io/npm/dm/ng2-charts.svg)](https://npmjs.org/ng2-charts) [![slack](https://ngx-slack.herokuapp.com/badge.svg)](https://ngx-slack.herokuapp.com)
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/valor-software/ng2-charts.svg)](https://greenkeeper.io/)
 Beautiful charts for Angular2 based on Chart.js
 
 <!-- [![Sauce Test Status](https://saucelabs.com/browser-matrix/valorkin.svg)](https://saucelabs.com/u/valorkin) -->
