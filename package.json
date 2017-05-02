@@ -69,7 +69,7 @@
     "angular-cli": "1.0.0-beta.25.5",
     "bootstrap": "3.3.7",
     "chokidar-cli": "1.2.0",
-    "classlist-polyfill": "1.0.3",
+    "classlist-polyfill": "1.2.0",
     "codecov": "1.0.1",
     "codelyzer": "~2.0.0-beta.4",
     "conventional-changelog-cli": "1.2.0",
