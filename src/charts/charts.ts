@@ -66,7 +66,12 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     if (this.initFlag) {
       // Check if the changes are in the data or datasets
       if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
-        if (changes['data']) {
+        if (changes.hasOwnProperty('legend') ||
+          changes.hasOwnProperty('colors') ||
+          changes.hasOwnProperty('labels') ||
+          changes.hasOwnProperty('options')) {
+          this.refresh(); // Do a full refresh if critical chart data is changed
+        } else if (changes['data']) {
           this.updateChartData(changes['data'].currentValue);
         } else {
           this.updateChartData(changes['datasets'].currentValue);
