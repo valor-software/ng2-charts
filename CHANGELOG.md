@@ -1,3 +1,16 @@
+<a name="1.5.1"></a>
+# [1.5.1](https://github.com/valor-software/ng2-charts/compare/v1.4.4...v1.5.1) (2017-05-29)
+
+
+### Bug Fixes
+
+* **charts:** Re-added full chart refresh for critical chart data changes otherwise not shown
+
+
+### Features
+
+* **readme:** Added Chart.js plugins support information
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/valor-software/ng2-charts/compare/v1.4.4...v1.5.0) (2017-01-17)
 
