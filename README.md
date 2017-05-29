@@ -83,8 +83,9 @@ There are a set several default colors. Colors can be replaced using the `colors
 
 ### Chart.js Plugins
 
-Adding plugins such as "ChartAnnotation" is as easy:
-- adding the import to the page component, eg.: `import * as ChartAnnotation from 'chartjs-plugin-annotation';`
+Adding plugins such as "ChartAnnotation" is as easy as:
+- adding the import to the page component, eg.: 
+`import * as ChartAnnotation from 'chartjs-plugin-annotation';`
 - triggering loading the JS file in the page constructor:
 ```
 constructor() {
