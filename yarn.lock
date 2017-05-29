@@ -157,6 +157,13 @@
     "@types/tapable" "*"
     "@types/uglify-js" "*"
 
+"@types/webpack@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-2.2.1.tgz#c24f7b78779f93a4a2c97754f8e39906b4c12baa"
+  dependencies:
+    "@types/tapable" "*"
+    "@types/uglify-js" "*"
+
 JSONStream@^1.0.4:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.0.tgz#680ab9ac6572a8a1a207e0b38721db1c77b215e5"
@@ -4479,11 +4486,7 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lru-cache@2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
-
-lru-cache@2.2.x:
+lru-cache@2, lru-cache@2.2.x:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.2.4.tgz#6c658619becf14031d0d0b594b16042ce4dc063d"
 
@@ -4552,9 +4555,9 @@ markdown-it@^4.4.0:
     mdurl "~1.0.0"
     uc.micro "^1.0.0"
 
-"markdown-loader@github:valorkin/markdown-loader":
+markdown-loader@^0.1.7:
   version "0.1.7"
-  resolved "https://codeload.github.com/valorkin/markdown-loader/tar.gz/cd0b4a112e6ec0e71a54ca3beb94886f6efc1575"
+  resolved "https://registry.yarnpkg.com/markdown-loader/-/markdown-loader-0.1.7.tgz#2ab6616fd17652a7cbfe66540781b55e4f19e267"
   dependencies:
     loader-utils "^0.2.7"
     marked "^0.3.2"
@@ -4936,9 +4939,9 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-npm-run-all@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.0.0.tgz#6c729dc9fb46b610b435039568bc7469ae7356fe"
+npm-run-all@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.0.1.tgz#f10144d20b57ed9bbf6c36a8de9502e0b80f2b4e"
   dependencies:
     chalk "^1.1.3"
     cross-spawn "^5.0.1"

@@ -35,7 +35,6 @@ const gettingStarted = require('html-loader!markdown-loader!../getting-started.m
 })
 export class AppComponent {
   public gettingStarted: string = gettingStarted;
-  // almost same logic exists in top-menu component
   public ngAfterContentInit(): any {
     setTimeout(()=>{
       if (typeof PR !== 'undefined') {

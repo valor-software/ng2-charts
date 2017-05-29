@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts-base",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "private": true,
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "scripts": {
@@ -42,12 +42,12 @@
     "url": "https://github.com/valor-software/ng2-charts/issues"
   },
   "homepage": "https://github.com/valor-software/ng2-charts#readme",
-  "peerDependencies": {
-    "@angular/core": "^2.3.0",
-    "@angular/common": "^2.3.0"
-  },
   "dependencies": {
-    "chart.js": "^2.4.0"
+    "chart.js": "^2.5.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^2.3.0 || >=4.0.0",
+    "@angular/core": "^2.3.0 || >=4.0.0"
   },
   "devDependencies": {
     "@angular/common": "2.4.3",
@@ -65,7 +65,7 @@
     "@types/jasmine": "2.5.40",
     "@types/marked": "0.0.28",
     "@types/node": "7.0.0",
-    "@types/webpack": "2.2.0",
+    "@types/webpack": "^2.2.1",
     "angular-cli": "1.0.0-beta.25.5",
     "bootstrap": "3.3.7",
     "chokidar-cli": "1.2.0",
@@ -94,12 +94,12 @@
     "karma-sauce-launcher": "1.1.0",
     "lite-server": "2.2.2",
     "lodash": "4.17.4",
-    "markdown-loader": "github:valorkin/markdown-loader",
+    "markdown-loader": "^0.1.7",
     "marked": "0.3.6",
-    "ng2-page-scroll": "4.0.0-beta.2",
     "ng2-bootstrap": "1.2.2",
+    "ng2-page-scroll": "4.0.0-beta.2",
     "ngm-cli": "0.4.0",
-    "npm-run-all": "4.0.0",
+    "npm-run-all": "^4.0.1",
     "pre-commit": "1.2.2",
     "protractor": "5.0.0",
     "reflect-metadata": "0.1.9",
