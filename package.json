@@ -43,6 +43,7 @@
   },
   "homepage": "https://github.com/valor-software/ng2-charts#readme",
   "dependencies": {
+    "@types/chart.js": "2.4.2",
     "chart.js": "^2.6.0"
   },
   "peerDependencies": {

@@ -13,7 +13,7 @@ import { RadarChartDemoComponent } from './components/charts/radar-chart-demo';
 import { BaseChartDemoComponent } from './components/charts/base-chart-demo';
 import { ChartSectionComponent } from './components/chart-section.component';
 
-import { TabsModule, CollapseModule, DropdownModule } from 'ng2-bootstrap';
+import { TabsModule, CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
@@ -39,7 +39,7 @@ import { AppComponent } from './app.component';
     ChartsModule,
     TabsModule.forRoot(),
     CollapseModule.forRoot(),
-    DropdownModule.forRoot()
+    BsDropdownModule.forRoot()
   ]
 })
 export class AppModule {
