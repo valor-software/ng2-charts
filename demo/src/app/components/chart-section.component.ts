@@ -9,4 +9,5 @@ export class ChartSectionComponent {
   @Input() public ts:string;
   @Input() public html:string;
   @Input() public heading:string;
+  @Input() public id:string;
 }
