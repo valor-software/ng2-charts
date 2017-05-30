@@ -16,9 +16,9 @@
   ```html
   <script src="node_modules/chart.js/src/chart.js"></script>
   ```
-### Usage & Demo
+### Usage
  Demo and API details of ***ng2-charts*** can be found here:
-  [demo](http://valor-software.github.io/ng2-charts/) and [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
+  [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
 
 ### System.js
 
