@@ -1,3 +1,14 @@
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/valor-software/ng2-charts/compare/v1.5.0...v1.6.0) (2017-05-30)
+
+
+### Features
+
+* **core:** Chart.js is now loaded as a module ([#628](https://github.com/valor-software/ng2-charts/issues/628)) ([6ed93e6](https://github.com/valor-software/ng2-charts/commit/6ed93e6))
+* **package:** Allow usage with Angular 4, like was done with ngx-bootstrap ([#748](https://github.com/valor-software/ng2-charts/issues/748)) ([8f59f85](https://github.com/valor-software/ng2-charts/commit/8f59f85))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/valor-software/ng2-charts/compare/v1.4.4...v1.5.0) (2017-01-17)
 
