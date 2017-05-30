@@ -20,7 +20,10 @@
     "pretest": "run-s lint build link",
     "test": "ng test -sr",
     "test-coverage": "ng test -sr -cc",
-    "version": "npm run flow.changelog && git add -A"
+    "postversion": "run-s changelog git-add git-commit-changelog",
+    "git-add": "git add -A",
+    "git-commit-changelog": "git commit -am \"chore(changelog): update\"",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -r 2"
   },
   "main": "bundles/ng2-charts.umd.js",
   "module": "index.js",
@@ -102,7 +105,6 @@
     "ngm-cli": "0.5.2",
     "ngx-bootstrap": "1.6.6",
     "npm-run-all": "4.0.2",
-    "pre-commit": "1.2.2",
     "protractor": "5.1.2",
     "reflect-metadata": "0.1.10",
     "require-dir": "0.3.1",
