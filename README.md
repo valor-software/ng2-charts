@@ -34,6 +34,14 @@ Sample in below website uses ng2-charts@1.1.0
   ```html
   <script src="node_modules/chart.js/src/chart.js"></script>
   ```
+  
+3. To show the chart, you need add this part to your style:
+  ```css
+  .chart {
+    display: block;
+  }
+  ```
+
 ### Usage & Demo
  Demo and API details of ***ng2-charts*** can be found here:
   [demo](http://valor-software.github.io/ng2-charts/) and [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
