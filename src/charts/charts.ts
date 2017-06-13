@@ -64,17 +64,13 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (this.initFlag) {
-      // Check if the changes are in the data or datasets
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
-        if (changes['data']) {
-          this.updateChartData(changes['data'].currentValue);
-        } else {
-          this.updateChartData(changes['datasets'].currentValue);
-        }
-
+      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('labels')) {
+        this.chart.data.datasets = this.getDatasets();
+        this.chart.data.labels = this.labels;
         this.chart.update();
-      } else {
-      // otherwise rebuild the chart
+      }
+      else {
+        // otherwise rebuild the chart
         this.refresh();
       }
     }
