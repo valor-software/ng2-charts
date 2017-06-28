@@ -157,7 +157,10 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
           let newElm:any = Object.assign({}, elm);
           if (this.colors && this.colors.length) {
             Object.assign(newElm, this.colors[index]);
-          } else {
+          } else if (typeof newElm.backgroundColor === 'undefined' ||
+                     typeof newElm.borderColor === 'undefined' ||
+                     typeof newElm.hoverBackgroundColor === 'undefined' ||
+                     typeof newElm.hoverBorderColor === 'undefined') {
             Object.assign(newElm, getColors(this.chartType, index, newElm.data.length));
           }
           return newElm;
