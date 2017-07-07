@@ -49,8 +49,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
   private element:ElementRef;
 
-  public constructor(element:ElementRef) {
-    this.element = element;
+  public constructor(public element:ElementRef) {
   }
 
   public ngOnInit():any {
