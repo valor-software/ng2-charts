@@ -11,7 +11,7 @@
   npm install chart.js --save
   ```
 
-  **Important**: Embedding `Chart.js` in application is mandatory!
+  **Important**: Embedding `Chart.js` in application is mandatory for ng2-charts < v1.6.0
 
   ```html
   <script src="node_modules/chart.js/src/chart.js"></script>
