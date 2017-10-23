@@ -1,0 +1,33 @@
+{
+  "main": "bundles/ng2-charts.umd.js",
+  "version": "1.7.0",
+  "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "keywords": [
+    "angular",
+    "chart.js",
+    "angular2",
+    "angularjs",
+    "charts"
+  ],
+  "author": {
+    "name": "Dmitriy Shekhovtsov",
+    "email": "valorkin@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/valor-software/ng2-charts.git"
+  },
+  "name": "ng2-charts",
+  "dependencies": {
+    "chart.js": "^2.6.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^2.3.0 || >=4.0.0",
+    "@angular/core": "^2.3.0 || >=4.0.0"
+  },
+  "_id": "ng2-charts@",
+  "devDependencies": {}
+}
