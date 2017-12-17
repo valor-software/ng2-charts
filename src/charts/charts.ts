@@ -125,13 +125,20 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
   private updateChartData(newDataValues: number[] | any[]): void {
     if (Array.isArray(newDataValues[0].data)) {
-      this.chart.data.datasets.forEach((dataset: any, i: number) => {
-        dataset.data = newDataValues[i].data;
+      let i = 0;
+      for(; i < this.chart.data.datasets.length && i < newDataValues.length; i++) {
+        this.chart.data.datasets[i].data = newDataValues[i].data;
 
         if (newDataValues[i].label) {
-          dataset.label = newDataValues[i].label;
+          this.chart.data.datasets[i].label = newDataValues[i].label;
         }
-      });
+      }
+      for(; i < newDataValues.length; i++) {
+        this.chart.data.datasets.push(newDataValues[i]);
+      }
+      for(const origLen = this.chart.data.datasets.length; i < origLen; i++) {
+        this.chart.data.datasets.pop();
+      }
     } else {
       this.chart.data.datasets[0].data = newDataValues;
     }
