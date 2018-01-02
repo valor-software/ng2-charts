@@ -22,11 +22,11 @@ let components = [
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand visible-xs" href="{{prefix}}#">ng2-charts</a>
+        <a class="navbar-brand visible-xs" href="{{prefix}}#">ng4-charts</a>
       </div>
       <nav class="hidden-xs hidden-xs-down">
         <ul class="nav navbar-nav">
-          <li class="nav-item"><a href="{{prefix}}#top" role="button" class="navbar-brand">ng2-charts</a></li>
+          <li class="nav-item"><a href="{{prefix}}#top" role="button" class="navbar-brand">ng4-charts</a></li>
           <li class="nav-item dropdown" dropdown>
             <a role="button" class="nav-link dropdown-toggle" dropdownToggle>Directives <b class="caret"></b></a>
             <ul class="dropdown-menu">

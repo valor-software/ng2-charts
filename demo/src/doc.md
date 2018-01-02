@@ -1,6 +1,6 @@
 ### Usage
 ```typescript
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule } from 'ng4-charts';
 
 // In your App's module:
 imports: [

@@ -1,27 +1,17 @@
-# ng2-charts [![npm version](https://badge.fury.io/js/ng2-charts.svg)](http://badge.fury.io/js/ng2-charts) [![npm downloads](https://img.shields.io/npm/dm/ng2-charts.svg)](https://npmjs.org/ng2-charts) [![slack](https://ngx-slack.herokuapp.com/badge.svg)](https://ngx-slack.herokuapp.com)
-Beautiful charts for Angular2 based on Chart.js
-
-<!-- [![Sauce Test Status](https://saucelabs.com/browser-matrix/valorkin.svg)](https://saucelabs.com/u/valorkin) -->
-[![NPM](https://nodei.co/npm/ng2-charts.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ng2-charts)
-[![NPM](https://nodei.co/npm-dl/ng2-charts.png?height=3&months=9)](https://npmjs.org/ng2-charts)
+# ng4-charts
+Fork of beautiful charts for Angular4 based on Chart.js developed by http://valor-software.github.io
 
 
 # Usage & Demo
-
-Sample in below website uses ng2-charts@1.1.0
-
-[http://valor-software.github.io/ng2-charts/](http://valor-software.github.io/ng2-charts/)
-[http://plnkr.co/edit/7fGsiuRjcF0M0Ffeoml2?p=preview](http://plnkr.co/edit/7fGsiuRjcF0M0Ffeoml2?p=preview)
-
 
 - - -
 
 ### Installation
 
-1. You can install ***ng2-charts*** using npm
+1. You can install ***ng4-charts*** using npm
 
   ```bash
-  npm install ng2-charts --save
+  npm install ng4-charts --save
   ```
 2. You need to install and include `Chart.js` library in application via `html` or `webpack bundler` (more options can be found in official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
@@ -35,8 +25,8 @@ Sample in below website uses ng2-charts@1.1.0
   <script src="node_modules/chart.js/src/chart.js"></script>
   ```
 ### Usage & Demo
- Demo and API details of ***ng2-charts*** can be found here:
-  [demo](http://valor-software.github.io/ng2-charts/) and [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
+ Demo and API details of ***ng4-charts*** can be found here:
+  [demo](https://github.com/krish512/ng4-charts) and [source code](https://github.com/krish512/ng4-charts/tree/master/demo).
 
 ### System.js
 
@@ -47,7 +37,7 @@ System.js bundles can be found in `bundles` directory of npm package or at [npm 
 
 ### Import
 ```typescript
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng4-charts/ng4-charts';
 
 // In your App's module:
 imports: [
@@ -85,11 +75,11 @@ There are a set several default colors. Colors can be replaced using the `colors
 
 Please follow this guidelines when reporting bugs and feature requests:
 
-1. Use [GitHub Issues](https://github.com/valor-software/ng2-charts/issues) board to report bugs and feature requests (not our email address)
+1. Use [GitHub Issues](https://github.com/krish512/ng4-charts/issues) board to report bugs and feature requests (not our email address)
 2. Please **always** write steps to reproduce the error. That way we can focus on fixing the bug, not scratching our heads trying to reproduce it.
 
 Thanks for understanding!
 
 ### License
 
-The MIT License (see the [LICENSE](https://github.com/valor-software/ng2-charts/blob/master/LICENSE) file for the full text)
+The GNU GENERAL PUBLIC LICENSE v3 License (see the [LICENSE](https://github.com/krish512/ng4-charts/blob/master/LICENSE) file for the full text)

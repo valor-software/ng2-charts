@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartsModule } from '../ng2-charts';
+import { ChartsModule } from '../ng4-charts';
 
 const html = ``;
 
-describe('Component: ng2-charts', () => {
+describe('Component: ng4-charts', () => {
   let fixture:ComponentFixture<any>;
   let context:TestChartsComponent;
 

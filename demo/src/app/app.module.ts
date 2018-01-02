@@ -14,7 +14,7 @@ import { BaseChartDemoComponent } from './components/charts/base-chart-demo';
 import { ChartSectionComponent } from './components/chart-section.component';
 
 import { TabsModule, CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule } from 'ng4-charts';
 
 import { AppComponent } from './app.component';
 

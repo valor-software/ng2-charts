@@ -77,7 +77,7 @@ let doc = require('html-loader!markdown-loader!../../doc.md');
 
 export class ChartsSectionComponent {
   public name: string = 'Charts';
-  public src: string = 'https://github.com/valor-software/ng2-charts/blob/development/src/charts/charts.ts';
+  public src: string = 'https://github.com/krish512/ng4-charts/blob/development/src/charts/charts.ts';
   public doc: string = doc;
   public desc: any = {
     lineChart: {
