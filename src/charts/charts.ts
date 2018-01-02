@@ -97,13 +97,13 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     // hock for onHover and onClick events
     options.hover = options.hover || {};
     if (!options.hover.onHover) {
-      options.hover.onHover = (active:Array<any>) => {
-        if (active && !active.length) {
-          return;
-        }
-        this.chartHover.emit({active});
-      };
-    }
+			options.hover.onHover = (event:any, active:Array<any>) => {
+				if (active && !active.length) {
+					return;
+				}
+				this.chartHover.emit({ event, active });
+			};
+		}
 
     if (!options.onClick) {
       options.onClick = (event:any, active:Array<any>) => {
