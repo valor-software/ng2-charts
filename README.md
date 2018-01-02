@@ -1,10 +1,8 @@
-# ng4-charts
-Fork of beautiful charts for Angular4 based on Chart.js developed by http://valor-software.github.io
+# ng4-charts [![npm version](https://badge.fury.io/js/ng4-charts.svg)](https://www.npmjs.com/package/ng4-charts)
+Fork of beautiful charts for Angular4 based on Chart.js originally developed by http://valor-software.github.io
 
+[![NPM](https://nodei.co/npm/ng4-charts.png)](https://www.npmjs.com/package/ng4-charts)
 
-# Usage & Demo
-
-- - -
 
 ### Installation
 
