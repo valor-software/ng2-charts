@@ -20,7 +20,7 @@ Fork of beautiful charts for Angular4 based on Chart.js originally developed by 
   **Important**: Embedding `Chart.js` in application is mandatory!
 
   ```html
-  <script src="node_modules/chart.js/src/chart.js"></script>
+  <script src="node_modules/chart.js/dist/chart.js"></script>
   ```
 ### Usage & Demo
  Demo and API details of ***ng4-charts*** can be found here:
