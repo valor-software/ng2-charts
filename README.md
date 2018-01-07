@@ -34,6 +34,15 @@ Sample in below website uses ng2-charts@1.1.0
   ```html
   <script src="node_modules/chart.js/src/chart.js"></script>
   ```
+3. You need to import `ChartsModule` from `'ng2-charts'` to your app module
+  ```javascript
+  ...
+  imports: [
+    ChartsModule
+  ]
+  ...
+  ```
+  
 ### Usage & Demo
  Demo and API details of ***ng2-charts*** can be found here:
   [demo](http://valor-software.github.io/ng2-charts/) and [source code](https://github.com/valor-software/ng2-charts/tree/master/demo).
