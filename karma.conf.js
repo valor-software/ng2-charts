@@ -6,13 +6,13 @@ const customLaunchers = require('./scripts/sauce-browsers').customLaunchers;
 module.exports = function (config) {
   const configuration = {
     basePath: '',
-    frameworks: ['jasmine', '@angular/cli'],
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma')
     ],
     mime: { 'text/x-typescript': ['ts','tsx'] },
     client:{
@@ -22,10 +22,10 @@ module.exports = function (config) {
       {pattern: './scripts/test.ts', watched: false}
     ],
     preprocessors: {
-      './scripts/test.ts': ['@angular/cli']
+      './scripts/test.ts': ['@angular-devkit/build-angular']
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
+      dir: require('path').join(__dirname, 'coverage'), reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
     angularCli: {

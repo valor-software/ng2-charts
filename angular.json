@@ -1,0 +1,118 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ng2-charts": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "demo/dist",
+            "index": "demo/src/index.html",
+            "main": "demo/src/main.ts",
+            "tsConfig": "demo/src/tsconfig.json",
+            "assets": [
+              "demo/src/assets"
+            ],
+            "styles": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.bundle.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "demo/src/environments/environment.ts",
+                  "with": "demo/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng2-charts:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng2-charts:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng2-charts:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "demo/src/../../scripts/test.ts",
+            "karmaConfig": "karma.conf.js",
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.bundle.js"
+            ],
+            "styles": [],
+            "assets": [
+              "demo/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [],
+            "exclude": []
+          }
+        }
+      }
+    },
+    "ng2-charts-e2e": {
+      "root": "",
+      "sourceRoot": "",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "protractor.conf.js",
+            "devServerTarget": "ng2-charts:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [],
+            "exclude": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng2-charts",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": ""
+    }
+  }
+}
