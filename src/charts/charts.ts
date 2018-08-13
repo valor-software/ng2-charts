@@ -35,6 +35,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   @Input() public datasets:any[];
   @Input() public labels:Array<any> = [];
   @Input() public options:any = {};
+  @Input() public plugins:Array<any> = [];
   @Input() public chartType:string;
   @Input() public colors:Array<any>;
   @Input() public legend:boolean;
@@ -117,7 +118,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         labels: this.labels,
         datasets: datasets
       },
-      options: options
+      options: options,
+      plugins: this.plugins
     };
 
     return new Chart(ctx, opts);
