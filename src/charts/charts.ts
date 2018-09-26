@@ -64,6 +64,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (this.initFlag) {
+      let changeRequiresChartRefresh = true;
       // Check if the changes are in the data or datasets
       if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
         if (changes['data']) {
@@ -71,11 +72,17 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         } else {
           this.updateChartData(changes['datasets'].currentValue);
         }
-
-        this.chart.update();
-      } else {
-      // otherwise rebuild the chart
+        changeRequiresChartRefresh = false;        
+      } 
+      if (changes.hasOwnProperty('labels')) {
+        this.chart.data.labels = changes['labels'].currentValue
+        changeRequiresChartRefresh = false;       
+      }    
+       /* ok then we have to refresh to whole thing because we do not what changed*/
+      if(changeRequiresChartRefresh){
         this.refresh();
+      }else{
+        this.chart.update();
       }
     }
   }
