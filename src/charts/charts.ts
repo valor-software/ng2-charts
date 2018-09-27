@@ -64,8 +64,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (this.initFlag) {
-      // Check if the changes are in the data or datasets
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
+      // Check if the changes are in the data or datasets (the latter with or without labels)
+      if (changes.hasOwnProperty('data') || (changes.hasOwnProperty('datasets') && !changes.hasOwnProperty('labels'))) {
         if (changes['data']) {
           this.updateChartData(changes['data'].currentValue);
         } else {
@@ -73,7 +73,14 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         }
 
         this.chart.update();
-      } else {
+			} else if (changes.hasOwnProperty('datasets') && changes.hasOwnProperty('labels')) {
+				this.updateChartData(changes['datasets'].currentValue);
+				this.updateChartData(changes['labels'].currentValue);
+				// First update the data within the chart
+				this.chart.update();
+				// And then we need to refresh to rebuild, otherwise the new labels are not taken into account
+				this.refresh();
+			} else {
       // otherwise rebuild the chart
         this.refresh();
       }
