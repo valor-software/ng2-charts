@@ -71,6 +71,11 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         } else {
           this.updateChartData(changes['datasets'].currentValue);
         }
+         
+        //fix for labels not refreshing on dynamic datasets change
+        if (changes['labels']) {
+                    this.updateChartLabels(changes['labels'].currentValue);
+                }
 
         this.chart.update();
       } else {
@@ -79,6 +84,10 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
       }
     }
   }
+  
+  updateChartLabels(newLabelsValues) {
+        this.chart.data.labels = newLabelsValues;
+    };
 
   public ngOnDestroy():any {
     if (this.chart) {
