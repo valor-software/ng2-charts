@@ -1,5 +1,5 @@
 language: node_js
-node_js: "7"
+node_js: "9"
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -7,6 +7,10 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  - npm cache clean -f
+  - npm install -g n
+  - n stable
+  - n latest
   - npm run pretest
   - npm run test-coverage
 
