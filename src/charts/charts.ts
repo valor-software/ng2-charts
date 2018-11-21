@@ -75,7 +75,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         //fix for labels not refreshing on dynamic datasets change
         if (changes['labels']) {
                     this.updateChartLabels(changes['labels'].currentValue);
-                }
+        }
 
         this.chart.update();
       } else {
