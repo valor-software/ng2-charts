@@ -9,8 +9,8 @@ before_install:
 script:
   - npm cache clean -f
   - npm install -g n
-  - n stable
-  - n latest
+  - sudo n stable
+  - sudo n latest
   - npm run pretest
   - npm run test-coverage
 
