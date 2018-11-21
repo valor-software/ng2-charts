@@ -7,10 +7,6 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm cache clean -f
-  - npm install -g n
-  - sudo n stable
-  - sudo n latest
   - npm run pretest
   - npm run test-coverage
 
