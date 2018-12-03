@@ -70,7 +70,7 @@
     "@angular/tsc-wrapped": "0.5.1",
     "@types/jasmine": "2.5.47",
     "@types/marked": "0.0.28",
-    "@types/node": "7.0.0",
+    "@types/node": "8.0.0",
     "@types/webpack": "2.2.15",
     "bootstrap": "3.3.7",
     "chokidar-cli": "1.2.0",
