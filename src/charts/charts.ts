@@ -71,7 +71,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         } else {
           this.updateChartData(changes['datasets'].currentValue);
         }
-
+        if (changes['labels']) {
+           this.updateChartLabels(changes['labels'].currentValue);
+        }
         this.chart.update();
       } else {
       // otherwise rebuild the chart
@@ -136,7 +138,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
       this.chart.data.datasets[0].data = newDataValues;
     }
   }
-
+  private updateChartLabels(newLabelsValues:string[]|any[]):void {
+        this.chart.data.labels = newLabelsValues;
+  }
   private getDatasets():any {
     let datasets:any = void 0;
     // in case if datasets is not provided, but data is present
