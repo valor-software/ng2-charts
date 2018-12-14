@@ -126,7 +126,7 @@ this.chart.data.labels = newLabelsValues;
   }
 
   private updateChartData(newDataValues: number[] | any[]): void {
-    if (Array.isArray(newDataValues[0].data)) {
+    if (Array.isArray(newDataValues[0].data)) { 
       this.chart.data.datasets.forEach((dataset: any, i: number) => {
         dataset.data = newDataValues[i].data;
 
