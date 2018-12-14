@@ -71,7 +71,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         } else {
           this.updateChartData(changes['datasets'].currentValue);
         }
-
+this.updateChartLabels(changes['labels'].currentValue);
         this.chart.update();
       } else {
       // otherwise rebuild the chart
@@ -79,7 +79,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
       }
     }
   }
-
+private updateChartLabels(newLabelsValues: string[] | any[]): void {
+this.chart.data.labels = newLabelsValues;
+}
   public ngOnDestroy():any {
     if (this.chart) {
       this.chart.destroy();
