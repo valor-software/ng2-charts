@@ -318,7 +318,7 @@ function getColors(chartType:string, index:number, count:number):Color {
   if (chartType === 'bar' || chartType === 'horizontalBar') {
     return formatBarColor(generateColor(index));
   }
-  return generateColor(index);
+  throw new Error(`getColors - Unsupported chart type ${chartType}`);
 }
 
 @NgModule({
