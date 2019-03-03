@@ -1,0 +1,33 @@
+{
+  "name": "ng2-charts",
+  "version": "2.0.0-beta.3",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "chart.js": "^2.7.3",
+    "rxjs": "^6.3.3"
+  },
+  "dependencies": {},
+  "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
+  "main": "src/public_api.ts",
+  "devDependencies": {
+    "@types/chart.js": "^2.7.45"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aviad Pineles",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paviad/ng2-charts.git"
+  },
+  "keywords": [
+    "chart.js",
+    "angular"
+  ],
+  "bugs": {
+    "url": "https://github.com/paviad/ng2-charts/issues"
+  },
+  "homepage": "https://github.com/paviad/ng2-charts#readme"
+}

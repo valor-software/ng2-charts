@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <div class="toolbar">ng2-charts</div>
+</mat-toolbar>
+<main class="bd-pageheader">
+  <div class="container">
+    <img alt="" src="http://www.chartjs.org/img/chartjs-logo.svg"
+      style="background: url('//angular.io/resources/images/logos/angular2/angular.svg') top center no-repeat;background-size: contain;">
+    <h1>ng2-charts</h1>
+    <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
+    <a class="btn btn-primary" href="https://github.com/valor-software/ng2-charts">View on GitHub</a>
+    <div class="row">
+      <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
+          src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=star&amp;count=true"
+          width="170px"></iframe></div>
+      <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
+          src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=fork&amp;count=true"
+          width="170px"></iframe></div>
+    </div>
+  </div>
+</main>
+<div class="section">
+  <h2>API</h2>
+  <markdown src="assets/doc.md"></markdown>
+</div>
+<div class="section">
+  <h2>Charts</h2>
+  <h3>Example</h3>
+  <h4>Line Chart</h4>
+  <div class="outer-container">
+    <div class="inner-container">
+      <canvas baseChart [colors]="barChartColors" [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+</div>
