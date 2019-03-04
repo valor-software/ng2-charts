@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --prod",
     "build:lib": "ng build ng2-charts",
     "publish:lib": "cd dist\\ng2-charts && npm publish && cd ..\\..",
     "test": "ng test",
