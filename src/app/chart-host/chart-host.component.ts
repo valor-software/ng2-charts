@@ -18,6 +18,9 @@ export class ChartHostComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
+    if (!this.content) {
+      return;
+    }
     const compName = this.content.__proto__.constructor.name;
     switch (compName) {
       case 'BarChartComponent':
