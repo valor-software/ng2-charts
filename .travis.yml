@@ -1,23 +1,24 @@
+dist: trusty
+sudo: false
+
 language: node_js
-node_js: "7"
-
-before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
-script:
-  - npm run pretest
-  - npm run test-coverage
-
-after_success:
-  - ./node_modules/.bin/codecov
+node_js:
+  - '8'
 
 addons:
-  firefox: "latest"
   apt:
     sources:
-    - ubuntu-toolchain-r-test
-    # required by node-gyp to build some packages
+      - google-chrome
     packages:
-    - g++-4.8
+      - google-chrome-stable
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run build:lib
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadless
