@@ -45,3 +45,4 @@ testem.log
 .DS_Store
 Thumbs.db
 /temp
+/Web.config
