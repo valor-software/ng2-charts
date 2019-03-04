@@ -25,12 +25,17 @@
 <div class="section">
   <h2>Charts</h2>
   <h3>Example</h3>
-  <h4>Line Chart</h4>
-  <div class="outer-container">
-    <div class="inner-container">
-      <canvas baseChart [colors]="barChartColors" [datasets]="barChartData" [labels]="barChartLabels"
-        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
-      </canvas>
-    </div>
-  </div>
+  <app-chart-host><app-line-chart #main></app-line-chart></app-chart-host>
+  <app-chart-host><app-bar-chart #main></app-bar-chart></app-chart-host>
+  <app-chart-host><app-doughnut-chart #main></app-doughnut-chart></app-chart-host>
+  <app-chart-host><app-radar-chart #main></app-radar-chart></app-chart-host>
+  <app-chart-host><app-pie-chart #main></app-pie-chart></app-chart-host>
+  <app-chart-host><app-polar-area-chart #main></app-polar-area-chart></app-chart-host>
+  <app-chart-host><app-dynamic-chart #main></app-dynamic-chart></app-chart-host>
 </div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts">ng2-charts</a> is
+      maintained by <a href="https://github.com/valor-software">valor-software</a>.</p>
+  </div>
+</footer>

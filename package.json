@@ -26,7 +26,9 @@
     "chart.js": "^2.7.3",
     "chartjs-plugin-annotation": "^0.5.7",
     "core-js": "^2.5.4",
+    "highlight.js": "^9.15.6",
     "marked": "^0.6.1",
+    "ngx-highlightjs": "^3.0.3",
     "ngx-markdown": "^7.1.4",
     "rxjs": "~6.4.0",
     "zone.js": "~0.8.26"
@@ -39,7 +41,7 @@
     "@angular/language-service": "~7.2.0",
     "@types/jasmine": "~3.3.9",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~11.10.4",
+    "@types/node": "^11.10.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
