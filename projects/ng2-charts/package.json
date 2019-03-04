@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0-beta.4",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
@@ -20,14 +20,14 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paviad/ng2-charts.git"
+    "url": "git+https://github.com/valor-software/ng2-charts.git"
   },
   "keywords": [
     "chart.js",
     "angular"
   ],
   "bugs": {
-    "url": "https://github.com/paviad/ng2-charts/issues"
+    "url": "https://github.com/valor-software/ng2-charts/issues"
   },
-  "homepage": "https://github.com/paviad/ng2-charts#readme"
+  "homepage": "https://github.com/valor-software/ng2-charts#readme"
 }
