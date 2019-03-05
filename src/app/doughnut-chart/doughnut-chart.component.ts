@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartType } from 'chart.js';
+import { SingleDataSet } from 'ng2-charts';
 
 @Component({
   selector: 'app-doughnut-chart',
@@ -8,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class DoughnutChartComponent implements OnInit {
   // Doughnut
   public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: number[] = [350, 450, 100];
-  public doughnutChartType = 'doughnut';
+  public doughnutChartData: SingleDataSet = [350, 450, 100];
+  public doughnutChartType: ChartType = 'doughnut';
 
   constructor() { }
 
@@ -17,11 +19,11 @@ export class DoughnutChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  public chartClicked(event: MouseEvent, active: {}[]): void {
+    console.log(event, active);
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  public chartHovered(active: {}[]): void {
+    console.log(active);
   }
 }

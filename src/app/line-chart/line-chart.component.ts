@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-line-chart',
@@ -6,16 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  public lineChartData: any[] = [
+  public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
     { data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C' }
   ];
-  public lineChartLabels: any[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartOptions: any = {
+  public lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartOptions: ChartOptions = {
     responsive: true
   };
-  public lineChartColors: any[] = [
+  public lineChartColors: Color[] = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
@@ -50,7 +52,7 @@ export class LineChartComponent implements OnInit {
   }
 
   public randomize(): void {
-    const lineChartData: any[] = new Array(this.lineChartData.length);
+    const lineChartData: ChartDataSets[] = new Array(this.lineChartData.length);
     for (let i = 0; i < this.lineChartData.length; i++) {
       lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
       for (let j = 0; j < this.lineChartData[i].data.length; j++) {
@@ -61,11 +63,11 @@ export class LineChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  public chartClicked(event: MouseEvent, active: {}[]): void {
+    console.log(event, active);
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  public chartHovered(active: {}[]): void {
+    console.log(active);
   }
 }

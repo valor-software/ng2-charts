@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SingleDataSet } from 'ng2-charts';
+import { ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-polar-area-chart',
@@ -8,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class PolarAreaChartComponent implements OnInit {
   // PolarArea
   public polarAreaChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-  public polarAreaChartData: number[] = [300, 500, 100, 40, 120];
+  public polarAreaChartData: SingleDataSet = [300, 500, 100, 40, 120];
   public polarAreaLegend = true;
 
-  public polarAreaChartType = 'polarArea';
+  public polarAreaChartType: ChartType = 'polarArea';
 
   constructor() { }
 
@@ -19,11 +21,11 @@ export class PolarAreaChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  public chartClicked(event: MouseEvent, active: {}[]): void {
+    console.log(event, active);
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  public chartHovered(active: {}[]): void {
+    console.log(active);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 
 @Component({
   selector: 'app-dynamic-chart',
@@ -6,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dynamic-chart.component.scss']
 })
 export class DynamicChartComponent implements OnInit {
-  public barChartOptions: any = {
-    scaleShowVerticalLines: false,
+  public barChartOptions: ChartOptions = {
     responsive: true
   };
   public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  public barChartType = 'bar';
+  public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
-  public barChartData: any[] = [
+  public barChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
   ];
@@ -25,12 +25,12 @@ export class DynamicChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  public chartClicked(event: MouseEvent, active: {}[]): void {
+    console.log(event, active);
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  public chartHovered(active: {}[]): void {
+    console.log(active);
   }
 
   public randomize(): void {

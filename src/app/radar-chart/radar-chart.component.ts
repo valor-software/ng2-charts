@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartDataSets, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-radar-chart',
@@ -9,11 +10,11 @@ export class RadarChartComponent implements OnInit {
   // Radar
   public radarChartLabels: string[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
 
-  public radarChartData: any = [
+  public radarChartData: ChartDataSets[] = [
     { data: [65, 59, 90, 81, 56, 55, 40], label: 'Series A' },
     { data: [28, 48, 40, 19, 96, 27, 100], label: 'Series B' }
   ];
-  public radarChartType = 'radar';
+  public radarChartType: ChartType = 'radar';
 
   constructor() { }
 
@@ -21,11 +22,11 @@ export class RadarChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  public chartClicked(event: MouseEvent, active: {}[]): void {
+    console.log(event, active);
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  public chartHovered(active: {}[]): void {
+    console.log(active);
   }
 }

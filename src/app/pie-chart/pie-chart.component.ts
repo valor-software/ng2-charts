@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartType } from 'chart.js';
+import { SingleDataSet } from 'ng2-charts';
 
 @Component({
   selector: 'app-pie-chart',
@@ -8,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class PieChartComponent implements OnInit {
   // Pie
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  public pieChartData: number[] = [300, 500, 100];
-  public pieChartType = 'pie';
+  public pieChartData: SingleDataSet = [300, 500, 100];
+  public pieChartType: ChartType = 'pie';
 
   constructor() { }
 
@@ -17,11 +19,11 @@ export class PieChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  public chartClicked(event: MouseEvent, active: {}[]): void {
+    console.log(event, active);
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  public chartHovered(active: {}[]): void {
+    console.log(active);
   }
 }
