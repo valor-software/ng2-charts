@@ -19,11 +19,11 @@ export class DoughnutChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked(event: MouseEvent, active: {}[]): void {
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered(active: {}[]): void {
-    console.log(active);
+  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
   }
 }

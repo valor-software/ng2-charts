@@ -93,7 +93,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   @Input() public legend: boolean;
 
   @Output() public chartClick: EventEmitter<{ event?: MouseEvent, active?: {}[] }> = new EventEmitter();
-  @Output() public chartHover: EventEmitter<{ active: {}[] }> = new EventEmitter();
+  @Output() public chartHover: EventEmitter<{ event: MouseEvent, active: {}[] }> = new EventEmitter();
 
   public ctx: string;
   public chart: Chart;
@@ -151,11 +151,11 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     // hook for onHover and onClick events
     options.hover = options.hover || {};
     if (!options.hover.onHover) {
-      options.hover.onHover = (_: MouseEvent, active: {}[]) => {
+      options.hover.onHover = (event: MouseEvent, active: {}[]) => {
         if (active && !active.length) {
           return;
         }
-        this.chartHover.emit({ active });
+        this.chartHover.emit({ event, active });
       };
     }
 
@@ -210,7 +210,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   }
 
   private isSingleDataSet(data: SingleOrMultiDataSet): data is SingleDataSet {
-    return Array.isArray(data[0]);
+    return !Array.isArray(data[0]);
   }
 
   private getDatasets() {
