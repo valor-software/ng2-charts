@@ -1,8 +1,12 @@
 <div class="row">
   <div class="col-md-12">
     <div style="display: block">
-      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [legend]="pieChartLegend"
         (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
     </div>
   </div>
+</div>
+<div class="row">
+  <button mat-button (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
+  <button mat-button (click)="changeLabels()">Change Labels</button>
 </div>
