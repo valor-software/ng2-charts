@@ -118,7 +118,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
   public ngOnChanges(changes: SimpleChanges) {
     if (this.initFlag) {
-      // Check if the changes are in the data or datasets
+      let updateRequired = false;
+      // Check if the changes are in the data or datasets or labels or legend
+
       if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
         if (changes.data) {
           this.updateChartData(changes.data.currentValue);
@@ -126,6 +128,22 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
           this.updateChartData(changes.datasets.currentValue);
         }
 
+        updateRequired = true;
+      }
+      if (changes.hasOwnProperty('labels')) {
+        this.chart.data.labels = changes.labels.currentValue;
+
+        updateRequired = true;
+      }
+      if (changes.hasOwnProperty('legend')) {
+        this.chart.config.options.legend.display = changes.legend.currentValue;
+        this.chart.generateLegend();
+
+        updateRequired = true;
+      }
+
+      if (updateRequired) {
+        // ... if so, update chart
         this.chart.update();
       } else {
         // otherwise rebuild the chart
