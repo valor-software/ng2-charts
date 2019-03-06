@@ -21,6 +21,11 @@ export function getColors(chartType: string, index: number, count: number): Colo
   if (chartType === 'bar' || chartType === 'horizontalBar') {
     return formatBarColor(generateColor(index));
   }
+
+  if (chartType === 'bubble') {
+    return formatPieColors(generateColors(count));
+  }
+
   throw new Error(`getColors - Unsupported chart type ${chartType}`);
 }
 
