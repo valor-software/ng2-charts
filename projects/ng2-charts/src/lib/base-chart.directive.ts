@@ -159,6 +159,10 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     }
   }
 
+  public update(duration?: any, lazy?: any) {
+    return this.chart.update(duration, lazy);
+  }
+
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
     const datasets = this.getDatasets();
 
