@@ -163,6 +163,15 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     return this.chart.update(duration, lazy);
   }
 
+  public hideDataset(index: number, hidden: boolean) {
+    this.chart.getDatasetMeta(index).hidden = hidden;
+    this.chart.update();
+  }
+
+  public isDatasetHidden(index: number): boolean {
+    return this.chart.getDatasetMeta(index).hidden;
+  }
+
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
     const datasets = this.getDatasets();
 
