@@ -175,6 +175,10 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     return this.chart.getDatasetMeta(index).hidden;
   }
 
+  public toBase64Image(): string {
+    return this.chart.toBase64Image();
+  }
+
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
     const datasets = this.getDatasets();
 
