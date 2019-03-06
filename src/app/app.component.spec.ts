@@ -16,6 +16,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 
 export function hljsLanguages() {
   return [
@@ -38,6 +39,7 @@ describe('AppComponent', () => {
         RadarChartComponent,
         DynamicChartComponent,
         DoughnutChartComponent,
+        BubbleChartComponent,
         ChartHostComponent,
       ],
       imports: [

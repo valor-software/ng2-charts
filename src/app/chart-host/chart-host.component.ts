@@ -31,6 +31,11 @@ export const chartTypes = {
     ts: require('!!raw-loader!../polar-area-chart/polar-area-chart.component.ts'),
     html: require('!!raw-loader!../polar-area-chart/polar-area-chart.component.html'),
   },
+  bubble: {
+    heading: 'Bubble Chart',
+    ts: require('!!raw-loader!../bubble-chart/bubble-chart.component.ts'),
+    html: require('!!raw-loader!../bubble-chart/bubble-chart.component.html'),
+  },
   radar: {
     heading: 'Radar Chart',
     ts: require('!!raw-loader!../radar-chart/radar-chart.component.ts'),

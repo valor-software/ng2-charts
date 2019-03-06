@@ -18,6 +18,7 @@ import { ChartHostComponent } from './chart-host/chart-host.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
+import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 
 export function hljsLanguages() {
   return [
@@ -39,6 +40,7 @@ export function hljsLanguages() {
     PolarAreaChartComponent,
     DynamicChartComponent,
     ChartHostComponent,
+    BubbleChartComponent,
   ],
   imports: [
     BrowserModule,
