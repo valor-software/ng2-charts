@@ -107,6 +107,10 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     chartJs.Chart.plugins.register(plugin);
   }
 
+  public static unregisterPlugin(plugin: PluginServiceGlobalRegistrationAndOptions) {
+    chartJs.Chart.plugins.unregister(plugin);
+  }
+
   public constructor(private element: ElementRef) { }
 
   public ngOnInit() {
