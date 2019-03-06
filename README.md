@@ -49,7 +49,7 @@ imports: [
 ```
 
 ### Chart types
-There are one directive for all chart types: `baseChart`, and there are 6 types of charts: , `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
+There are six chart types and only one directive for all of them. The directive is `baseChart` and the types are as follows: `line`, `bar`, `radar`, `pie`, `polarArea`, and `doughnut`.
 
 ### Properties
 
