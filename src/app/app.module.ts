@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule, BaseChartDirective } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,13 +19,14 @@ import { HighlightModule } from 'ngx-highlightjs';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 export function hljsLanguages() {
   return [
     { name: 'typescript', func: typescript },
     // { name: 'html', func: html },
     // {name: 'scss', func: scss},
-    {name: 'xml', func: xml}
+    { name: 'xml', func: xml }
   ];
 }
 
@@ -56,4 +57,8 @@ export function hljsLanguages() {
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    BaseChartDirective.unregisterPlugin(pluginDataLabels);
+  }
+}

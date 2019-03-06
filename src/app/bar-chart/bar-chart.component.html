@@ -2,8 +2,8 @@
   <div class="col-md-12">
     <div style="display: block">
       <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-        [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
     </div>
     <button mat-button (click)="randomize()">Update</button>
   </div>
