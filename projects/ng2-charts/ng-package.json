@@ -6,5 +6,8 @@
     "umdModuleIds": {
       "chart.js": "chart_js"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@types/chart.js"
+  ]
 }
