@@ -9,12 +9,12 @@ import {
   ElementRef,
   SimpleChanges
 } from '@angular/core';
-import * as chartJs from 'chart.js';
+import { Chart, ChartPoint, ChartDataSets, ChartOptions, ChartType, ChartConfiguration } from 'chart.js';
 import { getColors } from './get-colors';
 import { Color } from './color';
 
-export type SingleDataSet = (number[] | chartJs.ChartPoint[]);
-export type MultiDataSet = (number[] | chartJs.ChartPoint[])[];
+export type SingleDataSet = (number[] | ChartPoint[]);
+export type MultiDataSet = (number[] | ChartPoint[])[];
 export type SingleOrMultiDataSet = SingleDataSet | MultiDataSet;
 
 /* The following two types are copied from @types/chart.js because they are not
@@ -85,10 +85,10 @@ export type PluginServiceGlobalRegistrationAndOptions = PluginServiceGlobalRegis
 })
 export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   @Input() public data: SingleOrMultiDataSet;
-  @Input() public datasets: chartJs.ChartDataSets[];
+  @Input() public datasets: ChartDataSets[];
   @Input() public labels: string[];
-  @Input() public options: chartJs.ChartOptions = {};
-  @Input() public chartType: chartJs.ChartType;
+  @Input() public options: ChartOptions = {};
+  @Input() public chartType: ChartType;
   @Input() public colors: Color[];
   @Input() public legend: boolean;
 
@@ -103,7 +103,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
    * Register a plugin.
    */
   public static registerPlugin(plugin: PluginServiceGlobalRegistrationAndOptions) {
-    chartJs.Chart.plugins.register(plugin);
+    Chart.plugins.register(plugin);
   }
 
   public constructor(private element: ElementRef) { }
@@ -183,7 +183,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
       };
     }
 
-    const chartConfig: chartJs.ChartConfiguration = {
+    const chartConfig: ChartConfiguration = {
       type: this.chartType,
       data: {
         labels: this.labels,
@@ -192,15 +192,15 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
       options
     };
 
-    return new chartJs.Chart(ctx, chartConfig);
+    return new Chart(ctx, chartConfig);
   }
 
-  private isChartDataSetsArray(v: SingleOrMultiDataSet | chartJs.ChartDataSets[]): v is chartJs.ChartDataSets[] {
+  private isChartDataSetsArray(v: SingleOrMultiDataSet | ChartDataSets[]): v is ChartDataSets[] {
     const elm = v[0];
     return (typeof (elm) === 'object') && 'data' in elm;
   }
 
-  private updateChartData(newDataValues: SingleOrMultiDataSet | chartJs.ChartDataSets[]): void {
+  private updateChartData(newDataValues: SingleOrMultiDataSet | ChartDataSets[]): void {
     if (this.isChartDataSetsArray(newDataValues)) {
       if (newDataValues.length === this.chart.data.datasets.length) {
         this.chart.data.datasets.forEach((dataset, i: number) => {
@@ -232,7 +232,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   }
 
   private getDatasets() {
-    let datasets: chartJs.ChartDataSets[] = void 0;
+    let datasets: ChartDataSets[] = void 0;
     // in case if datasets is not provided, but data is present
     if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
       if (!this.isSingleDataSet(this.data)) {
@@ -247,8 +247,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     if (this.datasets && this.datasets.length ||
       (datasets && datasets.length)) {
       datasets = (this.datasets || datasets)
-        .map((elm: chartJs.ChartDataSets, index: number) => {
-          const newElm: chartJs.ChartDataSets = Object.assign({}, elm);
+        .map((elm: ChartDataSets, index: number) => {
+          const newElm: ChartDataSets = Object.assign({}, elm);
           if (this.colors && this.colors.length) {
             Object.assign(newElm, this.colors[index]);
           } else {
