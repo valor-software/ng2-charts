@@ -91,6 +91,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   @Input() public chartType: chartJs.ChartType;
   @Input() public colors: Color[];
   @Input() public legend: boolean;
+  @Input() public plugins: PluginServiceGlobalRegistrationAndOptions[];
 
   @Output() public chartClick: EventEmitter<{ event?: MouseEvent, active?: {}[] }> = new EventEmitter();
   @Output() public chartHover: EventEmitter<{ event: MouseEvent, active: {}[] }> = new EventEmitter();
@@ -130,11 +131,13 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
 
         updateRequired = true;
       }
+
       if (changes.hasOwnProperty('labels')) {
         this.chart.data.labels = changes.labels.currentValue;
 
         updateRequired = true;
       }
+
       if (changes.hasOwnProperty('legend')) {
         this.chart.config.options.legend.display = changes.legend.currentValue;
         this.chart.generateLegend();
@@ -202,7 +205,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         labels: this.labels,
         datasets
       },
-      options
+      options,
+      plugins: this.plugins,
     };
 
     return new chartJs.Chart(ctx, chartConfig);
