@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color } from 'ng2-charts';
+import { Color, BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-line-chart',
@@ -46,6 +46,8 @@ export class LineChartComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartType = 'line';
 
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+
   constructor() { }
 
   ngOnInit() {
@@ -69,5 +71,10 @@ export class LineChartComponent implements OnInit {
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
+  }
+
+  public hideOne() {
+    const isHidden = this.chart.isDatasetHidden(1);
+    this.chart.hideDataset(1, !isHidden);
   }
 }
