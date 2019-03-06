@@ -1,7 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~highlight.js/styles/github.css';
+@import '~@angular/material/theming';
+@mixin ng2-charts-demo($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $is-dark-theme: map-get($theme, is-dark);
+  @if($is-dark-theme) {
+    .panel,
+    .hljs,
+    pre {
+      background-color: #333;
+    }
+    .panel-default,
+    pre {
+      border-color: rgb(39, 39, 39);
+    }
+    .hljs {
+      color: #ddd;
+    }
+    .hljs-name,
+    .hljs-built_in {
+      color: rgb(173, 177, 255);
+    }
+    .hljs-tag,
+    .hljs-keyword {
+      color: rgb(245, 245, 255);
+    }
+    .hljs-attr,
+    .hljs-number,
+    .hljs-literal {
+      color: #00c7c7;
+    }
+    .hljs-string {
+      color: rgb(255, 170, 192);
+    }
+    markdown code {
+      color: #c77d8f;
+      background-color: #2f2f2f;
+    }
+  }
+}
+
+@include mat-core(); // Define your application's custom theme.
+.ng2-charts-demo-light-theme {
+  $primary: mat-palette($mat-blue-gray);
+  $accent: mat-palette($mat-gray);
+  $warn: mat-palette($mat-red);
+  $theme: mat-light-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+.ng2-charts-demo-dark-theme {
+  $primary: mat-palette($mat-indigo, A200);
+  $accent: mat-palette($mat-blue, 300);
+  $warn: mat-palette($mat-red, 400);
+  $theme: mat-dark-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+.ng2-charts-demo-old-theme {
+  $primary: mat-palette($mat-brown);
+  $accent: mat-palette($mat-deep-orange);
+  $warn: mat-palette($mat-orange);
+  $theme: mat-dark-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+.ng2-charts-demo-weird-theme {
+  $primary: mat-palette($mat-light-blue);
+  $accent: mat-palette($mat-yellow);
+  $warn: mat-palette($mat-red);
+  $theme: mat-light-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
 html,
 body {
   height: 100%;

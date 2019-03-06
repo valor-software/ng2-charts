@@ -1,79 +1,85 @@
-<mat-toolbar color="primary">
-  <div class="toolbar">ng2-charts</div>
-</mat-toolbar>
-<main class="bd-pageheader">
-  <div class="container">
-    <img alt="" src="http://www.chartjs.org/img/chartjs-logo.svg"
-      style="background: url('//angular.io/resources/images/logos/angular2/angular.svg') top center no-repeat;background-size: contain;">
-    <h1>ng2-charts</h1>
-    <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
-    <a mat-button mat-raised-button color="primary" href="https://github.com/valor-software/ng2-charts">View on GitHub</a>
-    <div class="row">
-      <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
-          src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=star&amp;count=true"
-          width="170px"></iframe></div>
-      <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
-          src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=fork&amp;count=true"
-          width="170px"></iframe></div>
+<div [ngClass]="selectedTheme">
+  <mat-toolbar color="primary">
+    <div class="toolbar">
+      ng2-charts
+      <button mat-button (click)="selectedTheme='ng2-charts-demo-dark-theme'">Dark Theme</button>
+      <button mat-button (click)="selectedTheme='ng2-charts-demo-light-theme'">Light Theme</button>
     </div>
+  </mat-toolbar>
+  <main class="bd-pageheader">
+    <div class="container">
+      <img alt="" src="http://www.chartjs.org/img/chartjs-logo.svg"
+        style="background: url('//angular.io/resources/images/logos/angular2/angular.svg') top center no-repeat;background-size: contain;">
+      <h1>ng2-charts</h1>
+      <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
+      <a mat-button mat-raised-button color="primary" href="https://github.com/valor-software/ng2-charts">View on GitHub</a>
+      <div class="row">
+        <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
+            src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=star&amp;count=true"
+            width="170px"></iframe></div>
+        <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
+            src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=fork&amp;count=true"
+            width="170px"></iframe></div>
+      </div>
+    </div>
+  </main>
+  <div class="section">
+    <h2>API</h2>
+    <markdown ngPreserveWhitespaces>
+  ### Usage
+
+  ```typescript
+      import {{ '{' }} ChartsModule } from 'ng2-charts';
+
+      // In your App's module:
+      imports: [
+        ChartsModule
+      ]
+  ```
+
+  ### Chart types
+  There are one directive for all chart types: `baseChart`, and there are 6 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
+
+  ### Properties
+
+  **Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
+
+  - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
+  - `datasets` (`{{ '{' }}data: SingleDataSet, label: string}[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
+  - `labels` (`string[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`
+  - `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
+  - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
+  - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
+  - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
+
+  ### Events
+
+  - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and labels
+  - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
+
+
+  ### Colors
+
+  There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
+
+    </markdown>
   </div>
-</main>
-<div class="section">
-  <h2>API</h2>
-  <markdown ngPreserveWhitespaces>
-### Usage
-
-```typescript
-    import {{ '{' }} ChartsModule } from 'ng2-charts';
-
-    // In your App's module:
-    imports: [
-       ChartsModule
-    ]
-```
-
-### Chart types
-There are one directive for all chart types: `baseChart`, and there are 6 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
-
-### Properties
-
-**Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
-
-- `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
-- `datasets` (`{{ '{' }}data: SingleDataSet, label: string}[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
-- `labels` (`string[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`
-- `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
-- `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
-- `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
-- `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
-
-### Events
-
-- `chartClick`: fires when click on a chart has occurred, returns information regarding active points and labels
-- `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
-
-
-### Colors
-
-There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
-
-  </markdown>
-</div>
-<div class="section">
-  <h2>Charts</h2>
-  <h3>Example</h3>
-  <app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host>
-  <app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host>
-  <app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host>
-  <app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host>
-  <app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host>
-  <app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host>
-  <app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host>
-  <app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host>
-</div>
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts">ng2-charts</a> is
-      maintained by <a href="https://github.com/valor-software">valor-software</a>.</p>
+  <div class="section">
+    <h2>Charts</h2>
+    <h3>Example</h3>
+    <app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host>
+    <app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host>
+    <app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host>
+    <app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host>
+    <app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host>
+    <app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host>
+    <app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host>
+    <app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host>
   </div>
-</footer>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts">ng2-charts</a> is
+        maintained by <a href="https://github.com/valor-software">valor-software</a>.</p>
+    </div>
+  </footer>
+</div>
