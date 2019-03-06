@@ -9,6 +9,7 @@
     "build:lib": "ng build ng2-charts",
     "publish:lib": "cd dist\\ng2-charts && npm publish && cd ..\\..",
     "test": "ng test",
+    "test:headless": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
