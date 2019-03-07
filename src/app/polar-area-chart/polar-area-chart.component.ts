@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SingleDataSet } from 'ng2-charts';
+import { SingleDataSet, Label } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 
 @Component({
@@ -9,7 +9,7 @@ import { ChartType } from 'chart.js';
 })
 export class PolarAreaChartComponent implements OnInit {
   // PolarArea
-  public polarAreaChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
+  public polarAreaChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
   public polarAreaChartData: SingleDataSet = [300, 500, 100, 40, 120];
   public polarAreaLegend = true;
 

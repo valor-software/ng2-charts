@@ -10,7 +10,7 @@ Beautiful charts for Angular2 based on Chart.js
 
 # Usage & Demo
 
-Sample using ng2-charts@2.0.0-beta.17
+Sample using ng2-charts@2.0.0-beta.18
 
 https://valor-software.com/ng2-charts/
 
@@ -22,7 +22,7 @@ https://valor-software.com/ng2-charts/
 1. You can install ***ng2-charts*** using npm
 
   ```bash
-  npm install ng2-charts@2.0.0-beta.17 --save
+  npm install ng2-charts@2.0.0-beta.18 --save
   ```
 2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
@@ -57,7 +57,7 @@ There are six chart types and only one directive for all of them. The directive 
 
 - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
 - `datasets` (`{ data: SingleDataSet, label: string }[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
-- `labels` (`string[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`
+- `labels` (`Label[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`. `Label` is either a single `string`, or it may be a `string[]` representing a multi-line label where each array element is on a new line.
 - `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
 - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
 - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)

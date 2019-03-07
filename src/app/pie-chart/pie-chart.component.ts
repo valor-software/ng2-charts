@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
-import { SingleDataSet } from 'ng2-charts';
+import { SingleDataSet, Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
@@ -21,7 +21,7 @@ export class PieChartComponent implements OnInit {
       }
     }
   };
-  public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  public pieChartLabels: Label[] = [['Download', 'Sales'], 'In-Store Sales', 'Mail Sales'];
   public pieChartData: SingleDataSet = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;

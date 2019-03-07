@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-radar-chart',
@@ -8,7 +9,7 @@ import { ChartDataSets, ChartType } from 'chart.js';
 })
 export class RadarChartComponent implements OnInit {
   // Radar
-  public radarChartLabels: string[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+  public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
 
   public radarChartData: ChartDataSets[] = [
     { data: [65, 59, 90, 81, 56, 55, 40], label: 'Series A' },
