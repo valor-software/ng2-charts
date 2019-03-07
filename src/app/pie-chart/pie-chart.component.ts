@@ -18,7 +18,7 @@ export class PieChartComponent implements OnInit {
           const label = ctx.chart.data.labels[ctx.dataIndex];
           return label;
         }
-      }
+      },
     }
   };
   public pieChartLabels: Label[] = [['Download', 'Sales'], 'In-Store Sales', 'Mail Sales'];
@@ -49,6 +49,5 @@ export class PieChartComponent implements OnInit {
       'redeem', 'honest', 'intention', 'silk', 'opera', 'sleep', 'innocent', 'ignore', 'suite', 'applaud', 'funny'];
     const randomWord = () => words[Math.trunc(Math.random() * words.length)];
     this.pieChartLabels = Array.apply(null, { length: 3 }).map(_ => randomWord());
-    console.log('kabels', this.pieChartLabels, randomWord());
   }
 }

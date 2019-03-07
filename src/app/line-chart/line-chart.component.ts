@@ -18,6 +18,9 @@ export class LineChartComponent implements OnInit {
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {
+      xAxes: [
+        {}
+      ],
       yAxes: [
         {
           id: 'y-axis-0',
