@@ -77,6 +77,9 @@ export interface PluginServiceRegistrationOptions {
 }
 
 export type PluginServiceGlobalRegistrationAndOptions = PluginServiceGlobalRegistration & PluginServiceRegistrationOptions;
+export type SingleLineLabel = string;
+export type MultiLineLabel = string[];
+export type Label = SingleLineLabel | MultiLineLabel;
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -86,7 +89,7 @@ export type PluginServiceGlobalRegistrationAndOptions = PluginServiceGlobalRegis
 export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
   @Input() public data: SingleOrMultiDataSet;
   @Input() public datasets: chartJs.ChartDataSets[];
-  @Input() public labels: string[];
+  @Input() public labels: Label[];
   @Input() public options: chartJs.ChartOptions = {};
   @Input() public chartType: chartJs.ChartType;
   @Input() public colors: Color[];
@@ -225,6 +228,21 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     return (typeof (elm) === 'object') && 'data' in elm;
   }
 
+  private isMultiLineLabel(label: Label): label is MultiLineLabel {
+    return Array.isArray(label);
+  }
+
+  private joinLabel(label: Label): string {
+    if (!label) {
+      return null;
+    }
+    if (this.isMultiLineLabel(label)) {
+      return label.join(' ');
+    } else {
+      return label;
+    }
+  }
+
   private updateChartData(newDataValues: SingleOrMultiDataSet | chartJs.ChartDataSets[]): void {
     if (this.isChartDataSetsArray(newDataValues)) {
       if (newDataValues.length === this.chart.data.datasets.length) {
@@ -244,7 +262,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
         });
       } else {
         this.chart.data.datasets = newDataValues.map((data: number[], index: number) => {
-          return { data, label: this.labels[index] || `Label ${index}` };
+          return { data, label: this.joinLabel(this.labels[index]) || `Label ${index}` };
         });
       }
     } else {
@@ -262,7 +280,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit {
     if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
       if (!this.isSingleDataSet(this.data)) {
         datasets = this.data.map((data: number[], index: number) => {
-          return { data, label: this.labels[index] || `Label ${index}` };
+          return { data, label: this.joinLabel(this.labels[index]) || `Label ${index}` };
         });
       } else {
         datasets = [{ data: this.data, label: `Label 0` }];
