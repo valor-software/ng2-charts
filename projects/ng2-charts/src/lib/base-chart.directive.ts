@@ -239,27 +239,26 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     return new chartJs.Chart(ctx, chartConfig);
   }
 
-  smartMerge(options: any, arg1: any, level: number = 0): any {
+  smartMerge(options: any, overrides: any, level: number = 0): any {
     if (level === 0) {
       options = _.cloneDeep(options);
     }
-    const indent = level.toString() + Array.apply(null, { length: level * 3 }).map(r => ' ').join('');
-    const keysToUpdate = Object.keys(arg1);
+    const keysToUpdate = Object.keys(overrides);
     keysToUpdate.forEach(key => {
-      if (Array.isArray(arg1[key])) {
+      if (Array.isArray(overrides[key])) {
         const arrayElements = options[key];
         if (arrayElements) {
           arrayElements.forEach(r => {
-            this.smartMerge(r, arg1[key][0], level + 1);
+            this.smartMerge(r, overrides[key][0], level + 1);
           });
         }
-      } else if (typeof (arg1[key]) === 'object') {
+      } else if (typeof (overrides[key]) === 'object') {
         if (!(key in options)) {
           options[key] = {};
         }
-        this.smartMerge(options[key], arg1[key], level + 1);
+        this.smartMerge(options[key], overrides[key], level + 1);
       } else {
-        options[key] = arg1[key];
+        options[key] = overrides[key];
       }
     });
     if (level === 0) {

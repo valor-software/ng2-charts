@@ -10,7 +10,8 @@ import { Label } from 'ng2-charts';
 export class DynamicChartComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
-    scales: { xAxes: [ {} ], yAxes: [ {} ]},
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
   };
   public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   public barChartType: ChartType = 'bar';

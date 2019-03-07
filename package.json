@@ -33,6 +33,7 @@
     "marked": "^0.6.1",
     "ngx-highlightjs": "^3.0.3",
     "ngx-markdown": "^7.1.4",
+    "prismjs": "^1.15.0",
     "rxjs": "~6.4.0",
     "zone.js": "~0.8.26"
   },

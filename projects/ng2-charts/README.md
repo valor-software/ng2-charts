@@ -10,7 +10,7 @@ Beautiful charts for Angular2 based on Chart.js
 
 # Usage & Demo
 
-Sample using ng2-charts@2.0.0-beta.19
+Sample using ng2-charts@2.0.0-beta.20
 
 https://valor-software.com/ng2-charts/
 
@@ -22,7 +22,7 @@ https://valor-software.com/ng2-charts/
 1. You can install ***ng2-charts*** using npm
 
   ```bash
-  npm install ng2-charts@2.0.0-beta.19 --save
+  npm install ng2-charts@2.0.0-beta.20 --save
   ```
 2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
@@ -73,6 +73,50 @@ There are six chart types and only one directive for all of them. The directive 
 
 There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
 
+### Dynamic Theming
+
+The `ChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
+
+```typescript
+type Theme = 'light-theme' | 'dark-theme';
+
+private _selectedTheme: Theme = 'light-theme';
+public get selectedTheme() {
+  return this._selectedTheme;
+}
+public set selectedTheme(value) {
+  this._selectedTheme = value;
+  let overrides: ChartOptions;
+  if (this.selectedTheme === 'dark-theme') {
+    overrides = {
+      legend: {
+        labels: { fontColor: 'white' }
+      },
+      scales: {
+        xAxes: [{
+          ticks: { fontColor: 'white' },
+          gridLines: { color: 'rgba(255,255,255,0.1)' }
+        }],
+        yAxes: [{
+          ticks: { fontColor: 'white' },
+          gridLines: { color: 'rgba(255,255,255,0.1)' }
+        }]
+      }
+    };
+  } else {
+    overrides = {};
+  }
+  this.themeService.setColorschemesOptions(options);
+}
+
+constructor(private themeService: ThemeService) { }
+
+setCurrentTheme(theme: Theme) {
+  this.selectedTheme = theme;
+}
+```
+
+The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
 
 ## Troubleshooting
 

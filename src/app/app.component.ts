@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private themeService: ThemeService) {
-    this.selectedTheme = 'ng2-charts-demo-dark-theme';
+    this.selectedTheme = 'ng2-charts-demo-light-theme';
   }
 
   ngOnInit() { }
