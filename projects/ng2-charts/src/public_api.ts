@@ -7,3 +7,4 @@ export * from './lib/base-chart.directive';
 export * from './lib/color';
 export * from './lib/colors';
 export * from './lib/default-colors';
+export * from './lib/theme.service';
