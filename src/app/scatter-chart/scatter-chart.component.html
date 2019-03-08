@@ -1,0 +1,8 @@
+<div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart [datasets]="scatterChartData" [options]="scatterChartOptions" [labels]="scatterChartLabels"
+        [chartType]="scatterChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>

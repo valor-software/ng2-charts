@@ -41,7 +41,7 @@
             ```
 
             ### Chart types
-            There are one directive for all chart types: `baseChart`, and there are 6 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
+            There are one directive for all chart types: `baseChart`, and there are 8 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`, `bubble` and `scatter`.
 
             ### Properties
 
@@ -121,6 +121,7 @@
       <mat-tab label="Pie Chart"><app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host></mat-tab>
       <mat-tab label="Polar Area Chart"><app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host></mat-tab>
       <mat-tab label="Bubble Chart"><app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host></mat-tab>
+      <mat-tab label="Scatter Chart"><app-chart-host chartType="scatter"><app-scatter-chart #main></app-scatter-chart></app-chart-host></mat-tab>
       <mat-tab label="Dynamic Chart"><app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host></mat-tab>
     </mat-tab-group>
   </div>

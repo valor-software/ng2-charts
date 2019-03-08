@@ -41,6 +41,11 @@ export const chartTypes = {
     ts: require('!!raw-loader!../radar-chart/radar-chart.component.ts'),
     html: require('!!raw-loader!../radar-chart/radar-chart.component.html'),
   },
+  scatter: {
+    heading: 'Scatter Chart',
+    ts: require('!!raw-loader!../scatter-chart/scatter-chart.component.ts'),
+    html: require('!!raw-loader!../scatter-chart/scatter-chart.component.html'),
+  },
 };
 
 

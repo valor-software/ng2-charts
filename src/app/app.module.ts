@@ -20,6 +20,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 
 export function hljsLanguages() {
   return [
@@ -42,6 +43,7 @@ export function hljsLanguages() {
     DynamicChartComponent,
     ChartHostComponent,
     BubbleChartComponent,
+    ScatterChartComponent,
   ],
   imports: [
     BrowserModule,
