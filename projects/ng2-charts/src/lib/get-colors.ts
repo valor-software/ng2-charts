@@ -26,6 +26,10 @@ export function getColors(chartType: string, index: number, count: number): Colo
     return formatPieColors(generateColors(count));
   }
 
+  if (chartType === 'scatter') {
+    return formatPieColors(generateColors(count));
+  }
+
   throw new Error(`getColors - Unsupported chart type ${chartType}`);
 }
 
