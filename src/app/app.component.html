@@ -13,113 +13,116 @@
       <h1>ng2-charts</h1>
       <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
       <a mat-button mat-raised-button color="primary" href="https://github.com/valor-software/ng2-charts">View on GitHub</a>
-      <div class="row">
-        <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
+      <div class="badges">
+        <div class="badge"><iframe frameborder="0" height="20px" scrolling="0"
             src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=star&amp;count=true"
             width="170px"></iframe></div>
-        <div class="col-lg-1"><iframe frameborder="0" height="20px" scrolling="0"
+        <div class="badge"><iframe frameborder="0" height="20px" scrolling="0"
             src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=fork&amp;count=true"
             width="170px"></iframe></div>
       </div>
     </div>
   </main>
   <div class="section">
-    <h2>API</h2>
-    <markdown ngPreserveWhitespaces>
-  ### Usage
+    <mat-tab-group>
+      <mat-tab label="General Info">
+          <div class="section">
+              <h2>API</h2>
+              <markdown ngPreserveWhitespaces>
+            ### Usage
 
-  ```typescript
-      import {{ '{' }} ChartsModule } from 'ng2-charts';
+            ```typescript
+                import {{ '{' }} ChartsModule } from 'ng2-charts';
 
-      // In your App's module:
-      imports: [
-        ChartsModule
-      ]
-  ```
+                // In your App's module:
+                imports: [
+                  ChartsModule
+                ]
+            ```
 
-  ### Chart types
-  There are one directive for all chart types: `baseChart`, and there are 6 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
+            ### Chart types
+            There are one directive for all chart types: `baseChart`, and there are 6 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`.
 
-  ### Properties
+            ### Properties
 
-  **Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
+            **Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
 
-  - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
-  - `datasets` (`{{ '{' }}data: SingleDataSet, label: string}[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
-  - `labels` (`Label[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`. `Label` is either a single `string`, or it may be a `string[]` representing a multi-line label where each array element is on a new line.
-  - `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
-  - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
-  - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
-  - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
+            - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
+            - `datasets` (`{{ '{' }}data: SingleDataSet, label: string}[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
+            - `labels` (`Label[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`. `Label` is either a single `string`, or it may be a `string[]` representing a multi-line label where each array element is on a new line.
+            - `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
+            - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
+            - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
+            - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
 
-  ### Events
+            ### Events
 
-  - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and labels
-  - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
+            - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and labels
+            - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
 
 
-  ### Colors
+            ### Colors
 
-  There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
+            There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
 
-  ### Dynamic Theming
+            ### Dynamic Theming
 
-    The `ChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
+              The `ChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
 
-    ```typescript
-    type Theme = 'light-theme' | 'dark-theme';
+              ```typescript
+              type Theme = 'light-theme' | 'dark-theme';
 
-    private _selectedTheme: Theme = 'light-theme';
-    public get selectedTheme() {{ '{' }}
-      return this._selectedTheme;
-    }
-    public set selectedTheme(value) {{ '{' }}
-      this._selectedTheme = value;
-      let overrides: ChartOptions;
-      if (this.selectedTheme === 'dark-theme') {{ '{' }}
-        overrides = {{ '{' }}
-          legend: {{ '{' }}
-            labels: {{ '{' }} fontColor: 'white' }
-          },
-          scales: {{ '{' }}
-            xAxes: [{{ '{' }}
-              ticks: {{ '{' }} fontColor: 'white' },
-              gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-            }],
-            yAxes: [{{ '{' }}
-              ticks: {{ '{' }} fontColor: 'white' },
-              gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-            }]
-          }
-        };
-      } else {{ '{' }}
-        overrides = {{ '{' }}};
-      }
-      this.themeService.setColorschemesOptions(options);
-    }
+              private _selectedTheme: Theme = 'light-theme';
+              public get selectedTheme() {{ '{' }}
+                return this._selectedTheme;
+              }
+              public set selectedTheme(value) {{ '{' }}
+                this._selectedTheme = value;
+                let overrides: ChartOptions;
+                if (this.selectedTheme === 'dark-theme') {{ '{' }}
+                  overrides = {{ '{' }}
+                    legend: {{ '{' }}
+                      labels: {{ '{' }} fontColor: 'white' }
+                    },
+                    scales: {{ '{' }}
+                      xAxes: [{{ '{' }}
+                        ticks: {{ '{' }} fontColor: 'white' },
+                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                      }],
+                      yAxes: [{{ '{' }}
+                        ticks: {{ '{' }} fontColor: 'white' },
+                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                      }]
+                    }
+                  };
+                } else {{ '{' }}
+                  overrides = {{ '{' }}};
+                }
+                this.themeService.setColorschemesOptions(options);
+              }
 
-    constructor(private themeService: ThemeService) {{ '{' }} }
+              constructor(private themeService: ThemeService) {{ '{' }} }
 
-    setCurrentTheme(theme: Theme) {{ '{' }}
-      this.selectedTheme = theme;
-    }
-    ```
+              setCurrentTheme(theme: Theme) {{ '{' }}
+                this.selectedTheme = theme;
+              }
+              ```
 
-    The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
+              The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
 
-    </markdown>
-  </div>
-  <div class="section">
-    <h2>Charts</h2>
-    <h3>Example</h3>
-    <app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host>
-    <app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host>
-    <app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host>
-    <app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host>
-    <app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host>
-    <app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host>
-    <app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host>
-    <app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host>
+              </markdown>
+            </div>
+
+      </mat-tab>
+      <mat-tab label="Line Chart"><app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host></mat-tab>
+      <mat-tab label="Bar Chart"><app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host></mat-tab>
+      <mat-tab label="Doughnut Chart"><app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host></mat-tab>
+      <mat-tab label="Radar Chart"><app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host></mat-tab>
+      <mat-tab label="Pie Chart"><app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host></mat-tab>
+      <mat-tab label="Polar Area Chart"><app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host></mat-tab>
+      <mat-tab label="Bubble Chart"><app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host></mat-tab>
+      <mat-tab label="Dynamic Chart"><app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host></mat-tab>
+    </mat-tab-group>
   </div>
   <footer class="footer">
     <div class="container">

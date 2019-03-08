@@ -39,9 +39,7 @@
     markdown code {
       color: #c77d8f;
       background-color: #2f2f2f;
-    }
-
-    // prism
+    } // prism
     .language-typescript {
       background-color: black;
       text-shadow: 0 1px #202020;
@@ -49,6 +47,30 @@
     .token.operator {
       background-color: rgb(42, 42, 42);
     }
+  }
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+  .panel-body {
+    padding: 15px;
   }
 }
 

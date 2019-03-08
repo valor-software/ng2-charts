@@ -1,9 +1,9 @@
-<div class="row">
-  <div class="col-md-12">
+<div>
+  <div>
     <div style="display: block">
-      <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions"
-        [colors]="bubbleChartColors" [legend]="bubbleChartLegend" [chartType]="bubbleChartType"
-        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [colors]="bubbleChartColors"
+        [legend]="bubbleChartLegend" [chartType]="bubbleChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
     </div>
     <button mat-button (click)="randomize()">Update</button>
   </div>

@@ -8,6 +8,35 @@ mat-toolbar {
   }
 }
 
+.badges {
+  .badge {
+    display: inline-block;
+    width: 100px;
+  }
+}
+
+footer {
+  .text-center {
+    text-align: center;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+.container {
+  width: 1170px;
+  margin: auto;
+  p {
+    margin-top: 0;
+  }
+  h1 {
+    margin-bottom: 0;
+    font-size: 60;
+    font-weight: 500;
+  }
+}
+
 .outer-container {
   width: calc(100% - 100px);
   margin: auto;
@@ -18,13 +47,17 @@ mat-toolbar {
   margin: auto;
 }
 
+app-chart-host {
+  width: 100%;
+}
+
 .bd-pageheader {
   margin-top: 51px;
 }
 
 .bd-pageheader,
 .bs-docs-masthead {
-  position: relative;
+  // position: relative;
   padding: 30px 0;
   color: #cdbfe3;
   text-align: center;
@@ -67,13 +100,29 @@ mat-toolbar {
 
 @media (min-width: 768px) {
   .bd-pageheader {
-    padding-top: 60px;
-    padding-bottom: 60px;
     font-size: 24px;
     text-align: left;
   }
   .bd-pageheader h1 {
     font-size: 60px;
     line-height: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 570px;
+  }
+  .section {
+    width: 570px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 320px;
+  }
+  .section {
+    width: 320px;
   }
 }
