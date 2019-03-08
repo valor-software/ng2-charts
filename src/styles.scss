@@ -7,6 +7,30 @@
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
   $is-dark-theme: map-get($theme, is-dark);
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+  .panel-body {
+    padding: 15px;
+  }
   @if($is-dark-theme) {
     .panel,
     .hljs,
@@ -47,30 +71,19 @@
     .token.operator {
       background-color: rgb(42, 42, 42);
     }
-  }
-  pre {
-    display: block;
-    padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.42857143;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .panel {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-  }
-  .panel-body {
-    padding: 15px;
+    pre {
+      color: rgb(214, 214, 214);
+      background-color: #141414;
+      border: 1px solid rgb(59, 59, 59);
+    }
+    .panel {
+      background-color: rgb(0, 0, 0);
+      -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+      box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+    }
+    .panel-body {
+      padding: 15px;
+    }
   }
 }
 
