@@ -30,11 +30,16 @@ https://valor-software.com/ng2-charts/
   npm install chart.js --save
   ```
 
-### Usage & Demo
- Demo and API details of ***ng2-charts*** can be found here:
+### Stackblitz Starting Templates
 
-https://stackblitz.com/edit/ng2-charts7-demo
-
+* Line Chart - https://stackblitz.com/edit/ng2-charts-line-template
+* Pie Chart - https://stackblitz.com/edit/ng2-charts-pie-template
+* Bar Chart - https://stackblitz.com/edit/ng2-charts-bar-template
+* Doughnut Chart - https://stackblitz.com/edit/ng2-charts-doughnut-template
+* Radar Chart - https://stackblitz.com/edit/ng2-charts-radar-template
+* Polar Area Chart - https://stackblitz.com/edit/ng2-charts-polar-area-template
+* Bubble Chart - https://stackblitz.com/edit/ng2-charts-bubble-template
+* Scatter Chart - https://stackblitz.com/edit/ng2-charts-scatter-template
 
 ## API
 

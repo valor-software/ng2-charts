@@ -1,9 +1,14 @@
 <div>
   <div>
     <div style="display: block">
-      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-        [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend"
-        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      <canvas baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend">
+      </canvas>
     </div>
   </div>
 </div>
