@@ -48,6 +48,11 @@ export class AppComponent implements OnInit {
               }
             }
           ]
+        },
+        plugins: {
+          datalabels: {
+            color: 'white',
+          }
         }
       };
     }

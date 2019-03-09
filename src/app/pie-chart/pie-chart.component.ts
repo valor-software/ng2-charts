@@ -17,7 +17,7 @@ export class PieChartComponent implements OnInit {
         formatter: (value, ctx) => {
           const label = ctx.chart.data.labels[ctx.dataIndex];
           return label;
-        }
+        },
       },
     }
   };
