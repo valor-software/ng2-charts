@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule, BaseChartDirective } from 'ng2-charts';
+import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +22,8 @@ import xml from 'highlight.js/lib/languages/xml';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
+
+const routes: Route[] = [];
 
 export function hljsLanguages() {
   return [
@@ -47,6 +50,7 @@ export function hljsLanguages() {
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     ChartsModule,
     BrowserAnimationsModule,
     MaterialModule,

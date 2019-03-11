@@ -24,8 +24,8 @@
     </div>
   </main>
   <div class="section">
-    <mat-tab-group>
-      <mat-tab label="General Info">
+    <mat-tab-group #tabGroup (selectedIndexChange)="updateRoute($event)">
+      <mat-tab #tab label="General Info">
           <div class="section">
               <h2>API</h2>
               <markdown ngPreserveWhitespaces>
@@ -114,15 +114,15 @@
             </div>
 
       </mat-tab>
-      <mat-tab label="Line Chart"><app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host></mat-tab>
-      <mat-tab label="Bar Chart"><app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host></mat-tab>
-      <mat-tab label="Doughnut Chart"><app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host></mat-tab>
-      <mat-tab label="Radar Chart"><app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host></mat-tab>
-      <mat-tab label="Pie Chart"><app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host></mat-tab>
-      <mat-tab label="Polar Area Chart"><app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host></mat-tab>
-      <mat-tab label="Bubble Chart"><app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host></mat-tab>
-      <mat-tab label="Scatter Chart"><app-chart-host chartType="scatter"><app-scatter-chart #main></app-scatter-chart></app-chart-host></mat-tab>
-      <mat-tab label="Dynamic Chart"><app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Line Chart"><app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Bar Chart"><app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Doughnut Chart"><app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Radar Chart"><app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Pie Chart"><app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Polar Area Chart"><app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Bubble Chart"><app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Scatter Chart"><app-chart-host chartType="scatter"><app-scatter-chart #main></app-scatter-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Dynamic Chart"><app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host></mat-tab>
     </mat-tab-group>
   </div>
   <footer class="footer">
