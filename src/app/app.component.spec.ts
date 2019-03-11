@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { MarkdownModule } from 'ngx-markdown';
@@ -46,6 +47,7 @@ describe('AppComponent', () => {
       ],
       imports: [
         NoopAnimationsModule,
+        RouterTestingModule,
         ChartsModule,
         MaterialModule,
         HttpClientModule,
