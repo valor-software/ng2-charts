@@ -10,7 +10,7 @@ import {
   OnDestroy,
   AfterViewInit
 } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 import { ThemeService } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
