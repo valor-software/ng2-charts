@@ -23,13 +23,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private pSelectedTheme = 'lala';
+  private _selectedTheme = 'lala';
   public get selectedTheme() {
-    return this.pSelectedTheme;
+    return this._selectedTheme;
   }
   public set selectedTheme(value) {
-    this.renderer.removeClass(this.document.body, this.pSelectedTheme);
-    this.pSelectedTheme = value;
+    this.renderer.removeClass(this.document.body, this._selectedTheme);
+    this._selectedTheme = value;
     this.renderer.addClass(this.document.body, value);
     let options: ChartOptions;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {

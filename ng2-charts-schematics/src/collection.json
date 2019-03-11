@@ -1,0 +1,45 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "line": {
+      "description": "Generate a component with a line chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsLine",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "bar": {
+      "description": "Generate a component with a bar chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsBar",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "radar": {
+      "description": "Generate a component with a radar chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsRadar",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "pie": {
+      "description": "Generate a component with a pie chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsPie",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "polar-area": {
+      "description": "Generate a component with a polar area chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsPolarArea",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "doughnut": {
+      "description": "Generate a component with a doughnut chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsDoughnut",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "bubble": {
+      "description": "Generate a component with a bubble chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsBubble",
+      "schema": "./ng2-charts-schematics/schema.json"
+    },
+    "scatter": {
+      "description": "Generate a component with a scatter chart.",
+      "factory": "./ng2-charts-schematics/index#ng2ChartsScatter",
+      "schema": "./ng2-charts-schematics/schema.json"
+    }
+  }
+}
