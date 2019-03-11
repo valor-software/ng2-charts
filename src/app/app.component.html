@@ -9,7 +9,7 @@
   <main class="bd-pageheader">
     <div class="container">
       <img alt="" src="http://www.chartjs.org/img/chartjs-logo.svg"
-        style="background: url('//angular.io/resources/images/logos/angular2/angular.svg') top center no-repeat;background-size: contain;">
+           style="background: top center no-repeat;background-size: contain;">
       <h1>ng2-charts</h1>
       <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
       <a mat-button mat-raised-button color="primary" href="https://github.com/valor-software/ng2-charts">View on GitHub</a>
@@ -21,14 +21,40 @@
             src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=fork&amp;count=true"
             width="170px"></iframe></div>
       </div>
+      <a target="_blank" href="https://join.slack.com/t/ngx-home/shared_invite/enQtNTExMTY5MzcwMTM0LWQ5M2Y4OWM0OGJjNmZiOGYyNjFlZTdlOGI1YjcxYWQ2ODhiOTY4NzhiODgwMTIzNDczODIyNWNmM2RlYWRhNTg">
+        <img src="https://a.slack-edge.com/66f9/img/icons/ios-256.png" width="25" height="25" alt="slack of ng2-charts">
+      </a>
+      <a target="_blank" href="https://stackoverflow.com/questions/tagged/ng2-charts">
+        <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg" width="25" height="25" alt="ng2-charts on stackoverflow">
+      </a>
+      <a target="_blank" href="https://github.com/valor-software/ng2-charts">
+        <img src="https://github.githubassets.com/favicon.ico" width="25" height="25" alt="ng2-charts on github">
+      </a>
     </div>
   </main>
   <div class="section">
     <mat-tab-group #tabGroup (selectedIndexChange)="updateRoute($event)">
       <mat-tab #tab label="General Info">
-          <div class="section">
-              <h2>API</h2>
-              <markdown ngPreserveWhitespaces>
+        <div class="section">
+          <h2>Installation</h2>
+          <markdown ngPreserveWhitespaces>
+            ### Installation
+
+            1. You can install ***ng2-charts*** using npm
+
+            ```bash
+            npm install ng2-charts --save
+            ```
+            2. You need to install and include `Chart.js` library in application via `html` or `webpack bundler` (more options can be found in official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
+
+            ```bash
+            npm install chart.js --save
+            ```
+
+          </markdown>
+
+          <h2>API</h2>
+          <markdown ngPreserveWhitespaces>
             ### Usage
 
             ```typescript
