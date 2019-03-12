@@ -97,7 +97,7 @@ export class LineChartComponent implements OnInit {
     for (let i = 0; i < this.lineChartData.length; i++) {
       lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
       for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
+        lineChartData[i].data[j] = Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
       }
     }
     this.lineChartData = lineChartData;
