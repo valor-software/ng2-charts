@@ -252,6 +252,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     } else {
       this.chart.data.datasets[0].data = newDataValues;
     }
+    this.chart.data.datasets.forEach((elm, index) => {
+      Object.assign(elm, this.colors[index]);
+    });
   }
 
   private isSingleDataSet(data: SingleOrMultiDataSet): data is SingleDataSet {
