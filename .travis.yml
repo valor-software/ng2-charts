@@ -22,4 +22,7 @@ install:
 script:
   - npm run build:lib
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadless
+  - ng serve --prod &
+  - $(npm bin)/wait-on http-get://localhost:4200/#
   - npm run test:snapshot
+  - kill $(jobs -p) || true

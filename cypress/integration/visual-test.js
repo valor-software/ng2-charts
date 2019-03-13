@@ -1,5 +1,5 @@
 describe('Snapshot test', () => {
-  const browsers = [{
+  const browsers = [/*{
     name: 'chrome',
     browserVersion: 'latest',
     width: 360,
@@ -9,7 +9,7 @@ describe('Snapshot test', () => {
     browserVersion: 'latest',
     width: 1366,
     height: 768
-  }, {
+  },*/ {
     name: 'chrome',
     browserVersion: 'latest',
     width: 1366,
@@ -63,25 +63,28 @@ describe('Snapshot test', () => {
       {url: '/#DynamicChart', selector: 'app-dynamic-chart'}
     ];
 
-    componentsArray.forEach(component => {
-      it(`navigate to each Demo and check example: ${component.url}`, () => {
-        cy.visit(component.url);
-        cy.get(`${component.selector} div`)
-          .should('be.visible')
-          .find('canvas')
+   //  componentsArray.forEach(component => {
+      it(`navigate to each Demo and check example: ${''/*component.url*/}`, () => {
+        cy.visit('');
+        cy.get('.mat-tab-label-content').eq(4).click();
+         cy.get('canvas')
           .should('be.visible')
           .eyesOpen({
             appName: 'NG2-charts',
-            testName: `NG2-charts ${component.url}`,
+            testName: `NG2-charts ${''/*component.url*/}`,
             browser: browsers
           })
           .eyesCheckWindow({
-            sizeMode: 'selector',
-            selector: `${component.selector}`,
-            sendDom: false,
+            sizeMode: 'region',
+            region: {top: 500, left: 0, width: 1000, height: 1000},
+            /*ignore: [
+              {selector: 'mat-toolbar'},
+              {selector: 'main'},
+              {selector: '.mat-tab-body-wrapper'},
+            ]*/
           })
           .eyesClose();
       });
     });
-  });
+ // });
 });
