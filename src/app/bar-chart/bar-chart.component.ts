@@ -64,4 +64,38 @@ export class BarChartComponent implements OnInit {
      * assign it;
      */
   }
+
+  public stackAndRandomize(): void {
+    this.randomize();
+    if (this.barChartOptions.scales.xAxes[0].stacked) {
+      this.barChartOptions = {
+        responsive: true,
+        scales: { xAxes: [{}], yAxes: [{}] },
+        plugins: {
+          datalabels: {
+            anchor: 'end',
+            align: 'end',
+          }
+        }
+      };
+    } else {
+      this.barChartOptions = {
+        responsive: true,
+        scales: {
+          xAxes: [{
+            stacked: true
+          }],
+          yAxes: [{
+            stacked: true
+          }]
+        },
+        plugins: {
+          datalabels: {
+            anchor: 'end',
+            align: 'end',
+          }
+        }
+      };
+    }
+  }
 }
