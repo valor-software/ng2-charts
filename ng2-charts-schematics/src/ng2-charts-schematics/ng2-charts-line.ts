@@ -44,9 +44,8 @@ const newImports: [string, string][] = [
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function ng2ChartsLine(_options: any): Rule {
-  // console.log('options', _options);
   return chain([
     externalSchematic('@schematics/angular', 'component', _options),
-    (tree: Tree, _context: SchematicContext) => ng2ProcessTree(tree, _context, newCode, newMarkup, newImports)
+    (tree: Tree, _context: SchematicContext) => ng2ProcessTree(tree, _context, _options, newCode, newMarkup, newImports)
   ]);
 }

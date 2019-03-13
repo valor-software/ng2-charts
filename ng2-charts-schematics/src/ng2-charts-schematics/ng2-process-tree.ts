@@ -1,15 +1,29 @@
-import { SchematicContext, Tree } from '@angular-devkit/schematics';
-import { getSourceNodes, findNodes, insertImport } from '@schematics/angular/utility/ast-utils';
+import { SchematicContext, Tree, SchematicsException } from '@angular-devkit/schematics';
+import { getSourceNodes, findNodes, insertImport, addImportToModule } from '@schematics/angular/utility/ast-utils';
+import { findModuleFromOptions } from '@schematics/angular/utility/find-module';
 import { readIntoSourceFile } from './read-into-source-file';
 import * as ts from 'typescript';
 import { InsertChange } from '@schematics/angular/utility/change';
+import { buildDefaultPath, getProject } from '@schematics/angular/utility/project';
 
 export function ng2ProcessTree(
   tree: Tree,
   _context: SchematicContext,
+  _options: any,
   newCode: string,
   newMarkup: string,
   newImports: [string, string][] = []) {
+  if (!_options.project) {
+    throw new SchematicsException('Option (project) is required.');
+  }
+  const project = getProject(tree, _options.project);
+
+  if (_options.path === undefined) {
+    _options.path = buildDefaultPath(project);
+  }
+
+  _options.module = findModuleFromOptions(tree, _options);
+
   const codeAction = tree.actions.filter(r => r.path.endsWith('.component.ts'))[0];
   const markupActions = tree.actions.filter(r => r.path.endsWith('.component.html'));
   const codeSource = readIntoSourceFile(tree, codeAction.path);
@@ -46,6 +60,16 @@ export function ng2ProcessTree(
   for (const change of changes) {
     if (change instanceof InsertChange) {
       recorder.insertLeft(change.pos, change.toAdd);
+    }
+  }
+  if (_options.module) {
+    const moduleSource = readIntoSourceFile(tree, _options.module);
+    const addImport = addImportToModule(moduleSource, _options.module, 'ChartsModule', 'ng2-charts');
+    console.log('import', addImport);
+    for (const change of addImport) {
+      if (change instanceof InsertChange) {
+        recorder.insertLeft(change.pos, change.toAdd);
+      }
     }
   }
   tree.commitUpdate(recorder);

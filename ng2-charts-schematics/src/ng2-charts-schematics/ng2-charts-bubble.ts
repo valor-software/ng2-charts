@@ -60,6 +60,6 @@ export function ng2ChartsBubble(_options: any): Rule {
   // console.log('options', _options);
   return chain([
     externalSchematic('@schematics/angular', 'component', _options),
-    (tree: Tree, _context: SchematicContext) => ng2ProcessTree(tree, _context, newCode, newMarkup, newImports)
+    (tree: Tree, _context: SchematicContext) => ng2ProcessTree(tree, _context, _options, newCode, newMarkup, newImports)
   ]);
 }
