@@ -255,6 +255,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     this.chart.data.datasets.forEach((elm, index) => {
       if (this.colors && this.colors[index]) {
         Object.assign(elm, this.colors[index]);
+      } else {
+        Object.assign(elm, getColors(this.chartType, index, elm.data.length));
       }
     });
   }
