@@ -136,6 +136,23 @@
 
               The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
 
+              ## Schematics
+
+              There are schematics that may be used to generate chart components using Angular CLI. The components are defined in package `ng2-charts-schematics`.
+
+              ### Installation of Schematics Package
+
+              ```bash
+              npm install --save-dev ng2-charts-schematics
+              ```
+
+              ### Example of Generating a Line Chart using Angular CLI
+
+              ```bash
+              ng generate ng2-charts-schematics:line my-line-chart
+              ```
+
+              This calls angular's component schematics and then modifies the result, so all the options for the component schematic are also usable here. This schematics will also add the `ChartsModule` as an imported module in the main app module (or another module as specified in the `--module` command switch).
               </markdown>
             </div>
 
