@@ -106,6 +106,12 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
         updateRequired = true;
       }
 
+      // Check if the changes are in options & refresh/rebuild if found.
+
+      if (changes.hasOwnProperty('options')) {
+        updateRequired = false;
+      }
+
       if (updateRequired) {
         // ... if so, update chart
         this.chart.update();
