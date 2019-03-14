@@ -111,7 +111,7 @@ public set selectedTheme(value) {
   } else {
     overrides = {};
   }
-  this.themeService.setColorschemesOptions(options);
+  this.themeService.setColorschemesOptions(overrides);
 }
 
 constructor(private themeService: ThemeService) { }

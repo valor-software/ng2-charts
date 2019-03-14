@@ -31,11 +31,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.renderer.removeClass(this.document.body, this._selectedTheme);
     this._selectedTheme = value;
     this.renderer.addClass(this.document.body, value);
-    let options: ChartOptions;
+    let overrides: ChartOptions;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
-      options = {};
+      overrides = {};
     } else {
-      options = {
+      overrides = {
         legend: {
           labels: {
             fontColor: 'white',
@@ -70,7 +70,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       };
     }
-    this.themeService.setColorschemesOptions(options);
+    this.themeService.setColorschemesOptions(overrides);
   }
 
   @ViewChild('tabGroup') tabGroup: MatTabGroup;
