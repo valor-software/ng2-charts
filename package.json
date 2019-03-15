@@ -10,7 +10,8 @@
     "publish:lib": "cd dist\\ng2-charts && npm publish && cd ..\\..",
     "test": "ng test",
     "test:headless": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
-    "test:snapshot": "APPLITOOLS_API_KEY=Nls100t102uNgLhLpblVUdA3tP104MQQS9VUYgHQ5tYOUuIxU110 APPLITOOLS_CONCURRENCY=100 cypress run",
+    "test:main": "APPLITOOLS_API_KEY=Nls100t102uNgLhLpblVUdA3tP104MQQS9VUYgHQ5tYOUuIxU110 APPLITOOLS_CONCURRENCY=100 cypress run --spec \"cypress/integration/main-test.js\"",
+    "test:screenshot": "node cypress/integration/screenshot-test.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -51,6 +52,7 @@
     "@types/node": "^11.10.5",
     "codelyzer": "~4.5.0",
     "cypress": "3.1.5",
+    "eyes.images": "^3.6.3",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.1",
