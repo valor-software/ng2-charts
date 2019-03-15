@@ -10,7 +10,7 @@ Beautiful charts for Angular2 based on Chart.js
 
 # Usage & Demo
 
-Sample using ng2-charts@2.0.0-beta.21
+Sample using ng2-charts@2.0.3
 
 https://valor-software.com/ng2-charts/
 
@@ -22,7 +22,7 @@ https://valor-software.com/ng2-charts/
 1. You can install ***ng2-charts*** using npm
 
   ```bash
-  npm install ng2-charts@2.0.0-beta.21 --save
+  npm install ng2-charts@2.0.3 --save
   ```
 2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
@@ -111,7 +111,7 @@ public set selectedTheme(value) {
   } else {
     overrides = {};
   }
-  this.themeService.setColorschemesOptions(options);
+  this.themeService.setColorschemesOptions(overrides);
 }
 
 constructor(private themeService: ThemeService) { }
@@ -122,6 +122,24 @@ setCurrentTheme(theme: Theme) {
 ```
 
 The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
+
+## Schematics
+
+There are schematics that may be used to generate chart components using Angular CLI. The components are defined in package `ng2-charts-schematics`.
+
+### Installation of Schematics Package
+
+```bash
+npm install --save-dev ng2-charts-schematics
+```
+
+### Example of Generating a Line Chart using Angular CLI
+
+```bash
+ng generate ng2-charts-schematics:line my-line-chart
+```
+
+This calls angular's component schematics and then modifies the result, so all the options for the component schematic are also usable here. This schematics will also add the `ChartsModule` as an imported module in the main app module (or another module as specified in the `--module` command switch).
 
 ## Troubleshooting
 

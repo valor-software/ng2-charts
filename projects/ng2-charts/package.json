@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "2.0.0-beta.21",
+  "version": "2.0.3",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
@@ -8,13 +8,13 @@
     "rxjs": "^6.3.3"
   },
   "dependencies": {
-    "@types/chart.js": "^2.7.45",
+    "@types/chart.js": "^2.7.48",
     "lodash": "^4.17.11"
   },
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "main": "src/public_api.ts",
   "devDependencies": {
-    "@types/lodash": "^4.14.122"
+    "@types/lodash": "^4.14.123"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
