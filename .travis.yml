@@ -15,9 +15,11 @@ addons:
 cache:
   directories:
     - ./node_modules
+    - ~/.cache
+    - ~/.npm
 
 install:
-  - npm install
+  - npm ci
 
 script:
   - npm run build:lib
