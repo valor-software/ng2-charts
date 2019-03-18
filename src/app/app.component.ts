@@ -11,11 +11,10 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ThemeService } from 'ng2-charts';
-import { ChartOptions } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material';
 import { Subscription } from 'rxjs';
+import { AppChartMetaConfig, ChartOptions, ThemeService } from './app-chart-config';
 
 @Component({
   selector: 'app-root',
@@ -82,7 +81,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private themeService: ThemeService,
+    private themeService: ThemeService<AppChartMetaConfig>,
     private router: Router,
     private route: ActivatedRoute,
   ) {
