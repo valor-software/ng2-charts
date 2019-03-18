@@ -21,7 +21,7 @@ export class ScatterChartComponent implements OnInit {
         { x: 2, y: 3 },
         { x: 3, y: -2 },
         { x: 4, y: 4 },
-        { x: 5, y: -3, r: 20 },
+        { x: 5, y: -3 },
       ],
       label: 'Series A',
       pointRadius: 10,
