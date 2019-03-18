@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts-schematics",
-  "version": "0.1.7",
+  "version": "0.2.0-beta.1",
   "description": "ng2-charts schematics collection for generating chart components",
   "scripts": {
     "build": "tsc -p tsconfig.json",

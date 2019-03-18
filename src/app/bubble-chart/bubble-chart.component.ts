@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color } from 'ng2-charts';
+import { ChartType, Color, LinearScale } from 'ng2-charts';
+import { ChartDataSetsBubble, ChartOptions } from '../app-chart-config';
 
 @Component({
   selector: 'app-bubble-chart',
@@ -8,32 +8,31 @@ import { Color } from 'ng2-charts';
   styleUrls: ['./bubble-chart.component.scss']
 })
 export class BubbleChartComponent implements OnInit {
+  xAxis: LinearScale = {
+    ticks: {
+      min: 0,
+      max: 30,
+    }
+  };
+  yAxis: LinearScale = {
+    ticks: {
+      min: 0,
+      max: 30,
+    }
+  };
   public bubbleChartOptions: ChartOptions = {
     responsive: true,
     scales: {
-      xAxes: [
-        {
-          ticks: {
-            min: 0,
-            max: 30,
-          }
-        }
-      ],
-      yAxes: [
-        {
-          ticks: {
-            min: 0,
-            max: 30,
-          }
-        }
-      ]
+      xAxes: [this.xAxis],
+      yAxes: [this.yAxis],
     }
   };
   public bubbleChartType: ChartType = 'bubble';
   public bubbleChartLegend = true;
 
-  public bubbleChartData: ChartDataSets[] = [
+  public bubbleChartData: ChartDataSetsBubble[] = [
     {
+      type: 'bubble',
       data: [
         { x: 10, y: 10, r: 10 },
         { x: 15, y: 5, r: 15 },

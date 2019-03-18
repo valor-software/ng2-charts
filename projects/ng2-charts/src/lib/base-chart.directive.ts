@@ -16,24 +16,20 @@ import { Color } from './color';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { cloneDeep } from 'lodash-es';
-import {
-  Chart,
-  ChartConfiguration,
-  ChartDataSets,
-  ChartOptions,
-  ChartPoint, ChartType,
-  PluginServiceGlobalRegistration,
-  PluginServiceRegistrationOptions,
-  pluginService
-} from 'chart.js';
+import { BaseChartMetaConfig } from './chartjs/base-chart-meta-config';
+import { PluginServiceGlobalRegistration } from './chartjs/plugin-service-global-registration';
+import { PluginServiceRegistrationOptions } from './chartjs/plugin-service-registration-options';
+import { ChartOptions } from './chartjs/chart-options';
+import { ChartConfiguration } from './chartjs/chart-configuration';
+import { ChartDataSetsUnion } from './chartjs/chart-data-sets-union';
+import { AngularChart } from './chartjs/angular-chart';
 
-export type SingleDataSet = Array<number | null | undefined | number[]> | ChartPoint[];
-export type MultiDataSet = SingleDataSet[];
-export type SingleOrMultiDataSet = SingleDataSet | MultiDataSet;
+export type SingleDataSet<T extends BaseChartMetaConfig> = T['datasetTypes']['data'];
+export type MultiDataSet<T extends BaseChartMetaConfig> = Array<T['datasetTypes']['data']>;
+export type SingleOrMultiDataSet<T extends BaseChartMetaConfig> = SingleDataSet<T> | MultiDataSet<T>;
 
-export type PluginServiceGlobalRegistrationAndOptions =
-  PluginServiceGlobalRegistration
-  & PluginServiceRegistrationOptions;
+export type PluginServiceGlobalRegistrationAndOptions<T extends BaseChartMetaConfig> =
+  PluginServiceGlobalRegistration & PluginServiceRegistrationOptions<T>;
 export type SingleLineLabel = string;
 export type MultiLineLabel = string[];
 export type Label = SingleLineLabel | MultiLineLabel;
@@ -66,21 +62,31 @@ enum UpdateType {
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
+<<<<<<< HEAD
 export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck {
   @Input() public data: SingleOrMultiDataSet;
   @Input() public datasets: ChartDataSets[];
   @Input() public labels: Label[];
   @Input() public options: ChartOptions = {};
   @Input() public chartType: ChartType;
+=======
+export class BaseChartDirective<T extends BaseChartMetaConfig>
+  implements OnDestroy, OnChanges, OnInit, OnDestroy, DoCheck {
+  @Input() public data: T['datasetTypes']['data'];
+  @Input() public datasets: T['datasetTypes'][];
+  @Input() public labels: Label[];
+  @Input() public options: ChartOptions<T> = {};
+  @Input() public chartType: T['datasetTypes']['type'];
+>>>>>>> f660df5 (refactor: Implemented strict typing)
   @Input() public colors: Color[];
   @Input() public legend: boolean;
-  @Input() public plugins: PluginServiceGlobalRegistrationAndOptions[];
+  @Input() public plugins: PluginServiceGlobalRegistrationAndOptions<T>[];
 
   @Output() public chartClick: EventEmitter<{ event?: MouseEvent, active?: {}[] }> = new EventEmitter();
   @Output() public chartHover: EventEmitter<{ event: MouseEvent, active: {}[] }> = new EventEmitter();
 
   public ctx: string;
-  public chart: Chart;
+  public chart: AngularChart<T>;
 
   private old: OldState = {
     dataExists: false,
@@ -102,17 +108,26 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
   /**
    * Register a plugin.
    */
+<<<<<<< HEAD
   public static registerPlugin(plugin: PluginServiceGlobalRegistrationAndOptions): void {
     pluginService.register(plugin);
   }
 
   public static unregisterPlugin(plugin: PluginServiceGlobalRegistrationAndOptions): void {
     pluginService.unregister(plugin);
+=======
+  public static registerPlugin<T extends BaseChartMetaConfig>(plugin: PluginServiceGlobalRegistrationAndOptions<T>) {
+    AngularChart.plugins.register(plugin);
+  }
+
+  public static unregisterPlugin<T extends BaseChartMetaConfig>(plugin: PluginServiceGlobalRegistrationAndOptions<T>) {
+    AngularChart.plugins.unregister(plugin);
+>>>>>>> f660df5 (refactor: Implemented strict typing)
   }
 
   public constructor(
     private element: ElementRef,
-    private themeService: ThemeService,
+    private themeService: ThemeService<T>,
   ) { }
 
   public ngOnInit(): void {
@@ -381,7 +396,11 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     return this.chart.toBase64Image();
   }
 
+<<<<<<< HEAD
   public getChartConfiguration(): ChartConfiguration {
+=======
+  public getChartConfiguration(): ChartConfiguration<T> {
+>>>>>>> f660df5 (refactor: Implemented strict typing)
     const datasets = this.getDatasets();
 
     const options = Object.assign({}, this.options);
@@ -390,8 +409,8 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     }
     // hook for onHover and onClick events
     options.hover = options.hover || {};
-    if (!options.hover.onHover) {
-      options.hover.onHover = (event: MouseEvent, active: {}[]) => {
+    if (!options.onHover) {
+      options.onHover = (event: MouseEvent, active: {}[]) => {
         if (active && !active.length) {
           return;
         }
@@ -407,7 +426,11 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
 
     const mergedOptions = this.smartMerge(options, this.themeService.getColorschemesOptions());
 
+<<<<<<< HEAD
     return {
+=======
+    const chartConfig: ChartConfiguration<T> = {
+>>>>>>> f660df5 (refactor: Implemented strict typing)
       type: this.chartType,
       data: {
         labels: this.labels || [],
@@ -418,9 +441,13 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     };
   }
 
-  public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
+  public getChartBuilder(ctx: string/*, data:any[], options:any*/): AngularChart<T> {
     const chartConfig = this.getChartConfiguration();
+<<<<<<< HEAD
     return new Chart(ctx, chartConfig);
+=======
+    return new AngularChart(ctx, chartConfig);
+>>>>>>> f660df5 (refactor: Implemented strict typing)
   }
 
   smartMerge(options: any, overrides: any, level: number = 0): any {
@@ -450,6 +477,11 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     }
   }
 
+  private isChartDataSetsArray(v: T['datasetTypes']['data'] | Array<T['datasetTypes']>): v is T['datasetTypes'][] {
+    const elm = v[0];
+    return (typeof (elm) === 'object') && 'data' in elm;
+  }
+
   private isMultiLineLabel(label: Label): label is MultiLineLabel {
     return Array.isArray(label);
   }
@@ -465,7 +497,11 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     }
   }
 
+<<<<<<< HEAD
   private propagateDatasetsToData(datasets: ChartDataSets[]): void {
+=======
+  private propagateDatasetsToData(datasets: Array<T['datasetTypes']>) {
+>>>>>>> f660df5 (refactor: Implemented strict typing)
     this.data = this.datasets.map(r => r.data);
     if (this.chart) {
       this.chart.data.datasets = datasets;
@@ -473,7 +509,7 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     this.updateColors();
   }
 
-  private propagateDataToDatasets(newDataValues: SingleOrMultiDataSet): void {
+  private propagateDataToDatasets(newDataValues: SingleOrMultiDataSet<T>): void {
     if (this.isMultiDataSet(newDataValues)) {
       if (this.datasets && newDataValues.length === this.datasets.length) {
         this.datasets.forEach((dataset, i: number) => {
@@ -505,7 +541,7 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     this.updateColors();
   }
 
-  private isMultiDataSet(data: SingleOrMultiDataSet): data is MultiDataSet {
+  private isMultiDataSet(data: SingleOrMultiDataSet<T>): data is MultiDataSet<T> {
     return Array.isArray(data[0]);
   }
 

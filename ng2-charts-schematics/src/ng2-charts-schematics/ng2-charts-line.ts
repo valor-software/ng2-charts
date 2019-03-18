@@ -1,7 +1,8 @@
-import { Rule, SchematicContext, Tree, externalSchematic, chain } from '@angular-devkit/schematics';
+import { Rule, externalSchematic, chain } from '@angular-devkit/schematics';
 import { ng2ProcessTree } from './ng2-process-tree';
+import { buildMetaConfig } from './build-meta-config';
 
-const newCode = `public lineChartData: ChartDataSets[] = [
+const newCode = `public lineChartData: ChartDataSetsLine[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
   ];
   public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -37,8 +38,7 @@ const newMarkup = `<div style="display: block;">
 `;
 
 const newImports: [string, string][] = [
-  ['ChartDataSets, ChartOptions, ChartType', 'chart.js'],
-  ['Color, Label', 'ng2-charts'],
+  ['ChartDataSetsLine, ChartOptions, ChartType, Color, Label', 'src/app/app-chart-config'],
 ];
 
 // You don't have to export the function as default. You can also have more than one rule factory
@@ -46,6 +46,8 @@ const newImports: [string, string][] = [
 export function ng2ChartsLine(_options: any): Rule {
   return chain([
     externalSchematic('@schematics/angular', 'component', _options),
-    (tree: Tree, _context: SchematicContext) => ng2ProcessTree(tree, _context, _options, newCode, newMarkup, newImports)
+    buildMetaConfig(_options),
+    buildMetaConfig(_options),
+    ng2ProcessTree(_options, newCode, newMarkup, newImports),
   ]);
 }

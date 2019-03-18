@@ -2,7 +2,6 @@
   "name": "ng2-charts-demo",
   "version": "1.0.0",
   "scripts": {
-    "demo.deploy-gh-pages": "gh-pages -d dist/ng2-charts-demo",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -17,7 +16,8 @@
     "publish:schem": "cd ng2-charts-schematics && npm publish && cd ..",
     "test": "ng test",
     "test:headless": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
-    "test:main": "cypress run --spec \"cypress/integration/main-test.js\"",
+    "test:main": "APPLITOOLS_API_KEY=Nls100t102uNgLhLpblVUdA3tP104MQQS9VUYgHQ5tYOUuIxU110 APPLITOOLS_CONCURRENCY=100 cypress run --spec \"cypress/integration/main-test.js\"",
+    "test:screenshot": "node cypress/integration/screenshot-test.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -36,18 +36,16 @@
     "chart.js": "^2.9.4",
     "chartjs-adapter-luxon": "^0.2.2",
     "chartjs-plugin-annotation": "^0.5.7",
-    "chartjs-plugin-datalabels": "^0.7.0",
-    "core-js": "^3.7.0",
-    "highlight.js": "^10.3.2",
-    "lodash-es": "^4.17.15",
-    "luxon": "^1.25.0",
-    "marked": "^1.2.4",
-    "ngx-highlightjs": "^4.1.2",
-    "ngx-markdown": "^10.1.1",
-    "prismjs": "^1.22.0",
-    "rxjs": "^6.6.3",
-    "tsickle": "^0.39.1",
-    "zone.js": "^0.10.3"
+    "chartjs-plugin-datalabels": "^0.6.0",
+    "core-js": "^3.1.3",
+    "highlight.js": "^9.15.8",
+    "luxon": "^1.15.0",
+    "marked": "^0.6.2",
+    "ngx-highlightjs": "^3.0.3",
+    "ngx-markdown": "^7.1.5",
+    "prismjs": "^1.16.0",
+    "rxjs": "~6.5.2",
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1100.1",
@@ -75,10 +73,12 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^11.0.2",
     "ng2-charts-schematics": "file:ng2-charts-schematics",
-    "ts-node": "^8.10.2",
-    "tslib": "^2.0.3",
-    "tslint": "^6.1.3",
-    "typescript": "^4.0.5",
-    "wait-on": "^5.2.0"
+    "protractor": "~6.0.0",
+    "ts-node": "^8.2.0",
+    "tsickle": "0.35.0",
+    "tslib": "^1.9.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5",
+    "wait-on": "2.1.0"
   }
 }

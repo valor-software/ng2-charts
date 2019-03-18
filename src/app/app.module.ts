@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BaseChartDirective, ChartsModule, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
-import { Route, RouterModule } from '@angular/router';
+import {
+  monkeyPatchChartJsLegend,
+  monkeyPatchChartJsTooltip
+} from 'ng2-charts';
+import { AppChartMetaConfig, ChartsModule, BaseChartDirective, ThemeService } from './app-chart-config';
+import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +35,10 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
     // scss: import('highlight.js/lib/languages/scss'),
     xml: () => import('highlight.js/lib/languages/xml')
   };
+}
+
+export function themeServiceFactory() {
+  return new ThemeService<AppChartMetaConfig>();
 }
 
 @NgModule({
@@ -65,7 +73,8 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
         coreLibraryLoader: () => import('highlight.js/lib/core'),
         languages: hljsLanguages()
       }
-    }
+    },
+    { provide: ThemeService, useFactory: themeServiceFactory }
   ],
   bootstrap: [ AppComponent ]
 })
