@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:4200/",
+  "video": false,
+  "eyesTimeout": 1200000,
+  "viewportWidth": 1366,
+  "viewportHeight": 768
+}

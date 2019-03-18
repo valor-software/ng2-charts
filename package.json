@@ -13,6 +13,8 @@
     "publish:schem": "cd ng2-charts-schematics && npm publish && cd ..",
     "test": "ng test",
     "test:headless": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
+    "test:main": "APPLITOOLS_API_KEY=Nls100t102uNgLhLpblVUdA3tP104MQQS9VUYgHQ5tYOUuIxU110 APPLITOOLS_CONCURRENCY=100 cypress run --spec \"cypress/integration/main-test.js\"",
+    "test:screenshot": "node cypress/integration/screenshot-test.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -46,11 +48,14 @@
     "@angular/cli": "~7.3.5",
     "@angular/compiler-cli": "~7.2.9",
     "@angular/language-service": "~7.2.9",
+    "@applitools/eyes.cypress": "3.4.2",
     "@types/chart.js": "^2.7.48",
     "@types/jasmine": "~3.3.9",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^11.11.3",
     "codelyzer": "~4.5.0",
+    "cypress": "3.1.5",
+    "eyes.images": "^3.6.3",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.1",
@@ -65,6 +70,7 @@
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
     "tslint": "^5.14.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "wait-on": "2.1.0"
   }
 }
