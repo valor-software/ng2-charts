@@ -4,7 +4,7 @@ import { ThemeService } from './theme.service';
 
 describe('BaseChartDirective', () => {
   it('should create an instance', () => {
-    const directive = new BaseChartDirective(null as ElementRef, null as ThemeService);
+    const directive = new BaseChartDirective(null as ElementRef, null as ThemeService<any>);
     expect(directive).toBeTruthy();
   });
 });
