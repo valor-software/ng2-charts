@@ -14,8 +14,11 @@ Beautiful charts for Angular2 based on Chart.js
 
 # Usage & Demo
 
+<<<<<<< HEAD
 Sample using ng2-charts@2.2.4
 
+=======
+>>>>>>> refactor: Implemented strict typing
 https://valor-software.com/ng2-charts/
 
 
@@ -26,7 +29,11 @@ https://valor-software.com/ng2-charts/
 1. You can install ***ng2-charts*** using npm
 
   ```bash
+<<<<<<< HEAD
   npm install ng2-charts@2.2.4 --save
+=======
+  npm install ng2-charts --save
+>>>>>>> refactor: Implemented strict typing
   ```
 2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
@@ -118,7 +125,7 @@ public set selectedTheme(value) {
   this.themeService.setColorschemesOptions(overrides);
 }
 
-constructor(private themeService: ThemeService) { }
+constructor(private themeService: ThemeService<AppChartMetaConfig>) { }
 
 setCurrentTheme(theme: Theme) {
   this.selectedTheme = theme;

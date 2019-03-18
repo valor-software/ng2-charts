@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
-  ChartsModule,
-  BaseChartDirective,
   monkeyPatchChartJsLegend,
   monkeyPatchChartJsTooltip
 } from 'ng2-charts';
+import { AppChartMetaConfig, ChartsModule, BaseChartDirective, ThemeService } from './app-chart-config';
 import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -40,6 +39,10 @@ export function hljsLanguages() {
   ];
 }
 
+export function themeServiceFactory() {
+  return new ThemeService<AppChartMetaConfig>();
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,9 @@ export function hljsLanguages() {
       languages: hljsLanguages,
     })
   ],
-  providers: [],
+  providers: [
+    { provide: ThemeService, useFactory: themeServiceFactory }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
