@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ChartOptions } from 'chart.js';
+import { ChartOptions, BaseChartMetaConfig, ChartMetaConfig } from 'chart.js';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService {
-  private pColorschemesOptions: ChartOptions = {};
-  public colorschemesOptions = new BehaviorSubject<ChartOptions>({});
+export class ThemeService<T extends BaseChartMetaConfig = ChartMetaConfig> {
+  private pColorschemesOptions: ChartOptions<T> = {};
+  public colorschemesOptions = new BehaviorSubject<ChartOptions<T>>({});
 
   constructor() { }
 
-  setColorschemesOptions(options: ChartOptions) {
+  setColorschemesOptions(options: ChartOptions<T>) {
     this.pColorschemesOptions = options;
     this.colorschemesOptions.next(options);
   }

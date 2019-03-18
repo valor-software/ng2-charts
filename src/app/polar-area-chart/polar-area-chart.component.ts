@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SingleDataSet, Label } from 'ng2-charts';
 import { ChartType } from 'chart.js';
+import { AppChartMetaConfig } from '../app-chart-meta-config';
 
 @Component({
   selector: 'app-polar-area-chart',
@@ -10,7 +11,7 @@ import { ChartType } from 'chart.js';
 export class PolarAreaChartComponent implements OnInit {
   // PolarArea
   public polarAreaChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-  public polarAreaChartData: SingleDataSet = [300, 500, 100, 40, 120];
+  public polarAreaChartData: SingleDataSet<AppChartMetaConfig> = [300, 500, 100, 40, 120];
   public polarAreaLegend = true;
 
   public polarAreaChartType: ChartType = 'polarArea';

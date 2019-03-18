@@ -114,7 +114,7 @@ public set selectedTheme(value) {
   this.themeService.setColorschemesOptions(overrides);
 }
 
-constructor(private themeService: ThemeService) { }
+constructor(private themeService: ThemeService<AppChartMetaConfig>) { }
 
 setCurrentTheme(theme: Theme) {
   this.selectedTheme = theme;

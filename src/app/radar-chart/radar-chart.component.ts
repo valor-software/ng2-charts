@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { AppChartMetaConfig } from '../app-chart-meta-config';
 
 @Component({
   selector: 'app-radar-chart',
@@ -9,7 +10,7 @@ import { Label } from 'ng2-charts';
 })
 export class RadarChartComponent implements OnInit {
   // Radar
-  public radarChartOptions: ChartOptions = {
+  public radarChartOptions: ChartOptions<AppChartMetaConfig> = {
     responsive: true,
   };
   public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { SingleDataSet, Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { AppChartMetaConfig } from '../app-chart-meta-config';
 
 @Component({
   selector: 'app-pie-chart',
@@ -10,7 +11,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 })
 export class PieChartComponent implements OnInit {
   // Pie
-  public pieChartOptions: ChartOptions = {
+  public pieChartOptions: ChartOptions<AppChartMetaConfig> = {
     responsive: true,
     plugins: {
       datalabels: {
@@ -22,7 +23,7 @@ export class PieChartComponent implements OnInit {
     }
   };
   public pieChartLabels: Label[] = [['Download', 'Sales'], 'In-Store Sales', 'Mail Sales'];
-  public pieChartData: SingleDataSet = [300, 500, 100];
+  public pieChartData: SingleDataSet<AppChartMetaConfig> = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];

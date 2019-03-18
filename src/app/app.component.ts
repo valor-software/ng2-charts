@@ -16,6 +16,7 @@ import { ChartOptions } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material';
 import { Subscription } from 'rxjs';
+import { AppChartMetaConfig } from './app-chart-meta-config';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.renderer.removeClass(this.document.body, this._selectedTheme);
     this._selectedTheme = value;
     this.renderer.addClass(this.document.body, value);
-    let overrides: ChartOptions;
+    let overrides: ChartOptions<AppChartMetaConfig>;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
       overrides = {};
     } else {
@@ -82,7 +83,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private themeService: ThemeService,
+    private themeService: ThemeService<AppChartMetaConfig>,
     private router: Router,
     private route: ActivatedRoute,
   ) {

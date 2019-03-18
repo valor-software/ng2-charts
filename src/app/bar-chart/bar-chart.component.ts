@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
+import { AppChartMetaConfig } from '../app-chart-meta-config';
 
 @Component({
   selector: 'app-bar-chart',
@@ -9,7 +10,7 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./bar-chart.component.scss'],
 })
 export class BarChartComponent implements OnInit {
-  public barChartOptions: ChartOptions = {
+  public barChartOptions: ChartOptions<AppChartMetaConfig> = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{}] },

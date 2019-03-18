@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { AppChartMetaConfig } from '../app-chart-meta-config';
 
 @Component({
   selector: 'app-scatter-chart',
@@ -9,7 +10,7 @@ import { Label } from 'ng2-charts';
 })
 export class ScatterChartComponent implements OnInit {
   // scatter
-  public scatterChartOptions: ChartOptions = {
+  public scatterChartOptions: ChartOptions<AppChartMetaConfig> = {
     responsive: true,
   };
   public scatterChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];

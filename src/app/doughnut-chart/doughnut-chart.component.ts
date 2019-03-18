@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
+import { AppChartMetaConfig } from '../app-chart-meta-config';
 
 @Component({
   selector: 'app-doughnut-chart',
@@ -10,7 +11,7 @@ import { MultiDataSet, Label } from 'ng2-charts';
 export class DoughnutChartComponent implements OnInit {
   // Doughnut
   public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: MultiDataSet = [
+  public doughnutChartData: MultiDataSet<AppChartMetaConfig> = [
     [350, 450, 100],
     [50, 150, 120],
     [250, 130, 70],
