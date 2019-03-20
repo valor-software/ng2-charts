@@ -47,7 +47,6 @@ export function ng2ChartsLine(_options: any): Rule {
   return chain([
     externalSchematic('@schematics/angular', 'component', _options),
     buildMetaConfig(_options),
-    buildMetaConfig(_options),
     ng2ProcessTree(_options, newCode, newMarkup, newImports),
   ]);
 }

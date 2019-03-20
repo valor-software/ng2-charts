@@ -26,6 +26,7 @@ export {
   ScaleUnion,
   ThemeService,
   BaseChartDirective,
+  Label,
 } from 'ng2-charts';
 
 export type AngularChart = ng2Charts.AngularChart<AppChartMetaConfig>;
