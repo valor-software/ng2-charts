@@ -11,9 +11,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "types": [
-      "node"
-    ],
+    "types": [],
     "lib": [
       "dom",
       "es2018"
