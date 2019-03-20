@@ -33,6 +33,12 @@ export function buildMetaConfig(_options: any): Rule {
     _options.metaname = parsedPath.name;
     _options.metapath = parsedPath.path;
 
+    const metaConfigExists = tree.exists('/src/app/app-chart-config.ts');
+
+    if (metaConfigExists) {
+      return tree;
+    }
+
     const templateSource = apply(url('./files'), [
       applyTemplates({
         ...strings,
