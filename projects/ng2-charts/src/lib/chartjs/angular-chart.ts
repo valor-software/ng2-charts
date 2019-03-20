@@ -9,7 +9,7 @@ import { ChartFontOptions } from './chart-font-options';
 import { ChartTooltipsStaticConfiguration } from './chart-tooltips-static-configuration';
 import { ChartArea } from './chart-area';
 
-require('chart.js');
+import 'chart.js';
 
 declare class Chart {
   // tslint:disable-next-line:variable-name
