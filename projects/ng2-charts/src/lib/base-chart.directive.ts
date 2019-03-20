@@ -25,6 +25,12 @@ export type SingleLineLabel = string;
 export type MultiLineLabel = string[];
 export type Label = SingleLineLabel | MultiLineLabel;
 
+enum UpdateType {
+  Default,
+  Update,
+  Refresh
+}
+
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: 'canvas[baseChart]',
@@ -80,7 +86,11 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
   public ngOnChanges(changes: SimpleChanges) {
     if (this.initFlag) {
-      let updateRequired = false;
+      let updateRequired = UpdateType.Default;
+      const wantUpdate = (x: UpdateType) => {
+        updateRequired = x > updateRequired ? x : updateRequired;
+      };
+
       // Check if the changes are in the data or datasets or labels or legend
 
       if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
@@ -90,28 +100,34 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
           this.updateChartData(changes.datasets.currentValue);
         }
 
-        updateRequired = true;
+        wantUpdate(UpdateType.Update);
       }
 
       if (changes.hasOwnProperty('labels')) {
         this.chart.data.labels = changes.labels.currentValue;
 
-        updateRequired = true;
+        wantUpdate(UpdateType.Update);
       }
 
       if (changes.hasOwnProperty('legend')) {
         this.chart.config.options.legend.display = changes.legend.currentValue;
         this.chart.generateLegend();
 
-        updateRequired = true;
+        wantUpdate(UpdateType.Update);
       }
 
-      if (updateRequired) {
-        // ... if so, update chart
-        this.chart.update();
-      } else {
-        // otherwise rebuild the chart
-        this.refresh();
+      if (changes.hasOwnProperty('options')) {
+        wantUpdate(UpdateType.Refresh);
+      }
+
+      switch (updateRequired as UpdateType) {
+        case UpdateType.Update:
+          this.update();
+          break;
+        case UpdateType.Refresh:
+        case UpdateType.Default:
+          this.refresh();
+          break;
       }
     }
   }
