@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Label, ChartType } from 'ng2-charts';
-import { ChartOptions, ChartDataSetsScatter } from '../app-chart-config';
+import { ChartOptions, ChartDataSetsScatter, Label, ChartType } from '../app-chart-config';
 
 @Component({
   selector: 'app-scatter-chart',

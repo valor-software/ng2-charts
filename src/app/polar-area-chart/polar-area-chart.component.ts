@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Label, ChartType } from 'ng2-charts';
-import { SingleDataSet } from '../app-chart-config';
+import { SingleDataSet, Label, ChartType } from '../app-chart-config';
 
 @Component({
   selector: 'app-polar-area-chart',
