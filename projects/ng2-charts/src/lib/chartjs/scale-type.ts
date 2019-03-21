@@ -1,1 +1,3 @@
-export type ScaleType = 'category' | 'linear' | 'logarithmic' | 'time' | 'radialLinear';
+import { BaseChartMetaConfig } from './base-chart-meta-config';
+
+export type ScaleType<T extends BaseChartMetaConfig> = T['scaleTypes']['type'];

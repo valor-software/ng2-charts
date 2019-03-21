@@ -1,1 +1,3 @@
-export type ChartType = 'line' | 'bar' | 'horizontalBar' | 'radar' | 'doughnut' | 'polarArea' | 'bubble' | 'pie' | 'scatter';
+import { BaseChartMetaConfig } from './base-chart-meta-config';
+
+export type ChartType<T extends BaseChartMetaConfig> = T['datasetTypes']['type'];
