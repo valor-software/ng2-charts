@@ -46,6 +46,11 @@ export const chartTypes = {
     ts: require('!!raw-loader!../scatter-chart/scatter-chart.component.ts'),
     html: require('!!raw-loader!../scatter-chart/scatter-chart.component.html'),
   },
+  financial: {
+    heading: 'Financial Chart',
+    ts: require('!!raw-loader!../financial-chart/financial-chart.component.ts'),
+    html: require('!!raw-loader!../financial-chart/financial-chart.component.html'),
+  },
 };
 
 

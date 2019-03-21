@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, Label } from 'ng2-charts';
-import { ChartDataSetsBar, ChartOptions } from '../app-chart-config';
+import { ChartDataSetsBar, ChartOptions, Label, ChartType } from '../app-chart-config';
 
 @Component({
   selector: 'app-dynamic-chart',

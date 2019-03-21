@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Label, ChartType } from 'ng2-charts';
-import { ChartOptions, ChartDataSetsRadar } from '../app-chart-config';
+import { ChartOptions, ChartDataSetsRadar, Label, ChartType } from '../app-chart-config';
 
 @Component({
   selector: 'app-radar-chart',

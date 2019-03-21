@@ -1,0 +1,3 @@
+[submodule "chartjs-chart-financial"]
+	path = chartjs-chart-financial
+	url = git@github.com:chartjs/chartjs-chart-financial.git

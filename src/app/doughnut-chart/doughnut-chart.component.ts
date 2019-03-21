@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, Label } from 'ng2-charts';
-import { MultiDataSet } from '../app-chart-config';
+import { MultiDataSet, Label, ChartType } from '../app-chart-config';
 
 @Component({
   selector: 'app-doughnut-chart',

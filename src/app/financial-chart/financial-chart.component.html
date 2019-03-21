@@ -1,0 +1,13 @@
+<div class="chart">
+  <canvas baseChart width="400" height="400"
+    [datasets]="financialChartData"
+    [options]="financialChartOptions"
+    [colors]="financialChartColors"
+    [legend]="financialChartLegend"
+    [chartType]="financialChartType"
+    [plugins]="financialChartPlugins">
+  </canvas>
+</div>
+<div>
+  <button mat-button mat-raised-button color="primary" (click)="update()">Update</button>
+</div>

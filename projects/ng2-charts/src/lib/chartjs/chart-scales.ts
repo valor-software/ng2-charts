@@ -21,5 +21,5 @@ export interface ChartScales<T extends BaseChartMetaConfig> {
   /**
    * @deprecated Not found in js
    */
-  type?: ScaleType | string;
+  type?: ScaleType<T>;
 }

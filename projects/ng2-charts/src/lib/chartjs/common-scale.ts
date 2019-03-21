@@ -1,9 +1,12 @@
 import { BaseTickOptions } from './base-tick-options';
 import { GridLineOptions } from './grid-line-options';
 import { ChartScaleCallbacks } from './chart-scale-callbacks';
+import { BaseChartMetaConfig } from './base-chart-meta-config';
+import { ScaleType } from './scale-type';
 
-export interface CommonScale extends ChartScaleCallbacks {
+export interface CommonScale<T extends BaseChartMetaConfig> extends ChartScaleCallbacks {
   id?: string;
+  type?: ScaleType<T>;
   display?: boolean;
   weight?: number;
   // [Charts/Line/Stacked Area Chart](https://www.chartjs.org/docs/latest/charts/line.html#stacked-area-chart)

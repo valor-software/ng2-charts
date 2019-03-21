@@ -22,6 +22,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
+import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
 const routes: Route[] = [];
 
@@ -51,6 +52,7 @@ export function themeServiceFactory() {
     ChartHostComponent,
     BubbleChartComponent,
     ScatterChartComponent,
+    FinancialChartComponent,
   ],
   imports: [
     BrowserModule,
