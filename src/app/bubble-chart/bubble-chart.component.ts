@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, Color, LinearScale } from 'ng2-charts';
-import { ChartDataSetsBubble, ChartOptions } from '../app-chart-config';
+import { ChartDataSetsBubble, ChartOptions, LinearScale, ChartType, Color } from '../app-chart-config';
 
 @Component({
   selector: 'app-bubble-chart',
