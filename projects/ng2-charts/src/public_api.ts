@@ -28,6 +28,7 @@ export * from './lib/chartjs/promiscuous-meta-config';
 export * from './lib/chartjs/linear-scale';
 export * from './lib/chartjs/logarithmic-scale';
 export * from './lib/chartjs/category-scale';
+export * from './lib/chartjs/time-scale';
 export * from './lib/chartjs/cartesian-scale';
 export * from './lib/chartjs/radial-scale';
 export * from './lib/chartjs/radial-linear-scale';
