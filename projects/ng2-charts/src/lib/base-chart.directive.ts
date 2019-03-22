@@ -322,7 +322,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
 
     if (!datasets) {
       throw new Error(`ng-charts configuration error,
-      data or datasets field are required to render char ${this.chartType}`);
+      data or datasets field are required to render chart ${this.chartType}`);
     }
 
     return datasets;
