@@ -49,7 +49,7 @@
     "@angular/compiler-cli": "~7.2.10",
     "@angular/language-service": "~7.2.10",
     "@applitools/eyes.cypress": "3.4.2",
-    "@types/chart.js": "^2.7.48",
+    "@types/chart.js": "^2.7.49",
     "@types/jasmine": "^3.3.12",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^11.11.4",
