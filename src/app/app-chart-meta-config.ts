@@ -22,7 +22,7 @@ export interface FinancialLinearScale extends ng2Charts.LinearScale<ng2Charts.Ch
 
 export interface AppChartMetaConfig extends ng2Charts.BaseChartMetaConfig {
   datasetTypes: ng2Charts.ChartMetaConfig['datasetTypes'] | FinancialDataSet;
-  scaleTypes: ng2Charts.ChartMetaConfig['scaleTypes'];
+  scaleTypes: ng2Charts.ChartMetaConfig['scaleTypes'] | FinancialLinearScale;
   pluginOptions: {
     datalabels?: any;
   };
