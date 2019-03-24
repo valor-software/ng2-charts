@@ -93,14 +93,16 @@ export class LineChartComponent implements OnInit {
   }
 
   public randomize(): void {
-    const lineChartData: ChartDataSets[] = new Array(this.lineChartData.length);
     for (let i = 0; i < this.lineChartData.length; i++) {
-      lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
       for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        lineChartData[i].data[j] = Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
+        this.lineChartData[i].data[j] = this.generateNumber(i);
       }
     }
-    this.lineChartData = lineChartData;
+    this.chart.update();
+  }
+
+  private generateNumber(i: number) {
+    return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
   }
 
   // events
@@ -115,5 +117,24 @@ export class LineChartComponent implements OnInit {
   public hideOne() {
     const isHidden = this.chart.isDatasetHidden(1);
     this.chart.hideDataset(1, !isHidden);
+  }
+
+  public pushOne() {
+    this.lineChartData.forEach((x, i) => {
+      const num = this.generateNumber(i);
+      const data: number[] = x.data as number[];
+      data.push(num);
+    });
+    this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
+  }
+
+  public changeColor() {
+    this.lineChartColors[2].borderColor = 'green';
+    this.lineChartColors[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
+  }
+
+  public changeLabel() {
+    this.lineChartLabels[2] = ['1st Line', '2nd Line'];
+    // this.chart.update();
   }
 }

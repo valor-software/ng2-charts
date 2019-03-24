@@ -93,11 +93,6 @@ export class BubbleChartComponent implements OnInit {
   public randomize(): void {
     const numberOfPoints = this.rand(5) + 5;
     const data = Array.apply(null, { length: numberOfPoints }).map(r => this.randomPoint(30));
-    this.bubbleChartData = [
-      {
-        ...this.bubbleChartData[0],
-        data,
-      }
-    ];
+    this.bubbleChartData[0].data = data;
   }
 }
