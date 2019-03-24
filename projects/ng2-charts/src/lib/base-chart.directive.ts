@@ -8,6 +8,7 @@ import {
   EventEmitter,
   ElementRef,
   SimpleChanges,
+  DoCheck,
 } from '@angular/core';
 import * as chartJs from 'chart.js';
 import { getColors } from './get-colors';
@@ -25,6 +26,19 @@ export type SingleLineLabel = string;
 export type MultiLineLabel = string[];
 export type Label = SingleLineLabel | MultiLineLabel;
 
+interface OldState {
+  dataExists: boolean;
+  dataLength: number;
+  datasetsExists: boolean;
+  datasetsLength: number;
+  datasetsDataObjects: any[];
+  datasetsDataLengths: number[];
+  colorsExists: boolean;
+  colors: Color[];
+  labelsExist: boolean;
+  labels: Label[];
+}
+
 enum UpdateType {
   Default,
   Update,
@@ -36,7 +50,7 @@ enum UpdateType {
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestroy {
+export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestroy, DoCheck {
   @Input() public data: SingleOrMultiDataSet;
   @Input() public datasets: chartJs.ChartDataSets[];
   @Input() public labels: Label[];
@@ -51,7 +65,19 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
   public ctx: string;
   public chart: Chart;
-  private initFlag = false;
+
+  private old: OldState = {
+    dataExists: false,
+    dataLength: 0,
+    datasetsExists: false,
+    datasetsLength: 0,
+    datasetsDataObjects: [],
+    datasetsDataLengths: [],
+    colorsExists: false,
+    colors: [],
+    labelsExist: false,
+    labels: [],
+  };
 
   private subs: Subscription[] = [];
 
@@ -73,10 +99,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
   public ngOnInit() {
     this.ctx = this.element.nativeElement.getContext('2d');
-    this.initFlag = true;
-    if (this.data || this.datasets) {
-      this.refresh();
-    }
+    this.refresh();
     this.subs.push(this.themeService.colorschemesOptions.subscribe(r => this.themeChanged(r)));
   }
 
@@ -84,51 +107,224 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     this.refresh();
   }
 
+  ngDoCheck(): void {
+    if (!this.chart) {
+      return;
+    }
+    let updateRequired = UpdateType.Default;
+    const wantUpdate = (x: UpdateType) => {
+      updateRequired = x > updateRequired ? x : updateRequired;
+    };
+
+    if (!!this.data !== this.old.dataExists) {
+      this.propagateDataToDatasets(this.data);
+
+      this.old.dataExists = !!this.data;
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (this.data && this.data.length !== this.old.dataLength) {
+      this.old.dataLength = this.data && this.data.length || 0;
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (!!this.datasets !== this.old.datasetsExists) {
+      this.old.datasetsExists = !!this.datasets;
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (this.datasets && this.datasets.length !== this.old.datasetsLength) {
+      this.old.datasetsLength = this.datasets && this.datasets.length || 0;
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (this.datasets && this.datasets.filter((x, i) => x.data !== this.old.datasetsDataObjects[i]).length) {
+      this.old.datasetsDataObjects = this.datasets.map(x => x.data);
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (this.datasets && this.datasets.filter((x, i) => x.data.length !== this.old.datasetsDataLengths[i]).length) {
+      this.old.datasetsDataLengths = this.datasets.map(x => x.data.length);
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (!!this.colors !== this.old.colorsExists) {
+      this.old.colorsExists = !!this.colors;
+
+      this.updateColors();
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    // This smells of inefficiency, might need to revisit this
+    if (this.colors && this.colors.filter((x, i) => !this.colorsEqual(x, this.old.colors[i])).length) {
+      this.old.colors = this.colors.map(x => this.copyColor(x));
+
+      this.updateColors();
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (!!this.labels !== this.old.labelsExist) {
+      this.old.labelsExist = !!this.labels;
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (this.labels && this.labels.filter((x, i) => !this.labelsEqual(x, this.old.labels[i])).length) {
+      this.old.labels = this.labels.map(x => this.copyLabel(x));
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    switch (updateRequired as UpdateType) {
+      case UpdateType.Default:
+        break;
+      case UpdateType.Update:
+        this.update();
+        break;
+      case UpdateType.Refresh:
+        this.refresh();
+        break;
+    }
+  }
+
+  copyLabel(a: Label): Label {
+    if (Array.isArray(a)) {
+      return [...a];
+    }
+    return a;
+  }
+
+  labelsEqual(a: Label, b: Label) {
+    return true
+      && Array.isArray(a) === Array.isArray(b)
+      && (Array.isArray(a) || a === b)
+      && (!Array.isArray(a) || a.length === b.length)
+      && (!Array.isArray(a) || a.filter((x, i) => x !== b[i]).length === 0)
+      ;
+  }
+
+  copyColor(a: Color): Color {
+    const rc: Color = {
+      backgroundColor: a.backgroundColor,
+      borderWidth: a.borderWidth,
+      borderColor: a.borderColor,
+      borderCapStyle: a.borderCapStyle,
+      borderDash: a.borderDash,
+      borderDashOffset: a.borderDashOffset,
+      borderJoinStyle: a.borderJoinStyle,
+      pointBorderColor: a.pointBorderColor,
+      pointBackgroundColor: a.pointBackgroundColor,
+      pointBorderWidth: a.pointBorderWidth,
+      pointRadius: a.pointRadius,
+      pointHoverRadius: a.pointHoverRadius,
+      pointHitRadius: a.pointHitRadius,
+      pointHoverBackgroundColor: a.pointHoverBackgroundColor,
+      pointHoverBorderColor: a.pointHoverBorderColor,
+      pointHoverBorderWidth: a.pointHoverBorderWidth,
+      pointStyle: a.pointStyle,
+      hoverBackgroundColor: a.hoverBackgroundColor,
+      hoverBorderColor: a.hoverBorderColor,
+      hoverBorderWidth: a.hoverBorderWidth,
+    };
+
+    return rc;
+  }
+
+  colorsEqual(a: Color, b: Color) {
+    if (!a !== !b) {
+      return false;
+    }
+    return !a || true
+      && (a.backgroundColor === b.backgroundColor)
+      && (a.borderWidth === b.borderWidth)
+      && (a.borderColor === b.borderColor)
+      && (a.borderCapStyle === b.borderCapStyle)
+      && (a.borderDash === b.borderDash)
+      && (a.borderDashOffset === b.borderDashOffset)
+      && (a.borderJoinStyle === b.borderJoinStyle)
+      && (a.pointBorderColor === b.pointBorderColor)
+      && (a.pointBackgroundColor === b.pointBackgroundColor)
+      && (a.pointBorderWidth === b.pointBorderWidth)
+      && (a.pointRadius === b.pointRadius)
+      && (a.pointHoverRadius === b.pointHoverRadius)
+      && (a.pointHitRadius === b.pointHitRadius)
+      && (a.pointHoverBackgroundColor === b.pointHoverBackgroundColor)
+      && (a.pointHoverBorderColor === b.pointHoverBorderColor)
+      && (a.pointHoverBorderWidth === b.pointHoverBorderWidth)
+      && (a.pointStyle === b.pointStyle)
+      && (a.hoverBackgroundColor === b.hoverBackgroundColor)
+      && (a.hoverBorderColor === b.hoverBorderColor)
+      && (a.hoverBorderWidth === b.hoverBorderWidth)
+      ;
+  }
+
+  updateColors() {
+    this.datasets.forEach((elm, index) => {
+      if (this.colors && this.colors[index]) {
+        Object.assign(elm, this.colors[index]);
+      } else {
+        Object.assign(elm, getColors(this.chartType, index, elm.data.length), { ...elm });
+      }
+    });
+  }
+
   public ngOnChanges(changes: SimpleChanges) {
-    if (this.initFlag) {
-      let updateRequired = UpdateType.Default;
-      const wantUpdate = (x: UpdateType) => {
-        updateRequired = x > updateRequired ? x : updateRequired;
-      };
+    let updateRequired = UpdateType.Default;
+    const wantUpdate = (x: UpdateType) => {
+      updateRequired = x > updateRequired ? x : updateRequired;
+    };
 
-      // Check if the changes are in the data or datasets or labels or legend
+    // Check if the changes are in the data or datasets or labels or legend
 
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets')) {
-        if (changes.data) {
-          this.updateChartData(changes.data.currentValue);
-        } else {
-          this.updateChartData(changes.datasets.currentValue);
-        }
+    if (changes.hasOwnProperty('data') && changes.data.currentValue) {
+      this.propagateDataToDatasets(changes.data.currentValue);
 
-        wantUpdate(UpdateType.Update);
-      }
+      wantUpdate(UpdateType.Update);
+    }
 
-      if (changes.hasOwnProperty('labels')) {
+    if (changes.hasOwnProperty('datasets') && changes.datasets.currentValue) {
+      this.propagateDatasetsToData(changes.datasets.currentValue);
+
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (changes.hasOwnProperty('labels')) {
+      if (this.chart) {
         this.chart.data.labels = changes.labels.currentValue;
-
-        wantUpdate(UpdateType.Update);
       }
 
-      if (changes.hasOwnProperty('legend')) {
+      wantUpdate(UpdateType.Update);
+    }
+
+    if (changes.hasOwnProperty('legend')) {
+      if (this.chart) {
         this.chart.config.options.legend.display = changes.legend.currentValue;
         this.chart.generateLegend();
-
-        wantUpdate(UpdateType.Update);
       }
 
-      if (changes.hasOwnProperty('options')) {
-        wantUpdate(UpdateType.Refresh);
-      }
+      wantUpdate(UpdateType.Update);
+    }
 
-      switch (updateRequired as UpdateType) {
-        case UpdateType.Update:
-          this.update();
-          break;
-        case UpdateType.Refresh:
-        case UpdateType.Default:
-          this.refresh();
-          break;
-      }
+    if (changes.hasOwnProperty('options')) {
+      wantUpdate(UpdateType.Refresh);
+    }
+
+    switch (updateRequired as UpdateType) {
+      case UpdateType.Update:
+        this.update();
+        break;
+      case UpdateType.Refresh:
+      case UpdateType.Default:
+        this.refresh();
+        break;
     }
   }
 
@@ -141,7 +337,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
   }
 
   public update(duration?: any, lazy?: any) {
-    return this.chart.update(duration, lazy);
+    if (this.chart) {
+      return this.chart.update(duration, lazy);
+    }
   }
 
   public hideDataset(index: number, hidden: boolean) {
@@ -157,7 +355,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     return this.chart.toBase64Image();
   }
 
-  public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
+  public getChartConfiguration(): chartJs.ChartConfiguration {
     const datasets = this.getDatasets();
 
     const options = Object.assign({}, this.options);
@@ -186,13 +384,18 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     const chartConfig: chartJs.ChartConfiguration = {
       type: this.chartType,
       data: {
-        labels: this.labels,
+        labels: this.labels || [],
         datasets
       },
       plugins: this.plugins,
       options: mergedOptions,
     };
 
+    return chartConfig;
+  }
+
+  public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
+    const chartConfig = this.getChartConfiguration();
     return new chartJs.Chart(ctx, chartConfig);
   }
 
@@ -223,11 +426,6 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     }
   }
 
-  private isChartDataSetsArray(v: SingleOrMultiDataSet | chartJs.ChartDataSets[]): v is chartJs.ChartDataSets[] {
-    const elm = v[0];
-    return (typeof (elm) === 'object') && 'data' in elm;
-  }
-
   private isMultiLineLabel(label: Label): label is MultiLineLabel {
     return Array.isArray(label);
   }
@@ -243,77 +441,61 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     }
   }
 
-  private updateChartData(newDataValues: SingleOrMultiDataSet | chartJs.ChartDataSets[]): void {
-    if (this.isChartDataSetsArray(newDataValues)) {
-      if (newDataValues.length === this.chart.data.datasets.length) {
-        this.chart.data.datasets.forEach((dataset, i: number) => {
-          dataset.data = newDataValues[i].data;
-          if (newDataValues[i].label) {
-            dataset.label = newDataValues[i].label;
-          }
-        });
-      } else {
-        this.chart.data.datasets = [...newDataValues];
-      }
-    } else if (!this.isSingleDataSet(newDataValues)) {
-      if (newDataValues.length === this.chart.data.datasets.length) {
-        this.chart.data.datasets.forEach((dataset, i: number) => {
+  private propagateDatasetsToData(datasets: chartJs.ChartDataSets[]) {
+    this.data = this.datasets.map(r => r.data);
+    if (this.chart) {
+      this.chart.data.datasets = datasets;
+    }
+    this.updateColors();
+  }
+
+  private propagateDataToDatasets(newDataValues: SingleOrMultiDataSet): void {
+    if (this.isMultiDataSet(newDataValues)) {
+      if (this.datasets && newDataValues.length === this.datasets.length) {
+        this.datasets.forEach((dataset, i: number) => {
           dataset.data = newDataValues[i];
         });
       } else {
-        this.chart.data.datasets = newDataValues.map((data: number[], index: number) => {
+        this.datasets = newDataValues.map((data: number[], index: number) => {
           return { data, label: this.joinLabel(this.labels[index]) || `Label ${index}` };
         });
+        if (this.chart) {
+          this.chart.data.datasets = this.datasets;
+        }
       }
     } else {
-      this.chart.data.datasets[0].data = newDataValues;
-    }
-    this.chart.data.datasets.forEach((elm, index) => {
-      if (this.colors && this.colors[index]) {
-        Object.assign(elm, this.colors[index]);
+      if (!this.datasets) {
+        this.datasets = [{ data: newDataValues }];
+        if (this.chart) {
+          this.chart.data.datasets = this.datasets;
+        }
       } else {
-        Object.assign(elm, getColors(this.chartType, index, elm.data.length));
+        this.datasets[0].data = newDataValues;
+        this.datasets.splice(1); // Remove all elements but the first
       }
-    });
+    }
+    this.updateColors();
   }
 
-  private isSingleDataSet(data: SingleOrMultiDataSet): data is SingleDataSet {
-    return !Array.isArray(data[0]);
+  private isMultiDataSet(data: SingleOrMultiDataSet): data is MultiDataSet {
+    return Array.isArray(data[0]);
   }
 
   private getDatasets() {
-    let datasets: chartJs.ChartDataSets[] = void 0;
-    // in case if datasets is not provided, but data is present
-    if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
-      if (!this.isSingleDataSet(this.data)) {
-        datasets = this.data.map((data: number[], index: number) => {
-          return { data, label: this.joinLabel(this.labels[index]) || `Label ${index}` };
-        });
-      } else {
-        datasets = [{ data: this.data, label: `Label 0` }];
-      }
+    if (!this.datasets && !this.data) {
+      throw new Error(`ng-charts configuration error, data or datasets field are required to render chart ${this.chartType}`);
     }
 
-    if (this.datasets && this.datasets.length ||
-      (datasets && datasets.length)) {
-      datasets = (this.datasets || datasets)
-        .map((elm: chartJs.ChartDataSets, index: number) => {
-          const newElm: chartJs.ChartDataSets = Object.assign({}, elm);
-          if (this.colors && this.colors.length) {
-            Object.assign(newElm, this.colors[index]);
-          } else {
-            Object.assign(newElm, getColors(this.chartType, index, newElm.data.length));
-          }
-          return newElm;
-        });
+    // If `datasets` is defined, use it over the `data` property.
+    if (this.datasets) {
+      this.propagateDatasetsToData(this.datasets);
+      return this.datasets;
     }
 
-    if (!datasets) {
-      throw new Error(`ng-charts configuration error,
-      data or datasets field are required to render chart ${this.chartType}`);
+    if (this.data) {
+      this.propagateDataToDatasets(this.data);
+      return this.datasets;
     }
-
-    return datasets;
   }
 
   private refresh() {
@@ -326,6 +508,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
       this.chart.destroy();
       this.chart = void 0;
     }
-    this.chart = this.getChartBuilder(this.ctx/*, data, this.options*/);
+    if (this.ctx) {
+      this.chart = this.getChartBuilder(this.ctx/*, data, this.options*/);
+    }
   }
 }
