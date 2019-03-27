@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ChartsModule, BaseChartDirective } from 'ng2-charts';
+import {
+  ChartsModule,
+  BaseChartDirective,
+  monkeyPatchChartJsLegend,
+  monkeyPatchChartJsTooltip
+} from 'ng2-charts';
 import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -66,5 +71,7 @@ export function hljsLanguages() {
 export class AppModule {
   constructor() {
     BaseChartDirective.unregisterPlugin(pluginDataLabels);
+    monkeyPatchChartJsLegend();
+    monkeyPatchChartJsTooltip();
   }
 }

@@ -8,3 +8,5 @@ export * from './lib/color';
 export * from './lib/colors';
 export * from './lib/default-colors';
 export * from './lib/theme.service';
+export * from './lib/monkey-patch-chart-js-legend';
+export * from './lib/monkey-patch-chart-js-tooltip';
