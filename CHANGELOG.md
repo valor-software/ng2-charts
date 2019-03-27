@@ -1,5 +1,65 @@
 # Change Log
 
+## [v2.1.0](https://github.com/valor-software/ng2-charts/tree/v2.1.0) (2019-03-27)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.4...v2.1.0)
+
+## [v3.0.0-beta.4](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.4) (2019-03-26)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.0.4...v3.0.0-beta.4)
+
+**Closed issues:**
+
+- How to Increase spacing between legend and chart [\#1088](https://github.com/valor-software/ng2-charts/issues/1088)
+
+**Merged pull requests:**
+
+- feat: Detect changes in property fields [\#1089](https://github.com/valor-software/ng2-charts/pull/1089) ([paviad](https://github.com/paviad))
+
+## [v2.0.4](https://github.com/valor-software/ng2-charts/tree/v2.0.4) (2019-03-23)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.3...v2.0.4)
+
+**Closed issues:**
+
+- How to draw a mathematical function ? [\#1085](https://github.com/valor-software/ng2-charts/issues/1085)
+
+**Merged pull requests:**
+
+- Revert "typo" [\#1087](https://github.com/valor-software/ng2-charts/pull/1087) ([paviad](https://github.com/paviad))
+- typo [\#1084](https://github.com/valor-software/ng2-charts/pull/1084) ([dotob](https://github.com/dotob))
+
+## [v3.0.0-beta.3](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.3) (2019-03-21)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.2...v3.0.0-beta.3)
+
+**Closed issues:**
+
+- Repeat colors  after colors length [\#1074](https://github.com/valor-software/ng2-charts/issues/1074)
+
+## [v3.0.0-beta.2](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.2) (2019-03-20)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.1...v3.0.0-beta.2)
+
+## [v3.0.0-beta.1](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.1) (2019-03-20)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.0.3...v3.0.0-beta.1)
+
+**Fixed bugs:**
+
+- Update scales dynamically [\#1073](https://github.com/valor-software/ng2-charts/issues/1073)
+
+**Closed issues:**
+
+- Is label scrolling possible? [\#1076](https://github.com/valor-software/ng2-charts/issues/1076)
+- The chart does not show up after a couple page reloads. [\#1054](https://github.com/valor-software/ng2-charts/issues/1054)
+- change tooltip border-color width display border [\#1051](https://github.com/valor-software/ng2-charts/issues/1051)
+- It is possible set color over the line? [\#1016](https://github.com/valor-software/ng2-charts/issues/1016)
+- Click bar will open new window and show the respective bar in detail [\#943](https://github.com/valor-software/ng2-charts/issues/943)
+- RXJS Observable & ng2-chart example [\#827](https://github.com/valor-software/ng2-charts/issues/827)
+- Running ng2-charts on iOS with cordova  [\#617](https://github.com/valor-software/ng2-charts/issues/617)
+
+**Merged pull requests:**
+
+- tests\(common\): add snapshot tests with cypress and applitools [\#1072](https://github.com/valor-software/ng2-charts/pull/1072) ([ludmilanesvitiy](https://github.com/ludmilanesvitiy))
+
+## [v2.0.3](https://github.com/valor-software/ng2-charts/tree/v2.0.3) (2019-03-13)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.0.2...v2.0.3)
+
 ## [v2.0.2](https://github.com/valor-software/ng2-charts/tree/v2.0.2) (2019-03-12)
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.0.1...v2.0.2)
 
