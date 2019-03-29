@@ -21,7 +21,16 @@ cache:
 install:
   - npm ci
 
+  # Handle git submodules yourself
+git:
+    submodules: false
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+
 script:
+  - npm run install:financial
+  - npm run build:financial
   - npm run build:lib
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadless
   - ng serve &
