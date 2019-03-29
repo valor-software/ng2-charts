@@ -24,20 +24,7 @@ describe('Main Page', () => {
       })
       .eyesClose();
 
-    cy.get(mainContentSelector).should('be.visible')
-      .eyesOpen({
-        appName: 'NG2-charts',
-        testName: `NG2-charts Main Page Content`,
-        browser: browsers
-      })
-      .eyesCheckWindow({
-        sizeMode: 'selector',
-        selector: mainContentSelector,
-        sendDom: false,
-        /*ignore: [
-          {selector: '#gh-count'}]*/
-      })
-      .eyesClose();
+    cy.get(mainContentSelector).should('be.visible');
   });
 });
 
