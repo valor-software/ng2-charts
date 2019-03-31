@@ -37,6 +37,10 @@ interface OldState {
   colors: Color[];
   labelsExist: boolean;
   labels: Label[];
+  legendExists: boolean;
+  legend: {
+    position?: string;
+  };
 }
 
 enum UpdateType {
@@ -77,6 +81,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     colors: [],
     labelsExist: false,
     labels: [],
+    legendExists: false,
+    legend: {},
   };
 
   private subs: Subscription[] = [];
@@ -181,6 +187,18 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
       this.old.labels = this.labels.map(x => this.copyLabel(x));
 
       wantUpdate(UpdateType.Update);
+    }
+
+    if (!!this.options.legend !== this.old.legendExists) {
+      this.old.legendExists = !!this.options.legend;
+
+      wantUpdate(UpdateType.Refresh);
+    }
+
+    if (this.options.legend && this.options.legend.position !== this.old.legend.position) {
+      this.old.legend.position = this.options.legend.position;
+
+      wantUpdate(UpdateType.Refresh);
     }
 
     switch (updateRequired as UpdateType) {
