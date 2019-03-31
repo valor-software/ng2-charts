@@ -75,16 +75,14 @@ function fit() {
       ctx.textBaseline = 'top';
 
       helpers.each(me.legendItems, function (legendItem, i) {
-        var width, height, grossHeight;
+        var width, height;
 
         if (helpers.isArray(legendItem.text)) {
           width = getMaxLineWidth(legendItem.text);
-          height = fontSize * legendItem.text.length;
-          grossHeight = height;
+          height = fontSize * legendItem.text.length + labelOpts.padding;
         } else {
           width = ctx.measureText(legendItem.text).width;
-          height = fontSize;
-          grossHeight = height + labelOpts.padding;
+          height = fontSize + labelOpts.padding;
         }
         width += getBoxWidth(labelOpts, fontSize) + (fontSize / 2);
 
@@ -97,8 +95,8 @@ function fit() {
 
         legendItem.lineOrColumnIndex = lineIndex;
 
-        if (grossHeight > currentLineHeight) {
-          currentLineHeight = grossHeight;
+        if (height > currentLineHeight) {
+          currentLineHeight = height;
         }
 
         // Store the hitbox width and height here. Final position will be updated in `draw`
@@ -106,7 +104,7 @@ function fit() {
           left: 0,
           top: 0,
           width: width,
-          height: grossHeight,
+          height: height,
         };
 
         lineWidths[lineWidths.length - 1] += width + labelOpts.padding;
@@ -176,23 +174,25 @@ function fit() {
 }
 
 function draw() {
-  const me = this;
-  const opts = me.options;
-  const labelOpts = opts.labels;
-  const globalDefaults = defaults.global;
-  const defaultColor = globalDefaults.defaultColor;
-  const lineDefault = globalDefaults.elements.line;
-  const legendHeight = me.height;
-  const columnHeights = me.columnHeights;
-  const legendWidth = me.width;
-  const lineWidths = me.lineWidths;
+  var me = this;
+  var opts = me.options;
+  var labelOpts = opts.labels;
+  var globalDefaults = defaults.global;
+  var defaultColor = globalDefaults.defaultColor;
+  var lineDefault = globalDefaults.elements.line;
+  var legendHeight = me.height;
+  var columnHeights = me.columnHeights;
+  var columnWidths = me.columnWidths;
+  var legendWidth = me.width;
+  var lineWidths = me.lineWidths;
+  var lineHeights = me.lineHeights;
 
   if (opts.display) {
-    const ctx = me.ctx;
-    const fontColor = valueOrDefault(labelOpts.fontColor, globalDefaults.defaultFontColor);
-    const labelFont = helpers.options._parseFont(labelOpts);
-    const fontSize = labelFont.size;
-    let cursor;
+    var ctx = me.ctx;
+    var fontColor = valueOrDefault(labelOpts.fontColor, globalDefaults.defaultFontColor);
+    var labelFont = helpers.options._parseFont(labelOpts);
+    var fontSize = labelFont.size;
+    var cursor;
 
     // Canvas setup
     ctx.textAlign = 'left';
@@ -202,17 +202,11 @@ function draw() {
     ctx.fillStyle = fontColor; // render in correct colour
     ctx.font = labelFont.string;
 
-    const boxWidth = getBoxWidth(labelOpts, fontSize);
-    const hitboxes = me.legendHitBoxes;
-
-    const maxHeight = hitboxes.map(x => {
-      return x.height;
-    }).reduce((acc, v) => {
-      return v > acc ? v : acc;
-    }, 0);
+    var boxWidth = getBoxWidth(labelOpts, fontSize);
+    var hitboxes = me.legendHitBoxes;
 
     // current position
-    const drawLegendBox = (x, y, legendItem) => {
+    var drawLegendBox = function (x, y, legendItem) {
       if (isNaN(boxWidth) || boxWidth <= 0) {
         return;
       }
@@ -220,7 +214,7 @@ function draw() {
       // Set the ctx for the box
       ctx.save();
 
-      const lineWidth = valueOrDefault(legendItem.lineWidth, lineDefault.borderWidth);
+      var lineWidth = valueOrDefault(legendItem.lineWidth, lineDefault.borderWidth);
       ctx.fillStyle = valueOrDefault(legendItem.fillStyle, defaultColor);
       ctx.lineCap = valueOrDefault(legendItem.lineCap, lineDefault.borderCapStyle);
       ctx.lineDashOffset = valueOrDefault(legendItem.lineDashOffset, lineDefault.borderDashOffset);
@@ -236,9 +230,9 @@ function draw() {
       if (opts.labels && opts.labels.usePointStyle) {
         // Recalculate x and y for drawPoint() because its expecting
         // x and y to be center of figure (instead of top left)
-        const radius = boxWidth * Math.SQRT2 / 2;
-        const centerX = x + boxWidth / 2;
-        const centerY = y + fontSize / 2;
+        var radius = boxWidth * Math.SQRT2 / 2;
+        var centerX = x + boxWidth / 2;
+        var centerY = y + fontSize / 2;
 
         // Draw pointStyle as legend symbol
         helpers.canvas.drawPoint(ctx, legendItem.pointStyle, radius, centerX, centerY);
@@ -253,7 +247,7 @@ function draw() {
       ctx.restore();
     };
 
-    const drawStrikeThrough = (x, y, w) => {
+    var drawStrikeThrough = function (x, y, w) {
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.moveTo(x, y);
@@ -261,7 +255,7 @@ function draw() {
       ctx.stroke();
     };
 
-    const drawCrossOver = (x, y, w, h) => {
+    var drawCrossOver = function (x, y, w, h) {
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.moveTo(x, y);
@@ -271,14 +265,14 @@ function draw() {
       ctx.stroke();
     };
 
-    const fillText = (x, y, legendItem, textWidth) => {
-      const halfFontSize = fontSize / 2;
-      const xLeft = boxWidth + halfFontSize + x;
-      const yMiddle = y + halfFontSize;
+    var fillText = function (x, y, legendItem, textWidth) {
+      var halfFontSize = fontSize / 2;
+      var xLeft = boxWidth + halfFontSize + x;
+      var yMiddle = y + halfFontSize;
 
       if (helpers.isArray(legendItem.text)) {
-        helpers.each(legendItem.text, (textLine, index) => {
-          const lineOffset = index * fontSize;
+        helpers.each(legendItem.text, function (textLine, index) {
+          var lineOffset = index * fontSize;
           ctx.fillText(textLine, xLeft, yMiddle + lineOffset);
         });
       } else {
@@ -294,7 +288,7 @@ function draw() {
       }
     };
 
-    const alignmentOffset = (dimension, blockSize) => {
+    var alignmentOffset = function (dimension, blockSize) {
       switch (opts.align) {
         case 'start':
           return labelOpts.padding;
@@ -306,7 +300,7 @@ function draw() {
     };
 
     // Horizontal
-    const isHorizontal = me.isHorizontal();
+    var isHorizontal = me.isHorizontal();
     if (isHorizontal) {
       cursor = {
         x: me.left + alignmentOffset(legendWidth, lineWidths[0]),
@@ -321,55 +315,53 @@ function draw() {
       };
     }
 
-    const itemHeight = maxHeight;
-    helpers.each(me.legendItems, (legendItem, i) => {
-      let textWidth;
-      let boxTopOffset;
+    helpers.each(me.legendItems, function (legendItem, i) {
+      var textWidth, height, boxTopOffset;
+
+      if (legendItem.lineOrColumnIndex > cursor.line) {
+        if (isHorizontal) {
+          cursor.y += lineHeights[cursor.line];
+          cursor.line = legendItem.lineOrColumnIndex;
+          cursor.x = me.left + alignmentOffset(legendWidth, lineWidths[cursor.line]);
+        } else {
+          cursor.x += columnWidths[cursor.line] + labelOpts.padding;
+          cursor.line = legendItem.lineOrColumnIndex;
+          cursor.y = me.top + alignmentOffset(legendHeight, columnHeights[cursor.line]);
+        }
+      }
 
       if (helpers.isArray(legendItem.text)) {
-        textWidth = legendItem.text.map(textLine => {
+        textWidth = legendItem.text.map(function (textLine) {
           return ctx.measureText(textLine).width;
-        }).reduce((acc, v) => {
+        }).reduce(function (acc, v) {
           return v > acc ? v : acc;
         }, 0);
         boxTopOffset = fontSize / 2 * (legendItem.text.length - 1);
+        height = fontSize * legendItem.text.length;
       } else {
         textWidth = ctx.measureText(legendItem.text).width;
         boxTopOffset = 0;
+        height = fontSize;
       }
 
-      const width = boxWidth + (fontSize / 2) + textWidth;
-      let x = cursor.x;
-      const topOffset = Math.trunc((maxHeight - hitboxes[i].height) / 2);
-      let y = cursor.y + topOffset;
+      var width = boxWidth + (fontSize / 2) + textWidth;
+      var x = cursor.x;
+      var y = cursor.y;
 
-      // Use (me.left + me.minSize.width) and (me.top + me.minSize.height)
-      // instead of me.right and me.bottom because me.width and me.height
-      // may have been changed since me.minSize was calculated
-      if (isHorizontal) {
-        if (i > 0 && x + width + labelOpts.padding > me.left + me.minSize.width) {
-          y = cursor.y += itemHeight;
-          cursor.line++;
-          x = cursor.x = me.left + alignmentOffset(legendWidth, lineWidths[cursor.line]);
-        }
-      } else if (i > 0 && y + itemHeight > me.top + me.minSize.height) {
-        x = cursor.x = x + me.columnWidths[cursor.line] + labelOpts.padding;
-        cursor.line++;
-        y = cursor.y = me.top + alignmentOffset(legendHeight, columnHeights[cursor.line]);
-      }
+      var topOffset = isHorizontal ? Math.trunc((lineHeights[cursor.line] - hitboxes[i].height) / 2) : 0;
 
-      drawLegendBox(x, y + boxTopOffset, legendItem);
+      drawLegendBox(x, y + boxTopOffset + topOffset, legendItem);
 
       hitboxes[i].left = x;
       hitboxes[i].top = y;
 
       // Fill the actual label
-      fillText(x, y, legendItem, textWidth);
+      fillText(x, y + topOffset, legendItem, textWidth);
 
       if (isHorizontal) {
         cursor.x += width + labelOpts.padding;
       } else {
-        cursor.y += itemHeight;
+        cursor.y += height + labelOpts.padding;
       }
     });
   }
