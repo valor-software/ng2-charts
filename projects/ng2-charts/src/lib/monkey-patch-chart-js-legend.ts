@@ -1,4 +1,10 @@
 // tslint:disable:variable-name
+// tslint:disable:no-var-keyword
+// tslint:disable:prefer-const
+// tslint:disable:only-arrow-functions
+// tslint:disable:one-variable-per-declaration
+// tslint:disable:object-literal-shorthand
+// tslint:disable:space-before-function-paren
 
 declare class Chart {
   static readonly Chart: typeof Chart;
@@ -19,21 +25,21 @@ function getBoxWidth(labelOpts, fontSize) {
 }
 
 function fit() {
-  const me = this;
-  const opts = me.options;
-  const labelOpts = opts.labels;
-  const display = opts.display;
+  var me = this;
+  var opts = me.options;
+  var labelOpts = opts.labels;
+  var display = opts.display;
 
-  const ctx = me.ctx;
+  var ctx = me.ctx;
 
-  const labelFont = helpers.options._parseFont(labelOpts);
-  const fontSize = labelFont.size;
+  var labelFont = helpers.options._parseFont(labelOpts);
+  var fontSize = labelFont.size;
 
   // Reset hit boxes
-  const hitboxes = me.legendHitBoxes = [];
+  var hitboxes = me.legendHitBoxes = [];
 
-  const minSize = me.minSize;
-  const isHorizontal = me.isHorizontal();
+  var minSize = me.minSize;
+  var isHorizontal = me.isHorizontal();
 
   if (isHorizontal) {
     minSize.width = me.maxWidth; // fill all the width
@@ -43,10 +49,10 @@ function fit() {
     minSize.height = me.maxHeight; // fill all the height
   }
 
-  const getMaxLineWidth = textLines => {
-    return textLines.map(textLine => {
+  var getMaxLineWidth = function (textLines) {
+    return textLines.map(function (textLine) {
       return ctx.measureText(textLine).width;
-    }).reduce((acc, v) => {
+    }).reduce(function (acc, v) {
       return v > acc ? v : acc;
     }, 0);
   };
@@ -60,17 +66,16 @@ function fit() {
       // Labels
 
       // Width of each line of legend boxes. Labels wrap onto multiple lines when there are too many to fit on one
-      const lineWidths = me.lineWidths = [0];
-      let maxHeight = 0;
-      let totalHeight = 0;
+      var lineWidths = me.lineWidths = [0];
+      var lineHeights = me.lineHeights = [];
+      var currentLineHeight = 0;
+      var lineIndex = 0;
 
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
 
-      helpers.each(me.legendItems, (legendItem, i) => {
-        let width;
-        let height;
-        let grossHeight;
+      helpers.each(me.legendItems, function (legendItem, i) {
+        var width, height, grossHeight;
 
         if (helpers.isArray(legendItem.text)) {
           width = getMaxLineWidth(legendItem.text);
@@ -83,40 +88,47 @@ function fit() {
         }
         width += getBoxWidth(labelOpts, fontSize) + (fontSize / 2);
 
-        if (grossHeight > maxHeight) {
-          maxHeight = grossHeight;
+        if (lineWidths[lineWidths.length - 1] + width + 2 * labelOpts.padding > minSize.width) {
+          lineHeights.push(currentLineHeight);
+          currentLineHeight = 0;
+          lineWidths[lineWidths.length - (i > 0 ? 0 : 1)] = 0;
+          lineIndex++;
         }
 
-        if (lineWidths[lineWidths.length - 1] + width + 2 * labelOpts.padding > minSize.width) {
-          totalHeight += maxHeight;
-          maxHeight = 0;
-          lineWidths[lineWidths.length - (i > 0 ? 0 : 1)] = 0;
+        legendItem.lineOrColumnIndex = lineIndex;
+
+        if (grossHeight > currentLineHeight) {
+          currentLineHeight = grossHeight;
         }
 
         // Store the hitbox width and height here. Final position will be updated in `draw`
         hitboxes[i] = {
           left: 0,
           top: 0,
-          width,
-          height,
+          width: width,
+          height: grossHeight,
         };
 
         lineWidths[lineWidths.length - 1] += width + labelOpts.padding;
       });
 
-      minSize.height += totalHeight + maxHeight;
+      lineHeights.push(currentLineHeight);
+      minSize.height += lineHeights.reduce(function (acc, v) {
+        return acc + v;
+      }, 0);
 
     } else {
-      const vPadding = labelOpts.padding;
-      const columnWidths = me.columnWidths = [];
-      const columnHeights = me.columnHeights = [];
-      let totalWidth = labelOpts.padding;
-      let currentColWidth = 0;
-      let currentColHeight = 0;
+      var vPadding = labelOpts.padding;
+      var columnWidths = me.columnWidths = [];
+      var columnHeights = me.columnHeights = [];
+      var totalWidth = labelOpts.padding;
+      var currentColWidth = 0;
+      var currentColHeight = 0;
+      var columnIndex = 0;
 
-      helpers.each(me.legendItems, (legendItem, i) => {
-        let itemWidth;
-        let height;
+      helpers.each(me.legendItems, function (legendItem, i) {
+        var itemWidth;
+        var height;
 
         if (helpers.isArray(legendItem.text)) {
           itemWidth = getMaxLineWidth(legendItem.text);
@@ -128,24 +140,27 @@ function fit() {
         itemWidth += getBoxWidth(labelOpts, fontSize) + (fontSize / 2);
 
         // If too tall, go to new column
-        if (i > 0 && currentColHeight + fontSize + 2 * vPadding > minSize.height) {
+        if (currentColHeight + fontSize + 2 * vPadding > minSize.height) {
           totalWidth += currentColWidth + labelOpts.padding;
           columnWidths.push(currentColWidth); // previous column width
           columnHeights.push(currentColHeight);
           currentColWidth = 0;
           currentColHeight = 0;
+          columnIndex++;
         }
+
+        legendItem.lineOrColumnIndex = columnIndex;
 
         // Get max width
         currentColWidth = Math.max(currentColWidth, itemWidth);
-        currentColHeight += fontSize + vPadding;
+        currentColHeight += height + vPadding;
 
         // Store the hitbox width and height here. Final position will be updated in `draw`
         hitboxes[i] = {
           left: 0,
           top: 0,
           width: itemWidth,
-          height
+          height: height
         };
       });
 
@@ -158,14 +173,6 @@ function fit() {
 
   me.width = minSize.width;
   me.height = minSize.height;
-}
-
-function getAlignedX(vm, align) {
-  return align === 'center'
-    ? vm.x + vm.width / 2
-    : align === 'right'
-      ? vm.x + vm.width - vm.xPadding
-      : vm.x + vm.xPadding;
 }
 
 function draw() {
@@ -289,12 +296,12 @@ function draw() {
 
     const alignmentOffset = (dimension, blockSize) => {
       switch (opts.align) {
-      case 'start':
-        return labelOpts.padding;
-      case 'end':
-        return dimension - blockSize;
-      default: // center
-        return (dimension - blockSize + labelOpts.padding) / 2;
+        case 'start':
+          return labelOpts.padding;
+        case 'end':
+          return dimension - blockSize;
+        default: // center
+          return (dimension - blockSize + labelOpts.padding) / 2;
       }
     };
 
