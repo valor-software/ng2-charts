@@ -1,12 +1,13 @@
 <div>
   <div>
-    <div style="display: block">
+    <div class="chart">
       <canvas baseChart
         [data]="pieChartData"
         [labels]="pieChartLabels"
         [chartType]="pieChartType"
         [options]="pieChartOptions"
         [plugins]="pieChartPlugins"
+        [colors]="pieChartColors"
         [legend]="pieChartLegend">
       </canvas>
     </div>
@@ -15,4 +16,7 @@
 <div>
   <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
   <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>
+  <button mat-button mat-raised-button color="primary" (click)="addSlice()">Add Slice</button>
+  <button mat-button mat-raised-button color="primary" (click)="removeSlice()">Remove Slice</button>
+  <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Change Legend Position</button>
 </div>
