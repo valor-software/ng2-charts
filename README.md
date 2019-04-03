@@ -54,7 +54,7 @@ imports: [
 ```
 
 ### Chart types
-There are one directive for all chart types: `baseChart`, and there are 8 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`, `bubble` and `scatter`.
+There is one directive for all chart types: `baseChart`, and there are 8 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`, `bubble` and `scatter`.
 
 ### Properties
 
@@ -76,7 +76,7 @@ There are one directive for all chart types: `baseChart`, and there are 8 types 
 
 ### Colors
 
-There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
+There are several sets of default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
 
 ### Dynamic Theming
 
