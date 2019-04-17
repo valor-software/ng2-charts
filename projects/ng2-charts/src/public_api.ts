@@ -12,6 +12,7 @@ export * from './lib/monkey-patch-chart-js-legend';
 export * from './lib/monkey-patch-chart-js-tooltip';
 export * from './lib/chartjs/angular-chart';
 export * from './lib/chartjs/chart-options';
+export * from './lib/chartjs/radial-chart-options';
 export * from './lib/chartjs/chart-type';
 export * from './lib/chartjs/chart-data-sets-base';
 export * from './lib/chartjs/chart-data-sets-bar';

@@ -24,6 +24,7 @@ export {
 
 export type AngularChart = ng2Charts.AngularChart<AppChartMetaConfig>;
 export type ChartOptions = ng2Charts.ChartOptions<AppChartMetaConfig> & AppChartMetaConfig['additionalOptions'];
+export type RadialChartOptions = ng2Charts.RadialChartOptions<AppChartMetaConfig> & AppChartMetaConfig['additionalOptions'];
 export type ChartDataSetsBar = ng2Charts.ChartDataSetsBar<AppChartMetaConfig>;
 export type ChartDataSetsLine = ng2Charts.ChartDataSetsLine<AppChartMetaConfig>;
 export type ChartDataSetsDoughnut = ng2Charts.ChartDataSetsDoughnut<AppChartMetaConfig>;
