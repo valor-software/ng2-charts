@@ -4,5 +4,5 @@ import { RadialLinearScale } from './radial-linear-scale';
 
 // [Charts/Radar/Scale Options](https://www.chartjs.org/docs/latest/charts/radar.html#scale-options)
 export interface RadialChartOptions<T extends BaseChartMetaConfig> extends ChartOptions<T> {
-  scale?: RadialLinearScale;
+  scale?: RadialLinearScale<T>;
 }
