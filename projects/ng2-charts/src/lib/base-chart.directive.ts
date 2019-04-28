@@ -15,7 +15,7 @@ import { getColors } from './get-colors';
 import { Color } from './color';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
-import * as _ from 'lodash';
+import { cloneDeep } from 'lodash';
 
 export type SingleDataSet = (number[] | chartJs.ChartPoint[]);
 export type MultiDataSet = (number[] | chartJs.ChartPoint[])[];
@@ -419,7 +419,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
   smartMerge(options: any, overrides: any, level: number = 0): any {
     if (level === 0) {
-      options = _.cloneDeep(options);
+      options = cloneDeep(options);
     }
     const keysToUpdate = Object.keys(overrides);
     keysToUpdate.forEach(key => {
