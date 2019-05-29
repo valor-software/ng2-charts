@@ -34,7 +34,7 @@ export class FinancialChartComponent implements OnInit {
   public financialChartType = 'candlestick';
   public financialChartPlugins = [];
 
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
   constructor() { }
 

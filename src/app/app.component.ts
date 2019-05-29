@@ -14,7 +14,7 @@ import { DOCUMENT } from '@angular/common';
 import { ThemeService } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTabGroup } from '@angular/material';
+import { MatTabGroup } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -73,7 +73,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.themeService.setColorschemesOptions(overrides);
   }
 
-  @ViewChild('tabGroup') tabGroup: MatTabGroup;
+  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup;
   @ViewChildren('tab', { read: ElementRef }) tabElements: QueryList<ElementRef>;
   tabLabels: string[];
 
