@@ -61,7 +61,7 @@ export const chartTypes = {
 })
 export class ChartHostComponent implements OnInit, AfterContentInit {
   @Input() chartType: string;
-  @ContentChild('main', { static: true }) content;
+  @ContentChild('main') content;
 
   html: string;
   ts: string;

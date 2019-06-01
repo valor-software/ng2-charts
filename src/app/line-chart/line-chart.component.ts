@@ -85,7 +85,7 @@ export class LineChartComponent implements OnInit {
   public lineChartType = 'line';
   public lineChartPlugins = [pluginAnnotations];
 
-  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   constructor() { }
 
