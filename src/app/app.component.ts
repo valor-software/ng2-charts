@@ -91,9 +91,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.subs.push(
-      this.route.fragment.subscribe(r => {
+      this.route.fragment.subscribe(tabUrl => {
         if (this.tabElements) {
-          const index = this.tabLabels.indexOf(r);
+          const index = this.tabLabels.indexOf(tabUrl.slice(1));
           if (index !== -1) {
             this.tabGroup.selectedIndex = index;
           }
@@ -111,6 +111,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateRoute(index: number) {
     const label = this.tabLabels[index];
-    this.router.navigate([], { fragment: label });
+    this.router.navigate([], { fragment: `/${label}` });
   }
 }
