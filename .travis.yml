@@ -2,8 +2,7 @@ dist: trusty
 sudo: false
 
 language: node_js
-node_js:
-  - '8'
+node_js: "10"
 
 addons:
   apt:
@@ -26,6 +25,7 @@ git:
     submodules: false
 # Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
+    - export NG_CLI_ANALYTICS=ci
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 
 script:
