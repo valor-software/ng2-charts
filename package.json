@@ -2,6 +2,7 @@
   "name": "ng2-charts-demo",
   "version": "1.0.0",
   "scripts": {
+    "demo.deploy-gh-pages": "gh-pages -d dist/ng2-charts-demo",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -60,6 +61,7 @@
     "codelyzer": "~4.5.0",
     "cypress": "3.2.0",
     "eyes.images": "^3.6.3",
+    "gh-pages": "^2.1.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
