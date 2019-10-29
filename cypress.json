@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://valor-software.com/ng2-charts/",
+  "baseUrl": "http://localhost:4200/",
   "video": false,
   "eyesTimeout": 1200000,
   "viewportWidth": 1366,
