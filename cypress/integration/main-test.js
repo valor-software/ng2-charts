@@ -28,7 +28,7 @@ describe('Main Page', () => {
   });
 });
 
-describe('Charts', () => {
+describe('Charts screenshot', () => {
   const componentsArray = [
     {url: '/#/LineChart', selector: 'app-line-chart'},
     {url: '/#/BarChart', selector: 'app-bar-chart'},
