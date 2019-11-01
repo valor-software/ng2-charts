@@ -28,17 +28,11 @@ describe('Main Page', () => {
   });
 });
 
-describe('Charts', () => {
+describe('Charts screenshot', () => {
   const componentsArray = [
     {url: '/#/LineChart', selector: 'app-line-chart'},
     {url: '/#/BarChart', selector: 'app-bar-chart'},
-    {url: '/#/DoughnutChart', selector: 'app-doughnut-chart'},
-    {url: '/#/RadarChart', selector: 'app-radar-chart'},
-    {url: '/#/PieChart', selector: 'app-pie-chart'},
-    {url: '/#/PolarAreaChart', selector: 'app-polar-area-chart'},
-    {url: '/#/BubbleChart', selector: 'app-bubble-chart'},
-    {url: '/#/ScatterChart', selector: 'app-scatter-chart'},
-    {url: '/#/DynamicChart', selector: 'app-dynamic-chart'}
+    {url: '/#/DoughnutChart', selector: 'app-doughnut-chart'}
   ];
 
   componentsArray.forEach(component => {

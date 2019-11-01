@@ -37,4 +37,5 @@ script:
   - $(npm bin)/wait-on http-get://localhost:4200/#
   - npm run test:main
   - npm run test:screenshot
+  - npm run test:canvas
   - kill $(jobs -p) || true
