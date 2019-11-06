@@ -1,8 +1,12 @@
 dist: trusty
 sudo: false
-
 language: node_js
+
+env:
+  - NG_CLI_ANALYTICS="ci"
+
 node_js: "10"
+
 
 addons:
   apt:

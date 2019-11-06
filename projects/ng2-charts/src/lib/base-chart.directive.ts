@@ -15,7 +15,7 @@ import { getColors } from './get-colors';
 import { Color } from './color';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
-import { cloneDeep } from 'lodash';
+import { cloneDeep } from 'lodash-es';
 
 export type SingleDataSet = (number[] | chartJs.ChartPoint[]);
 export type MultiDataSet = (number[] | chartJs.ChartPoint[])[];
