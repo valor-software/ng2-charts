@@ -1,12 +1,12 @@
 dist: trusty
 sudo: false
-
 language: node_js
-node_js:
-  - '10'
 
 env:
   - NG_CLI_ANALYTICS="ci"
+
+node_js: "10"
+
 
 addons:
   apt:
@@ -29,6 +29,7 @@ git:
     submodules: false
 # Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
+    - export NG_CLI_ANALYTICS=ci
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 
 script:
@@ -40,4 +41,5 @@ script:
   - $(npm bin)/wait-on http-get://localhost:4200/#
   - npm run test:main
   - npm run test:screenshot
+  - npm run test:canvas
   - kill $(jobs -p) || true

@@ -15,7 +15,9 @@ import { ThemeService } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
+
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -91,14 +93,18 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.subs.push(
-      this.route.fragment.subscribe(r => {
-        if (this.tabElements) {
-          const index = this.tabLabels.indexOf(r);
-          if (index !== -1) {
-            this.tabGroup.selectedIndex = index;
+      this.route.fragment
+        .pipe(
+          filter(Boolean)
+        )
+        .subscribe(tabUrl => {
+          if (this.tabElements) {
+            const index = this.tabLabels.indexOf(tabUrl.slice(1));
+            if (index !== -1) {
+              this.tabGroup.selectedIndex = index;
+            }
           }
-        }
-      }));
+        }));
   }
 
   ngAfterViewInit(): void {
@@ -111,6 +117,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateRoute(index: number) {
     const label = this.tabLabels[index];
-    this.router.navigate([], { fragment: label });
+    this.router.navigate([], { fragment: `/${label}` });
   }
 }
