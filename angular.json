@@ -177,5 +177,8 @@
       }
     }
   },
-  "defaultProject": "ng2-charts-demo"
+  "defaultProject": "ng2-charts-demo",
+  "cli": {
+    "analytics": false
+  }
 }
