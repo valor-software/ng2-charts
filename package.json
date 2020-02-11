@@ -18,7 +18,8 @@
     "test:main": "APPLITOOLS_API_KEY=Nls100t102uNgLhLpblVUdA3tP104MQQS9VUYgHQ5tYOUuIxU110 APPLITOOLS_CONCURRENCY=100 cypress run --spec \"cypress/integration/main-test.js\"",
     "test:screenshot": "node cypress/integration/screenshot-test.js",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pack-lib": "ng build ng2-charts && cd dist/ng2-charts && npm pack"
   },
   "private": true,
   "dependencies": {
@@ -53,7 +54,7 @@
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
     "@applitools/eyes.cypress": "3.4.11",
-    "@types/chart.js": "^2.7.53",
+    "@types/chart.js": "^2.9.13",
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.0.3",
@@ -67,6 +68,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "lodash": "^4.17.15",
     "ng-packagr": "^5.2.0",
     "ng2-charts-schematics": "file:ng2-charts-schematics",
     "protractor": "~6.0.0",
@@ -74,7 +76,7 @@
     "tsickle": "0.35.0",
     "tslib": "^1.9.0",
     "tslint": "^5.16.0",
-    "typescript": "^3.4.5",
+    "typescript": "3.4.5",
     "wait-on": "2.1.0"
   }
 }

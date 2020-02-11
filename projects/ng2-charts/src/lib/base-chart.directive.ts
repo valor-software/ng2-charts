@@ -354,9 +354,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     this.subs.forEach(x => x.unsubscribe());
   }
 
-  public update(duration?: any, lazy?: any) {
+  public update(duration?: any, lazy?: any, easing?: any) {
     if (this.chart) {
-      return this.chart.update(duration, lazy);
+      return this.chart.update({duration, lazy, easing});
     }
   }
 
