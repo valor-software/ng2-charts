@@ -67,12 +67,14 @@ There is one directive for all chart types: `baseChart`, and there are 8 types o
 - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
 - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
 - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
+- `runOutsideAngular`: (`boolean = false`) - if true the chart creation and event binding will be done in [`NgZone.runOutsideAngular()`](https://angular.io/api/core/NgZone#runoutsideangular); this is useful for performance in complex applications where we don't want Chart.js events to trigger change detection. (see [discussion](https://github.com/valor-software/ng2-charts/issues/1218))
 
 ### Events
 
 - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and labels
 - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels
 
+Note: if `runOutsideAngular` is `true` these events will not trigger change detection, you will need to use [`ChangeDetectorRef.markForCheck()`](https://angular.io/api/core/ChangeDetectorRef#markforcheck).
 
 ### Colors
 
