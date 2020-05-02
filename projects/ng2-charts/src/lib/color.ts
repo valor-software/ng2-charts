@@ -1,27 +1,25 @@
+import { ChartColor } from 'chart.js';
+
 // private helper functions
 export interface Color {
-  backgroundColor?: string | string[];
+  backgroundColor?: ChartColor;
   borderWidth?: number | number[];
-  borderColor?: string | string[];
+  borderColor?: ChartColor;
   borderCapStyle?: string;
   borderDash?: number[];
   borderDashOffset?: number;
   borderJoinStyle?: string;
-
-  pointBorderColor?: string | string[];
-  pointBackgroundColor?: string | string[];
+  pointBorderColor?: ChartColor;
+  pointBackgroundColor?: ChartColor;
   pointBorderWidth?: number | number[];
-
   pointRadius?: number | number[];
   pointHoverRadius?: number | number[];
   pointHitRadius?: number | number[];
-
-  pointHoverBackgroundColor?: string | string[];
-  pointHoverBorderColor?: string | string[];
+  pointHoverBackgroundColor?: ChartColor;
+  pointHoverBorderColor?: ChartColor;
   pointHoverBorderWidth?: number | number[];
-  pointStyle?: string | string[];
-
-  hoverBackgroundColor?: string | string[];
-  hoverBorderColor?: string | string[];
+  pointStyle?: ChartColor;
+  hoverBackgroundColor?: ChartColor;
+  hoverBorderColor?: ChartColor;
   hoverBorderWidth?: number;
 }
