@@ -2,8 +2,8 @@
   "name": "ng2-charts",
   "version": "2.3.0",
   "peerDependencies": {
-    "@angular/common": "^7.2.0 || ^8.0.0",
-    "@angular/core": "^7.2.0 || ^8.0.0",
+    "@angular/common": "^7.2.0 || ^9.0.0",
+    "@angular/core": "^7.2.0 || ^9.0.0",
     "chart.js": "^2.7.3",
     "rxjs": "^6.3.3"
   },
