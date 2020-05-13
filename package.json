@@ -11,7 +11,7 @@
     "build:changelog": "github_changelog_generator -u valor-software -p ng2-charts",
     "install:financial": "git submodule update --init chartjs-chart-financial && cd chartjs-chart-financial && npm i && cd ..",
     "build:financial": "cd chartjs-chart-financial && gulp build && cp -r dist ../dist/chartjs-chart-financial/ && cd ..",
-    "publish:lib": "cd dist\\ng2-charts && npm publish && cd ..\\..",
+    "publish:lib": "cd dist\\ng2-charts && npm publish --tag next && cd ..\\..",
     "publish:schem": "cd ng2-charts-schematics && npm publish && cd ..",
     "test": "ng test",
     "test:headless": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
