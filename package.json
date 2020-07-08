@@ -44,7 +44,7 @@
     "luxon": "^1.15.0",
     "marked": "^0.6.2",
     "ngx-highlightjs": "^3.0.3",
-    "ngx-markdown": "^7.1.5",
+    "ngx-markdown": "^10.0.0",
     "prismjs": "^1.16.0",
     "rxjs": "~6.6.0",
     "zone.js": "^0.9.1"
@@ -75,7 +75,7 @@
     "ng-packagr": "^5.7.1",
     "ng2-charts-schematics": "file:ng2-charts-schematics",
     "ts-node": "^8.2.0",
-    "tsickle": "^0.39.0",
+    "tsickle": "^0.38.0",
     "tslib": "^1.13.0",
     "tslint": "^5.16.0",
     "typescript": "^3.5.3",
