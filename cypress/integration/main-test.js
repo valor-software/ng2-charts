@@ -18,7 +18,7 @@ describe('Main Page', () => {
         browser: browsers
       })
       .eyesCheckWindow({
-        sizeMode: 'selector',
+        target: 'region',
         selector: topBarSelector,
         sendDom: false,
       })
@@ -38,7 +38,7 @@ describe('Charts screenshot', () => {
   componentsArray.forEach(component => {
     it(`${component.url}`, () => {
       cy.visit(component.url);
-      cy.get(component.selector).find('canvas').wait(200).screenshot();
+      cy.get(component.selector).find('canvas').root().wait(200).screenshot();
     });
   });
 });

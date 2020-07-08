@@ -21,23 +21,21 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.component';
 import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { ChartHostComponent } from './chart-host/chart-host.component';
-import { HighlightModule } from 'ngx-highlightjs';
-import typescript from 'highlight.js/lib/languages/typescript';
-import xml from 'highlight.js/lib/languages/xml';
+import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
 const routes: Route[] = [];
 
 export function hljsLanguages() {
-  return [
-    { name: 'typescript', func: typescript },
-    // { name: 'html', func: html },
-    // {name: 'scss', func: scss},
-    { name: 'xml', func: xml }
-  ];
+  return {
+    typescript: () => import('highlight.js/lib/languages/typescript'),
+    // html: import('highlight.js/lib/languages/html'),
+    // scss: import('highlight.js/lib/languages/scss'),
+    xml: () => import('highlight.js/lib/languages/xml')
+  };
 }
 
 @NgModule({
@@ -63,16 +61,21 @@ export function hljsLanguages() {
     MaterialModule,
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
-    HighlightModule.forRoot({
-      languages: hljsLanguages,
-    })
+    HighlightModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        languages: hljsLanguages()
+      }
+    }
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
   constructor() {
-    BaseChartDirective.unregisterPlugin(pluginDataLabels);
+    BaseChartDirective.unregisterPlugin(ChartDataLabels);
     monkeyPatchChartJsLegend();
     monkeyPatchChartJsTooltip();
   }

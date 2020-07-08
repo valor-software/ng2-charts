@@ -1,14 +1,14 @@
 import {
+  AfterViewInit,
   Component,
-  OnInit,
-  Inject,
-  Renderer2,
-  ViewChildren,
-  QueryList,
   ElementRef,
-  ViewChild,
+  Inject,
   OnDestroy,
-  AfterViewInit
+  OnInit,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ThemeService } from 'ng2-charts';
@@ -22,13 +22,14 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private _selectedTheme = 'lala';
   public get selectedTheme() {
     return this._selectedTheme;
   }
+
   public set selectedTheme(value) {
     this.renderer.removeClass(this.document.body, this._selectedTheme);
     this._selectedTheme = value;
@@ -97,7 +98,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         .pipe(
           filter(Boolean)
         )
-        .subscribe(tabUrl => {
+        .subscribe((tabUrl: string) => {
           if (this.tabElements) {
             const index = this.tabLabels.indexOf(tabUrl.slice(1));
             if (index !== -1) {
@@ -117,6 +118,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateRoute(index: number) {
     const label = this.tabLabels[index];
-    this.router.navigate([], { fragment: `/${label}` });
+    this.router.navigate([], { fragment: `/${ label }` });
   }
 }

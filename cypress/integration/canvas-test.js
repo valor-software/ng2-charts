@@ -31,7 +31,7 @@ describe('Charts canvas ', () => {
           browser: browsers
         })
         .eyesCheckWindow({
-          sizeMode: 'selector',
+          target: 'region',
           selector: `${component.selector} canvas`,
         })
         .eyesClose();
