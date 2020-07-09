@@ -1,10 +1,9 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
-    "module": "es2015",
-    "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
     "inlineSources": true,
