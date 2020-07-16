@@ -7,13 +7,8 @@ env:
 
 node_js: "10"
 
-
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
 cache:
   directories:
