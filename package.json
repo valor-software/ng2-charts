@@ -39,11 +39,10 @@
     "chartjs-plugin-annotation": "^0.5.7",
     "chartjs-plugin-datalabels": "^0.7.0",
     "core-js": "^3.6.5",
-    "highlight.js": "^9.18.1",
     "lodash-es": "^4.17.15",
     "luxon": "^1.24.1",
-    "marked": "^1.1.0",
-    "ngx-highlightjs": "^4.0.2",
+    "marked": "^1.1.1",
+    "ngx-highlightjs": "^4.1.0-beta",
     "ngx-markdown": "^10.0.0",
     "prismjs": "^1.20.0",
     "rxjs": "~6.6.0",
@@ -56,12 +55,12 @@
     "@angular/compiler-cli": "~10.0.3",
     "@angular/language-service": "~10.0.3",
     "@applitools/eyes-cypress": "~3.12.2",
-    "@types/chart.js": "^2.9.22",
+    "@types/chart.js": "^2.9.23",
     "@types/jasmine": "^3.5.11",
     "@types/jasminewd2": "~2.0.8",
     "@types/lodash-es": "^4.17.3",
     "@types/luxon": "^1.24.1",
-    "@types/node": "^14.0.20",
+    "@types/node": "^14.0.23",
     "codelyzer": "~6.0.0",
     "cypress": "^4.10.0",
     "eyes.images": "^3.8.7",
@@ -80,6 +79,6 @@
     "tslib": "^2.0.0",
     "tslint": "^6.1.2",
     "typescript": "^3.5.3",
-    "wait-on": "5.0.3"
+    "wait-on": "^5.1.0"
   }
 }
