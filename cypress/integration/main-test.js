@@ -18,7 +18,7 @@ describe('Main Page', () => {
         browser: browsers
       })
       .eyesCheckWindow({
-        target: 'window',
+        target: 'region',
         selector: topBarSelector,
         sendDom: false,
       })
