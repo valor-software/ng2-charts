@@ -14,7 +14,7 @@ declare class Chart {
   static readonly plugins: any;
 }
 
-export function monkeyPatchChartJsLegend() {
+export function monkeyPatchChartJsLegend(): void {
   if (typeof Chart === 'undefined') {
     console.log('Chart not defined (guessing this is a universal build, and I don\'t know why this happens -- Aviad)');
     return;

@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import 'dist/chartjs-chart-financial/chartjs-chart-financial';
-import * as luxon from 'luxon';
 import 'chartjs-adapter-luxon';
 import { ChartOptions } from 'chart.js';
-import { Color, BaseChartDirective } from 'ng2-charts';
+import { BaseChartDirective, Color } from 'ng2-charts';
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-financial-chart',
   templateUrl: './financial-chart.component.html',
-  styleUrls: ['./financial-chart.component.css']
+  styleUrls: [ './financial-chart.component.css' ]
 })
 export class FinancialChartComponent implements OnInit {
   barCount = 60;
@@ -17,8 +17,9 @@ export class FinancialChartComponent implements OnInit {
   public financialChartData = [
     {
       label: 'CHRT - Chart.js Corporation',
-      data: this.getRandomData(this.initialDateStr, this.barCount)
-    },
+      data: this.getRandomData(this.initialDateStr, this.barCount),
+      barThickness: 10
+    }
   ];
   public financialChartOptions: ChartOptions = {
     responsive: true,
@@ -36,7 +37,8 @@ export class FinancialChartComponent implements OnInit {
 
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -45,13 +47,13 @@ export class FinancialChartComponent implements OnInit {
     return Math.random() * (max - min) + min;
   }
 
-  randomBar(date: luxon.DateTime, lastClose: number) {
+  randomBar(date: DateTime, lastClose: number) {
     const open = this.randomNumber(lastClose * 0.95, lastClose * 1.05);
     const close = this.randomNumber(open * 0.95, open * 1.05);
     const high = this.randomNumber(Math.max(open, close), Math.max(open, close) * 1.1);
     const low = this.randomNumber(Math.min(open, close) * 0.9, Math.min(open, close));
     return {
-      t: date.valueOf(),
+      t: date,
       o: open,
       h: high,
       l: low,
@@ -60,8 +62,8 @@ export class FinancialChartComponent implements OnInit {
   }
 
   getRandomData(dateStr: string, count: number) {
-    let date = luxon.DateTime.fromRFC2822(dateStr);
-    const data = [this.randomBar(date, 30)];
+    let date = DateTime.fromRFC2822(dateStr);
+    const data = [ this.randomBar(date, 30) ];
     while (data.length < count) {
       date = date.plus({ days: 1 });
       if (date.weekday <= 5) {
