@@ -1,21 +1,20 @@
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { MarkdownModule } from 'ngx-markdown';
-import { HighlightModule } from 'ngx-highlightjs';
-import typescript from 'highlight.js/lib/languages/typescript';
-import xml from 'highlight.js/lib/languages/xml';
+import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 
 import { FinancialChartComponent } from './financial-chart.component';
 import { ChartsModule } from 'ng2-charts';
 
 export function hljsLanguages() {
-  return [
-    { name: 'typescript', func: typescript },
-    // { name: 'html', func: html },
-    // {name: 'scss', func: scss},
-    {name: 'xml', func: xml}
-  ];
+  return {
+    typescript: () => import('highlight.js/lib/languages/typescript'),
+    // html: import('highlight.js/lib/languages/html'),
+    // scss: import('highlight.js/lib/languages/scss'),
+    xml: () => import('highlight.js/lib/languages/xml')
+  };
 }
 
 describe('FinancialChartComponent', () => {
@@ -29,10 +28,14 @@ describe('FinancialChartComponent', () => {
         HttpClientModule,
         ChartsModule,
         MarkdownModule.forRoot({ loader: HttpClient }),
-        HighlightModule.forRoot({
-          languages: hljsLanguages,
-        }),
+        HighlightModule,
       ],
+      providers: [{
+        provide: HIGHLIGHT_OPTIONS,
+        useValue: {
+          languages: hljsLanguages()
+        }
+      }]
     })
       .compileComponents();
   }));

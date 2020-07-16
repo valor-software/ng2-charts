@@ -1,27 +1,39 @@
 import {
+  AfterViewInit,
   Directive,
-  OnDestroy,
-  OnChanges,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ElementRef,
-  SimpleChanges,
   DoCheck,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
 } from '@angular/core';
-import * as chartJs from 'chart.js';
 import { getColors } from './get-colors';
 import { Color } from './color';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { cloneDeep } from 'lodash-es';
+import {
+  Chart,
+  ChartConfiguration,
+  ChartDataSets,
+  ChartOptions,
+  ChartPoint, ChartType,
+  PluginServiceGlobalRegistration,
+  PluginServiceRegistrationOptions,
+  pluginService
+} from 'chart.js';
 
-export type SingleDataSet = (number[] | chartJs.ChartPoint[]);
-export type MultiDataSet = (number[] | chartJs.ChartPoint[])[];
+export type SingleDataSet = Array<number | null | undefined | number[]> | ChartPoint[];
+export type MultiDataSet = SingleDataSet[];
 export type SingleOrMultiDataSet = SingleDataSet | MultiDataSet;
 
-export type PluginServiceGlobalRegistrationAndOptions = chartJs.PluginServiceGlobalRegistration & chartJs.PluginServiceRegistrationOptions;
+export type PluginServiceGlobalRegistrationAndOptions =
+  PluginServiceGlobalRegistration
+  & PluginServiceRegistrationOptions;
 export type SingleLineLabel = string;
 export type MultiLineLabel = string[];
 export type Label = SingleLineLabel | MultiLineLabel;
@@ -56,10 +68,10 @@ enum UpdateType {
 })
 export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestroy, DoCheck {
   @Input() public data: SingleOrMultiDataSet;
-  @Input() public datasets: chartJs.ChartDataSets[];
+  @Input() public datasets: ChartDataSets[];
   @Input() public labels: Label[];
-  @Input() public options: chartJs.ChartOptions = {};
-  @Input() public chartType: chartJs.ChartType;
+  @Input() public options: ChartOptions = {};
+  @Input() public chartType: ChartType;
   @Input() public colors: Color[];
   @Input() public legend: boolean;
   @Input() public plugins: PluginServiceGlobalRegistrationAndOptions[];
@@ -91,11 +103,11 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
    * Register a plugin.
    */
   public static registerPlugin(plugin: PluginServiceGlobalRegistrationAndOptions) {
-    chartJs.Chart.plugins.register(plugin);
+    pluginService.register(plugin);
   }
 
   public static unregisterPlugin(plugin: PluginServiceGlobalRegistrationAndOptions) {
-    chartJs.Chart.plugins.unregister(plugin);
+    pluginService.unregister(plugin);
   }
 
   public constructor(
@@ -221,8 +233,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
   }
 
   labelsEqual(a: Label, b: Label) {
-    return true
-      && Array.isArray(a) === Array.isArray(b)
+    return Array.isArray(a) === Array.isArray(b)
       && (Array.isArray(a) || a === b)
       && (!Array.isArray(a) || a.length === b.length)
       && (!Array.isArray(a) || a.filter((x, i) => x !== b[i]).length === 0)
@@ -260,8 +271,8 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     if (!a !== !b) {
       return false;
     }
-    return !a || true
-      && (a.backgroundColor === b.backgroundColor)
+    return !a ||
+      (a.backgroundColor === b.backgroundColor)
       && (a.borderWidth === b.borderWidth)
       && (a.borderColor === b.borderColor)
       && (a.borderCapStyle === b.borderCapStyle)
@@ -280,8 +291,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
       && (a.pointStyle === b.pointStyle)
       && (a.hoverBackgroundColor === b.hoverBackgroundColor)
       && (a.hoverBorderColor === b.hoverBorderColor)
-      && (a.hoverBorderWidth === b.hoverBorderWidth)
-      ;
+      && (a.hoverBorderWidth === b.hoverBorderWidth);
   }
 
   updateColors() {
@@ -354,9 +364,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     this.subs.forEach(x => x.unsubscribe());
   }
 
-  public update(duration?: any, lazy?: any) {
+  public update(duration?: any) {
     if (this.chart) {
-      return this.chart.update(duration, lazy);
+      return this.chart.update(duration);
     }
   }
 
@@ -373,7 +383,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     return this.chart.toBase64Image();
   }
 
-  public getChartConfiguration(): chartJs.ChartConfiguration {
+  public getChartConfiguration(): ChartConfiguration {
     const datasets = this.getDatasets();
 
     const options = Object.assign({}, this.options);
@@ -399,7 +409,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
     const mergedOptions = this.smartMerge(options, this.themeService.getColorschemesOptions());
 
-    const chartConfig: chartJs.ChartConfiguration = {
+    const chartConfig: ChartConfiguration = {
       type: this.chartType,
       data: {
         labels: this.labels || [],
@@ -414,7 +424,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
     const chartConfig = this.getChartConfiguration();
-    return new chartJs.Chart(ctx, chartConfig);
+    return new Chart(ctx, chartConfig);
   }
 
   smartMerge(options: any, overrides: any, level: number = 0): any {
@@ -459,7 +469,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     }
   }
 
-  private propagateDatasetsToData(datasets: chartJs.ChartDataSets[]) {
+  private propagateDatasetsToData(datasets: ChartDataSets[]) {
     this.data = this.datasets.map(r => r.data);
     if (this.chart) {
       this.chart.data.datasets = datasets;
@@ -501,7 +511,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
   private getDatasets() {
     if (!this.datasets && !this.data) {
-      throw new Error(`ng-charts configuration error, data or datasets field are required to render chart ${this.chartType}`);
+      throw new Error(`ng-charts configuration error, data or datasets field are required to render chart ${ this.chartType }`);
     }
 
     // If `datasets` is defined, use it over the `data` property.

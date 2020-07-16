@@ -11,12 +11,12 @@ export class ThemeService {
 
   constructor() { }
 
-  setColorschemesOptions(options: ChartOptions) {
+  setColorschemesOptions(options: ChartOptions): void {
     this.pColorschemesOptions = options;
     this.colorschemesOptions.next(options);
   }
 
-  getColorschemesOptions() {
+  getColorschemesOptions(): ChartOptions {
     return this.pColorschemesOptions;
   }
 }
