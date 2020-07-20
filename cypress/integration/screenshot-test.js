@@ -20,13 +20,17 @@ async function forEachAsync(array, callback) {
 
 const testResults = eyes.open("NG2-charts", "Charts comparison", {width: 1366, height: 768}).then(async function () {
   return forEachAsync(urls, async (url) => {
-    const image = fs.readFileSync(`./cypress/screenshots/main-test.js/Charts -- ${url}.png`);
-    await eyes.checkImage(image, url);
+    try {
+      const image = fs.readFileSync(`./cypress/screenshots/main-test.js/Charts screenshot -- ${url.replace('/','')}.png`);
+      await eyes.checkImage(image, url);
+    } catch (e) {
+      console.log(e);
+    }
   });
 }).then(function () {
   return eyes.close();
 });
 
 testResults.then(function (results) {
-  console.log("Results: ", results);
+  console.log("Results: ", JSON.stringify(results));
 });
