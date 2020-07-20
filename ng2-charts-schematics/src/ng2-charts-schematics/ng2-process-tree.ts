@@ -1,10 +1,11 @@
-import { SchematicContext, Tree, SchematicsException } from '@angular-devkit/schematics';
-import { getSourceNodes, findNodes, insertImport, addImportToModule } from '@schematics/angular/utility/ast-utils';
-import { findModuleFromOptions } from '@schematics/angular/utility/find-module';
+import { SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
+import { addImportToModule, findNodes, getSourceNodes, insertImport } from '@schematics/angular/utility/ast-utils';
 import { readIntoSourceFile } from './read-into-source-file';
 import * as ts from 'typescript';
 import { InsertChange } from '@schematics/angular/utility/change';
 import { buildDefaultPath, getProject } from '@schematics/angular/utility/project';
+import { getProjectTargetOptions } from "@angular/cdk/schematics";
+import { getAppModulePath } from "@schematics/angular/utility/ng-ast-utils";
 
 export function ng2ProcessTree(
   tree: Tree,
@@ -12,17 +13,18 @@ export function ng2ProcessTree(
   _options: any,
   newCode: string,
   newMarkup: string,
-  newImports: [string, string][] = []) {
+  newImports: [ string, string ][] = []) {
   if (!_options.project) {
     throw new SchematicsException('Option (project) is required.');
   }
   const project = getProject(tree, _options.project);
+  const buildOptions = getProjectTargetOptions(project, 'build');
 
   if (_options.path === undefined) {
     _options.path = buildDefaultPath(project);
   }
 
-  _options.module = findModuleFromOptions(tree, _options);
+  _options.module = getAppModulePath(tree, (buildOptions.main as string));
 
   const codeAction = tree.actions.filter(r => r.path.endsWith('.component.ts'))[0];
   const markupActions = tree.actions.filter(r => r.path.endsWith('.component.html'));
@@ -32,7 +34,7 @@ export function ng2ProcessTree(
   const classDecl = findNodes(classNodes[0], ts.SyntaxKind.ClassDeclaration)[0] as ts.ClassDeclaration;
   let inlineTemplate = false;
   let template: ts.PropertyAssignment;
-  const changes = newImports.map(([a, b]) => insertImport(codeSource, codeAction.path, a, b));
+  const changes = newImports.map(([ a, b ]) => insertImport(codeSource, codeAction.path, a, b));
   const recorder = tree.beginUpdate(codeAction.path);
   if (classDecl.decorators) {
     const decorator = classDecl.decorators[0];
@@ -57,21 +59,23 @@ export function ng2ProcessTree(
   const end2 = classDecl.members[classDecl.members.length - 1].getEnd();
   recorder.remove(start2, end2 - start2);
   recorder.insertLeft(start2, newCode);
+
   for (const change of changes) {
     if (change instanceof InsertChange) {
       recorder.insertLeft(change.pos, change.toAdd);
     }
   }
+
   if (_options.module) {
     const moduleSource = readIntoSourceFile(tree, _options.module);
     const addImport = addImportToModule(moduleSource, _options.module, 'ChartsModule', 'ng2-charts');
-    console.log('import', addImport);
+    const recorder = tree.beginUpdate(_options.module);
     for (const change of addImport) {
       if (change instanceof InsertChange) {
         recorder.insertLeft(change.pos, change.toAdd);
       }
     }
+    tree.commitUpdate(recorder);
   }
-  tree.commitUpdate(recorder);
   return tree;
 }
