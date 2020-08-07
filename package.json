@@ -45,7 +45,7 @@
     "marked": "^0.6.2",
     "ngx-highlightjs": "^3.0.3",
     "ngx-markdown": "^7.1.5",
-    "prismjs": "^1.16.0",
+    "prismjs": "^1.21.0",
     "rxjs": "~6.5.2",
     "zone.js": "^0.9.1"
   },
