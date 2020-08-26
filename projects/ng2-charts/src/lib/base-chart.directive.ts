@@ -66,7 +66,7 @@ enum UpdateType {
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestroy, DoCheck {
+export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck {
   @Input() public data: SingleOrMultiDataSet;
   @Input() public datasets: ChartDataSets[];
   @Input() public labels: Label[];
