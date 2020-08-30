@@ -50,9 +50,9 @@ export class BarChartComponent implements OnInit {
       Math.round(Math.random() * 100),
       59,
       80,
-      (Math.random() * 100),
+      Math.round(Math.random() * 100),
       56,
-      (Math.random() * 100),
+      Math.round(Math.random() * 100),
       40];
     this.barChartData[0].data = data;
   }
