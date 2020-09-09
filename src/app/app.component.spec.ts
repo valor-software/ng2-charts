@@ -54,12 +54,12 @@ describe('AppComponent', () => {
         MarkdownModule.forRoot({ loader: HttpClient }),
         HighlightModule,
       ],
-      providers: [ {
+      providers: [{
         provide: HIGHLIGHT_OPTIONS,
         useValue: {
           languages: hljsLanguages()
         }
-      } ]
+      }]
     }).compileComponents();
   }));
 

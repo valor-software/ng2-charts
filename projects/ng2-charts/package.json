@@ -1,9 +1,10 @@
 {
   "name": "ng2-charts",
-  "version": "2.3.3",
+  "version": "2.4.0",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "peerDependencies": {
-    "@angular/common": ">7.2.0",
-    "@angular/core": ">7.2.0",
+    "@angular/common": ">=7.2.0",
+    "@angular/core": ">=7.2.0",
     "chart.js": "^2.9.3",
     "rxjs": "^6.3.3"
   },
