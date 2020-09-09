@@ -1,5 +1,4 @@
-
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { MarkdownModule } from 'ngx-markdown';
@@ -21,7 +20,7 @@ describe('FinancialChartComponent', () => {
   let component: FinancialChartComponent;
   let fixture: ComponentFixture<FinancialChartComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [FinancialChartComponent],
       imports: [
