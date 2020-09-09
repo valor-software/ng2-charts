@@ -20,7 +20,7 @@ const newCode = `public lineChartData: ChartDataSets[] = [
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }`;
 
 const newMarkup = `<div style="display: block;">

@@ -5,7 +5,7 @@ import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { MaterialModule } from '../material/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-export function hljsLanguages() {
+export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   return {
     typescript: () => import('highlight.js/lib/languages/typescript'),
     // html: import('highlight.js/lib/languages/html'),

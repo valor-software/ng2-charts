@@ -25,14 +25,14 @@ import { filter } from 'rxjs/operators';
   styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private _selectedTheme = 'lala';
-  public get selectedTheme() {
-    return this._selectedTheme;
+  private theme = 'lala';
+  public get selectedTheme(): string {
+    return this.theme;
   }
 
   public set selectedTheme(value) {
-    this.renderer.removeClass(this.document.body, this._selectedTheme);
-    this._selectedTheme = value;
+    this.renderer.removeClass(this.document.body, this.theme);
+    this.theme = value;
     this.renderer.addClass(this.document.body, value);
     let overrides: ChartOptions;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
@@ -92,7 +92,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selectedTheme = 'ng2-charts-demo-light-theme';
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subs.push(
       this.route.fragment
         .pipe(
@@ -112,11 +112,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.tabLabels = this.tabElements.map(r => r.nativeElement.getAttribute('label').replace(/ /g, ''));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs.forEach(x => x.unsubscribe());
   }
 
-  updateRoute(index: number) {
+  updateRoute(index: number): void {
     const label = this.tabLabels[index];
     this.router.navigate([], { fragment: `/${ label }` });
   }

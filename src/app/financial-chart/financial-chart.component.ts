@@ -40,14 +40,14 @@ export class FinancialChartComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  randomNumber(min: number, max: number) {
+  randomNumber(min: number, max: number): number {
     return Math.random() * (max - min) + min;
   }
 
-  randomBar(date: DateTime, lastClose: number) {
+  randomBar(date: DateTime, lastClose: number): { c: number; t: DateTime; h: number; l: number; o: number } {
     const open = this.randomNumber(lastClose * 0.95, lastClose * 1.05);
     const close = this.randomNumber(open * 0.95, open * 1.05);
     const high = this.randomNumber(Math.max(open, close), Math.max(open, close) * 1.1);
@@ -61,7 +61,7 @@ export class FinancialChartComponent implements OnInit {
     };
   }
 
-  getRandomData(dateStr: string, count: number) {
+  getRandomData(dateStr: string, count: number): { c: number; t: DateTime; h: number; l: number; o: number }[] {
     let date = DateTime.fromRFC2822(dateStr);
     const data = [ this.randomBar(date, 30) ];
     while (data.length < count) {
@@ -73,7 +73,7 @@ export class FinancialChartComponent implements OnInit {
     return data;
   }
 
-  update() {
+  update(): void {
     // candlestick vs ohlc
     this.financialChartType = this.financialChartType === 'candlestick' ? 'ohlc' : 'candlestick';
   }

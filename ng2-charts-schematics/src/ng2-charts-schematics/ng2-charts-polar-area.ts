@@ -9,7 +9,7 @@ const newCode = `public polarAreaChartLabels: Label[] = ['Download Sales', 'In-S
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }`;
 
 const newMarkup = `<div style="display: block;">

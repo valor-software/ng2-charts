@@ -31,7 +31,7 @@ export class ScatterChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events

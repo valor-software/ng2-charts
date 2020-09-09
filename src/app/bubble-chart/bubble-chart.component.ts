@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color } from 'ng2-charts';
 
 @Component({
@@ -67,7 +67,7 @@ export class BubbleChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events
@@ -79,11 +79,11 @@ export class BubbleChartComponent implements OnInit {
     console.log(event, active);
   }
 
-  private rand(max: number) {
+  private rand(max: number): number {
     return Math.trunc(Math.random() * max);
   }
 
-  private randomPoint(maxCoordinate: number) {
+  private randomPoint(maxCoordinate: number): { r: number; x: number; y: number } {
     const x = this.rand(maxCoordinate);
     const y = this.rand(maxCoordinate);
     const r = this.rand(30) + 5;
@@ -92,7 +92,6 @@ export class BubbleChartComponent implements OnInit {
 
   public randomize(): void {
     const numberOfPoints = this.rand(5) + 5;
-    const data = Array.apply(null, { length: numberOfPoints }).map(r => this.randomPoint(30));
-    this.bubbleChartData[0].data = data;
+    this.bubbleChartData[0].data = Array.apply(null, { length: numberOfPoints }).map(r => this.randomPoint(30));
   }
 }

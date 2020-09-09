@@ -69,7 +69,7 @@ export class ChartHostComponent implements OnInit, AfterContentInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 
   ngAfterContentInit(): void {
     const compName = this.chartType;

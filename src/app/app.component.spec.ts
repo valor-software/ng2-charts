@@ -19,7 +19,7 @@ import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
-export function hljsLanguages() {
+export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   return {
     typescript: () => import('highlight.js/lib/languages/typescript'),
     // html: import('highlight.js/lib/languages/html'),
@@ -54,12 +54,12 @@ describe('AppComponent', () => {
         MarkdownModule.forRoot({ loader: HttpClient }),
         HighlightModule,
       ],
-      providers: [{
+      providers: [ {
         provide: HIGHLIGHT_OPTIONS,
         useValue: {
           languages: hljsLanguages()
         }
-      }]
+      } ]
     }).compileComponents();
   }));
 

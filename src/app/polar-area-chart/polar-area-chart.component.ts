@@ -17,7 +17,7 @@ export class PolarAreaChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events

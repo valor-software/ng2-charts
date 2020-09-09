@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Directive,
   DoCheck,
   ElementRef,
@@ -21,10 +20,11 @@ import {
   ChartConfiguration,
   ChartDataSets,
   ChartOptions,
-  ChartPoint, ChartType,
+  ChartPoint,
+  ChartType,
+  pluginService,
   PluginServiceGlobalRegistration,
-  PluginServiceRegistrationOptions,
-  pluginService
+  PluginServiceRegistrationOptions
 } from 'chart.js';
 
 export type SingleDataSet = Array<number | null | undefined | number[]> | ChartPoint[];
@@ -102,11 +102,11 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
   /**
    * Register a plugin.
    */
-  public static registerPlugin(plugin: PluginServiceGlobalRegistrationAndOptions) {
+  public static registerPlugin(plugin: PluginServiceGlobalRegistrationAndOptions): void {
     pluginService.register(plugin);
   }
 
-  public static unregisterPlugin(plugin: PluginServiceGlobalRegistrationAndOptions) {
+  public static unregisterPlugin(plugin: PluginServiceGlobalRegistrationAndOptions): void {
     pluginService.unregister(plugin);
   }
 
@@ -115,13 +115,13 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     private themeService: ThemeService,
   ) { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.ctx = this.element.nativeElement.getContext('2d');
     this.refresh();
     this.subs.push(this.themeService.colorschemesOptions.subscribe(r => this.themeChanged(r)));
   }
 
-  private themeChanged(options: {}) {
+  private themeChanged(options: {}): void {
     this.refresh();
   }
 
@@ -232,7 +232,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     return a;
   }
 
-  labelsEqual(a: Label, b: Label) {
+  labelsEqual(a: Label, b: Label): boolean {
     return Array.isArray(a) === Array.isArray(b)
       && (Array.isArray(a) || a === b)
       && (!Array.isArray(a) || a.length === b.length)
@@ -241,7 +241,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
   }
 
   copyColor(a: Color): Color {
-    const rc: Color = {
+    return {
       backgroundColor: a.backgroundColor,
       borderWidth: a.borderWidth,
       borderColor: a.borderColor,
@@ -263,11 +263,9 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
       hoverBorderColor: a.hoverBorderColor,
       hoverBorderWidth: a.hoverBorderWidth,
     };
-
-    return rc;
   }
 
-  colorsEqual(a: Color, b: Color) {
+  colorsEqual(a: Color, b: Color): boolean {
     if (!a !== !b) {
       return false;
     }
@@ -294,7 +292,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
       && (a.hoverBorderWidth === b.hoverBorderWidth);
   }
 
-  updateColors() {
+  updateColors(): void {
     this.datasets.forEach((elm, index) => {
       if (this.colors && this.colors[index]) {
         Object.assign(elm, this.colors[index]);
@@ -304,7 +302,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     });
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges(changes: SimpleChanges): void {
     let updateRequired = UpdateType.Default;
     const wantUpdate = (x: UpdateType) => {
       updateRequired = x > updateRequired ? x : updateRequired;
@@ -356,7 +354,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     }
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if (this.chart) {
       this.chart.destroy();
       this.chart = void 0;
@@ -364,13 +362,13 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     this.subs.forEach(x => x.unsubscribe());
   }
 
-  public update(duration?: any) {
+  public update(duration?: any): {} {
     if (this.chart) {
       return this.chart.update(duration);
     }
   }
 
-  public hideDataset(index: number, hidden: boolean) {
+  public hideDataset(index: number, hidden: boolean): void {
     this.chart.getDatasetMeta(index).hidden = hidden;
     this.chart.update();
   }
@@ -409,7 +407,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
 
     const mergedOptions = this.smartMerge(options, this.themeService.getColorschemesOptions());
 
-    const chartConfig: ChartConfiguration = {
+    return {
       type: this.chartType,
       data: {
         labels: this.labels || [],
@@ -418,8 +416,6 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
       plugins: this.plugins,
       options: mergedOptions,
     };
-
-    return chartConfig;
   }
 
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): Chart {
@@ -469,7 +465,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     }
   }
 
-  private propagateDatasetsToData(datasets: ChartDataSets[]) {
+  private propagateDatasetsToData(datasets: ChartDataSets[]): void {
     this.data = this.datasets.map(r => r.data);
     if (this.chart) {
       this.chart.data.datasets = datasets;
@@ -509,7 +505,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     return Array.isArray(data[0]);
   }
 
-  private getDatasets() {
+  private getDatasets(): Chart.ChartDataSets[] {
     if (!this.datasets && !this.data) {
       throw new Error(`ng-charts configuration error, data or datasets field are required to render chart ${ this.chartType }`);
     }
@@ -526,7 +522,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges, OnInit, OnDestr
     }
   }
 
-  private refresh() {
+  private refresh(): void {
     // if (this.options && this.options.responsive) {
     //   setTimeout(() => this.refresh(), 50);
     // }

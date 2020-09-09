@@ -1,12 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {
-  ChartsModule,
-  BaseChartDirective,
-  monkeyPatchChartJsLegend,
-  monkeyPatchChartJsTooltip
-} from 'ng2-charts';
-import { RouterModule, Route } from '@angular/router';
+import { BaseChartDirective, ChartsModule, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +24,7 @@ import { FinancialChartComponent } from './financial-chart/financial-chart.compo
 
 const routes: Route[] = [];
 
-export function hljsLanguages() {
+export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   return {
     typescript: () => import('highlight.js/lib/languages/typescript'),
     // html: import('highlight.js/lib/languages/html'),

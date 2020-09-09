@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 
@@ -32,7 +32,7 @@ export class BarChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events
@@ -46,14 +46,13 @@ export class BarChartComponent implements OnInit {
 
   public randomize(): void {
     // Only Change 3 values
-    const data = [
+    this.barChartData[0].data = [
       Math.round(Math.random() * 100),
       59,
       80,
       (Math.random() * 100),
       56,
       (Math.random() * 100),
-      40];
-    this.barChartData[0].data = data;
+      40 ];
   }
 }

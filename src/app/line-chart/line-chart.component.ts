@@ -89,7 +89,7 @@ export class LineChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   public randomize(): void {
@@ -101,7 +101,7 @@ export class LineChartComponent implements OnInit {
     this.chart.update();
   }
 
-  private generateNumber(i: number) {
+  private generateNumber(i: number): number {
     return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
   }
 
@@ -114,12 +114,12 @@ export class LineChartComponent implements OnInit {
     console.log(event, active);
   }
 
-  public hideOne() {
+  public hideOne(): void {
     const isHidden = this.chart.isDatasetHidden(1);
     this.chart.hideDataset(1, !isHidden);
   }
 
-  public pushOne() {
+  public pushOne(): void {
     this.lineChartData.forEach((x, i) => {
       const num = this.generateNumber(i);
       const data: number[] = x.data as number[];
@@ -128,13 +128,12 @@ export class LineChartComponent implements OnInit {
     this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
   }
 
-  public changeColor() {
+  public changeColor(): void {
     this.lineChartColors[2].borderColor = 'green';
     this.lineChartColors[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
   }
 
-  public changeLabel() {
+  public changeLabel(): void {
     this.lineChartLabels[2] = ['1st Line', '2nd Line'];
-    // this.chart.update();
   }
 }
