@@ -1,5 +1,5 @@
 {
-  "name": "ng2-charts",
+  "name": "@valor-software/ng2-charts",
   "version": "2.4.1",
   "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "peerDependencies": {
