@@ -1,13 +1,3 @@
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  z-index: 9999;
-  .toolbar {
-    width: 1170px;
-    margin: auto;
-  }
-}
-
 .badges {
   .badge {
     display: inline-block;
@@ -49,10 +39,6 @@ footer {
 
 app-chart-host {
   width: 100%;
-}
-
-.bd-pageheader {
-  margin-top: 51px;
 }
 
 .bd-pageheader,

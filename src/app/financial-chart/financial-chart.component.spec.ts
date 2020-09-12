@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +32,7 @@ describe('FinancialChartComponent', () => {
         providers: [ {
           provide: HIGHLIGHT_OPTIONS,
           useValue: {
+            coreLibraryLoader: () => import('highlight.js/lib/highlight'),
             languages: hljsLanguages()
           }
         } ]
