@@ -32,7 +32,7 @@ describe('FinancialChartComponent', () => {
         providers: [ {
           provide: HIGHLIGHT_OPTIONS,
           useValue: {
-            coreLibraryLoader: () => import('highlight.js/lib/highlight'),
+            coreLibraryLoader: () => import('highlight.js/lib/core'),
             languages: hljsLanguages()
           }
         } ]
