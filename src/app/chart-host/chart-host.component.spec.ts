@@ -29,6 +29,7 @@ describe('ChartHostComponent', () => {
       providers: [{
         provide: HIGHLIGHT_OPTIONS,
         useValue: {
+          coreLibraryLoader: () => import('highlight.js/lib/highlight'),
           languages: hljsLanguages()
         }
       }]
