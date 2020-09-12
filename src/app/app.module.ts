@@ -62,7 +62,7 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        coreLibraryLoader: () => import('highlight.js/lib/highlight'),
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
         languages: hljsLanguages()
       }
     }
