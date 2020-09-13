@@ -16,7 +16,7 @@
     "publish:schem": "cd ng2-charts-schematics && npm publish && cd ..",
     "test": "ng test",
     "test:headless": "ng test --watch=false --no-progress --browsers=FirefoxHeadless",
-    "test:main": "cypress run --spec \"cypress/integration/main-test.js\"",
+    "test:main": "cypress run --browser=firefox --spec \"cypress/integration/main-test.js\"",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
