@@ -4,8 +4,7 @@ language: node_js
 
 env:
   - NG_CLI_ANALYTICS="ci"
-  global:
-    - MOZ_HEADLESS=1
+  - MOZ_HEADLESS=1
 
 node_js: "12"
 
