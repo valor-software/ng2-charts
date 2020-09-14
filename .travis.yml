@@ -7,7 +7,7 @@ env:
   global:
     - MOZ_HEADLESS=1
 
-node_js: "10"
+node_js: "12"
 
 addons:
   firefox: latest
