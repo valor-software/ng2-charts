@@ -4,12 +4,12 @@ language: node_js
 
 env:
   global:
-    - NG_CLI_ANALYTICS="ci" MOZ_HEADLESS=1
+    - NG_CLI_ANALYTICS="ci"
 
 node_js: "12"
 
 addons:
-  firefox: latest
+  chrome: stable
 
 cache:
   directories:
@@ -32,7 +32,7 @@ script:
   - npm run install:financial
   - npm run build:financial
   - npm run build:lib
-  - npm run test -- --watch=false --no-progress --browsers=FirefoxHeadless
+  - npm run test:headless
   - ng serve &
   - $(npm bin)/wait-on http-get://localhost:4200/#
   - npm run test:main
