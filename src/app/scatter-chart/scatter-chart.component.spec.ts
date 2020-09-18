@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScatterChartComponent } from './scatter-chart.component';
 import { ChartsModule } from 'ng2-charts';
@@ -7,7 +7,7 @@ describe('ScatterChartComponent', () => {
   let component: ScatterChartComponent;
   let fixture: ComponentFixture<ScatterChartComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ScatterChartComponent],
       imports: [

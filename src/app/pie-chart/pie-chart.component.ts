@@ -36,7 +36,7 @@ export class PieChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events
@@ -48,7 +48,7 @@ export class PieChartComponent implements OnInit {
     console.log(event, active);
   }
 
-  changeLabels() {
+  changeLabels(): void {
     const words = ['hen', 'variable', 'embryo', 'instal', 'pleasant', 'physical', 'bomber', 'army', 'add', 'film',
       'conductor', 'comfortable', 'flourish', 'establish', 'circumstance', 'chimney', 'crack', 'hall', 'energy',
       'treat', 'window', 'shareholder', 'division', 'disk', 'temptation', 'chord', 'left', 'hospital', 'beef',
@@ -58,19 +58,19 @@ export class PieChartComponent implements OnInit {
     this.pieChartLabels = Array.apply(null, { length: 3 }).map(_ => randomWord());
   }
 
-  addSlice() {
+  addSlice(): void {
     this.pieChartLabels.push(['Line 1', 'Line 2', 'Line 3']);
     this.pieChartData.push(400);
     this.pieChartColors[0].backgroundColor.push('rgba(196,79,244,0.3)');
   }
 
-  removeSlice() {
+  removeSlice(): void {
     this.pieChartLabels.pop();
     this.pieChartData.pop();
     this.pieChartColors[0].backgroundColor.pop();
   }
 
-  changeLegendPosition() {
+  changeLegendPosition(): void {
     this.pieChartOptions.legend.position = this.pieChartOptions.legend.position === 'left' ? 'top' : 'left';
   }
 }

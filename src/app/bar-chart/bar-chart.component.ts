@@ -31,7 +31,7 @@ export class BarChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events
@@ -45,14 +45,13 @@ export class BarChartComponent implements OnInit {
 
   public randomize(): void {
     // Only Change 3 values
-    const data = [
+    this.barChartData[0].data = [
       Math.round(Math.random() * 100),
       59,
       80,
       (Math.random() * 100),
       56,
       (Math.random() * 100),
-      40];
-    this.barChartData[0].data = data;
+      40 ];
   }
 }

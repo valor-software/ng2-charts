@@ -157,7 +157,12 @@
             </div>
 
       </mat-tab>
-      <mat-tab #tab label="Line Chart"><app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Line Chart">
+        <!-- Lazy load the line chart due to multiple scale layout calculations only possible when canvas in view -->
+        <ng-template matTabContent>
+          <app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host>
+        </ng-template>
+      </mat-tab>
       <mat-tab #tab label="Bar Chart"><app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host></mat-tab>
       <mat-tab #tab label="Doughnut Chart"><app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host></mat-tab>
       <mat-tab #tab label="Radar Chart"><app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host></mat-tab>

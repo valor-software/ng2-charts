@@ -12,12 +12,12 @@ export class ThemeService<T extends BaseChartMetaConfig> {
 
   constructor() { }
 
-  setColorschemesOptions(options: ChartOptions<T>) {
+  setColorschemesOptions(options: ChartOptions<T>): void {
     this.pColorschemesOptions = options;
     this.colorschemesOptions.next(options);
   }
 
-  getColorschemesOptions() {
+  getColorschemesOptions(): ChartOptions {
     return this.pColorschemesOptions;
   }
 }

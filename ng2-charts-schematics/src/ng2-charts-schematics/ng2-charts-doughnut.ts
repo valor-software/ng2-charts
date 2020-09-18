@@ -12,7 +12,7 @@ const newCode = `public doughnutChartLabels: Label[] = ['Download Sales', 'In-St
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }`;
 
 const newMarkup = `<div style="display: block;">

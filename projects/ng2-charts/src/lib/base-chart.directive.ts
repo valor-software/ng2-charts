@@ -1,14 +1,15 @@
 import {
+  AfterViewInit,
   Directive,
-  OnDestroy,
-  OnChanges,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ElementRef,
-  SimpleChanges,
   DoCheck,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
 } from '@angular/core';
 import { getColors } from './get-colors';
 import { Color } from './color';
@@ -22,6 +23,16 @@ import { ChartOptions } from './chartjs/chart-options';
 import { ChartConfiguration } from './chartjs/chart-configuration';
 import { ChartDataSetsUnion } from './chartjs/chart-data-sets-union';
 import { AngularChart } from './chartjs/angular-chart';
+import {
+  Chart,
+  ChartConfiguration,
+  ChartDataSets,
+  ChartOptions,
+  ChartPoint, ChartType,
+  PluginServiceGlobalRegistration,
+  PluginServiceRegistrationOptions,
+  pluginService
+} from 'chart.js';
 
 export type SingleDataSet<T extends BaseChartMetaConfig> = T['datasetTypes']['data'];
 export type MultiDataSet<T extends BaseChartMetaConfig> = Array<T['datasetTypes']['data']>;
@@ -111,13 +122,13 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     private themeService: ThemeService<T>,
   ) { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.ctx = this.element.nativeElement.getContext('2d');
     this.refresh();
     this.subs.push(this.themeService.colorschemesOptions.subscribe(r => this.themeChanged(r)));
   }
 
-  private themeChanged(options: {}) {
+  private themeChanged(options: {}): void {
     this.refresh();
   }
 
@@ -228,9 +239,8 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     return a;
   }
 
-  labelsEqual(a: Label, b: Label) {
-    return true
-      && Array.isArray(a) === Array.isArray(b)
+  labelsEqual(a: Label, b: Label): boolean {
+    return Array.isArray(a) === Array.isArray(b)
       && (Array.isArray(a) || a === b)
       && (!Array.isArray(a) || a.length === b.length)
       && (!Array.isArray(a) || a.filter((x, i) => x !== b[i]).length === 0)
@@ -238,7 +248,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
   }
 
   copyColor(a: Color): Color {
-    const rc: Color = {
+    return {
       backgroundColor: a.backgroundColor,
       borderWidth: a.borderWidth,
       borderColor: a.borderColor,
@@ -260,16 +270,14 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
       hoverBorderColor: a.hoverBorderColor,
       hoverBorderWidth: a.hoverBorderWidth,
     };
-
-    return rc;
   }
 
-  colorsEqual(a: Color, b: Color) {
+  colorsEqual(a: Color, b: Color): boolean {
     if (!a !== !b) {
       return false;
     }
-    return !a || true
-      && (a.backgroundColor === b.backgroundColor)
+    return !a ||
+      (a.backgroundColor === b.backgroundColor)
       && (a.borderWidth === b.borderWidth)
       && (a.borderColor === b.borderColor)
       && (a.borderCapStyle === b.borderCapStyle)
@@ -288,11 +296,10 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
       && (a.pointStyle === b.pointStyle)
       && (a.hoverBackgroundColor === b.hoverBackgroundColor)
       && (a.hoverBorderColor === b.hoverBorderColor)
-      && (a.hoverBorderWidth === b.hoverBorderWidth)
-      ;
+      && (a.hoverBorderWidth === b.hoverBorderWidth);
   }
 
-  updateColors() {
+  updateColors(): void {
     this.datasets.forEach((elm, index) => {
       if (this.colors && this.colors[index]) {
         Object.assign(elm, this.colors[index]);
@@ -302,7 +309,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     });
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges(changes: SimpleChanges): void {
     let updateRequired = UpdateType.Default;
     const wantUpdate = (x: UpdateType) => {
       updateRequired = x > updateRequired ? x : updateRequired;
@@ -354,7 +361,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     }
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if (this.chart) {
       this.chart.destroy();
       this.chart = void 0;
@@ -362,13 +369,13 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     this.subs.forEach(x => x.unsubscribe());
   }
 
-  public update(duration?: any, lazy?: any) {
+  public update(duration?: any): {} {
     if (this.chart) {
-      return this.chart.update(duration, lazy);
+      return this.chart.update(duration);
     }
   }
 
-  public hideDataset(index: number, hidden: boolean) {
+  public hideDataset(index: number, hidden: boolean): void {
     this.chart.getDatasetMeta(index).hidden = hidden;
     this.chart.update();
   }
@@ -416,8 +423,6 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
       plugins: this.plugins,
       options: mergedOptions,
     };
-
-    return chartConfig;
   }
 
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): AngularChart<T> {
@@ -501,6 +506,10 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
           this.chart.data.datasets = this.datasets;
         }
       } else {
+        if (!this.datasets[0]) {
+          this.datasets[0] = {};
+        }
+
         this.datasets[0].data = newDataValues;
         this.datasets.splice(1); // Remove all elements but the first
       }
@@ -512,9 +521,9 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     return Array.isArray(data[0]);
   }
 
-  private getDatasets() {
+  private getDatasets(): Chart.ChartDataSets[] {
     if (!this.datasets && !this.data) {
-      throw new Error(`ng-charts configuration error, data or datasets field are required to render chart ${this.chartType}`);
+      throw new Error(`ng-charts configuration error, data or datasets field are required to render chart ${ this.chartType }`);
     }
 
     // If `datasets` is defined, use it over the `data` property.
@@ -529,7 +538,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     }
   }
 
-  private refresh() {
+  private refresh(): void {
     // if (this.options && this.options.responsive) {
     //   setTimeout(() => this.refresh(), 50);
     // }

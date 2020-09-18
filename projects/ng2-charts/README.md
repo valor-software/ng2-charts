@@ -10,6 +10,8 @@ Beautiful charts for Angular2 based on Chart.js
 
 # Usage & Demo
 
+Sample using ng2-charts@next
+
 https://valor-software.com/ng2-charts/
 
 
@@ -20,7 +22,7 @@ https://valor-software.com/ng2-charts/
 1. You can install ***ng2-charts*** using npm
 
   ```bash
-  npm install ng2-charts --save
+  npm install ng2-charts@next --save
   ```
 2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 

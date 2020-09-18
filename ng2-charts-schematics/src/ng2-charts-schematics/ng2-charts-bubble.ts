@@ -36,7 +36,7 @@ const newCode = `public bubbleChartOptions: ChartOptions = {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }`;
 
 const newMarkup = `<div style="display: block;">

@@ -23,7 +23,7 @@ const newCode = `public scatterChartOptions: ChartOptions = {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }`;
 
 const newMarkup = `<div style="display: block;">

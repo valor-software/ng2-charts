@@ -1,14 +1,14 @@
 import {
+  AfterViewInit,
   Component,
-  OnInit,
-  Inject,
-  Renderer2,
-  ViewChildren,
-  QueryList,
   ElementRef,
-  ViewChild,
+  Inject,
   OnDestroy,
-  AfterViewInit
+  OnInit,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,16 +19,17 @@ import { AppChartMetaConfig, ChartOptions, ThemeService } from './app-chart-conf
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private _selectedTheme = 'lala';
-  public get selectedTheme() {
-    return this._selectedTheme;
+  private theme = 'lala';
+  public get selectedTheme(): string {
+    return this.theme;
   }
+
   public set selectedTheme(value) {
-    this.renderer.removeClass(this.document.body, this._selectedTheme);
-    this._selectedTheme = value;
+    this.renderer.removeClass(this.document.body, this.theme);
+    this.theme = value;
     this.renderer.addClass(this.document.body, value);
     let overrides: ChartOptions;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
@@ -88,27 +89,31 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selectedTheme = 'ng2-charts-demo-light-theme';
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subs.push(
-      this.route.fragment.subscribe(r => {
-        if (this.tabElements) {
-          const index = this.tabLabels.indexOf(r);
-          if (index !== -1) {
-            this.tabGroup.selectedIndex = index;
+      this.route.fragment
+        .pipe(
+          filter(Boolean)
+        )
+        .subscribe((tabUrl: string) => {
+          if (this.tabElements) {
+            const index = this.tabLabels.indexOf(tabUrl.slice(1));
+            if (index !== -1) {
+              this.tabGroup.selectedIndex = index;
+            }
           }
-        }
-      }));
+        }));
   }
 
   ngAfterViewInit(): void {
     this.tabLabels = this.tabElements.map(r => r.nativeElement.getAttribute('label').replace(/ /g, ''));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs.forEach(x => x.unsubscribe());
   }
 
-  updateRoute(index: number) {
+  updateRoute(index: number): void {
     const label = this.tabLabels[index];
     this.router.navigate([], { fragment: label });
   }

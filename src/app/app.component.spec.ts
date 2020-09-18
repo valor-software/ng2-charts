@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
@@ -13,25 +13,23 @@ import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { ChartHostComponent } from './chart-host/chart-host.component';
 import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
 import { ChartsModule } from 'ng2-charts';
-import { HighlightModule } from 'ngx-highlightjs';
-import typescript from 'highlight.js/lib/languages/typescript';
-import xml from 'highlight.js/lib/languages/xml';
+import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
-export function hljsLanguages() {
-  return [
-    { name: 'typescript', func: typescript },
-    // { name: 'html', func: html },
-    // {name: 'scss', func: scss},
-    {name: 'xml', func: xml}
-  ];
+export function hljsLanguages(): { [name: string]: () => Promise<any> } {
+  return {
+    typescript: () => import('highlight.js/lib/languages/typescript'),
+    // html: import('highlight.js/lib/languages/html'),
+    // scss: import('highlight.js/lib/languages/scss'),
+    xml: () => import('highlight.js/lib/languages/xml')
+  };
 }
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -54,10 +52,15 @@ describe('AppComponent', () => {
         MaterialModule,
         HttpClientModule,
         MarkdownModule.forRoot({ loader: HttpClient }),
-        HighlightModule.forRoot({
-          languages: hljsLanguages,
-        }),
+        HighlightModule,
       ],
+      providers: [{
+        provide: HIGHLIGHT_OPTIONS,
+        useValue: {
+          coreLibraryLoader: () => import('highlight.js/lib/core'),
+          languages: hljsLanguages()
+        }
+      }]
     }).compileComponents();
   }));
 

@@ -21,7 +21,7 @@ export class RadarChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // events

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DynamicChartComponent } from './dynamic-chart.component';
 import { ChartsModule } from 'ng2-charts';
@@ -7,7 +7,7 @@ describe('DynamicChartComponent', () => {
   let component: DynamicChartComponent;
   let fixture: ComponentFixture<DynamicChartComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DynamicChartComponent],
       imports: [

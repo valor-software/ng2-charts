@@ -13,7 +13,7 @@ const newCode = `public pieChartOptions: ChartOptions = {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }`;
 
 const newMarkup = `<div style="display: block;">
