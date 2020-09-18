@@ -494,6 +494,10 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
           this.chart.data.datasets = this.datasets;
         }
       } else {
+        if (!this.datasets[0]) {
+          this.datasets[0] = {};
+        }
+
         this.datasets[0].data = newDataValues;
         this.datasets.splice(1); // Remove all elements but the first
       }
