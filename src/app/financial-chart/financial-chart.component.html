@@ -1,0 +1,35 @@
+<div>
+  <markdown ngPreserveWhitespaces>
+
+    This chart demonstrates how custom chart types can be plugged into `ng2-charts`. Check out the Typescript source
+    code below.
+
+    This custom chart type depends on a package called [`chartjs-chart-financial`](https://github.com/chartjs/chartjs-chart-financial)
+    which is not yet on [npmjs.com](https://npmjs.com). It is included in the demo app as a git submodule directly from the github site of the package.
+
+    This also demonstrates using a different date/time adapter than [`moment`](https://www.npmjs.com/package/moment).
+    This demo uses [`luxon`](https://www.npmjs.com/package/luxon) instead, plugged into the `chart.js` module using
+    the [`chartjs-adapter-luxon`](https://www.npmjs.com/package/chartjs-adapter-luxon) package.
+
+    Developers who wish to run this locally must first clone the demo app, then run some npm commands:
+
+    ```bash
+    git clone git@github.com:valor-software/ng2-charts.git
+    npm install
+    npm run install:financial
+    npm run build:financial
+    npm run build:lib
+    ```
+
+    Then you may run `npm start` to run the demo app locally on http://localhost:4200
+  </markdown>
+</div>
+<div class="chart">
+  <canvas baseChart [datasets]="financialChartData" [options]="financialChartOptions"
+    [colors]="financialChartColors" [legend]="financialChartLegend" [chartType]="financialChartType"
+    [plugins]="financialChartPlugins">
+  </canvas>
+</div>
+<div>
+  <button mat-button mat-raised-button color="primary" (click)="update()">Toggle Chart Type</button>
+</div>
