@@ -1,0 +1,3 @@
+{
+  "componentsUrls": ["#/LineChart", "#/BarChart", "#/DoughnutChart", "#/RadarChart", "#/PieChart", "#/PolarAreaChart", "#/BubbleChart", "#/ScatterChart", "#/DynamicChart"]
+}

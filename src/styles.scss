@@ -1,0 +1,138 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~highlight.js/styles/github.css';
+@import '~@angular/material/theming';
+@mixin ng2-charts-demo($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $is-dark-theme: map-get($theme, is-dark);
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+  .panel-body {
+    padding: 15px;
+  }
+  @if($is-dark-theme) {
+    .panel,
+    .hljs,
+    pre {
+      background-color: #333;
+    }
+    .panel-default,
+    pre {
+      border-color: rgb(39, 39, 39);
+    }
+    .hljs {
+      color: #ddd;
+    }
+    .hljs-name,
+    .hljs-built_in {
+      color: rgb(173, 177, 255);
+    }
+    .hljs-tag,
+    .hljs-keyword {
+      color: rgb(245, 245, 255);
+    }
+    .hljs-attr,
+    .hljs-number,
+    .hljs-literal {
+      color: #00c7c7;
+    }
+    .hljs-string {
+      color: rgb(255, 170, 192);
+    }
+    markdown code {
+      color: #c77d8f;
+      background-color: #2f2f2f;
+    } // prism
+    $languages: typescript bash;
+    @each $lang in $languages {
+      .language-#{$lang} {
+        background-color: black;
+        text-shadow: 0 1px #202020;
+      }
+    }
+    .token.operator {
+      background-color: rgb(42, 42, 42);
+    }
+    pre {
+      color: rgb(214, 214, 214);
+      background-color: #141414;
+      border: 1px solid rgb(59, 59, 59);
+    }
+    .panel {
+      background-color: rgb(0, 0, 0);
+      -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+      box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+    }
+    .panel-body {
+      padding: 15px;
+    }
+  }
+}
+
+@include mat-core(); // Define your application's custom theme.
+.ng2-charts-demo-light-theme {
+  $primary: mat-palette($mat-blue-gray);
+  $accent: mat-palette($mat-gray);
+  $warn: mat-palette($mat-red);
+  $theme: mat-light-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+.ng2-charts-demo-dark-theme {
+  $primary: mat-palette($mat-indigo, A200);
+  $accent: mat-palette($mat-blue, 300);
+  $warn: mat-palette($mat-red, 400);
+  $theme: mat-dark-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+.ng2-charts-demo-old-theme {
+  $primary: mat-palette($mat-brown);
+  $accent: mat-palette($mat-deep-orange);
+  $warn: mat-palette($mat-orange);
+  $theme: mat-dark-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+.ng2-charts-demo-weird-theme {
+  $primary: mat-palette($mat-light-blue);
+  $accent: mat-palette($mat-yellow);
+  $warn: mat-palette($mat-red);
+  $theme: mat-light-theme($primary, $accent, $warn);
+  @include angular-material-theme($theme);
+  @include ng2-charts-demo($theme);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

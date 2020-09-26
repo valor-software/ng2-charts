@@ -1,23 +1,39 @@
+os: linux
+dist: trusty
 language: node_js
-node_js: "7"
 
-before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+env:
+  global:
+    - NG_CLI_ANALYTICS="ci"
 
-script:
-  - npm run pretest
-  - npm run test-coverage
-
-after_success:
-  - ./node_modules/.bin/codecov
+node_js: "12"
 
 addons:
-  firefox: "latest"
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    # required by node-gyp to build some packages
-    packages:
-    - g++-4.8
+  chrome: stable
+
+cache:
+  directories:
+    - ./node_modules
+    - ~/.cache
+    - ~/.npm
+
+install:
+  - npm ci
+
+# Handle git submodules yourself
+git:
+  submodules: false
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
+before_install:
+  - export NG_CLI_ANALYTICS=ci
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+
+script:
+  - npm run install:financial
+  - npm run build:financial
+  - npm run build:lib
+  - npm run test:headless
+  - ng serve &
+  - $(npm bin)/wait-on http-get://localhost:4200/#
+  - npm run test:main
+  - kill $(jobs -p) || true
