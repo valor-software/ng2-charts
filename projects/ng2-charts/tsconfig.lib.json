@@ -11,7 +11,9 @@
     "lib": [
       "dom",
       "es2018"
-    ]
+    ],
+    //TODO: remove when https://github.com/chartjs/Chart.js/issues/7838 is released
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,

@@ -5,10 +5,10 @@
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
       "chart.js": "chart_js",
-      "lodash": "_"
+      "lodash-es": "_"
     }
   },
   "whitelistedNonPeerDependencies": [
-    "lodash"
+    "lodash-es"
   ]
 }
