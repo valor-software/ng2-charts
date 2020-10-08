@@ -28,12 +28,11 @@ const newCode = `public scatterChartOptions: ChartOptions = {
 
 const newMarkup = `<div style="display: block;">
   <canvas baseChart
-    [datasets]="scatterChartData"
+    [data]="scatterChartData"
     [options]="scatterChartOptions"
-    [chartType]="scatterChartType">
+    [type]="scatterChartType">
   </canvas>
-</div>
-`;
+</div>`;
 
 const newImports: [string, string][] = [
   ['ChartDataSetsScatter, ChartOptions, ChartType, Label', 'src/app/app-chart-config'],

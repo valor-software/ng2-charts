@@ -26,12 +26,12 @@ const newCode = `public lineChartData: ChartDataSetsLine[] = [
 
 const newMarkup = `<div style="display: block;">
   <canvas baseChart width="400" height="400"
-    [datasets]="lineChartData"
+    [data]="lineChartData"
     [labels]="lineChartLabels"
     [options]="lineChartOptions"
     [colors]="lineChartColors"
     [legend]="lineChartLegend"
-    [chartType]="lineChartType"
+    [type]="lineChartType"
     [plugins]="lineChartPlugins">
   </canvas>
 </div>

@@ -22,12 +22,12 @@ const newCode = `public barChartOptions: ChartOptions = {
 
 const newMarkup = `<div style="display: block;">
   <canvas baseChart
-    [datasets]="barChartData"
+    [data]="barChartData"
     [labels]="barChartLabels"
     [options]="barChartOptions"
     [plugins]="barChartPlugins"
     [legend]="barChartLegend"
-    [chartType]="barChartType">
+    [type]="barChartType">
   </canvas>
 </div>
 `;

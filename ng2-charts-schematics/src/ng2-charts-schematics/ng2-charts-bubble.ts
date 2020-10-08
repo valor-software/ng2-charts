@@ -41,11 +41,11 @@ const newCode = `public bubbleChartOptions: ChartOptions = {
 
 const newMarkup = `<div style="display: block;">
   <canvas baseChart
-    [datasets]="bubbleChartData"
+    [data]="bubbleChartData"
     [options]="bubbleChartOptions"
     [colors]="bubbleChartColors"
     [legend]="bubbleChartLegend"
-    [chartType]="bubbleChartType">
+    [type]="bubbleChartType">
   </canvas>
 </div>
 `;

@@ -19,7 +19,7 @@ const newMarkup = `<div style="display: block;">
   <canvas baseChart
     [data]="doughnutChartData"
     [labels]="doughnutChartLabels"
-    [chartType]="doughnutChartType">
+    [type]="doughnutChartType">
   </canvas>
 </div>
 `;

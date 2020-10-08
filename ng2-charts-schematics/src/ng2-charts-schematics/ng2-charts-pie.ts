@@ -20,7 +20,7 @@ const newMarkup = `<div style="display: block;">
   <canvas baseChart
     [data]="pieChartData"
     [labels]="pieChartLabels"
-    [chartType]="pieChartType"
+    [type]="pieChartType"
     [options]="pieChartOptions"
     [plugins]="pieChartPlugins"
     [legend]="pieChartLegend">

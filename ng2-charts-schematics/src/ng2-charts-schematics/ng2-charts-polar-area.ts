@@ -18,7 +18,7 @@ const newMarkup = `<div style="display: block;">
     [data]="polarAreaChartData"
     [labels]="polarAreaChartLabels"
     [legend]="polarAreaLegend"
-    [chartType]="polarAreaChartType">
+    [type]="polarAreaChartType">
   </canvas>
 </div>
 `;
