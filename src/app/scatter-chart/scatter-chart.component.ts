@@ -1,34 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartDataSetsScatter, Label, ChartType } from '../app-chart-config';
+import { IChartOptions, IChartType } from "chart.js/types/interfaces";
+import { IChartData } from "chart.js";
 
 @Component({
   selector: 'app-scatter-chart',
   templateUrl: './scatter-chart.component.html',
-  styleUrls: ['./scatter-chart.component.scss']
+  styleUrls: [ './scatter-chart.component.scss' ]
 })
 export class ScatterChartComponent implements OnInit {
   // scatter
-  public scatterChartOptions: ChartOptions = {
+  public scatterChartOptions: IChartOptions<'scatter'> = {
     responsive: true,
   };
-  public scatterChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+  public scatterChartLabels: string[] = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running' ];
 
-  public scatterChartData: ChartDataSetsScatter[] = [
-    {
-      data: [
-        { x: 1, y: 1 },
-        { x: 2, y: 3 },
-        { x: 3, y: -2 },
-        { x: 4, y: 4 },
-        { x: 5, y: -3 },
-      ],
-      label: 'Series A',
-      pointRadius: 10,
-    },
-  ];
-  public scatterChartType: ChartType = 'scatter';
+  public scatterChartData: IChartData<'scatter'> = {
+    labels: this.scatterChartLabels,
+    datasets: [
+      {
+        data: [
+          { x: 1, y: 1 },
+          { x: 2, y: 3 },
+          { x: 3, y: -2 },
+          { x: 4, y: 4 },
+          { x: 5, y: -3 },
+        ],
+        label: 'Series A',
+        pointRadius: 10,
+      },
+    ]
+  };
+  public scatterChartType: IChartType = 'scatter';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

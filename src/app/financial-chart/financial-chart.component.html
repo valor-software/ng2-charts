@@ -4,8 +4,10 @@
     This chart demonstrates how custom chart types can be plugged into `ng2-charts`. Check out the Typescript source
     code below.
 
-    This custom chart type depends on a package called [`chartjs-chart-financial`](https://github.com/chartjs/chartjs-chart-financial)
-    which is not yet on [npmjs.com](https://npmjs.com). It is included in the demo app as a git submodule directly from the github site of the package.
+    This custom chart type depends on a package called
+    [`chartjs-chart-financial`](https://github.com/chartjs/chartjs-chart-financial)
+    which is not yet on [npmjs.com](https://npmjs.com). It is included in the demo app as a git submodule directly from
+    the github site of the package.
 
     This also demonstrates using a different date/time adapter than [`moment`](https://www.npmjs.com/package/moment).
     This demo uses [`luxon`](https://www.npmjs.com/package/luxon) instead, plugged into the `chart.js` module using
@@ -26,8 +28,8 @@
 </div>
 <div class="chart">
   <canvas baseChart [datasets]="financialChartData" [options]="financialChartOptions"
-    [colors]="financialChartColors" [legend]="financialChartLegend" [chartType]="financialChartType"
-    [plugins]="financialChartPlugins">
+          [type]="financialChartType"
+          [plugins]="financialChartPlugins">
   </canvas>
 </div>
 <div>

@@ -17,7 +17,6 @@
     ],
     "paths": {
       "ng2-charts": [
-        "dist/ng2-charts/ng2-charts",
         "dist/ng2-charts"
       ]
     }

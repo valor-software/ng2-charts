@@ -2,11 +2,10 @@
   <div>
     <div style="display: block">
       <canvas baseChart
-        [datasets]="bubbleChartData"
+        [data]="bubbleChartData"
         [options]="bubbleChartOptions"
-        [colors]="bubbleChartColors"
-        [legend]="bubbleChartLegend"
-        [chartType]="bubbleChartType">
+        [legend]="true"
+        [type]="bubbleChartType">
       </canvas>
     </div>
     <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>

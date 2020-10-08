@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { BaseChartMetaConfig } from './chartjs/base-chart-meta-config';
-import { ChartOptions } from './chartjs/chart-options';
+import { DefaultDataPoint, IChartConfiguration, IChartOptions, IChartType } from "chart.js";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService<T extends BaseChartMetaConfig> {
-  private pColorschemesOptions: ChartOptions<T> = {};
-  public colorschemesOptions = new BehaviorSubject<ChartOptions<T>>({});
+export class ThemeService<TYPE extends IChartType = any, DATA extends unknown[] = DefaultDataPoint<TYPE>, LABEL = string> {
+  private pColorschemesOptions: IChartConfiguration<TYPE, DATA, LABEL>['options'];
+  public colorschemesOptions = new BehaviorSubject<IChartOptions<TYPE>>(null);
 
   constructor() { }
 
-  setColorschemesOptions(options: ChartOptions<T>): void {
+  setColorschemesOptions(options: IChartConfiguration<TYPE, DATA, LABEL>['options']): void {
     this.pColorschemesOptions = options;
     this.colorschemesOptions.next(options);
   }
 
-  getColorschemesOptions(): ChartOptions {
+  getColorschemesOptions(): IChartConfiguration<TYPE, DATA, LABEL>['options'] {
     return this.pColorschemesOptions;
   }
 }

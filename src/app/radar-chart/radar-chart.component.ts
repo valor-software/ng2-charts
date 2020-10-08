@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { RadialChartOptions, ChartDataSetsRadar, Label, ChartType } from '../app-chart-config';
+import { IChartData, IChartOptions, IChartType } from "chart.js/types/interfaces";
 
 @Component({
   selector: 'app-radar-chart',
   templateUrl: './radar-chart.component.html',
-  styleUrls: ['./radar-chart.component.scss']
+  styleUrls: [ './radar-chart.component.scss' ]
 })
 export class RadarChartComponent implements OnInit {
   // Radar
-  public radarChartOptions: RadialChartOptions = {
+  public radarChartOptions: IChartOptions<'radar'> = {
     responsive: true,
   };
-  public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+  public radarChartLabels: string[] = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running' ];
 
-  public radarChartData: ChartDataSetsRadar[] = [
-    { data: [65, 59, 90, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 96, 27, 100], label: 'Series B' }
-  ];
-  public radarChartType: ChartType = 'radar';
+  public radarChartData: IChartData<'radar'> = {
+    labels: this.radarChartLabels,
+    datasets: [
+      { data: [ 65, 59, 90, 81, 56, 55, 40 ], label: 'Series A' },
+      { data: [ 28, 48, 40, 19, 96, 27, 100 ], label: 'Series B' }
+    ]
+  };
+  public radarChartType: IChartType = 'radar';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

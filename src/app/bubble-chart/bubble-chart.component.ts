@@ -1,37 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartDataSetsBubble, ChartOptions, LinearScale, ChartType, Color } from '../app-chart-config';
+import { IChartData, IChartOptions } from "chart.js/types/interfaces";
 
 @Component({
   selector: 'app-bubble-chart',
   templateUrl: './bubble-chart.component.html',
-  styleUrls: ['./bubble-chart.component.scss']
+  styleUrls: [ './bubble-chart.component.scss' ]
 })
 export class BubbleChartComponent implements OnInit {
-  xAxis: LinearScale = {
-    ticks: {
-      min: 0,
-      max: 30,
-    }
-  };
-  yAxis: LinearScale = {
-    ticks: {
-      min: 0,
-      max: 30,
-    }
-  };
-  public bubbleChartOptions: ChartOptions = {
-    responsive: true,
+  public bubbleChartOptions: IChartOptions<'bubble'> = {
     scales: {
-      xAxes: [this.xAxis],
-      yAxes: [this.yAxis],
+      x: {
+        min: 0,
+        max: 30,
+        ticks: {}
+      },
+      y: {
+        min: 0,
+        max: 30,
+        ticks: {}
+      },
     }
   };
-  public bubbleChartType: ChartType = 'bubble';
+  public bubbleChartType: string = 'bubble';
   public bubbleChartLegend = true;
 
-  public bubbleChartData: ChartDataSetsBubble[] = [
-    {
-      type: 'bubble',
+  public bubbleChartData: IChartData<'bubble'> = {
+    labels: [],
+    datasets: [ {
       data: [
         { x: 10, y: 10, r: 10 },
         { x: 15, y: 5, r: 15 },
@@ -39,15 +34,6 @@ export class BubbleChartComponent implements OnInit {
         { x: 7, y: 8, r: 8 },
       ],
       label: 'Series A',
-      backgroundColor: 'green',
-      borderColor: 'blue',
-      hoverBackgroundColor: 'purple',
-      hoverBorderColor: 'red',
-    },
-  ];
-
-  public bubbleChartColors: Color[] = [
-    {
       backgroundColor: [
         'red',
         'green',
@@ -59,11 +45,15 @@ export class BubbleChartComponent implements OnInit {
         'cyan',
         'orange',
         'pink'
-      ]
-    }
-  ];
+      ],
+      borderColor: 'blue',
+      hoverBackgroundColor: 'purple',
+      hoverBorderColor: 'red',
+    } ]
+  };
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -90,6 +80,6 @@ export class BubbleChartComponent implements OnInit {
 
   public randomize(): void {
     const numberOfPoints = this.rand(5) + 5;
-    this.bubbleChartData[0].data = Array.apply(null, { length: numberOfPoints }).map(r => this.randomPoint(30));
+    this.bubbleChartData.datasets[0].data = Array.apply(null, { length: numberOfPoints }).map(r => this.randomPoint(30));
   }
 }

@@ -6,9 +6,6 @@
     "umdModuleIds": {
       "chart.js": "chart_js",
       "lodash": "_"
-    },
-    "externals": {
-      "lib/chartjs/chart": "Chart"
     }
   },
   "whitelistedNonPeerDependencies": [

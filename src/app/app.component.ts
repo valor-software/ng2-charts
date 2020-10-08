@@ -14,7 +14,9 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
-import { AppChartMetaConfig, ChartOptions, ThemeService } from './app-chart-config';
+import { IChartOptions } from "chart.js";
+import { filter } from "rxjs/operators";
+import { ThemeService } from "ng2-charts";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,8 @@ import { AppChartMetaConfig, ChartOptions, ThemeService } from './app-chart-conf
   styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private theme = 'lala';
+  private theme;
+
   public get selectedTheme(): string {
     return this.theme;
   }
@@ -31,43 +34,48 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.renderer.removeClass(this.document.body, this.theme);
     this.theme = value;
     this.renderer.addClass(this.document.body, value);
-    let overrides: ChartOptions;
+    let overrides: IChartOptions;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
       overrides = {};
     } else {
       overrides = {
         legend: {
           labels: {
-            fontColor: 'white',
+            font: {
+              color: 'white'
+            }
           }
         },
         scales: {
-          xAxes: [
+          x:
             {
               ticks: {
-                fontColor: 'white',
+                font: {
+                  color: 'white'
+                }
+              },
+              gridLines: {
+                color: 'rgba(255,255,255,0.1)'
+              }
+            },
+          y:
+            {
+              ticks: {
+                font: {
+                  color: 'white'
+                },
               },
               gridLines: {
                 color: 'rgba(255,255,255,0.1)'
               }
             }
-          ],
-          yAxes: [
-            {
-              ticks: {
-                fontColor: 'white',
-              },
-              gridLines: {
-                color: 'rgba(255,255,255,0.1)'
-              }
-            }
-          ]
+
         },
-        plugins: {
-          datalabels: {
-            color: 'white',
-          }
-        }
+        // plugins: {
+        //   datalabels: {
+        //     color: 'white',
+        //   }
+        // }
       };
     }
     this.themeService.setColorschemesOptions(overrides);
@@ -82,7 +90,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private themeService: ThemeService<AppChartMetaConfig>,
+    private themeService: ThemeService,
     private router: Router,
     private route: ActivatedRoute,
   ) {
@@ -92,12 +100,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.subs.push(
       this.route.fragment
-        .pipe(
-          filter(Boolean)
-        )
+        .pipe(filter(Boolean))
         .subscribe((tabUrl: string) => {
           if (this.tabElements) {
-            const index = this.tabLabels.indexOf(tabUrl.slice(1));
+            const index = this.tabLabels.indexOf(tabUrl);
             if (index !== -1) {
               this.tabGroup.selectedIndex = index;
             }

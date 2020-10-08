@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AppChartMetaConfig, FinancialDataSet, ChartOptions, ChartType, Color, Label, BaseChartDirective } from 'src/app/app-chart-config';
 import 'dist/chartjs-chart-financial/chartjs-chart-financial';
-import 'chartjs-adapter-luxon';
+// import 'chartjs-adapter-luxon';
+import { BaseChartDirective } from "ng2-charts";
+import { DateTime } from "luxon";
+import { IChartOptions } from "chart.js";
 
 @Component({
   selector: 'app-financial-chart',
@@ -12,28 +14,28 @@ export class FinancialChartComponent implements OnInit {
   barCount = 60;
   initialDateStr = '01 Apr 2017 00:00 Z';
 
-  public financialChartData: FinancialDataSet[] = [
+  public financialChartData = [
     {
       label: 'CHRT - Chart.js Corporation',
       data: this.getRandomData(this.initialDateStr, this.barCount),
       barThickness: 10
     }
   ];
-  public financialChartOptions: ChartOptions = {
+  public financialChartOptions: IChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
   };
-  public financialChartColors: Color[] = [
+  public financialChartColors = [
     {
       borderColor: 'black',
       backgroundColor: 'rgba(255,0,0,0.3)',
     },
   ];
   public financialChartLegend = true;
-  public financialChartType: ChartType = 'candlestick';
+  public financialChartType = 'candlestick';
   public financialChartPlugins = [];
 
-  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective<AppChartMetaConfig>;
+  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective<'line'>;
 
   constructor() {
   }

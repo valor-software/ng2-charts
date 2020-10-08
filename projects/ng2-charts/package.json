@@ -7,7 +7,7 @@
   "peerDependencies": {
     "@angular/common": ">=7.2.0",
     "@angular/core": ">=7.2.0",
-    "chart.js": "^3.0.0",
+    "chart.js": "^3.0.0-beta.3",
     "rxjs": "^6.3.3"
   },
   "dependencies": {
