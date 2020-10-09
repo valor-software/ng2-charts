@@ -78,7 +78,6 @@ export class BaseChartDirective<TYPE extends IChartType,
   }
 
   public update(duration?: any): void {
-    console.log('update');
     if (this.chart) {
       this.zone.runOutsideAngular(() => this.chart.update(duration));
     }

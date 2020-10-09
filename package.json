@@ -50,9 +50,9 @@
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1001.5",
-    "@angular-devkit/build-ng-packagr": "^0.1001.5",
-    "@angular/cli": "^10.1.5",
+    "@angular-devkit/build-angular": "^0.1001.6",
+    "@angular-devkit/build-ng-packagr": "^0.1001.6",
+    "@angular/cli": "^10.1.6",
     "@angular/compiler-cli": "^10.1.5",
     "@angular/language-service": "^10.1.5",
     "@applitools/eyes-cypress": "^3.14.0",

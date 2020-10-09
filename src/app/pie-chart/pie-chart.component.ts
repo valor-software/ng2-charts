@@ -30,12 +30,10 @@ export class PieChartComponent implements OnInit {
   public pieChartData: IChartData<'pie', number[], string | string[]> = {
     labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
     datasets: [ {
-      data: [ 300, 500, 100 ],
-      backgroundColor: [ 'rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)' ],
+      data: [ 300, 500, 100 ]
     } ]
   };
   public pieChartType: IChartType = 'pie';
-  public pieChartLegend = true;
   public pieChartPlugins = [];
 
   constructor() {
