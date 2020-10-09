@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartData, IChartOptions } from "chart.js/types/interfaces";
+import { IChartData, IChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-bubble-chart',
@@ -21,7 +21,7 @@ export class BubbleChartComponent implements OnInit {
       },
     }
   };
-  public bubbleChartType: string = 'bubble';
+  public bubbleChartType = 'bubble';
   public bubbleChartLegend = true;
 
   public bubbleChartData: IChartData<'bubble'> = {

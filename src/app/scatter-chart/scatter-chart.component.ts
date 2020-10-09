@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartOptions, IChartType } from "chart.js/types/interfaces";
-import { IChartData } from "chart.js";
+import { IChartData, IChartOptions, IChartType } from 'chart.js';
 
 @Component({
   selector: 'app-scatter-chart',

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { IChartData, IChartOptions, IChartType } from "chart.js";
-import { BaseChartDirective } from "ng2-charts";
+import { IChartData, IChartOptions, IChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-bar-chart',

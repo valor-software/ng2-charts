@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartData, IChartOptions, IChartType } from "chart.js/types/interfaces";
+import { IChartData, IChartOptions, IChartType } from 'chart.js';
 
 @Component({
   selector: 'app-radar-chart',

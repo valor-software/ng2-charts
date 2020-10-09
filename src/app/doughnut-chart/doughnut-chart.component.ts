@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartData, IChartType } from "chart.js/types/interfaces";
+import { IChartData, IChartType } from 'chart.js';
 
 @Component({
   selector: 'app-doughnut-chart',

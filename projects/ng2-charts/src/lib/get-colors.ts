@@ -1,4 +1,5 @@
 import { baseColors } from './base-colors';
+import { Color } from 'chart.js';
 
 export const builtInDefaults = {
   line: {
@@ -19,7 +20,7 @@ export const builtInDefaults = {
       hoverBorderColor: context => rgba(generateColor(context.datasetIndex), 1)
     }
   },
-  get radar() {
+  get radar(): { [key: string]: Color } {
     return this.line;
   },
   doughnut: {
@@ -32,8 +33,8 @@ export const builtInDefaults = {
       pointHoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
     }
   },
-  get pie() {
-    return this.doughnut
+  get pie(): { [key: string]: Color } {
+    return this.doughnut;
   },
   polarArea: {
     datasets: {
@@ -43,16 +44,16 @@ export const builtInDefaults = {
       hoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
     }
   },
-  get bubble() {
-    return this.doughnut
+  get bubble(): { [key: string]: Color } {
+    return this.doughnut;
   },
-  get scatter() {
-    return this.doughnut
+  get scatter(): { [key: string]: Color } {
+    return this.doughnut;
   },
-  get area() {
-    return this.polarArea
+  get area(): { [key: string]: Color } {
+    return this.polarArea;
   }
-}
+};
 
 function rgba(colour: Array<number>, alpha: number): string {
   return 'rgba(' + colour.concat(alpha).join(',') + ')';

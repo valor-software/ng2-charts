@@ -22,10 +22,10 @@ import {
   ScatterController, TimeSeriesScale,
   Title,
   Tooltip
-} from "chart.js";
-import { builtInDefaults } from "./get-colors";
-import { merge } from "lodash-es";
-import { ThemeService } from "./theme.service";
+} from 'chart.js';
+import { builtInDefaults } from './get-colors';
+import { merge } from 'lodash-es';
+import { ThemeService } from './theme.service';
 
 Chart.register(
   Title, Tooltip, Filler, Legend,
@@ -64,6 +64,6 @@ export class ChartsModule {
     return {
       ngModule: ChartsModule,
       providers: [ ThemeService ]
-    }
+    };
   }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IChartOptions } from "chart.js/types/interfaces";
-import { BaseChartDirective } from "ng2-charts";
-import { IChartData } from "chart.js";
-import { IEvent } from "chart.js/types/core/interfaces";
+import { IChartData, IChartOptions, IEvent } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-line-chart',
@@ -10,6 +8,10 @@ import { IEvent } from "chart.js/types/core/interfaces";
   styleUrls: [ './line-chart.component.scss' ]
 })
 export class LineChartComponent implements OnInit {
+
+  constructor() {
+  }
+
   public lineChartData: IChartData<'line', number[], string | string[]> = {
     datasets: [
       {
@@ -91,12 +93,13 @@ export class LineChartComponent implements OnInit {
     //   ],
     // }
   };
-  public lineChartType: string = 'line';
+  public lineChartType = 'line';
   public lineChartPlugins = [];
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'line'>;
 
-  constructor() {
+  private static generateNumber(i: number): number {
+    return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
   }
 
   ngOnInit(): void {
@@ -109,10 +112,6 @@ export class LineChartComponent implements OnInit {
       }
     }
     this.chart.update();
-  }
-
-  private static generateNumber(i: number): number {
-    return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
   }
 
   // events

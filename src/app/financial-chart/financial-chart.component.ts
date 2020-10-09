@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import 'dist/chartjs-chart-financial/chartjs-chart-financial';
 // import 'chartjs-adapter-luxon';
-import { BaseChartDirective } from "ng2-charts";
-import { DateTime } from "luxon";
-import { IChartOptions } from "chart.js";
+import { BaseChartDirective } from 'ng2-charts';
+import { DateTime } from 'luxon';
+import { IChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-financial-chart',

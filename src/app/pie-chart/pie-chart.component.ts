@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { IChartData, IChartOptions, IChartType } from "chart.js/types/interfaces";
-import { BaseChartDirective } from "ng2-charts";
+import { IChartData, IChartOptions, IChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-pie-chart',
@@ -35,7 +35,7 @@ export class PieChartComponent implements OnInit {
     } ]
   };
   public pieChartType: IChartType = 'pie';
-  public pieChartLegend: boolean = true;
+  public pieChartLegend = true;
   public pieChartPlugins = [];
 
   constructor() {
@@ -85,7 +85,7 @@ export class PieChartComponent implements OnInit {
     this.chart.render();
   }
 
-  toggleLegend() {
+  toggleLegend(): void {
     this.pieChartOptions.legend.display = !this.pieChartOptions.legend.display;
 
     this.chart.render();

@@ -1,12 +1,13 @@
 import { BaseChartDirective } from './base-chart.directive';
-import { By } from "@angular/platform-browser";
-import { TestBed } from "@angular/core/testing";
-import { Component } from "@angular/core";
+import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
 @Component({
   template: '<canvas baseChart></canvas>'
 })
-class TestComponent {}
+class TestComponent {
+}
 
 describe('BaseChartDirective', () => {
   beforeEach(() => {

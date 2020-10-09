@@ -10,17 +10,20 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Chart, DefaultDataPoint, IChartConfiguration, IChartType, IEvent } from 'chart.js';
-import { assign, merge } from "lodash-es";
-import { ThemeService } from "./theme.service";
-import { Subscription } from "rxjs";
-import { distinctUntilChanged } from "rxjs/operators";
+import { assign, merge } from 'lodash-es';
+import { ThemeService } from './theme.service';
+import { Subscription } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-export class BaseChartDirective<TYPE extends IChartType, DATA extends unknown[] = DefaultDataPoint<TYPE>, LABEL = string | string[]> implements OnDestroy, OnChanges {
+export class BaseChartDirective<TYPE extends IChartType,
+  DATA extends unknown[] = DefaultDataPoint<TYPE>,
+  LABEL = string | string[]> implements OnDestroy, OnChanges {
+
   @Input() public type: TYPE;
   @Input() public legend: boolean;
   @Input() public data: IChartConfiguration<TYPE, DATA, LABEL>['data'];
@@ -47,7 +50,7 @@ export class BaseChartDirective<TYPE extends IChartType, DATA extends unknown[] 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    const requireRender = [ 'type' ]
+    const requireRender = [ 'type' ];
 
     if (requireRender.some(key => changes.hasOwnProperty(key))) {
       this.render();
@@ -64,20 +67,20 @@ export class BaseChartDirective<TYPE extends IChartType, DATA extends unknown[] 
     this.subs.forEach(s => s.unsubscribe());
   }
 
-  public render() {
+  public render(): Chart<TYPE, DATA, LABEL> {
     if (this.chart) {
       this.chart.destroy();
     }
 
     if (this.ctx) {
-      this.chart = new Chart(this.ctx, this.getChartConfiguration());
+      return this.chart = new Chart(this.ctx, this.getChartConfiguration());
     }
   }
 
   public update(duration?: any): void {
-    console.log('update')
+    console.log('update');
     if (this.chart) {
-      this.zone.runOutsideAngular(() => this.chart.update(duration))
+      this.zone.runOutsideAngular(() => this.chart.update(duration));
     }
   }
 
@@ -99,7 +102,7 @@ export class BaseChartDirective<TYPE extends IChartType, DATA extends unknown[] 
   private themeChanged(options): void {
     this.themeOverrides = options;
     if (this.chart) {
-      assign(this.chart.config.options,this.getChartOptions())
+      assign(this.chart.config.options, this.getChartOptions());
 
       this.update();
     }
@@ -123,7 +126,7 @@ export class BaseChartDirective<TYPE extends IChartType, DATA extends unknown[] 
         legend: {
           display: this.legend
         }
-      })
+      });
   }
 
   private getChartConfiguration(): IChartConfiguration<TYPE, DATA, LABEL> {
@@ -137,6 +140,6 @@ export class BaseChartDirective<TYPE extends IChartType, DATA extends unknown[] 
         labels: this.labels,
         datasets: this.datasets
       }
-    })
+    });
   }
 }

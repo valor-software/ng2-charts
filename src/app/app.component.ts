@@ -14,9 +14,9 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
-import { IChartOptions } from "chart.js";
-import { filter } from "rxjs/operators";
-import { ThemeService } from "ng2-charts";
+import { IChartOptions } from 'chart.js';
+import { filter } from 'rxjs/operators';
+import { ThemeService } from 'ng2-charts';
 
 @Component({
   selector: 'app-root',

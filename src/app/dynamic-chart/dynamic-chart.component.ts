@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IChartData, IChartOptions, IChartType } from "chart.js/types/interfaces";
-import { IEvent } from "chart.js/types/core/interfaces";
-import { BaseChartDirective } from "ng2-charts";
+import { IChartData, IChartOptions, IChartType, IEvent } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-dynamic-chart',

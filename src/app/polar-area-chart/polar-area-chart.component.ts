@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartDataset, IChartType } from "chart.js/types/interfaces";
-import { IChartData } from "chart.js";
+import { IChartData, IChartType } from 'chart.js';
 
 @Component({
   selector: 'app-polar-area-chart',
   templateUrl: './polar-area-chart.component.html',
-  styleUrls: ['./polar-area-chart.component.scss']
+  styleUrls: [ './polar-area-chart.component.scss' ]
 })
 export class PolarAreaChartComponent implements OnInit {
   // PolarArea
-  public polarAreaChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
+  public polarAreaChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales' ];
   public polarAreaChartData: IChartData<'polarArea'> = {
     labels: this.polarAreaChartLabels,
-    datasets: [{
-      data: [300, 500, 100, 40, 120],
-      label: "Series 1"
-    }]
+    datasets: [ {
+      data: [ 300, 500, 100, 40, 120 ],
+      label: 'Series 1'
+    } ]
   };
   public polarAreaLegend = true;
 
   public polarAreaChartType: IChartType = 'polarArea';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

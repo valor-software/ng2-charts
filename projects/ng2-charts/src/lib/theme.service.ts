@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DefaultDataPoint, IChartConfiguration, IChartOptions, IChartType } from "chart.js";
+import { DefaultDataPoint, IChartConfiguration, IChartOptions, IChartType } from 'chart.js';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class ThemeService<TYPE extends IChartType = any, DATA extends unknown[] 
   private pColorschemesOptions: IChartConfiguration<TYPE, DATA, LABEL>['options'];
   public colorschemesOptions = new BehaviorSubject<IChartOptions<TYPE>>(null);
 
-  constructor() { }
+  constructor() {
+  }
 
   setColorschemesOptions(options: IChartConfiguration<TYPE, DATA, LABEL>['options']): void {
     this.pColorschemesOptions = options;
