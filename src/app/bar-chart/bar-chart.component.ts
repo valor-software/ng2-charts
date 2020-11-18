@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ChartOptions, ChartDataSetsBar, Label, ChartType } from '../app-chart-config';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-bar-chart',

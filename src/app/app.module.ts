@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
+  ChartsModule,
   monkeyPatchChartJsLegend,
   monkeyPatchChartJsTooltip
 } from 'ng2-charts';
-import { AppChartMetaConfig, ChartsModule, BaseChartDirective, ThemeService } from './app-chart-config';
+import { AppChartMetaConfig, BaseChartDirective, ThemeService } from './app-chart-config';
 import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';

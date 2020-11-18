@@ -1,17 +1,15 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ng2-charts",
+  "dest": "../../dist/bla",
   "lib": {
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
       "chart.js": "chart_js",
-      "lodash": "_"
-    },
-    "externals": {
-      "lib/chartjs/chart": "Chart"
+      "lodash-es": "_"
     }
   },
   "whitelistedNonPeerDependencies": [
-    "lodash"
+    "@types/chart.js",
+    "lodash-es"
   ]
 }

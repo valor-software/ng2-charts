@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "3.0.0-beta.3",
+  "version": "3.0.0-beta.8",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -17,7 +17,7 @@
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "main": "src/public_api.ts",
   "devDependencies": {
-    "@types/lodash": "^4.14.123"
+    "@types/lodash-es": "^4.17.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

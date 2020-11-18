@@ -21,7 +21,6 @@ import { PluginServiceGlobalRegistration } from './chartjs/plugin-service-global
 import { PluginServiceRegistrationOptions } from './chartjs/plugin-service-registration-options';
 import { ChartOptions } from './chartjs/chart-options';
 import { ChartConfiguration } from './chartjs/chart-configuration';
-import { ChartDataSetsUnion } from './chartjs/chart-data-sets-union';
 import { AngularChart } from './chartjs/angular-chart';
 
 export type SingleDataSet<T extends BaseChartMetaConfig> = T['datasetTypes']['data'];
@@ -62,14 +61,6 @@ enum UpdateType {
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-<<<<<<< HEAD
-export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck {
-  @Input() public data: SingleOrMultiDataSet;
-  @Input() public datasets: ChartDataSets[];
-  @Input() public labels: Label[];
-  @Input() public options: ChartOptions = {};
-  @Input() public chartType: ChartType;
-=======
 export class BaseChartDirective<T extends BaseChartMetaConfig>
   implements OnDestroy, OnChanges, OnInit, OnDestroy, DoCheck {
   @Input() public data: T['datasetTypes']['data'];
@@ -77,7 +68,6 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
   @Input() public labels: Label[];
   @Input() public options: ChartOptions<T> = {};
   @Input() public chartType: T['datasetTypes']['type'];
->>>>>>> f660df5 (refactor: Implemented strict typing)
   @Input() public colors: Color[];
   @Input() public legend: boolean;
   @Input() public plugins: PluginServiceGlobalRegistrationAndOptions<T>[];
@@ -108,21 +98,12 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
   /**
    * Register a plugin.
    */
-<<<<<<< HEAD
-  public static registerPlugin(plugin: PluginServiceGlobalRegistrationAndOptions): void {
-    pluginService.register(plugin);
-  }
-
-  public static unregisterPlugin(plugin: PluginServiceGlobalRegistrationAndOptions): void {
-    pluginService.unregister(plugin);
-=======
   public static registerPlugin<T extends BaseChartMetaConfig>(plugin: PluginServiceGlobalRegistrationAndOptions<T>) {
     AngularChart.plugins.register(plugin);
   }
 
   public static unregisterPlugin<T extends BaseChartMetaConfig>(plugin: PluginServiceGlobalRegistrationAndOptions<T>) {
     AngularChart.plugins.unregister(plugin);
->>>>>>> f660df5 (refactor: Implemented strict typing)
   }
 
   public constructor(
@@ -396,11 +377,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     return this.chart.toBase64Image();
   }
 
-<<<<<<< HEAD
-  public getChartConfiguration(): ChartConfiguration {
-=======
   public getChartConfiguration(): ChartConfiguration<T> {
->>>>>>> f660df5 (refactor: Implemented strict typing)
     const datasets = this.getDatasets();
 
     const options = Object.assign({}, this.options);
@@ -426,11 +403,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
 
     const mergedOptions = this.smartMerge(options, this.themeService.getColorschemesOptions());
 
-<<<<<<< HEAD
-    return {
-=======
     const chartConfig: ChartConfiguration<T> = {
->>>>>>> f660df5 (refactor: Implemented strict typing)
       type: this.chartType,
       data: {
         labels: this.labels || [],
@@ -439,15 +412,13 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
       plugins: this.plugins,
       options: mergedOptions,
     };
+
+    return chartConfig;
   }
 
   public getChartBuilder(ctx: string/*, data:any[], options:any*/): AngularChart<T> {
     const chartConfig = this.getChartConfiguration();
-<<<<<<< HEAD
-    return new Chart(ctx, chartConfig);
-=======
     return new AngularChart(ctx, chartConfig);
->>>>>>> f660df5 (refactor: Implemented strict typing)
   }
 
   smartMerge(options: any, overrides: any, level: number = 0): any {
@@ -497,11 +468,7 @@ export class BaseChartDirective<T extends BaseChartMetaConfig>
     }
   }
 
-<<<<<<< HEAD
-  private propagateDatasetsToData(datasets: ChartDataSets[]): void {
-=======
   private propagateDatasetsToData(datasets: Array<T['datasetTypes']>) {
->>>>>>> f660df5 (refactor: Implemented strict typing)
     this.data = this.datasets.map(r => r.data);
     if (this.chart) {
       this.chart.data.datasets = datasets;

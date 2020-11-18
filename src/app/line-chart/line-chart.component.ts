@@ -6,7 +6,8 @@ import {
   ChartOptions,
   Color,
   Label,
-  BaseChartDirective
+  BaseChartDirective,
+  ChartType
 } from '../app-chart-config';
 
 @Component({

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppChartMetaConfig, FinancialDataSet, ChartOptions, ChartType, Color, Label, BaseChartDirective } from 'src/app/app-chart-config';
 import 'dist/chartjs-chart-financial/chartjs-chart-financial';
 import 'chartjs-adapter-luxon';
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-financial-chart',

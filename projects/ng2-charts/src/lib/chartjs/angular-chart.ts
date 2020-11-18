@@ -20,7 +20,7 @@ declare class Chart {
 // @dynamic
 export class AngularChart<T extends BaseChartMetaConfig> extends Chart {
   static pluginService: PluginServiceStatic<ChartMetaConfig>;
-  static plugins: PluginServiceStatic<ChartMetaConfig>;
+  static plugins: PluginServiceStatic<BaseChartMetaConfig>;
   static defaults: {
     global: ChartOptions<ChartMetaConfig> & ChartFontOptions;
     [key: string]: any;

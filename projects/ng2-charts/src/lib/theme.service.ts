@@ -17,7 +17,7 @@ export class ThemeService<T extends BaseChartMetaConfig> {
     this.colorschemesOptions.next(options);
   }
 
-  getColorschemesOptions(): ChartOptions {
+  getColorschemesOptions(): ChartOptions<T> {
     return this.pColorschemesOptions;
   }
 }

@@ -11,10 +11,13 @@ import {
   ViewChildren
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ThemeService } from 'ng2-charts';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
+
 import { Subscription } from 'rxjs';
-import { AppChartMetaConfig, ChartOptions, ThemeService } from './app-chart-config';
+import { filter } from 'rxjs/operators';
+import { ChartOptions, AppChartMetaConfig } from './app-chart-config';
 
 @Component({
   selector: 'app-root',
@@ -102,8 +105,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
               this.tabGroup.selectedIndex = index;
             }
           }
-        }
-      }));
+        }));
   }
 
   ngAfterViewInit(): void {
@@ -116,6 +118,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateRoute(index: number): void {
     const label = this.tabLabels[index];
-    this.router.navigate([], { fragment: label });
+    this.router.navigate([], { fragment: `/${ label }` });
   }
 }
