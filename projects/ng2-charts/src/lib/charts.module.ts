@@ -3,12 +3,12 @@ import { BaseChartDirective } from './base-chart.directive';
 
 @NgModule({
   declarations: [
-    BaseChartDirective
+    BaseChartDirective,
   ],
   imports: [
   ],
   exports: [
-    BaseChartDirective
+    BaseChartDirective,
   ]
 })
 export class ChartsModule { }
