@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
+import { BaseChartDirectiveX } from './base-chart-x.directive';
 import { BaseChartDirective } from './base-chart.directive';
 
 @NgModule({
   declarations: [
-    BaseChartDirective
+    BaseChartDirective,
+    BaseChartDirectiveX,
   ],
   imports: [
   ],
   exports: [
-    BaseChartDirective
+    BaseChartDirective,
+    BaseChartDirectiveX,
   ]
 })
 export class ChartsModule { }
