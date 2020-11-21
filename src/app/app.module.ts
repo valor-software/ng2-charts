@@ -50,7 +50,7 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes),
     ChartsModule,
     BrowserAnimationsModule,
     MaterialModule,
