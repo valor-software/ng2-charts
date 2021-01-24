@@ -10,6 +10,7 @@ import {
   OnInit,
   Output,
   SimpleChanges,
+  NgZone,
 } from '@angular/core';
 import { getColors } from './get-colors';
 import { Color } from './color';
@@ -75,6 +76,7 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
   @Input() public colors: Color[];
   @Input() public legend: boolean;
   @Input() public plugins: PluginServiceGlobalRegistrationAndOptions[];
+  @Input() public runOutsideAngular = false; // #1218
 
   @Output() public chartClick: EventEmitter<{ event?: MouseEvent, active?: {}[] }> = new EventEmitter();
   @Output() public chartHover: EventEmitter<{ event: MouseEvent, active: {}[] }> = new EventEmitter();
@@ -113,6 +115,7 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
   public constructor(
     private element: ElementRef,
     private themeService: ThemeService,
+    private zone: NgZone,
   ) { }
 
   public ngOnInit(): void {
@@ -527,6 +530,14 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
   }
 
   private refresh(): void {
+    if (this.runOutsideAngular) {
+      this.zone.runOutsideAngular(() => this.refreshInternal());
+    } else {
+      this.refreshInternal();
+    }
+  }
+
+  private refreshInternal() {
     // if (this.options && this.options.responsive) {
     //   setTimeout(() => this.refresh(), 50);
     // }
