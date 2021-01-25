@@ -1,11 +1,12 @@
-import { Rule, SchematicContext, Tree, externalSchematic, chain } from '@angular-devkit/schematics';
+import { Rule, externalSchematic, chain } from '@angular-devkit/schematics';
 import { ng2ProcessTree } from './ng2-process-tree';
+import { buildMetaConfig } from './build-meta-config';
 
 const newCode = `public scatterChartOptions: ChartOptions = {
     responsive: true,
   };
 
-  public scatterChartData: ChartDataSets[] = [
+  public scatterChartData: ChartDataSetsScatter[] = [
     {
       data: [
         { x: 1, y: 1 },
@@ -27,24 +28,22 @@ const newCode = `public scatterChartOptions: ChartOptions = {
 
 const newMarkup = `<div style="display: block;">
   <canvas baseChart
-    [datasets]="scatterChartData"
+    [data]="scatterChartData"
     [options]="scatterChartOptions"
-    [chartType]="scatterChartType">
+    [type]="scatterChartType">
   </canvas>
-</div>
-`;
+</div>`;
 
 const newImports: [string, string][] = [
-  ['ChartDataSets, ChartOptions, ChartType', 'chart.js'],
-  ['Label', 'ng2-charts'],
+  ['ChartDataSetsScatter, ChartOptions, ChartType, Label', 'src/app/app-chart-config'],
 ];
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function ng2ChartsScatter(_options: any): Rule {
-  // console.log('options', _options);
   return chain([
     externalSchematic('@schematics/angular', 'component', _options),
-    (tree: Tree, _context: SchematicContext) => ng2ProcessTree(tree, _context, _options, newCode, newMarkup, newImports)
+    buildMetaConfig(_options),
+    ng2ProcessTree(_options, newCode, newMarkup, newImports)
   ]);
 }

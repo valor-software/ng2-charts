@@ -1,4 +1,4 @@
-export const defaultColors: Array<number[]> = [
+export const baseColors: Array<number[]> = [
   [255, 99, 132],
   [54, 162, 235],
   [255, 206, 86],

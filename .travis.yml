@@ -1,12 +1,13 @@
 os: linux
-dist: trusty
+dist: focal
 language: node_js
 
 env:
   global:
     - NG_CLI_ANALYTICS="ci"
 
-node_js: "12"
+node_js:
+  - node
 
 addons:
   chrome: stable

@@ -1,17 +1,16 @@
 {
   "name": "ng2-charts",
-  "version": "2.4.2",
+  "version": "3.0.0-beta.7",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
     "@angular/common": ">=7.2.0",
     "@angular/core": ">=7.2.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^3.0.0-beta.3",
     "rxjs": "^6.3.3"
   },
   "dependencies": {
-    "@types/chart.js": "^2.9.24",
     "lodash-es": "^4.17.15"
   },
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",

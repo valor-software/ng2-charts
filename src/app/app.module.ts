@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BaseChartDirective, ChartsModule, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -18,9 +18,9 @@ import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { ChartHostComponent } from './chart-host/chart-host.component';
 import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 const routes: Route[] = [];
 
@@ -51,11 +51,14 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    ChartsModule,
+    ChartsModule.forRoot({
+      plugins: [],
+      defaults: {}
+    }),
+    MarkdownModule.forRoot({ loader: HttpClient }),
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
     HighlightModule
   ],
   providers: [
@@ -69,10 +72,4 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule {
-  constructor() {
-    BaseChartDirective.unregisterPlugin(ChartDataLabels);
-    monkeyPatchChartJsLegend();
-    monkeyPatchChartJsTooltip();
-  }
-}
+export class AppModule { }
