@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import 'dist/chartjs-chart-financial/chartjs-chart-financial';
 import 'chartjs-adapter-date-fns';
 import { BaseChartDirective } from 'ng2-charts';
-import { IChartOptions } from 'chart.js';
+import { ChartOptions } from 'chart.js';
 import { enUS } from 'date-fns/locale';
 import { add, parseISO } from "date-fns";
 
@@ -23,7 +23,7 @@ export class FinancialChartComponent implements OnInit {
       barThickness: 10
     } ]
   };
-  public financialChartOptions: IChartOptions = {
+  public financialChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {

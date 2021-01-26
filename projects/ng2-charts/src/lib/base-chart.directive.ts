@@ -9,7 +9,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Chart, DefaultDataPoint, IChartConfiguration, IChartType, IEvent } from 'chart.js';
+import { Chart, DefaultDataPoint, ChartConfiguration, ChartType, ChartEvent } from 'chart.js';
 import assign from 'lodash-es/assign';
 import merge from 'lodash-es/merge';
 import { ThemeService } from './theme.service';
@@ -21,27 +21,27 @@ import { distinctUntilChanged } from 'rxjs/operators';
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-export class BaseChartDirective<TYPE extends IChartType,
+export class BaseChartDirective<TYPE extends ChartType,
   DATA extends unknown[] = DefaultDataPoint<TYPE>,
   LABEL = string | string[]> implements OnDestroy, OnChanges {
 
   @Input() public type: TYPE;
   @Input() public legend: boolean;
-  @Input() public data: IChartConfiguration<TYPE, DATA, LABEL>['data'];
-  @Input() public options: IChartConfiguration<TYPE, DATA, LABEL>['options'];
-  @Input() public plugins: IChartConfiguration<TYPE, DATA, LABEL>['plugins'];
+  @Input() public data: ChartConfiguration<TYPE, DATA, LABEL>['data'];
+  @Input() public options: ChartConfiguration<TYPE, DATA, LABEL>['options'];
+  @Input() public plugins: ChartConfiguration<TYPE, DATA, LABEL>['plugins'];
 
-  @Input() public labels: IChartConfiguration<TYPE, DATA, LABEL>['data']['labels'];
-  @Input() public datasets: IChartConfiguration<TYPE, DATA, LABEL>['data']['datasets'];
+  @Input() public labels: ChartConfiguration<TYPE, DATA, LABEL>['data']['labels'];
+  @Input() public datasets: ChartConfiguration<TYPE, DATA, LABEL>['data']['datasets'];
 
-  @Output() public chartClick: EventEmitter<{ event?: IEvent, active?: {}[] }> = new EventEmitter();
-  @Output() public chartHover: EventEmitter<{ event: IEvent, active: {}[] }> = new EventEmitter();
+  @Output() public chartClick: EventEmitter<{ event?: ChartEvent, active?: {}[] }> = new EventEmitter();
+  @Output() public chartHover: EventEmitter<{ event: ChartEvent, active: {}[] }> = new EventEmitter();
 
   public ctx: string;
   public chart: Chart<TYPE, DATA, LABEL>;
 
   private subs: Subscription[] = [];
-  private themeOverrides: IChartConfiguration<TYPE, DATA, LABEL>['options'];
+  private themeOverrides: ChartConfiguration<TYPE, DATA, LABEL>['options'];
 
   public constructor(private element: ElementRef, private zone: NgZone, private themeService: ThemeService<TYPE, DATA, LABEL>) {
     this.ctx = element.nativeElement.getContext('2d');
@@ -108,15 +108,15 @@ export class BaseChartDirective<TYPE extends IChartType,
     }
   }
 
-  private getChartOptions(): IChartConfiguration<TYPE, DATA, LABEL>['options'] {
+  private getChartOptions(): ChartConfiguration<TYPE, DATA, LABEL>['options'] {
     return merge({
-        onHover: (event: IEvent, active: {}[]) => {
+        onHover: (event: ChartEvent, active: {}[]) => {
           if (active && !active.length) {
             return;
           }
           this.chartHover.emit({ event, active });
         },
-        onClick: (event?: IEvent, active?: {}[]) => {
+        onClick: (event?: ChartEvent, active?: {}[]) => {
           this.chartClick.emit({ event, active });
         }
       },
@@ -129,7 +129,7 @@ export class BaseChartDirective<TYPE extends IChartType,
       });
   }
 
-  private getChartConfiguration(): IChartConfiguration<TYPE, DATA, LABEL> {
+  private getChartConfiguration(): ChartConfiguration<TYPE, DATA, LABEL> {
     return merge({
       type: this.type,
       data: this.data,

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { IChartData, IChartOptions, IChartType } from 'chart.js';
+import { ChartData, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -12,28 +12,28 @@ export class PieChartComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'>;
 
   // Pie
-  public pieChartOptions: IChartOptions<'pie'> = {
+  public pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
-    legend: {
-      display: true,
-      position: 'top',
-    },
-    // plugins: {
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
     //   datalabels: {
     //     formatter: (value, ctx) => {
     //       const label = ctx.chart.data.labels[ctx.dataIndex];
     //       return label;
     //     },
     //   },
-    // }
+    }
   };
-  public pieChartData: IChartData<'pie', number[], string | string[]> = {
+  public pieChartData: ChartData<'pie', number[], string | string[]> = {
     labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
     datasets: [ {
       data: [ 300, 500, 100 ]
     } ]
   };
-  public pieChartType: IChartType = 'pie';
+  public pieChartType: ChartType = 'pie';
   public pieChartPlugins = [];
 
   constructor() {
@@ -78,13 +78,13 @@ export class PieChartComponent implements OnInit {
   }
 
   changeLegendPosition(): void {
-    this.pieChartOptions.legend.position = this.pieChartOptions.legend.position === 'left' ? 'top' : 'left';
+    this.pieChartOptions.plugins.legend.position = this.pieChartOptions.plugins.legend.position === 'left' ? 'top' : 'left';
 
     this.chart.render();
   }
 
   toggleLegend(): void {
-    this.pieChartOptions.legend.display = !this.pieChartOptions.legend.display;
+    this.pieChartOptions.plugins.legend.display = !this.pieChartOptions.plugins.legend.display;
 
     this.chart.render();
   }

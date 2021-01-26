@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { BaseChartDirective } from './base-chart.directive';
 import {
-  Arc,
+  ArcElement,
   BarController,
   BubbleController,
   CategoryScale,
@@ -10,18 +10,17 @@ import {
   DoughnutController,
   Filler,
   Legend,
-  Line,
+  LineElement,
   LinearScale,
   LineController,
   PieController,
-  Point,
+  PointElement,
   PolarAreaController,
   RadarController,
   RadialLinearScale,
-  Rectangle,
   ScatterController, TimeSeriesScale,
   Title,
-  Tooltip
+  Tooltip, BarElement
 } from 'chart.js';
 import { builtInDefaults } from './get-colors';
 import merge from 'lodash-es/merge';
@@ -29,9 +28,9 @@ import { ThemeService } from './theme.service';
 
 Chart.register(
   Title, Tooltip, Filler, Legend,
-  LineController, Line, Point, LinearScale, CategoryScale,
-  BarController, Rectangle,
-  DoughnutController, Arc,
+  LineController, LineElement, PointElement, LinearScale, CategoryScale,
+  BarController, BarElement,
+  DoughnutController, ArcElement,
   RadarController, RadialLinearScale,
   PieController,
   PolarAreaController,

@@ -14,7 +14,7 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
-import { IChartOptions } from 'chart.js';
+import { ChartOptions } from 'chart.js';
 import { filter } from 'rxjs/operators';
 import { ThemeService } from 'ng2-charts';
 
@@ -34,25 +34,17 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.renderer.removeClass(this.document.body, this.theme);
     this.theme = value;
     this.renderer.addClass(this.document.body, value);
-    let overrides: IChartOptions;
+    let overrides: ChartOptions;
     if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
       overrides = {};
     } else {
       overrides = {
-        legend: {
-          labels: {
-            font: {
-              color: 'white'
-            }
-          }
-        },
+
         scales: {
           x:
             {
               ticks: {
-                font: {
-                  color: 'white'
-                }
+                color: 'white'
               },
               gridLines: {
                 color: 'rgba(255,255,255,0.1)'
@@ -61,9 +53,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
           y:
             {
               ticks: {
-                font: {
-                  color: 'white'
-                },
+                color: 'white'
               },
               gridLines: {
                 color: 'rgba(255,255,255,0.1)'
@@ -71,11 +61,16 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
         },
-        // plugins: {
-        //   datalabels: {
-        //     color: 'white',
-        //   }
-        // }
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            },
+            // datalabels: {
+              //     color: 'white',
+              //   }
+          },
+        }
       };
     }
     this.themeService.setColorschemesOptions(overrides);

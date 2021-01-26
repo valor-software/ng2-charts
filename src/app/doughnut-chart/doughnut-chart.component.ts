@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartData, IChartType } from 'chart.js';
+import { ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-doughnut-chart',
@@ -9,7 +9,7 @@ import { IChartData, IChartType } from 'chart.js';
 export class DoughnutChartComponent implements OnInit {
   // Doughnut
   public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
-  public doughnutChartData: IChartData<'doughnut'> = {
+  public doughnutChartData: ChartData<'doughnut'> = {
     labels: this.doughnutChartLabels,
     datasets: [
       { data: [ 350, 450, 100 ] },
@@ -17,7 +17,7 @@ export class DoughnutChartComponent implements OnInit {
       { data: [ 250, 130, 70 ] }
     ]
   };
-  public doughnutChartType: IChartType = 'doughnut';
+  public doughnutChartType: ChartType = 'doughnut';
 
   constructor() {
   }

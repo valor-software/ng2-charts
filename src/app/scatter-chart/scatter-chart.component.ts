@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartData, IChartOptions, IChartType } from 'chart.js';
+import { ChartData, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-scatter-chart',
@@ -8,12 +8,12 @@ import { IChartData, IChartOptions, IChartType } from 'chart.js';
 })
 export class ScatterChartComponent implements OnInit {
   // scatter
-  public scatterChartOptions: IChartOptions<'scatter'> = {
+  public scatterChartOptions: ChartOptions<'scatter'> = {
     responsive: true,
   };
   public scatterChartLabels: string[] = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running' ];
 
-  public scatterChartData: IChartData<'scatter'> = {
+  public scatterChartData: ChartData<'scatter'> = {
     labels: this.scatterChartLabels,
     datasets: [
       {
@@ -29,7 +29,7 @@ export class ScatterChartComponent implements OnInit {
       },
     ]
   };
-  public scatterChartType: IChartType = 'scatter';
+  public scatterChartType: ChartType = 'scatter';
 
   constructor() {
   }

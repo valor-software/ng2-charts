@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IChartData, IChartOptions, IEvent } from 'chart.js';
+import { ChartData, ChartEvent, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -12,7 +12,7 @@ export class LineChartComponent implements OnInit {
   constructor() {
   }
 
-  public lineChartData: IChartData<'line', number[], string | string[]> = {
+  public lineChartData: ChartData<'line', number[], string | string[]> = {
     datasets: [
       {
         data: [ 65, 59, 80, 81, 56, 55, 40 ],
@@ -49,7 +49,7 @@ export class LineChartComponent implements OnInit {
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
   };
 
-  public lineChartOptions: IChartOptions<'line'> = {
+  public lineChartOptions: ChartOptions<'line'> = {
     elements: {
       line: {
         tension: 0.5
@@ -68,13 +68,10 @@ export class LineChartComponent implements OnInit {
           color: 'rgba(255,0,0,0.3)',
         },
         ticks: {
-          font: {
-            color: 'red'
-          }
+          color: 'red'
         }
       }
     },
-    legend: { display: true },
     // annotation: {
     //   annotations: [
     //     {
@@ -92,6 +89,9 @@ export class LineChartComponent implements OnInit {
     //     },
     //   ],
     // }
+    plugins: {
+      legend: { display: true },
+    }
   };
   public lineChartType = 'line';
   public lineChartPlugins = [];
@@ -115,11 +115,11 @@ export class LineChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked({ event, active }: { event?: IEvent, active?: {}[] }): void {
+  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event?: IEvent, active?: {}[] }): void {
+  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
 

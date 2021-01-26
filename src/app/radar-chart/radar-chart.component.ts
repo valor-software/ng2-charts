@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChartData, IChartOptions, IChartType } from 'chart.js';
+import { ChartData, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-radar-chart',
@@ -8,19 +8,19 @@ import { IChartData, IChartOptions, IChartType } from 'chart.js';
 })
 export class RadarChartComponent implements OnInit {
   // Radar
-  public radarChartOptions: IChartOptions<'radar'> = {
+  public radarChartOptions: ChartOptions<'radar'> = {
     responsive: true,
   };
   public radarChartLabels: string[] = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running' ];
 
-  public radarChartData: IChartData<'radar'> = {
+  public radarChartData: ChartData<'radar'> = {
     labels: this.radarChartLabels,
     datasets: [
       { data: [ 65, 59, 90, 81, 56, 55, 40 ], label: 'Series A' },
       { data: [ 28, 48, 40, 19, 96, 27, 100 ], label: 'Series B' }
     ]
   };
-  public radarChartType: IChartType = 'radar';
+  public radarChartType: ChartType = 'radar';
 
   constructor() {
   }
