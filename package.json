@@ -47,7 +47,7 @@
     "ngx-markdown": "^10.1.1",
     "prismjs": "^1.23.0",
     "rxjs": "^6.6.3",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1101.1",
@@ -66,7 +66,7 @@
     "eyes.images": "^3.8.7",
     "gh-pages": "^3.1.0",
     "jasmine-core": "~3.6.0",
-    "jasmine-spec-reporter": "~5.0.0",
+    "jasmine-spec-reporter": "^6.0.0",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.3",
@@ -74,7 +74,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^11.1.2",
     "ng2-charts-schematics": "file:ng2-charts-schematics",
-    "ts-node": "^8.10.2",
+    "ts-node": "^9.0.0",
     "tsickle": "^0.39.1",
     "tslib": "^2.1.0",
     "tslint": "^6.1.3",
