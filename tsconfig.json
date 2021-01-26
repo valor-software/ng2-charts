@@ -19,8 +19,6 @@
       "ng2-charts": [
         "dist/ng2-charts"
       ]
-    },
-    //TODO: remove when https://github.com/chartjs/Chart.js/issues/7838 is released
-    "skipLibCheck": true
+    }
   }
 }
