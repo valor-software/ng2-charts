@@ -20,7 +20,6 @@ import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
-// import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 const routes: Route[] = [];
 
@@ -72,4 +71,5 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}

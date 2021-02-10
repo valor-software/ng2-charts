@@ -23,7 +23,7 @@ import {
   Tooltip, BarElement
 } from 'chart.js';
 import { builtInDefaults } from './get-colors';
-import merge from 'lodash-es/merge';
+import { merge } from 'lodash-es';
 import { ThemeService } from './theme.service';
 
 Chart.register(
@@ -54,11 +54,9 @@ export class ChartsModule {
   public static forRoot(config?): ModuleWithProviders<ChartsModule> {
     Chart.register(config.plugins || []);
 
-    console.log('register');
-
     const ngChartsDefaults = merge(builtInDefaults, config.defaults);
 
-    defaults.set('', ngChartsDefaults);
+    defaults.set(ngChartsDefaults);
 
     return {
       ngModule: ChartsModule,

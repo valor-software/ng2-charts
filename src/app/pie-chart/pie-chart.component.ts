@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -19,12 +19,12 @@ export class PieChartComponent implements OnInit {
         display: true,
         position: 'top',
       },
-    //   datalabels: {
-    //     formatter: (value, ctx) => {
-    //       const label = ctx.chart.data.labels[ctx.dataIndex];
-    //       return label;
-    //     },
-    //   },
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
     }
   };
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
@@ -34,7 +34,7 @@ export class PieChartComponent implements OnInit {
     } ]
   };
   public pieChartType: ChartType = 'pie';
-  public pieChartPlugins = [];
+  public pieChartPlugins = [DatalabelsPlugin];
 
   constructor() {
   }

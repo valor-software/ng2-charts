@@ -17,7 +17,12 @@ export class DynamicChartComponent implements OnInit {
       }
     },
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { x: {}, y: {} },
+    scales: {
+      x: {},
+      y: {
+        min: 10
+      }
+    },
     plugins: {
       legend: { display: true },
     }

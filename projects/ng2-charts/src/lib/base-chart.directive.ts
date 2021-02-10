@@ -10,8 +10,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Chart, DefaultDataPoint, ChartConfiguration, ChartType, ChartEvent } from 'chart.js';
-import assign from 'lodash-es/assign';
-import merge from 'lodash-es/merge';
+import { assign, merge } from 'lodash-es';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';

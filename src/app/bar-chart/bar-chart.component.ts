@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-bar-chart',
@@ -14,21 +15,26 @@ export class BarChartComponent implements OnInit {
   public barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { x: {}, y: {} },
-    // plugins: {
-    //   datalabels: {
-    //     anchor: 'end',
-    //     align: 'end',
-    //   }
-    // }
+    scales: {
+      x: {},
+      y: {
+        min: 10
+      }
+    },
     plugins: {
       legend: {
-        display: true
+        display: true,
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'end'
       }
     }
   };
   public barChartType: ChartType = 'bar';
-  public barChartPlugins = [];
+  public barChartPlugins = [
+    DataLabelsPlugin
+  ];
 
   public barChartData: ChartData<'bar'> = {
     labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],

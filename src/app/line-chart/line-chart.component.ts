@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartData, ChartEvent, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import AnnotationPlugin from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-line-chart',
@@ -22,7 +23,8 @@ export class LineChartComponent implements OnInit {
         pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+        pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+        fill: 'origin',
       },
       {
         data: [ 28, 48, 40, 19, 86, 27, 90 ],
@@ -32,7 +34,8 @@ export class LineChartComponent implements OnInit {
         pointBackgroundColor: 'rgba(77,83,96,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(77,83,96,1)'
+        pointHoverBorderColor: 'rgba(77,83,96,1)',
+        fill: 'origin',
       },
       {
         data: [ 180, 480, 770, 90, 1000, 270, 400 ],
@@ -43,7 +46,8 @@ export class LineChartComponent implements OnInit {
         pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+        pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+        fill: 'origin',
       }
     ],
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
@@ -72,29 +76,34 @@ export class LineChartComponent implements OnInit {
         }
       }
     },
-    // annotation: {
-    //   annotations: [
-    //     {
-    //       type: 'line',
-    //       mode: 'vertical',
-    //       scaleID: 'x-axis-0',
-    //       value: 'March',
-    //       borderColor: 'orange',
-    //       borderWidth: 2,
-    //       label: {
-    //         enabled: true,
-    //         fontColor: 'orange',
-    //         content: 'LineAnno'
-    //       }
-    //     },
-    //   ],
-    // }
+
     plugins: {
       legend: { display: true },
+      annotation: {
+        annotations: [
+          {
+            type: 'line',
+            scaleID: 'x',
+            value: 'March',
+            borderColor: 'orange',
+            borderWidth: 2,
+            borderDash: [],
+            label: {
+              position: "center",
+              enabled: true,
+              color: 'orange',
+              content: 'LineAnno',
+              font: {
+                size: 12
+              }
+            }
+          },
+        ],
+      }
     }
   };
   public lineChartType = 'line';
-  public lineChartPlugins = [];
+  public lineChartPlugins = [AnnotationPlugin];
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'line'>;
 
