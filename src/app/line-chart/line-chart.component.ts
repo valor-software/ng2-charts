@@ -87,15 +87,11 @@ export class LineChartComponent implements OnInit {
             value: 'March',
             borderColor: 'orange',
             borderWidth: 2,
-            borderDash: [],
             label: {
               position: "center",
               enabled: true,
               color: 'orange',
-              content: 'LineAnno',
-              font: {
-                size: 12
-              }
+              content: 'LineAnno'
             }
           },
         ],
