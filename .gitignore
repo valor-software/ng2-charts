@@ -7,6 +7,7 @@
 # Only exists if Bazel was run
 /bazel-out
 /cypress/snapshots/*/__diff_output__
+/cypress/snapshots/*/*(failed).*
 
 # dependencies
 node_modules
