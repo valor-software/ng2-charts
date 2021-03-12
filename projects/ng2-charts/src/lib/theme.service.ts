@@ -5,19 +5,19 @@ import { DefaultDataPoint, ChartConfiguration, ChartOptions, ChartType } from 'c
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService<TYPE extends ChartType = any, DATA extends unknown[] = DefaultDataPoint<TYPE>, LABEL = string> {
-  private pColorschemesOptions: ChartConfiguration<TYPE, DATA, LABEL>['options'];
-  public colorschemesOptions = new BehaviorSubject<ChartOptions<TYPE>>(null);
+export class ThemeService<TType extends ChartType = any, TData = DefaultDataPoint<TType>, TLabel = string> {
+  private pColorschemesOptions: ChartOptions<TType>;
+  public colorschemesOptions: BehaviorSubject<any> = new BehaviorSubject<ChartOptions<TType>>(null);
 
   constructor() {
   }
 
-  setColorschemesOptions(options: ChartConfiguration<TYPE, DATA, LABEL>['options']): void {
+  setColorschemesOptions(options: ChartConfiguration<TType, TData, TLabel>['options']): void {
     this.pColorschemesOptions = options;
     this.colorschemesOptions.next(options);
   }
 
-  getColorschemesOptions(): ChartConfiguration<TYPE, DATA, LABEL>['options'] {
+  getColorschemesOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
     return this.pColorschemesOptions;
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "ng2-charts",
-  "version": "3.0.0-beta.7",
+  "version": "3.0.0-beta.13",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
     "@angular/common": ">=7.2.0",
     "@angular/core": ">=7.2.0",
-    "chart.js": "^3.0.0-beta.3",
+    "chart.js": "^3.0.0-beta.13",
     "rxjs": "^6.3.3"
   },
   "dependencies": {
@@ -15,12 +15,6 @@
   },
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "main": "src/public_api.ts",
-  "devDependencies": {
-    "@types/lodash-es": "^4.17.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Aviad Pineles",
   "license": "ISC",
   "repository": {
