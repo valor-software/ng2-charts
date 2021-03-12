@@ -33,8 +33,8 @@ script:
   - npm run install:financial
   - npm run build:financial
   - npm run build:lib
-  - npm run test:headless
+  - npm run test:ci
   - ng serve &
   - $(npm bin)/wait-on http-get://localhost:4200/#
-  - npm run test:main
+  - npm run e2e
   - kill $(jobs -p) || true

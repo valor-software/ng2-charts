@@ -119,8 +119,8 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
           this.chartClick.emit({ event, active });
         }
       },
-      this.options,
       this.themeOverrides,
+      this.options,
       {
         legend: {
           display: this.legend
