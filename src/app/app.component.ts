@@ -46,7 +46,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
               ticks: {
                 color: 'white'
               },
-              gridLines: {
+              grid: {
                 color: 'rgba(255,255,255,0.1)'
               }
             },
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
               ticks: {
                 color: 'white'
               },
-              gridLines: {
+              grid: {
                 color: 'rgba(255,255,255,0.1)'
               }
             }
@@ -66,10 +66,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             labels: {
               color: 'white'
             },
-            // datalabels: {
-              //     color: 'white',
-              //   }
           },
+          datalabels: {
+            color: 'white',
+          }
         }
       };
     }

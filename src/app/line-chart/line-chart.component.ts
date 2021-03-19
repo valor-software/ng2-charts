@@ -68,7 +68,7 @@ export class LineChartComponent implements OnInit {
         },
       'y-axis-1': {
         position: 'right',
-        gridLines: {
+        grid: {
           color: 'rgba(255,0,0,0.3)',
         },
         ticks: {

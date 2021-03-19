@@ -8,7 +8,7 @@
       "lodash-es": "_"
     }
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "lodash-es"
   ]
 }
