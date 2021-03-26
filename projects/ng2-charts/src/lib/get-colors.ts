@@ -16,7 +16,6 @@ export const builtInDefaults = {
       borderColor: context => rgba(generateColor(context.datasetIndex), 1),
       hoverBackgroundColor: context => rgba(generateColor(context.datasetIndex), 0.8),
       hoverBorderColor: context => rgba(generateColor(context.datasetIndex), 1)
-
     },
     get radar() {
       return this.line;
@@ -24,10 +23,8 @@ export const builtInDefaults = {
     doughnut: {
       backgroundColor: context => rgba(generateColor(context.dataIndex), 0.6),
       borderColor: '#fff',
-      pointBackgroundColor: context => rgba(generateColor(context.dataIndex), 1),
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: context => rgba(generateColor(context.dataIndex), 1),
-      pointHoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
+      hoverBackgroundColor: context => rgba(generateColor(context.dataIndex), 1),
+      hoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
     },
     get pie() {
       return this.doughnut;
@@ -65,6 +62,6 @@ function getRandomColor(): number[] {
 /**
  * Generate colors
  */
-function generateColor(index: number): number[] {
+function generateColor(index = 0): number[] {
   return baseColors[index] || getRandomColor();
 }
