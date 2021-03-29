@@ -17,7 +17,7 @@ export const builtInDefaults = {
       hoverBackgroundColor: context => rgba(generateColor(context.datasetIndex), 0.8),
       hoverBorderColor: context => rgba(generateColor(context.datasetIndex), 1)
     },
-    get radar() {
+    get radar(): { [key: string]: Color } {
       return this.line;
     },
     doughnut: {
@@ -26,7 +26,7 @@ export const builtInDefaults = {
       hoverBackgroundColor: context => rgba(generateColor(context.dataIndex), 1),
       hoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
     },
-    get pie() {
+    get pie(): { [key: string]: Color } {
       return this.doughnut;
     },
     polarArea: {
@@ -35,7 +35,7 @@ export const builtInDefaults = {
       hoverBackgroundColor: context => rgba(generateColor(context.dataIndex), 0.8),
       hoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
     },
-    get bubble() {
+    get bubble(): { [key: string]: Color } {
       return this.doughnut;
     },
     get scatter(): { [key: string]: Color } {

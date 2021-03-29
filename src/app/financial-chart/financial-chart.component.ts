@@ -4,7 +4,7 @@ import 'chartjs-adapter-date-fns';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
 import { enUS } from 'date-fns/locale';
-import { add, parseISO } from "date-fns";
+import { add, parseISO } from 'date-fns';
 
 
 @Component({
@@ -83,7 +83,7 @@ export class FinancialChartComponent implements OnInit {
     const data = [ this.randomBar(date, 30) ];
     while (data.length < count) {
       date = add(date, { days: 1 });
-      if (date.getDay()<= 5) {
+      if (date.getDay() <= 5) {
         data.push(this.randomBar(date, data[data.length - 1].c));
       }
     }

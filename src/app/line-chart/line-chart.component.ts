@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartData, ChartEvent, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import AnnotationPlugin from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-line-chart',
@@ -88,10 +87,13 @@ export class LineChartComponent implements OnInit {
             borderColor: 'orange',
             borderWidth: 2,
             label: {
-              position: "center",
+              position: 'center',
               enabled: true,
               color: 'orange',
-              content: 'LineAnno'
+              content: 'LineAnno',
+              font: {
+                weight: 'bold'
+              }
             }
           },
         ],
@@ -99,7 +101,6 @@ export class LineChartComponent implements OnInit {
     }
   };
   public lineChartType = 'line';
-  public lineChartPlugins = [AnnotationPlugin];
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'line'>;
 
