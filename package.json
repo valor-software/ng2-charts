@@ -35,7 +35,7 @@
     "@angular/router": "^11.2.9",
     "chart.js": "^3.1.0",
     "chartjs-adapter-date-fns": "^2.0.0",
-    "chartjs-plugin-annotation": "^1.0.0-rc",
+    "chartjs-plugin-annotation": "^1.0.0",
     "chartjs-plugin-datalabels": "^2.0.0-beta.1",
     "core-js": "^3.10.1",
     "date-fns": "^2.20.0",
