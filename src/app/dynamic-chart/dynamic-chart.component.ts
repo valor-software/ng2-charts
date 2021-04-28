@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -8,9 +8,9 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: [ './dynamic-chart.component.scss' ]
 })
 export class DynamicChartComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'>;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
-  public barChartOptions: ChartOptions<'bar'> = {
+  public barChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {
         tension: 0.4
@@ -45,11 +45,11 @@ export class DynamicChartComponent implements OnInit {
   }
 
   // events
-  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
+  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
+  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
-import { ChartData, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -9,10 +9,10 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: [ './pie-chart.component.scss' ]
 })
 export class PieChartComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'>;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   // Pie
-  public pieChartOptions: ChartOptions<'pie'> = {
+  public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     plugins: {
       legend: {

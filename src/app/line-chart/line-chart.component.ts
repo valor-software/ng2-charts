@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartData, ChartEvent, ChartOptions } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -52,7 +52,7 @@ export class LineChartComponent implements OnInit {
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
   };
 
-  public lineChartOptions: ChartOptions<'line'> = {
+  public lineChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {
         tension: 0.5
@@ -100,9 +100,9 @@ export class LineChartComponent implements OnInit {
       }
     }
   };
-  public lineChartType = 'line';
+  public lineChartType: ChartType = 'line';
 
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective<'line'>;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   private static generateNumber(i: number): number {
     return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);

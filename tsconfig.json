@@ -21,5 +21,9 @@
         "dist/ng2-charts"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "strictInjectionParameters": true
   }
 }

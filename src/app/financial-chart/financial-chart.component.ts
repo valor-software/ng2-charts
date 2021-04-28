@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import 'dist/chartjs-chart-financial/chartjs-chart-financial';
 import 'chartjs-adapter-date-fns';
+import 'chartjs-chart-financial';
 import { BaseChartDirective } from 'ng2-charts';
-import { ChartOptions } from 'chart.js';
+import { Chart, ChartConfiguration, ChartType } from 'chart.js';
 import { enUS } from 'date-fns/locale';
 import { add, parseISO } from 'date-fns';
-
+import { CandlestickController, CandlestickElement, OhlcController, OhlcElement } from 'chartjs-chart-financial';
 
 @Component({
   selector: 'app-financial-chart',
@@ -16,14 +16,14 @@ export class FinancialChartComponent implements OnInit {
   barCount = 60;
   initialDateStr = '2017-04-01T00:00:00';
 
-  public financialChartData = {
+  public financialChartData: ChartConfiguration['data'] = {
     datasets: [ {
       label: 'CHRT - Chart.js Corporation',
-      data: this.getRandomData(this.initialDateStr, this.barCount),
-      barThickness: 10
+      data: this.getRandomData(this.initialDateStr, this.barCount)
     } ]
   };
-  public financialChartOptions: ChartOptions = {
+
+  public financialChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -48,13 +48,15 @@ export class FinancialChartComponent implements OnInit {
       backgroundColor: 'rgba(255,0,0,0.3)',
     },
   ];
+
   public financialChartLegend = true;
-  public financialChartType = 'candlestick';
+  public financialChartType: ChartType = 'candlestick';
   public financialChartPlugins = [];
 
-  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective<'line'>;
+  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
   constructor() {
+    Chart.register(CandlestickController, OhlcController, CandlestickElement, OhlcElement);
   }
 
   ngOnInit(): void {
@@ -64,13 +66,13 @@ export class FinancialChartComponent implements OnInit {
     return Math.random() * (max - min) + min;
   }
 
-  randomBar(date: Date, lastClose: number): { c: number; t: Date; h: number; l: number; o: number } {
+  randomBar(date: Date, lastClose: number): { c: number; x: number; h: number; l: number; o: number } {
     const open = this.randomNumber(lastClose * 0.95, lastClose * 1.05);
     const close = this.randomNumber(open * 0.95, open * 1.05);
     const high = this.randomNumber(Math.max(open, close), Math.max(open, close) * 1.1);
     const low = this.randomNumber(Math.min(open, close) * 0.9, Math.min(open, close));
     return {
-      t: date,
+      x: +date,
       o: open,
       h: high,
       l: low,
@@ -78,7 +80,7 @@ export class FinancialChartComponent implements OnInit {
     };
   }
 
-  getRandomData(dateStr: string, count: number): { c: number; t: Date; h: number; l: number; o: number }[] {
+  getRandomData(dateStr: string, count: number): { c: number; x: number; h: number; l: number; o: number }[] {
     let date = parseISO(dateStr);
     const data = [ this.randomBar(date, 30) ];
     while (data.length < count) {

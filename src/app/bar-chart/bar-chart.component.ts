@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartData, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -10,9 +10,9 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   styleUrls: [ './bar-chart.component.scss' ],
 })
 export class BarChartComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'>;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
-  public barChartOptions: ChartOptions<'bar'> = {
+  public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
     scales: {

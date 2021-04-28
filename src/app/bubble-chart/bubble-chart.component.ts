@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartData, ChartOptions } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-bubble-chart',
@@ -7,7 +7,7 @@ import { ChartData, ChartOptions } from 'chart.js';
   styleUrls: [ './bubble-chart.component.scss' ]
 })
 export class BubbleChartComponent implements OnInit {
-  public bubbleChartOptions: ChartOptions<'bubble'> = {
+  public bubbleChartOptions: ChartConfiguration['options'] = {
     scales: {
       x: {
         min: 0,
@@ -21,7 +21,7 @@ export class BubbleChartComponent implements OnInit {
       },
     }
   };
-  public bubbleChartType = 'bubble';
+  public bubbleChartType: ChartType = 'bubble';
   public bubbleChartLegend = true;
 
   public bubbleChartData: ChartData<'bubble'> = {

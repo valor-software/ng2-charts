@@ -20,7 +20,8 @@ import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
-import AnnotationPlugin from 'chartjs-plugin-annotation';
+
+import Annotation from 'chartjs-plugin-annotation';
 
 const routes: Route[] = [];
 
@@ -52,8 +53,8 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
     BrowserModule,
     RouterModule.forRoot(routes),
     ChartsModule.forRoot({
-      plugins: [ AnnotationPlugin ],
-      defaults: {}
+      defaults: {},
+      plugins: [Annotation]
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
     BrowserAnimationsModule,

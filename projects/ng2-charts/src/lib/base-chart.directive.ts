@@ -9,7 +9,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Chart, DefaultDataPoint, ChartConfiguration, ChartType, ChartEvent } from 'chart.js';
+import { Chart, ChartConfiguration, ChartEvent } from 'chart.js';
 import { assign, merge } from 'lodash-es';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
@@ -20,29 +20,27 @@ import { distinctUntilChanged } from 'rxjs/operators';
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-export class BaseChartDirective<TType extends ChartType = ChartType,
-  TData = DefaultDataPoint<TType>,
-  TLabel = unknown> implements OnDestroy, OnChanges {
+export class BaseChartDirective implements OnDestroy, OnChanges {
 
-  @Input() public type: TType;
+  @Input() public type: ChartConfiguration['type'];
   @Input() public legend: boolean;
-  @Input() public data: ChartConfiguration<TType, TData, TLabel>['data'];
-  @Input() public options: ChartConfiguration<TType, TData, TLabel>['options'];
-  @Input() public plugins: ChartConfiguration<TType, TData, TLabel>['plugins'];
+  @Input() public data: ChartConfiguration['data'];
+  @Input() public options?: ChartConfiguration['options'];
+  @Input() public plugins?: ChartConfiguration['plugins'];
 
-  @Input() public labels: ChartConfiguration<TType, TData, TLabel>['data']['labels'];
-  @Input() public datasets: ChartConfiguration<TType, TData, TLabel>['data']['datasets'];
+  @Input() public labels?: ChartConfiguration['data']['labels'];
+  @Input() public datasets?: ChartConfiguration['data']['datasets'];
 
   @Output() public chartClick: EventEmitter<{ event?: ChartEvent, active?: {}[] }> = new EventEmitter();
   @Output() public chartHover: EventEmitter<{ event: ChartEvent, active: {}[] }> = new EventEmitter();
 
   public ctx: string;
-  public chart: Chart<TType, TData, TLabel>;
+  public chart: Chart;
 
   private subs: Subscription[] = [];
-  private themeOverrides: ChartConfiguration<TType, TData, TLabel>['options'];
+  private themeOverrides: ChartConfiguration['options'];
 
-  public constructor(private element: ElementRef, private zone: NgZone, private themeService: ThemeService<TType, TData, TLabel>) {
+  public constructor(private element: ElementRef, private zone: NgZone, private themeService: ThemeService) {
     this.ctx = element.nativeElement.getContext('2d');
     this.subs.push(this.themeService.colorschemesOptions
       .pipe(distinctUntilChanged())
@@ -67,7 +65,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     this.subs.forEach(s => s.unsubscribe());
   }
 
-  public render(): Chart<TType, TData, TLabel> {
+  public render(): Chart {
     if (this.chart) {
       this.chart.destroy();
     }
@@ -107,7 +105,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     }
   }
 
-  private getChartOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
+  private getChartOptions(): ChartConfiguration['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
           if (active && !active.length) {
@@ -128,7 +126,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
       });
   }
 
-  private getChartConfiguration(): ChartConfiguration<TType, TData, TLabel> {
+  private getChartConfiguration(): ChartConfiguration {
     return merge({
       type: this.type,
       data: this.data,
