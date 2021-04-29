@@ -14,15 +14,13 @@ addons:
 
 cache:
   directories:
-    - ./node_modules
-    - ~/.cache
     - ~/.npm
+    - ~/.cache
 
 install:
   - npm ci
 
 script:
-  - npm run cy:verify
   - npm run build:lib
   - npm run test:ci
   - ng serve &
