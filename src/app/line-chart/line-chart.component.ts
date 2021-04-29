@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -12,7 +12,7 @@ export class LineChartComponent implements OnInit {
   constructor() {
   }
 
-  public lineChartData: ChartData<'line', number[], string | string[]> = {
+  public lineChartData: ChartConfiguration['data'] = {
     datasets: [
       {
         data: [ 65, 59, 80, 81, 56, 55, 40 ],

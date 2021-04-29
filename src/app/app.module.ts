@@ -21,7 +21,7 @@ import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
-import Annotation from 'chartjs-plugin-annotation';
+import { default as Annotation } from 'chartjs-plugin-annotation';
 
 const routes: Route[] = [];
 
@@ -54,7 +54,7 @@ export function hljsLanguages(): { [name: string]: () => Promise<any> } {
     RouterModule.forRoot(routes),
     ChartsModule.forRoot({
       defaults: {},
-      plugins: [Annotation]
+      plugins: [ Annotation ]
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
     BrowserAnimationsModule,
