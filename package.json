@@ -16,6 +16,7 @@
     "test:ci": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
     "e2e": "cypress run --spec \"cypress/integration/main-test.js\"",
     "e2e:update-screenshots": "npm run e2e -- --env updateSnapshots=true",
+    "cy:verify": "cypress verify",
     "lint": "ng lint"
   },
   "private": true,
