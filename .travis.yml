@@ -7,23 +7,32 @@ env:
     - NG_CLI_ANALYTICS="ci"
 
 node_js:
-  - node
-
+  - lts/*
 addons:
   chrome: stable
-
 cache:
   directories:
-    - ~/.npm
-    - ~/.cache
-
+    - "~/.npm"
+    - "~/.cache"
 install:
   - npm ci
+deploy:
+  provider: npm
+  email: npmuser@gmail.com
+  api_key:
+    secure: npmtoken==
+  on:
+    tags: true
+    repo: valor-software/ng2-charts
+    branch: development
+  skip_cleanup: 'true'
 
 script:
   - npm run build:lib
+  - npm run build:schematics
   - npm run test:ci
+  - npm run test:schematics
   - ng serve &
-  - $(npm bin)/wait-on http-get://localhost:4200/#
+  - "$(npm bin)/wait-on http-get://localhost:4200/#"
   - npm run e2e
   - kill $(jobs -p) || true

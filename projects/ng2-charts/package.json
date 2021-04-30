@@ -4,6 +4,13 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "test": "jasmine ",
+    "copy:schemas": "rsync -R schematics/*/schema.json ../../dist/ng2-charts/",
+    "copy:collection": "cp schematics/collection.json ../../dist/ng2-charts/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:collection"
+  },
   "peerDependencies": {
     "@angular/common": ">=7.2.0",
     "@angular/core": ">=7.2.0",
@@ -20,6 +27,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/valor-software/ng2-charts.git"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
   },
   "keywords": [
     "chart.js",

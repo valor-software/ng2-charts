@@ -1,6 +1,18 @@
 {
-  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
+    "ng-add": {
+      "description": "Adds ng2-charts library to the project and installs dependencies",
+      "factory": "./ng-add/index",
+      "schema": "./ng-add/schema.json",
+      "aliases": ["install"]
+    },
+    "ng-add-setup-project": {
+      "private": true,
+      "description": "Sets up the project after dependencies have been installed",
+      "factory": "./ng-add/setup-project",
+      "schema": "./ng-add/schema.json"
+    },
     "line": {
       "description": "Generate a component with a line chart.",
       "factory": "./ng2-charts-schematics/index#ng2ChartsLine",

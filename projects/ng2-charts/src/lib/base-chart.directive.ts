@@ -10,10 +10,13 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Chart, ChartConfiguration, ChartEvent } from 'chart.js';
-import { assign, merge } from 'lodash-es';
+
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
+
+import assign from 'lodash-es/assign';
+import merge from 'lodash-es/merge';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

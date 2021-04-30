@@ -47,7 +47,7 @@ export const builtInDefaults = {
   }
 };
 
-function rgba(colour: Array<number>, alpha: number): string {
+function rgba(colour: Array<number>, alpha: number): Color {
   return 'rgba(' + colour.concat(alpha).join(',') + ')';
 }
 
