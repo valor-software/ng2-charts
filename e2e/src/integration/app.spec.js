@@ -1,11 +1,4 @@
-const browsers = [{
-  name: 'chrome',
-  browserVersion: 'latest',
-  width: 1366,
-  height: 768
-}];
-
-describe('Main Page', () => {
+describe('Ng2 Charts Demo', () => {
   it(`navigate to main Demo page and check info`, () => {
     const topBarSelector = 'mat-toolbar';
     const mainContentSelector = 'main';

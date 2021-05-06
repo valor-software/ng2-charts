@@ -103,6 +103,21 @@
             "scripts": []
           }
         },
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "devServerTarget": "ng2-charts-demo:serve",
+            "cypressConfig": "e2e/cypress.json",
+            "tsConfig": "e2e/tsconfig.e2e.json"
+          },
+          "configurations": {
+            "update-snapshots": {
+              "env": {
+                "updateSnapshots": true
+              }
+            }
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -156,6 +171,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ng2-charts-demo"
 }

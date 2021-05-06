@@ -3,6 +3,7 @@ import { BaseChartDirective } from './base-chart.directive';
 import {
   ArcElement,
   BarController,
+  BarElement,
   BubbleController,
   CategoryScale,
   Chart,
@@ -10,20 +11,21 @@ import {
   DoughnutController,
   Filler,
   Legend,
-  LineElement,
   LinearScale,
   LineController,
+  LineElement,
   PieController,
   PointElement,
   PolarAreaController,
   RadarController,
   RadialLinearScale,
-  ScatterController, TimeSeriesScale,
+  ScatterController,
+  TimeSeriesScale,
   Title,
-  Tooltip, BarElement
+  Tooltip
 } from 'chart.js';
 import { builtInDefaults } from './get-colors';
-import { merge } from 'lodash-es';
+import merge from 'lodash-es/merge';
 import { ThemeService } from './theme.service';
 
 Chart.register(

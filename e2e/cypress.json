@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:4200/",
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "fileServerFolder": ".",
+  "fixturesFolder": "./src/fixtures",
+  "integrationFolder": "./src/integration",
+  "pluginsFile": "./src/plugins/index",
+  "supportFile": "./src/support/index",
+  "video": true,
+  "videosFolder": "../dist/cypress/ng2-charts-e2e/videos",
+  "screenshotsFolder": "../dist/cypress/ng2-charts-e2e/screenshots",
+  "chromeWebSecurity": false
+}

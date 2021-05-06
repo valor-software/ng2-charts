@@ -9,7 +9,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Chart, ChartConfiguration, ChartEvent } from 'chart.js';
+import { Chart, ChartConfiguration, ChartEvent, ChartType, DefaultDataPoint } from 'chart.js';
 
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
@@ -23,22 +23,24 @@ import merge from 'lodash-es/merge';
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
-export class BaseChartDirective implements OnDestroy, OnChanges {
+export class BaseChartDirective<TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown> implements OnDestroy, OnChanges {
 
-  @Input() public type: ChartConfiguration['type'];
+  @Input() public type: ChartConfiguration<TType,TData,TLabel>['type'];
   @Input() public legend: boolean;
-  @Input() public data: ChartConfiguration['data'];
-  @Input() public options?: ChartConfiguration['options'];
-  @Input() public plugins?: ChartConfiguration['plugins'];
+  @Input() public data: ChartConfiguration<TType,TData,TLabel>['data'];
+  @Input() public options?: ChartConfiguration<TType,TData,TLabel>['options'];
+  @Input() public plugins?: ChartConfiguration<TType,TData,TLabel>['plugins'];
 
-  @Input() public labels?: ChartConfiguration['data']['labels'];
-  @Input() public datasets?: ChartConfiguration['data']['datasets'];
+  @Input() public labels?: ChartConfiguration<TType,TData,TLabel>['data']['labels'];
+  @Input() public datasets?: ChartConfiguration<TType,TData,TLabel>['data']['datasets'];
 
   @Output() public chartClick: EventEmitter<{ event?: ChartEvent, active?: {}[] }> = new EventEmitter();
   @Output() public chartHover: EventEmitter<{ event: ChartEvent, active: {}[] }> = new EventEmitter();
 
   public ctx: string;
-  public chart: Chart;
+  public chart: Chart<TType,TData,TLabel>;
 
   private subs: Subscription[] = [];
   private themeOverrides: ChartConfiguration['options'];
@@ -52,10 +54,19 @@ export class BaseChartDirective implements OnDestroy, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const requireRender = [ 'type' ];
+    const propertyNames = Object.getOwnPropertyNames(changes);
 
-    if (requireRender.some(key => changes.hasOwnProperty(key))) {
+    if (propertyNames.some(key => requireRender.includes(key)) ||
+      propertyNames.every(key => changes[key].isFirstChange())
+    ) {
       this.render();
     } else {
+      const config = this.getChartConfiguration();
+
+      [ 'data', 'options', 'plugins' ].forEach(key => {
+        this.chart[key] = config[key];
+      })
+
       this.update();
     }
   }
@@ -68,7 +79,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges {
     this.subs.forEach(s => s.unsubscribe());
   }
 
-  public render(): Chart {
+  public render(): Chart<TType,TData,TLabel> {
     if (this.chart) {
       this.chart.destroy();
     }
@@ -108,7 +119,7 @@ export class BaseChartDirective implements OnDestroy, OnChanges {
     }
   }
 
-  private getChartOptions(): ChartConfiguration['options'] {
+  private getChartOptions(): ChartConfiguration<TType,TData,TLabel>['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
           if (active && !active.length) {
@@ -123,13 +134,15 @@ export class BaseChartDirective implements OnDestroy, OnChanges {
       this.themeOverrides,
       this.options,
       {
-        legend: {
-          display: this.legend
+        plugins: {
+          legend: {
+            display: this.legend
+          }
         }
       });
   }
 
-  private getChartConfiguration(): ChartConfiguration {
+  private getChartConfiguration(): ChartConfiguration<TType,TData,TLabel> {
     return merge({
       type: this.type,
       data: this.data,
