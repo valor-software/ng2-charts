@@ -1,11 +1,11 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
 
-name: NG2 Charts
+name: Release
 
 on:
   release:
-    types: [created]
+    types: [ created ]
 
 jobs:
   build:
@@ -15,10 +15,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
@@ -27,6 +25,9 @@ jobs:
       - run: npm ci
       - run: npm run build:lib
       - run: npm run build:schematics
+      - run: npm run test:schematics
+      - run: npm run test:ci
+      - run: npm run e2e:ci
 
   publish-npm:
     needs: build
@@ -38,20 +39,8 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
+      - run: npm run build:lib
+      - run: npm run build:schematics
+      - run: npm publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          registry-url: $registry-url(npm)
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

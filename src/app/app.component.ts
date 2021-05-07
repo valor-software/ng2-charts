@@ -14,7 +14,7 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
-import { ChartOptions } from 'chart.js';
+import { ChartOptions, Chart } from 'chart.js';
 import { filter } from 'rxjs/operators';
 import { ThemeService } from 'ng2-charts';
 
@@ -90,6 +90,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private route: ActivatedRoute,
   ) {
     this.selectedTheme = 'ng2-charts-demo-light-theme';
+
+    Chart.defaults.font.family = 'Arial';
   }
 
   ngOnInit(): void {

@@ -14,9 +14,9 @@
     "test": "ng test",
     "test:ci": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
     "test:schematics": "ts-node --project projects/ng2-charts/tsconfig.schematics.json node_modules/jasmine/bin/jasmine projects/ng2-charts/schematics/**/*.spec.ts",
-    "e2e": "ng e2e",
-    "e2e:ci": "ng e2e --headless",
-    "e2e:update-snapshots": "npm run e2e -- --headless --configuration update-snapshots",
+    "e2e": "ng e2e --watch",
+    "e2e:ci": "ng e2e --headless true",
+    "e2e:update-snapshots": "npm run e2e -- --configuration update-snapshots",
     "cy:verify": "cypress verify",
     "lint": "ng lint"
   },

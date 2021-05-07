@@ -10,7 +10,6 @@
     }
   },
   "allowedNonPeerDependencies": [
-    "lodash-es/merge",
-    "lodash-es/assign"
+    "lodash-es"
   ]
 }
