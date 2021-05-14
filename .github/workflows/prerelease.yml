@@ -4,8 +4,8 @@
 name: Release
 
 on:
-  release:
-    types: [ created ]
+  push:
+    branches: [ development ]
 
 jobs:
   build:
@@ -52,6 +52,8 @@ jobs:
       - run: npm ci
       - run: npm run build:lib
       - run: npm run build:schematics
-      - run: npm publish --tag next dist/ng2-charts
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          tag: next
+          package: dist/ng2-charts/package.json
+          token: ${{ secrets.NPM_TOKEN }}

@@ -39,4 +39,31 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: visual-testing-videos
-          path: dist/cypress/videos
+          path: dist/cypress/*/videos
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - run: npm ci
+      - run: npm run build:lib
+      - run: npm run build:schematics
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          package: dist/ng2-charts/package.json
+          token: ${{ secrets.NPM_TOKEN }}
