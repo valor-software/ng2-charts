@@ -1,4 +1,5 @@
 import { AfterContentInit, Component, ContentChild, Input, OnInit } from '@angular/core';
+import { BaseChartDirective } from 'ng2-charts';
 
 export const chartTypes = {
   bar: {
@@ -26,7 +27,7 @@ export const chartTypes = {
     ts: require('!!raw-loader!../pie-chart/pie-chart.component.ts').default,
     html: require('!!raw-loader!../pie-chart/pie-chart.component.html').default,
   },
-  'polar-area': {
+  polarArea: {
     heading: 'Polar Area Chart',
     ts: require('!!raw-loader!../polar-area-chart/polar-area-chart.component.ts').default,
     html: require('!!raw-loader!../polar-area-chart/polar-area-chart.component.html').default,
@@ -53,23 +54,18 @@ export const chartTypes = {
   },
 };
 
-
 @Component({
   selector: 'app-chart-host',
   templateUrl: './chart-host.component.html',
   styleUrls: ['./chart-host.component.scss']
 })
-export class ChartHostComponent implements OnInit, AfterContentInit {
-  @Input() chartType: string;
-  @ContentChild('main', { static: true }) content;
+export class ChartHostComponent implements AfterContentInit {
+  @Input() chartType: keyof typeof chartTypes = 'bar';
+  @ContentChild('main', { static: true }) content?: BaseChartDirective;
 
-  html: string;
-  ts: string;
-  heading: string;
-
-  constructor() { }
-
-  ngOnInit(): void { }
+  html = '';
+  ts = '';
+  heading = '';
 
   ngAfterContentInit(): void {
     const compName = this.chartType;

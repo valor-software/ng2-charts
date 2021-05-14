@@ -7,8 +7,8 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './dynamic-chart.component.html',
   styleUrls: [ './dynamic-chart.component.scss' ]
 })
-export class DynamicChartComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+export class DynamicChartComponent {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {
     elements: {
@@ -37,12 +37,6 @@ export class DynamicChartComponent implements OnInit {
       { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
     ]
   };
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   // events
   public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {

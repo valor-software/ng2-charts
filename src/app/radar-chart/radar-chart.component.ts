@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
+import { Component } from '@angular/core';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-radar-chart',
   templateUrl: './radar-chart.component.html',
   styleUrls: [ './radar-chart.component.scss' ]
 })
-export class RadarChartComponent implements OnInit {
+export class RadarChartComponent {
   // Radar
   public radarChartOptions: ChartConfiguration['options'] = {
     responsive: true,
@@ -21,12 +21,6 @@ export class RadarChartComponent implements OnInit {
     ]
   };
   public radarChartType: ChartType = 'radar';
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

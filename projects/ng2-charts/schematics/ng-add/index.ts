@@ -1,14 +1,11 @@
-import {Rule, SchematicContext, SchematicsException, Tree} from '@angular-devkit/schematics';
-import {
-  NodePackageInstallTask,
-  RunSchematicTask,
-} from '@angular-devkit/schematics/tasks';
+import { Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
+import { NodePackageInstallTask, RunSchematicTask, } from '@angular-devkit/schematics/tasks';
 
-import {getWorkspace} from '@schematics/angular/utility/workspace';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
 
-import {Schema} from './schema';
+import { Schema } from './schema';
 import * as messages from './messages';
-import {addPackageToPackageJson, getPackageVersionFromPackageJson} from '../utils/package-config';
+import { addPackageToPackageJson, getPackageVersionFromPackageJson } from '../utils/package-config';
 
 
 const NG_BOOTSTRAP_VERSION = '9.0.0';
@@ -19,10 +16,10 @@ const BOOTSTRAP_VERSION = '4.5.0';
  * It installs all dependencies in the 'package.json' and runs 'ng-add-setup-project' schematic.
  */
 export default function ngAdd(options: Schema): Rule {
-  return async(tree: Tree, context: SchematicContext) => {
+  return async (tree: Tree, context: SchematicContext) => {
 
     // Checking that project exists
-    const {project} = options;
+    const { project } = options;
     if (project) {
       const workspace = await getWorkspace(tree);
       const projectWorkspace = workspace.projects.get(project);

@@ -5,7 +5,8 @@ name: Release
 
 on:
   release:
-    types: [ created ]
+    types:
+      - published
 
 jobs:
   build:
@@ -52,6 +53,18 @@ jobs:
       - run: npm ci
       - run: npm run build:lib
       - run: npm run build:schematics
-      - run: npm publish --tag next dist/ng2-charts
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - uses: JS-DevTools/npm-publish@v1
+        name: prerelease
+        if: ${{ github.event.release.prerelease }}
+        with:
+          tag: next
+          package: dist/ng2-charts/package.json
+          token: ${{ secrets.NPM_TOKEN }}
+      - uses: JS-DevTools/npm-publish@v1
+        name: release
+        if: ${{ !github.event.release.prerelease }}
+        with:
+          dry-run: true
+          package: dist/ng2-charts/package.json
+          token: ${{ secrets.NPM_TOKEN }}
+

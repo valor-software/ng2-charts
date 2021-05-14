@@ -4,44 +4,44 @@ import { Color } from 'chart.js';
 export const builtInDefaults = {
   datasets: {
     line: {
-      backgroundColor: context => rgba(generateColor(context.datasetIndex), 0.4),
-      borderColor: context => rgba(generateColor(context.datasetIndex), 1),
-      pointBackgroundColor: context => rgba(generateColor(context.datasetIndex), 1),
+      backgroundColor: (context: any) => rgba(generateColor(context.datasetIndex), 0.4),
+      borderColor: (context: any) => rgba(generateColor(context.datasetIndex), 1),
+      pointBackgroundColor: (context: any) => rgba(generateColor(context.datasetIndex), 1),
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: context => rgba(generateColor(context.datasetIndex), 0.8)
+      pointHoverBorderColor: (context: any) => rgba(generateColor(context.datasetIndex), 0.8)
     },
     bar: {
-      backgroundColor: context => rgba(generateColor(context.datasetIndex), 0.6),
-      borderColor: context => rgba(generateColor(context.datasetIndex), 1),
-      hoverBackgroundColor: context => rgba(generateColor(context.datasetIndex), 0.8),
-      hoverBorderColor: context => rgba(generateColor(context.datasetIndex), 1)
+      backgroundColor: (context: any) => rgba(generateColor(context.datasetIndex), 0.6),
+      borderColor: (context: any) => rgba(generateColor(context.datasetIndex), 1),
+      hoverBackgroundColor: (context: any) => rgba(generateColor(context.datasetIndex), 0.8),
+      hoverBorderColor: (context: any) => rgba(generateColor(context.datasetIndex), 1)
     },
-    get radar(): { [key: string]: Color } {
+    get radar(): {[key: string]: ((context: any) => Color) | Color } {
       return this.line;
     },
     doughnut: {
-      backgroundColor: context => rgba(generateColor(context.dataIndex), 0.6),
+      backgroundColor: (context: any) => rgba(generateColor(context.dataIndex), 0.6),
       borderColor: '#fff',
-      hoverBackgroundColor: context => rgba(generateColor(context.dataIndex), 1),
-      hoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
+      hoverBackgroundColor: (context: any) => rgba(generateColor(context.dataIndex), 1),
+      hoverBorderColor: (context: any) => rgba(generateColor(context.dataIndex), 1)
     },
-    get pie(): { [key: string]: Color } {
+    get pie(): {[key: string]: ((context: any) => Color) | Color } {
       return this.doughnut;
     },
     polarArea: {
-      backgroundColor: context => rgba(generateColor(context.dataIndex), 0.6),
-      borderColor: context => rgba(generateColor(context.dataIndex), 1),
-      hoverBackgroundColor: context => rgba(generateColor(context.dataIndex), 0.8),
-      hoverBorderColor: context => rgba(generateColor(context.dataIndex), 1)
+      backgroundColor: (context: any) => rgba(generateColor(context.dataIndex), 0.6),
+      borderColor: (context: any) => rgba(generateColor(context.dataIndex), 1),
+      hoverBackgroundColor: (context: any) => rgba(generateColor(context.dataIndex), 0.8),
+      hoverBorderColor: (context: any) => rgba(generateColor(context.dataIndex), 1)
     },
-    get bubble(): { [key: string]: Color } {
+    get bubble(): {[key: string]: ((context: any) => Color) | Color } {
       return this.doughnut;
     },
-    get scatter(): { [key: string]: Color } {
+    get scatter(): {[key: string]: ((context: any) => Color) | Color } {
       return this.doughnut;
     },
-    get area(): { [key: string]: Color } {
+    get area(): {[key: string]: ((context: any) => Color) | Color } {
       return this.polarArea;
     }
   }

@@ -7,10 +7,7 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './line-chart.component.html',
   styleUrls: [ './line-chart.component.scss' ]
 })
-export class LineChartComponent implements OnInit {
-
-  constructor() {
-  }
+export class LineChartComponent {
 
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
@@ -103,13 +100,10 @@ export class LineChartComponent implements OnInit {
 
   public lineChartType: ChartType = 'line';
 
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
   private static generateNumber(i: number): number {
     return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
-  }
-
-  ngOnInit(): void {
   }
 
   public randomize(): void {
@@ -118,7 +112,7 @@ export class LineChartComponent implements OnInit {
         this.lineChartData.datasets[i].data[j] = LineChartComponent.generateNumber(i);
       }
     }
-    this.chart.update();
+    this.chart?.update();
   }
 
   // events
@@ -131,8 +125,8 @@ export class LineChartComponent implements OnInit {
   }
 
   public hideOne(): void {
-    const isHidden = this.chart.isDatasetHidden(1);
-    this.chart.hideDataset(1, !isHidden);
+    const isHidden = this.chart?.isDatasetHidden(1);
+    this.chart?.hideDataset(1, !isHidden);
   }
 
   public pushOne(): void {
@@ -140,21 +134,23 @@ export class LineChartComponent implements OnInit {
       const num = LineChartComponent.generateNumber(i);
       x.data.push(num);
     });
-    this.lineChartData.labels.push(`Label ${ this.lineChartData.labels.length }`);
+    this.lineChartData?.labels?.push(`Label ${ this.lineChartData.labels.length }`);
 
-    this.chart.update();
+    this.chart?.update();
   }
 
   public changeColor(): void {
     this.lineChartData.datasets[2].borderColor = 'green';
     this.lineChartData.datasets[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
 
-    this.chart.update();
+    this.chart?.update();
   }
 
   public changeLabel(): void {
-    this.lineChartData.labels[2] = [ '1st Line', '2nd Line' ];
+    if (this.lineChartData.labels) {
+      this.lineChartData.labels[2] = [ '1st Line', '2nd Line' ];
+    }
 
-    this.chart.update();
+    this.chart?.update();
   }
 }

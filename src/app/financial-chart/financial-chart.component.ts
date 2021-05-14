@@ -12,7 +12,7 @@ import { CandlestickController, CandlestickElement, OhlcController, OhlcElement 
   templateUrl: './financial-chart.component.html',
   styleUrls: [ './financial-chart.component.css' ]
 })
-export class FinancialChartComponent implements OnInit {
+export class FinancialChartComponent {
   barCount = 60;
   initialDateStr = '2017-04-01T00:00:00';
 
@@ -53,13 +53,10 @@ export class FinancialChartComponent implements OnInit {
   public financialChartType: ChartType = 'candlestick';
   public financialChartPlugins = [];
 
-  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
   constructor() {
     Chart.register(CandlestickController, OhlcController, CandlestickElement, OhlcElement);
-  }
-
-  ngOnInit(): void {
   }
 
   randomNumber(min: number, max: number): number {

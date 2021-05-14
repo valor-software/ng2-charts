@@ -6,7 +6,7 @@ import {
   BarElement,
   BubbleController,
   CategoryScale,
-  Chart,
+  Chart, ChartConfiguration,
   defaults,
   DoughnutController,
   Filler,
@@ -53,10 +53,10 @@ export class ChartsModule {
     }
   }
 
-  public static forRoot(config?): ModuleWithProviders<ChartsModule> {
-    Chart.register(config.plugins || []);
+  public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & {defaults: any}): ModuleWithProviders<ChartsModule> {
+    Chart.register(config?.plugins || []);
 
-    const ngChartsDefaults = merge(builtInDefaults, config.defaults);
+    const ngChartsDefaults = merge(builtInDefaults, config?.defaults || {});
 
     defaults.set(ngChartsDefaults);
 

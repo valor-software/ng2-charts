@@ -1,30 +1,28 @@
-import { strings } from '@angular-devkit/core';
+import { dirname, normalize, strings } from '@angular-devkit/core';
 import {
-  SchematicContext,
-  Tree,
-  SchematicsException,
-  url,
   apply,
   applyTemplates,
-  Rule,
-  move,
   mergeWith,
+  move,
+  Rule,
+  SchematicsException,
+  Tree,
+  url,
 } from '@angular-devkit/schematics';
 import { parseName } from '@schematics/angular/utility/parse-name';
-import { dirname, normalize } from '@angular-devkit/core';
-import { getWorkspace } from "@schematics/angular/utility/workspace";
-import { Schema } from "./schema";
-import { getAppModulePath, getProjectTargetOptions } from "@angular/cdk/schematics";
+import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { Schema } from './schema';
+import { getAppModulePath, getProjectTargetOptions } from '@angular/cdk/schematics';
 
 export function buildMetaConfig(options: Schema): Rule {
 
-  return async (tree: Tree, _context: SchematicContext) => {
+  return async (tree: Tree) => {
 
     const workspace = await getWorkspace(tree);
     const projectName = options.project || (workspace.extensions.defaultProject as string);
     const project = workspace.projects.get(projectName);
     if (!project) {
-      throw new SchematicsException(`Unable to find project '${project}' in the workspace`);
+      throw new SchematicsException(`Unable to find project '${ project }' in the workspace`);
     }
     const buildOptions = getProjectTargetOptions(project, 'build');
 
@@ -47,6 +45,6 @@ export function buildMetaConfig(options: Schema): Rule {
 
     mergeWith(templateSource);
 
-    tree.commitUpdate(recorder)
+    tree.commitUpdate(recorder);
   };
 }

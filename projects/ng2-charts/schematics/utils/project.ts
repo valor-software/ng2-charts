@@ -4,7 +4,7 @@ import { SchematicsException } from '@angular-devkit/schematics';
 /**
  * Resolves options for the build target of the given project
  */
-export function getProjectTargetOptions(project: workspaces.ProjectDefinition, buildTarget: string) {
+export function getProjectTargetOptions(project: workspaces.ProjectDefinition, buildTarget: string): any {
   const buildTargetObject = project.targets.get(buildTarget);
   if (buildTargetObject && buildTargetObject.options) {
     return buildTargetObject.options;

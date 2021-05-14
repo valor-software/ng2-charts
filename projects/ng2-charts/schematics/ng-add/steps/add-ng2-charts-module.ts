@@ -16,7 +16,7 @@ const PACKAGE_NAME = 'ng2-charts';
  * Patches main application module by adding 'NgbModule' import
  */
 export function addChartsModuleToAppModule(options: Schema): Rule {
-  return async(host: Tree) => {
+  return async (host: Tree) => {
     const workspace = await getWorkspace(host);
     const projectName = options.project || (workspace.extensions.defaultProject as string);
     const project = workspace.projects.get(projectName);

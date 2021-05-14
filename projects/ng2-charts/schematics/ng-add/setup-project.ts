@@ -1,7 +1,7 @@
 import { chain, Rule } from '@angular-devkit/schematics';
 
 import { Schema } from './schema';
-import { addChartsModuleToAppModule } from "./steps/add-ng2-charts-module";
+import { addChartsModuleToAppModule } from './steps/add-ng2-charts-module';
 
 /**
  * Sets up a project with all required to run ng-bootstrap.

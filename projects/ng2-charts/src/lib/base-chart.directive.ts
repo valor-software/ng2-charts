@@ -17,9 +17,10 @@ import { distinctUntilChanged } from 'rxjs/operators';
 
 import assign from 'lodash-es/assign';
 import merge from 'lodash-es/merge';
+import pick from 'lodash-es/pick';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
@@ -27,20 +28,20 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
   TLabel = unknown> implements OnDestroy, OnChanges {
 
-  @Input() public type: ChartConfiguration<TType,TData,TLabel>['type'];
-  @Input() public legend: boolean;
-  @Input() public data: ChartConfiguration<TType,TData,TLabel>['data'];
-  @Input() public options?: ChartConfiguration<TType,TData,TLabel>['options'];
-  @Input() public plugins?: ChartConfiguration<TType,TData,TLabel>['plugins'];
+  @Input() public type!: ChartConfiguration<TType, TData, TLabel>['type'];
+  @Input() public legend?: boolean;
+  @Input() public data: ChartConfiguration<TType, TData, TLabel>['data'] = { datasets: [] };
+  @Input() public options?: ChartConfiguration<TType, TData, TLabel>['options'];
+  @Input() public plugins?: ChartConfiguration<TType, TData, TLabel>['plugins'];
 
-  @Input() public labels?: ChartConfiguration<TType,TData,TLabel>['data']['labels'];
-  @Input() public datasets?: ChartConfiguration<TType,TData,TLabel>['data']['datasets'];
+  @Input() public labels?: ChartConfiguration<TType, TData, TLabel>['data']['labels'];
+  @Input() public datasets?: ChartConfiguration<TType, TData, TLabel>['data']['datasets'];
 
   @Output() public chartClick: EventEmitter<{ event?: ChartEvent, active?: {}[] }> = new EventEmitter();
   @Output() public chartHover: EventEmitter<{ event: ChartEvent, active: {}[] }> = new EventEmitter();
 
   public ctx: string;
-  public chart: Chart<TType,TData,TLabel>;
+  public chart?: Chart<TType, TData, TLabel>;
 
   private subs: Subscription[] = [];
   private themeOverrides: ChartConfiguration['options'];
@@ -63,9 +64,9 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     } else {
       const config = this.getChartConfiguration();
 
-      [ 'data', 'options', 'plugins' ].forEach(key => {
-        this.chart[key] = config[key];
-      })
+      if (this.chart) {
+        assign(this.chart.config, pick(config, [ 'data', 'options', 'plugins' ]));
+      }
 
       this.update();
     }
@@ -79,19 +80,17 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     this.subs.forEach(s => s.unsubscribe());
   }
 
-  public render(): Chart<TType,TData,TLabel> {
+  public render(): Chart<TType, TData, TLabel> {
     if (this.chart) {
       this.chart.destroy();
     }
 
-    if (this.ctx) {
-      return this.chart = new Chart(this.ctx, this.getChartConfiguration());
-    }
+    return this.chart = new Chart(this.ctx, this.getChartConfiguration());
   }
 
   public update(duration?: any): void {
     if (this.chart) {
-      this.zone.runOutsideAngular(() => this.chart.update(duration));
+      this.zone.runOutsideAngular(() => this.chart?.update(duration));
     }
   }
 
@@ -102,15 +101,15 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     }
   }
 
-  public isDatasetHidden(index: number): boolean {
-    return this.chart.getDatasetMeta(index).hidden;
+  public isDatasetHidden(index: number): boolean | undefined {
+    return this.chart?.getDatasetMeta(index)?.hidden;
   }
 
-  public toBase64Image(): string {
-    return this.chart.toBase64Image();
+  public toBase64Image(): string | undefined {
+    return this.chart?.toBase64Image();
   }
 
-  private themeChanged(options): void {
+  private themeChanged(options: ChartConfiguration['options']): void {
     this.themeOverrides = options;
     if (this.chart) {
       assign(this.chart.config.options, this.getChartOptions());
@@ -119,7 +118,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     }
   }
 
-  private getChartOptions(): ChartConfiguration<TType,TData,TLabel>['options'] {
+  private getChartOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
           if (active && !active.length) {
@@ -142,7 +141,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
       });
   }
 
-  private getChartConfiguration(): ChartConfiguration<TType,TData,TLabel> {
+  private getChartConfiguration(): ChartConfiguration<TType, TData, TLabel> {
     return merge({
       type: this.type,
       data: this.data,

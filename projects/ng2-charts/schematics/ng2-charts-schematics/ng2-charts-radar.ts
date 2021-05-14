@@ -1,4 +1,4 @@
-import { chain, externalSchematic, Rule, SchematicContext } from '@angular-devkit/schematics';
+import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
 import { ng2ProcessTree } from './ng2-process-tree';
 import { buildMetaConfig } from './build-meta-config';
 
@@ -34,10 +34,10 @@ const newImports: [ string, string ][] = [
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function ng2ChartsRadar(_context: SchematicContext, _options: any): Rule {
+export function ng2ChartsRadar(options: any): Rule {
   return chain([
-    externalSchematic('@schematics/angular', 'component', _options),
-    buildMetaConfig(_options),
-    ng2ProcessTree(_options, newCode, newMarkup, newImports)
+    externalSchematic('@schematics/angular', 'component', options),
+    buildMetaConfig(options),
+    ng2ProcessTree(options, newCode, newMarkup, newImports)
   ]);
 }

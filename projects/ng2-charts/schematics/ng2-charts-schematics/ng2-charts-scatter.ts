@@ -40,10 +40,10 @@ const newImports: [string, string][] = [
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function ng2ChartsScatter(_options: any): Rule {
+export function ng2ChartsScatter(options: any): Rule {
   return chain([
-    externalSchematic('@schematics/angular', 'component', _options),
-    buildMetaConfig(_options),
-    ng2ProcessTree(_options, newCode, newMarkup, newImports)
+    externalSchematic('@schematics/angular', 'component', options),
+    buildMetaConfig(options),
+    ng2ProcessTree(options, newCode, newMarkup, newImports)
   ]);
 }

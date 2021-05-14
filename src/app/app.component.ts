@@ -14,7 +14,7 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
-import { ChartOptions, Chart } from 'chart.js';
+import { Chart, ChartOptions } from 'chart.js';
 import { filter } from 'rxjs/operators';
 import { ThemeService } from 'ng2-charts';
 
@@ -24,13 +24,13 @@ import { ThemeService } from 'ng2-charts';
   styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private theme;
+  private theme = 'ng2-charts-demo-light-theme';
 
   public get selectedTheme(): string {
     return this.theme;
   }
 
-  public set selectedTheme(value) {
+  public set selectedTheme(value: string) {
     this.renderer.removeClass(this.document.body, this.theme);
     this.theme = value;
     this.renderer.addClass(this.document.body, value);
@@ -76,9 +76,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.themeService.setColorschemesOptions(overrides);
   }
 
-  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup;
-  @ViewChildren('tab', { read: ElementRef }) tabElements: QueryList<ElementRef>;
-  tabLabels: string[];
+  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup | undefined;
+  @ViewChildren('tab', { read: ElementRef }) tabElements: QueryList<ElementRef> | undefined;
+  tabLabels: string[] = [];
 
   subs: Subscription[] = [];
 
@@ -89,19 +89,18 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.selectedTheme = 'ng2-charts-demo-light-theme';
-
+    // For consistent rendering across CI and local envs
     Chart.defaults.font.family = 'Arial';
   }
 
   ngOnInit(): void {
     this.subs.push(
       this.route.fragment
-        .pipe(filter(Boolean))
-        .subscribe((tabUrl: string) => {
-          if (this.tabElements) {
+        .pipe(filter((tabUrl) => !!tabUrl))
+        .subscribe((tabUrl: string | null) => {
+          if (tabUrl && this.tabElements) {
             const index = this.tabLabels.indexOf(tabUrl);
-            if (index !== -1) {
+            if (index && index !== -1 && this.tabGroup) {
               this.tabGroup.selectedIndex = index;
             }
           }
@@ -109,7 +108,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.tabLabels = this.tabElements.map(r => r.nativeElement.getAttribute('label').replace(/ /g, ''));
+    if (this.tabElements){
+      this.tabLabels = this.tabElements.map(r => r.nativeElement.getAttribute('label').replace(/ /g, ''));
+    }
   }
 
   ngOnDestroy(): void {

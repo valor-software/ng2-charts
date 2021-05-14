@@ -6,7 +6,7 @@ import { ChartData, ChartType } from 'chart.js';
   templateUrl: './doughnut-chart.component.html',
   styleUrls: [ './doughnut-chart.component.scss' ]
 })
-export class DoughnutChartComponent implements OnInit {
+export class DoughnutChartComponent {
   // Doughnut
   public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
   public doughnutChartData: ChartData<'doughnut'> = {
@@ -18,12 +18,6 @@ export class DoughnutChartComponent implements OnInit {
     ]
   };
   public doughnutChartType: ChartType = 'doughnut';
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

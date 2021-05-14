@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DefaultDataPoint, ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartOptions } from 'chart.js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private pColorschemesOptions: ChartOptions;
-  public colorschemesOptions: BehaviorSubject<any> = new BehaviorSubject<ChartOptions>(null);
+  private pColorschemesOptions?: ChartOptions;
+  public colorschemesOptions: BehaviorSubject<ChartOptions | undefined> = new BehaviorSubject<ChartOptions | undefined>(undefined);
 
   constructor() {
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChartData, ChartType } from 'chart.js';
 
 @Component({
@@ -6,7 +6,7 @@ import { ChartData, ChartType } from 'chart.js';
   templateUrl: './polar-area-chart.component.html',
   styleUrls: [ './polar-area-chart.component.scss' ]
 })
-export class PolarAreaChartComponent implements OnInit {
+export class PolarAreaChartComponent {
   // PolarArea
   public polarAreaChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales' ];
   public polarAreaChartData: ChartData<'polarArea'> = {
@@ -19,12 +19,6 @@ export class PolarAreaChartComponent implements OnInit {
   public polarAreaLegend = true;
 
   public polarAreaChartType: ChartType = 'polarArea';
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

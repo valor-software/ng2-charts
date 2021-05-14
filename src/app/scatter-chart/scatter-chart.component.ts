@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
+import { Component } from '@angular/core';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-scatter-chart',
   templateUrl: './scatter-chart.component.html',
   styleUrls: [ './scatter-chart.component.scss' ]
 })
-export class ScatterChartComponent implements OnInit {
+export class ScatterChartComponent {
   // scatter
   public scatterChartOptions: ChartConfiguration['options'] = {
     responsive: true,
@@ -30,12 +30,6 @@ export class ScatterChartComponent implements OnInit {
     ]
   };
   public scatterChartType: ChartType = 'scatter';
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

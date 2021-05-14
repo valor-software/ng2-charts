@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-bubble-chart',
   templateUrl: './bubble-chart.component.html',
   styleUrls: [ './bubble-chart.component.scss' ]
 })
-export class BubbleChartComponent implements OnInit {
+export class BubbleChartComponent {
   public bubbleChartOptions: ChartConfiguration['options'] = {
     scales: {
       x: {
@@ -52,12 +52,6 @@ export class BubbleChartComponent implements OnInit {
     } ]
   };
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
@@ -80,6 +74,6 @@ export class BubbleChartComponent implements OnInit {
 
   public randomize(): void {
     const numberOfPoints = this.rand(5) + 5;
-    this.bubbleChartData.datasets[0].data = Array.apply(null, { length: numberOfPoints }).map(r => this.randomPoint(30));
+    this.bubbleChartData.datasets[0].data = new Array(numberOfPoints).map(r => this.randomPoint(30));
   }
 }

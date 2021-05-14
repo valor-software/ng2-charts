@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -8,8 +8,8 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './pie-chart.component.html',
   styleUrls: [ './pie-chart.component.scss' ]
 })
-export class PieChartComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+export class PieChartComponent {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   // Pie
   public pieChartOptions: ChartConfiguration['options'] = {
@@ -21,8 +21,9 @@ export class PieChartComponent implements OnInit {
       },
       datalabels: {
         formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
+          if (ctx.chart.data.labels) {
+            return ctx.chart.data.labels[ctx.dataIndex];
+          }
         },
       },
     }
@@ -34,13 +35,7 @@ export class PieChartComponent implements OnInit {
     } ]
   };
   public pieChartType: ChartType = 'pie';
-  public pieChartPlugins = [DatalabelsPlugin];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
+  public pieChartPlugins = [ DatalabelsPlugin ];
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
@@ -58,34 +53,44 @@ export class PieChartComponent implements OnInit {
       'patrol', 'satisfied', 'academy', 'acceptance', 'ivory', 'aquarium', 'building', 'store', 'replace', 'language',
       'redeem', 'honest', 'intention', 'silk', 'opera', 'sleep', 'innocent', 'ignore', 'suite', 'applaud', 'funny' ];
     const randomWord = () => words[Math.trunc(Math.random() * words.length)];
-    this.pieChartData.labels = Array.apply(null, { length: 3 }).map(_ => randomWord());
+    this.pieChartData.labels = new Array(3).map(_ => randomWord());
 
-    this.chart.update();
+    this.chart?.update();
   }
 
   addSlice(): void {
-    this.pieChartData.labels.push([ 'Line 1', 'Line 2', 'Line 3' ]);
+    if (this.pieChartData.labels) {
+      this.pieChartData.labels.push([ 'Line 1', 'Line 2', 'Line 3' ]);
+    }
+
     this.pieChartData.datasets[0].data.push(400);
 
-    this.chart.update();
+    this.chart?.update();
   }
 
   removeSlice(): void {
-    this.pieChartData.labels.pop();
+    if (this.pieChartData.labels) {
+      this.pieChartData.labels.pop();
+    }
+
     this.pieChartData.datasets[0].data.pop();
 
-    this.chart.update();
+    this.chart?.update();
   }
 
   changeLegendPosition(): void {
-    this.pieChartOptions.plugins.legend.position = this.pieChartOptions.plugins.legend.position === 'left' ? 'top' : 'left';
+    if (this.pieChartOptions?.plugins?.legend) {
+      this.pieChartOptions.plugins.legend.position = this.pieChartOptions.plugins.legend.position === 'left' ? 'top' : 'left';
+    }
 
-    this.chart.render();
+    this.chart?.render();
   }
 
   toggleLegend(): void {
-    this.pieChartOptions.plugins.legend.display = !this.pieChartOptions.plugins.legend.display;
+    if (this.pieChartOptions?.plugins?.legend) {
+      this.pieChartOptions.plugins.legend.display = !this.pieChartOptions.plugins.legend.display;
+    }
 
-    this.chart.render();
+    this.chart?.render();
   }
 }

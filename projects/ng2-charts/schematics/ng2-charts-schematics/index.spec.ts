@@ -1,7 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 
-let runner: SchematicTestRunner;
 let appTree: Tree;
 
 function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
@@ -18,7 +17,7 @@ function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
  * Creates a sample workspace with two applications: 'app' (default) and 'second-app'
  */
 export async function createTestApp(runner: SchematicTestRunner, appOptions = {}): Promise<UnitTestTree> {
-  let tree = await createWorkspace(runner);
+  const tree = await createWorkspace(runner);
 
   return runner
     .runExternalSchematicAsync('@schematics/angular', 'application', { name: 'app', ...appOptions }, tree)
@@ -26,6 +25,7 @@ export async function createTestApp(runner: SchematicTestRunner, appOptions = {}
 }
 
 describe('ng2-charts-schematics', () => {
+  let runner: SchematicTestRunner;
 
   beforeEach(async () => {
     runner = new SchematicTestRunner('schematics', require.resolve('../collection.json'));

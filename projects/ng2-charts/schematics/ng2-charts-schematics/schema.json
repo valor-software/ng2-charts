@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "id 1",
-  "title": "title 1",
+  "$id": "ng2-charts-generate",
+  "title": "ng2-charts-generate schematics",
   "type": "object",
-  "description": "description 1",
+  "description": "Schematics to generate new chart components in your project.",
   "properties": {
     "path": {
       "type": "string",

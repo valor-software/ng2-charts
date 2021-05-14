@@ -3,9 +3,9 @@ import { addImportToModule, findNodes, getSourceNodes, insertImport } from '@sch
 import { readIntoSourceFile } from './read-into-source-file';
 import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 import { InsertChange } from '@schematics/angular/utility/change';
-import { getAppModulePath } from "@schematics/angular/utility/ng-ast-utils";
-import { getWorkspace } from "@schematics/angular/utility/workspace";
-import { getProjectTargetOptions } from "@angular/cdk/schematics";
+import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { getProjectTargetOptions } from '@angular/cdk/schematics';
 
 export function ng2ProcessTree(
   options: any,
@@ -33,7 +33,7 @@ export function ng2ProcessTree(
     let inlineTemplate = false;
     let template: ts.PropertyAssignment;
     const changes = newImports.map(([ a, b ]) => insertImport(codeSource, codeAction.path, a, b));
-    const recorder = tree.beginUpdate(codeAction.path);
+    const projectRecorder = tree.beginUpdate(codeAction.path);
     if (classDecl.decorators) {
       const decorator = classDecl.decorators[0];
       const literal = findNodes(decorator.expression, ts.SyntaxKind.ObjectLiteralExpression)[0] as ts.ObjectLiteralExpression;
@@ -44,8 +44,8 @@ export function ng2ProcessTree(
         const newNode = ts.factory.createStringLiteral('`' + newMarkup + '`');
         const start = template.initializer.getStart();
         const end = template.initializer.getEnd();
-        recorder.remove(start, end - start);
-        recorder.insertLeft(start, newNode.text);
+        projectRecorder.remove(start, end - start);
+        projectRecorder.insertLeft(start, newNode.text);
         inlineTemplate = true;
       }
     }
@@ -55,25 +55,25 @@ export function ng2ProcessTree(
     }
     const start2 = classDecl.members[0].getStart();
     const end2 = classDecl.members[classDecl.members.length - 1].getEnd();
-    recorder.remove(start2, end2 - start2);
-    recorder.insertLeft(start2, newCode);
+    projectRecorder.remove(start2, end2 - start2);
+    projectRecorder.insertLeft(start2, newCode);
 
     for (const change of changes) {
       if (change instanceof InsertChange) {
-        recorder.insertLeft(change.pos, change.toAdd);
+        projectRecorder.insertLeft(change.pos, change.toAdd);
       }
     }
 
     if (options.module) {
       const moduleSource = readIntoSourceFile(tree, options.module);
       const addImport = addImportToModule(moduleSource, options.module, 'ChartsModule', 'ng2-charts');
-      const recorder = tree.beginUpdate(options.module);
+      const moduleRecorder = tree.beginUpdate(options.module);
       for (const change of addImport) {
         if (change instanceof InsertChange) {
-          recorder.insertLeft(change.pos, change.toAdd);
+          moduleRecorder.insertLeft(change.pos, change.toAdd);
         }
       }
-      tree.commitUpdate(recorder);
     }
-  }
+    tree.commitUpdate(projectRecorder);
+  };
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -9,8 +9,8 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   templateUrl: './bar-chart.component.html',
   styleUrls: [ './bar-chart.component.scss' ],
 })
-export class BarChartComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+export class BarChartComponent {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
@@ -44,12 +44,6 @@ export class BarChartComponent implements OnInit {
     ]
   };
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
@@ -70,6 +64,6 @@ export class BarChartComponent implements OnInit {
       (Math.random() * 100),
       40 ];
 
-    this.chart.update();
+    this.chart?.update();
   }
 }
