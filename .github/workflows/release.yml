@@ -31,6 +31,17 @@ jobs:
       - run: npm run test:schematics
       - run: npm run test:ci
       - run: npm run e2e:ci
+      - name: Archive e2e screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-diff
+          path: e2e/src/snapshots/*/__diff_output__
+      - name: Archive e2e video
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-videos
+          path: dist/cypress/*/videos
 
   publish-npm:
     needs: build
@@ -67,4 +78,3 @@ jobs:
           dry-run: true
           package: dist/ng2-charts/package.json
           token: ${{ secrets.NPM_TOKEN }}
-
