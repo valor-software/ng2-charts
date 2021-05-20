@@ -17,7 +17,6 @@ import { distinctUntilChanged } from 'rxjs/operators';
 
 import assign from 'lodash-es/assign';
 import merge from 'lodash-es/merge';
-import pick from 'lodash-es/pick';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -28,11 +27,11 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
   TLabel = unknown> implements OnDestroy, OnChanges {
 
-  @Input() public type!: ChartConfiguration<TType, TData, TLabel>['type'];
+  @Input() public type: ChartConfiguration<TType, TData, TLabel>['type'] = 'bar' as TType;
   @Input() public legend?: boolean;
   @Input() public data: ChartConfiguration<TType, TData, TLabel>['data'] = { datasets: [] };
   @Input() public options?: ChartConfiguration<TType, TData, TLabel>['options'];
-  @Input() public plugins?: ChartConfiguration<TType, TData, TLabel>['plugins'];
+  @Input() public plugins?: ChartConfiguration<TType, TData, TLabel>['plugins'] = [];
 
   @Input() public labels?: ChartConfiguration<TType, TData, TLabel>['data']['labels'];
   @Input() public datasets?: ChartConfiguration<TType, TData, TLabel>['data']['datasets'];
@@ -65,7 +64,9 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
       const config = this.getChartConfiguration();
 
       if (this.chart) {
-        assign(this.chart.config, pick(config, [ 'data', 'options', 'plugins' ]));
+        assign(this.chart.config.data, config.data);
+        assign(this.chart.config.plugins, config.plugins);
+        assign(this.chart.config.options, config.options);
       }
 
       this.update();
@@ -90,6 +91,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
 
   public update(duration?: any): void {
     if (this.chart) {
+      console.log(this.chart.config)
       this.zone.runOutsideAngular(() => this.chart?.update(duration));
     }
   }
