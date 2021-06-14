@@ -46,12 +46,6 @@ Chart.register(
   exports: [ BaseChartDirective ]
 })
 export class ChartsModule {
-  constructor(@Optional() @SkipSelf() parentModule?: ChartsModule) {
-    if (parentModule) {
-      throw new Error(
-        'ChartsModule is already loaded. Import it in the AppModule only');
-    }
-  }
 
   public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & {defaults: any}): ModuleWithProviders<ChartsModule> {
     Chart.register(config?.plugins || []);
