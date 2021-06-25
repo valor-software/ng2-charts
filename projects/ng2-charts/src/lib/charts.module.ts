@@ -25,7 +25,7 @@ import {
   Tooltip
 } from 'chart.js';
 import { builtInDefaults } from './get-colors';
-import merge from 'lodash-es/merge';
+import { merge } from 'lodash-es';
 import { ThemeService } from './theme.service';
 
 Chart.register(
