@@ -15,8 +15,7 @@ import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
-import assign from 'lodash-es/assign';
-import merge from 'lodash-es/merge';
+import { assign, merge } from 'lodash-es';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
