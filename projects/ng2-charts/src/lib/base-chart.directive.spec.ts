@@ -6,12 +6,14 @@ import { Chart, registerables } from "chart.js";
 
 @Component({
   template: '<canvas baseChart' +
+    ' [data]="data"' +
     ' [datasets]="datasets"' +
     ' [labels]="labels"></canvas>'
 })
 class TestComponent {
-  public datasets: any[] = []
-  public labels: string[] = []
+  public data?: any
+  public datasets?: any[]
+  public labels?: string[]
 }
 
 describe('BaseChartDirective', () => {
@@ -61,6 +63,30 @@ describe('BaseChartDirective', () => {
 
     expect(directive.chart?.data.datasets?.length).toBe(1);
     expect(directive.chart?.data.datasets).toEqual(element.datasets);
+  });
+
+  it('should not merge labels when updating data', () => {
+    fixture.detectChanges();
+
+    element.data = {
+      labels: [ 'Answers' ],
+      datasets: []
+    }
+
+    fixture.detectChanges();
+
+    expect(directive.chart?.data.labels?.length).toBe(1);
+    expect(directive.chart?.data.labels).toEqual(element.data.labels);
+
+    element.data = {
+      labels: [ 'Life', 'Universe', 'Everything'],
+      datasets: []
+    }
+
+    fixture.detectChanges();
+
+    expect(directive.chart?.data.labels?.length).toBe(3);
+    expect(directive.chart?.data?.labels && directive.chart?.data?.labels[0]).not.toEqual('Answers');
   });
 
 });
