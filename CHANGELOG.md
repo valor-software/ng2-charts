@@ -1,5 +1,8 @@
 # Change Log
 
+## [v2.4.3](https://github.com/valor-software/ng2-charts/tree/v2.4.3) (2021-07-06)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.1.0...v2.4.3)
+
 ## [v2.1.0](https://github.com/valor-software/ng2-charts/tree/v2.1.0) (2019-03-27)
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.4...v2.1.0)
 
