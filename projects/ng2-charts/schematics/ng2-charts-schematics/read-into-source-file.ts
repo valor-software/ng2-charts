@@ -1,6 +1,5 @@
 import { Tree, SchematicsException } from '@angular-devkit/schematics';
-import * as ts from 'typescript';
-// import { ReplaceChange } from '@schematics/angular/utility/change';
+import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 
 export function readIntoSourceFile(host: Tree, modulePath: string): ts.SourceFile {
   const text = host.read(modulePath);

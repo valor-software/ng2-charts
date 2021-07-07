@@ -1,10 +1,10 @@
-import { workspaces } from '@angular-devkit/core';
 import { SchematicsException } from '@angular-devkit/schematics';
+import { ProjectDefinition } from "@angular-devkit/core/src/workspace";
 
 /**
  * Resolves options for the build target of the given project
  */
-export function getProjectTargetOptions(project: workspaces.ProjectDefinition, buildTarget: string): any {
+export function getProjectTargetOptions(project: ProjectDefinition, buildTarget: string): any {
   const buildTargetObject = project.targets.get(buildTarget);
   if (buildTargetObject && buildTargetObject.options) {
     return buildTargetObject.options;

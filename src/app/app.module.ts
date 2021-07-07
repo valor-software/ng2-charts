@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MarkdownModule } from 'ngx-markdown';
 
-import 'highlight.js';
 import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 
 import { AppComponent } from './app.component';
@@ -25,6 +24,7 @@ import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
 import { default as Annotation } from 'chartjs-plugin-annotation';
+import { LanguageFn } from "highlight.js";
 
 const routes: Route[] = [];
 
@@ -54,7 +54,7 @@ export function hljsLanguages(): { [name: string]: Partial<LanguageFn> } {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     ChartsModule.forRoot({
       defaults: {},
       plugins: [ Annotation ]
