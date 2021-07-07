@@ -1,0 +1,78 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - run: npm ci
+      - run: npm run build:lib
+      - run: npm run test:headless
+      - run: npm run test:main
+      - name: Archive e2e screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-diff
+          path: e2e/src/snapshots/*/__diff_output__
+      - name: Archive e2e video
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-videos
+          path: dist/cypress/*/videos
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - run: npm ci
+      - run: npm run build:lib
+      - run: npm run build:schematics
+      - uses: JS-DevTools/npm-publish@v1
+        name: prerelease
+        if: ${{ github.event.release.prerelease }}
+        with:
+          tag: next
+          package: dist/ng2-charts/package.json
+          token: ${{ secrets.NPM_TOKEN }}
+      - uses: JS-DevTools/npm-publish@v1
+        name: release
+        if: ${{ !github.event.release.prerelease }}
+        with:
+          dry-run: true
+          package: dist/ng2-charts/package.json
+          token: ${{ secrets.NPM_TOKEN }}
