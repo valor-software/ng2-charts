@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import 'dist/chartjs-chart-financial/chartjs-chart-financial';
+import 'chartjs-chart-financial';
 import 'chartjs-adapter-luxon';
 import { ChartOptions } from 'chart.js';
 import { BaseChartDirective, Color } from 'ng2-charts';
