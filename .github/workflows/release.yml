@@ -72,6 +72,6 @@ jobs:
         name: release
         if: ${{ !github.event.release.prerelease }}
         with:
-          dry-run: true
+          tag: latest
           package: dist/ng2-charts/package.json
           token: ${{ secrets.NPM_TOKEN }}
