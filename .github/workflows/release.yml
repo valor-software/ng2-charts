@@ -28,7 +28,7 @@ jobs:
       - run: npm ci
       - run: npm run build:lib
       - run: npm run test:headless
-      - run: npm run test:main
+      - run: npm run e2e
       - name: Archive e2e screenshots
         if: failure()
         uses: actions/upload-artifact@v2

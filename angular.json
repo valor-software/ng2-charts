@@ -114,6 +114,14 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "devServerTarget": "ng2-charts-demo:serve",
+            "cypressConfig": "cypress.json",
+            "tsConfig": "tsconfig.app.json"
+          }
         }
       }
     },
