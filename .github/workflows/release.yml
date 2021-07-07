@@ -61,7 +61,6 @@ jobs:
             ${{ runner.OS }}-
       - run: npm ci
       - run: npm run build:lib
-      - run: npm run build:schematics
       - uses: JS-DevTools/npm-publish@v1
         name: prerelease
         if: ${{ github.event.release.prerelease }}
