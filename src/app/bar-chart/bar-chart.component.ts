@@ -59,9 +59,9 @@ export class BarChartComponent {
       Math.round(Math.random() * 100),
       59,
       80,
-      Math.round((Math.random() * 100)),
+      Math.round(Math.random() * 100),
       56,
-      Math.round((Math.random() * 100)),
+      Math.round(Math.random() * 100),
       40 ];
 
     this.chart?.update();
