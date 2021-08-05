@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChild, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 
 export const chartTypes = {
@@ -57,7 +57,7 @@ export const chartTypes = {
 @Component({
   selector: 'app-chart-host',
   templateUrl: './chart-host.component.html',
-  styleUrls: ['./chart-host.component.scss']
+  styleUrls: [ './chart-host.component.scss' ]
 })
 export class ChartHostComponent implements AfterContentInit {
   @Input() chartType: keyof typeof chartTypes = 'bar';
