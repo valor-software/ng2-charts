@@ -1,33 +1,52 @@
 # ng2-charts [![npm version](https://badge.fury.io/js/ng2-charts.svg)](http://badge.fury.io/js/ng2-charts) [![npm downloads](https://img.shields.io/npm/dm/ng2-charts.svg)](https://npmjs.org/ng2-charts) ![Travis CI](https://travis-ci.org/valor-software/ng2-charts.svg?branch=development) [slack](https://ngx-home.slack.com)
 Beautiful charts for Angular2 based on Chart.js
 
-**Library updated for Angular 7**
-
 <!-- [![Sauce Test Status](https://saucelabs.com/browser-matrix/valorkin.svg)](https://saucelabs.com/u/valorkin) -->
 [![NPM](https://nodei.co/npm/ng2-charts.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ng2-charts)
 [![NPM](https://nodei.co/npm-dl/ng2-charts.png?height=3&months=9)](https://npmjs.org/ng2-charts)
 
-
 # Usage & Demo
 
-Sample using ng2-charts@next
+Samples using `ng2-charts@next`
 
 https://valor-software.com/ng2-charts/
-
 
 - - -
 
 ### Installation
+
+#### Ng-Add Schematics with Angular CLI
+1. You can install ***ng2-charts*** using the Angular CLI:
+
+  ```bash
+  ng add ng2-charts@next
+  ```
+
+The required packages will be automatically installed, and your `app.module.ts` will be updated with the required changes to start using the library right away.
+
+#### Manual install through package managers
 
 1. You can install ***ng2-charts*** using npm
 
   ```bash
   npm install ng2-charts@next --save
   ```
-2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
+
+  or yarn
+
+  ```bash
+  yarn add ng2-charts@next --save
+  ```
+
+2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library). 
+   More info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started)
 
   ```bash
   npm install chart.js --save
+  ```
+
+  ```bash
+  yarn add chart.js --save
   ```
 
 ### Stackblitz Starting Templates
@@ -54,7 +73,7 @@ imports: [
 ```
 
 ### Chart types
-There are one directive for all chart types: `baseChart`, and there are 8 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`, `bubble` and `scatter`.
+There is one directive for all chart types: `baseChart`, and there are 8 types of charts: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`, `bubble` and `scatter`.
 
 ### Properties
 
