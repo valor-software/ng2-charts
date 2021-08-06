@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "3.0.0-rc.5",
+  "version": "3.0.0-rc.6",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -20,7 +20,7 @@
   "dependencies": {
     "lodash-es": "^4.17.15"
   },
-  "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
+  "description": "Reactive, responsive, beautiful charts for Angular based on Chart.js",
   "main": "src/public_api.ts",
   "author": "Aviad Pineles",
   "license": "ISC",

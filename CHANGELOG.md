@@ -9,7 +9,7 @@
 - Any plans to support chart.js version 3? [\#1292](https://github.com/valor-software/ng2-charts/issues/1292)
 - Build errors out on Angular 11 [\#1286](https://github.com/valor-software/ng2-charts/issues/1286)
 - Angular 8 + ng2-chart not working in IE [\#1278](https://github.com/valor-software/ng2-charts/issues/1278)
-- How can i use the ChartDataSet dynamical [\#1277](https://github.com/valor-software/ng2-charts/issues/1277)
+- How can I use the ChartDataSet dynamical [\#1277](https://github.com/valor-software/ng2-charts/issues/1277)
 - Charts initialized with an empty dataset cause errors on change detection [\#1265](https://github.com/valor-software/ng2-charts/issues/1265)
 - Bar chart columns fail to render above a certain width [\#1249](https://github.com/valor-software/ng2-charts/issues/1249)
 - chart Js 3.0 update [\#1214](https://github.com/valor-software/ng2-charts/issues/1214)
@@ -19,6 +19,7 @@
 
 - Fix typo on AppComponent [\#1290](https://github.com/valor-software/ng2-charts/pull/1290) ([KevinPy](https://github.com/KevinPy))
 - Updated for Angular 11 [\#1281](https://github.com/valor-software/ng2-charts/pull/1281) ([paviad](https://github.com/paviad))
+- Updated for Angular 12
 - Upgrade to Chart.js 3.0 [\#1276](https://github.com/valor-software/ng2-charts/pull/1276) ([santam85](https://github.com/santam85))
 
 ## [2.4.2](https://github.com/valor-software/ng2-charts/tree/2.4.2) (2020-09-23)
