@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 import { Route, RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,7 +55,7 @@ export function hljsLanguages(): { [name: string]: Partial<LanguageFn> } {
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
-    ChartsModule.forRoot({
+    NgChartsModule.forRoot({
       defaults: {},
       plugins: [ Annotation ]
     }),

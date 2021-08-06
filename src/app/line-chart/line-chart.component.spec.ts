@@ -1,7 +1,7 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LineChartComponent } from './line-chart.component';
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 import 'chartjs-plugin-annotation';
 
@@ -13,7 +13,7 @@ describe('LineChartComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LineChartComponent],
       imports: [
-        ChartsModule,
+        NgChartsModule,
       ],
     })
       .compileComponents();

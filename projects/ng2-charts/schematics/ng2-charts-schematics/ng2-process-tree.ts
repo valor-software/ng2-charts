@@ -66,7 +66,7 @@ export function ng2ProcessTree(
 
     if (options.module) {
       const moduleSource = readIntoSourceFile(tree, options.module);
-      const addImport = addImportToModule(moduleSource, options.module, 'ChartsModule', 'ng2-charts');
+      const addImport = addImportToModule(moduleSource, options.module, 'NgChartsModule', 'ng2-charts');
       const moduleRecorder = tree.beginUpdate(options.module);
       for (const change of addImport) {
         if (change instanceof InsertChange) {
