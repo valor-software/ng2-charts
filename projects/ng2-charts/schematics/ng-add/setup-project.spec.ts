@@ -17,11 +17,11 @@ import { createTestApp } from '../utils/testing';
       let tree = await createTestApp(runner);
       const appModulePath = `projects/${ projectName }/src/app/app.module.ts`;
 
-      expect(tree.read(appModulePath) !.toString()).not.toContain('ChartsModule');
+      expect(tree.read(appModulePath) !.toString()).not.toContain('NgChartsModule');
 
       tree = await runner.runSchematicAsync('ng-add-setup-project', projectName ? { project: projectName } : {}, tree)
         .toPromise();
-      expect(tree.read(appModulePath) !.toString()).toContain('ChartsModule');
+      expect(tree.read(appModulePath) !.toString()).toContain('NgChartsModule');
     });
 
   });

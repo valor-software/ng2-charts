@@ -52,14 +52,14 @@ or with yarn:
   yarn add  chart.js --save
   ```
 
-3. Import the `ChartsModule` in your app main module:
+3. Import the `NgChartsModule` in your app main module:
 
   ```typescript
-  import { ChartsModule } from 'ng2-charts';
+  import { NgChartsModule } from 'ng2-charts';
 
   // In your App's module:
   imports: [
-    ChartsModule
+    NgChartsModule
   ]
   ```
 
@@ -122,7 +122,7 @@ these [instructions](https://www.chartjs.org/docs/latest/general/colors.html).
 
 ### Dynamic Theming
 
-The `ChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors
+The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors
 override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The
 structure is interpreted as an override, with special functionality when dealing with arrays. Example:
 
@@ -184,7 +184,7 @@ CLI.
 ng add ng2-charts
 ```
 
-This schematics will add the `ChartsModule` as an imported module in the main app module (or another module as specified
+This schematics will add the `NgChartsModule` as an imported module in the main app module (or another module as specified
 in the `--module` command option).
 
 ### Example of Generating a Line Chart using Angular CLI

@@ -9,7 +9,7 @@ import {getProjectTargetOptions} from '../../utils/project';
 import {getWorkspace} from '@schematics/angular/utility/workspace';
 import * as messages from '../messages';
 
-const MODULE_NAME = 'ChartsModule';
+const MODULE_NAME = 'NgChartsModule';
 const PACKAGE_NAME = 'ng2-charts';
 
 /**

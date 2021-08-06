@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { BaseChartDirective } from './base-chart.directive';
 import {
   ArcElement,
@@ -6,7 +6,9 @@ import {
   BarElement,
   BubbleController,
   CategoryScale,
-  Chart, ChartConfiguration,
+  Chart,
+  ChartComponentLike,
+  ChartConfiguration,
   defaults,
   DoughnutController,
   Filler,
@@ -24,9 +26,8 @@ import {
   Title,
   Tooltip
 } from 'chart.js';
-import { builtInDefaults } from './get-colors';
-import { merge } from 'lodash-es';
-import { ThemeService } from './theme.service';
+import { merge } from "lodash-es";
+import { builtInDefaults } from "./get-colors";
 
 Chart.register(
   Title, Tooltip, Filler, Legend,
@@ -45,18 +46,34 @@ Chart.register(
   declarations: [ BaseChartDirective ],
   exports: [ BaseChartDirective ]
 })
-export class ChartsModule {
+export class NgChartsModule {
 
-  public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & {defaults: any}): ModuleWithProviders<ChartsModule> {
-    Chart.register(config?.plugins || []);
+  constructor(@Optional() config?: NgChartsConfiguration, @Optional() @SkipSelf() parentModule?: NgChartsModule) {
+    if (parentModule) {
+      throw new Error(
+        'NgChartsModule is already loaded. Use .forRoot() in the AppModule only');
+    }
+
+    if (config?.plugins)
+      Chart.register(config?.plugins);
 
     const ngChartsDefaults = merge(builtInDefaults, config?.defaults || {});
 
     defaults.set(ngChartsDefaults);
+  }
 
+  public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & { defaults: any }): ModuleWithProviders<NgChartsModule> {
     return {
-      ngModule: ChartsModule,
-      providers: [ ThemeService ]
+      ngModule: NgChartsModule,
+      providers: [
+        { provide: NgChartsConfiguration, useValue: config }
+      ]
     };
   }
+}
+
+@Injectable({ providedIn: NgChartsModule })
+export class NgChartsConfiguration {
+  public plugins?: ChartComponentLike;
+  public defaults?: any;
 }
