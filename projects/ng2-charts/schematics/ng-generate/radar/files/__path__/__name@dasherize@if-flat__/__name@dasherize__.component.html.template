@@ -1,0 +1,6 @@
+<canvas baseChart
+  [data]="radarChartData"
+  [options]="radarChartOptions"
+  [labels]="radarChartLabels"
+  [type]="radarChartType">
+</canvas>

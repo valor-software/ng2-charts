@@ -6,7 +6,7 @@
   },
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
-    "test": "jasmine ",
+    "test": "jasmine",
     "copy:schemas": "rsync -R schematics/*/schema.json ../../dist/ng2-charts/",
     "copy:collection": "cp schematics/collection.json ../../dist/ng2-charts/schematics/collection.json",
     "postbuild": "npm run copy:schemas && npm run copy:collection"

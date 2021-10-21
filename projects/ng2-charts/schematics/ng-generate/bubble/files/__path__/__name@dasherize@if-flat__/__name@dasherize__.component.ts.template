@@ -1,0 +1,50 @@
+import { Component<% if(!!viewEncapsulation) { %>, ViewEncapsulation<% }%><% if(changeDetection !== 'Default') { %>, ChangeDetectionStrategy<% }%> } from '@angular/core';
+
+@Component({
+  selector: '<%= selector %>',<% if(inlineTemplate) { %>
+  template: `
+    <%= indentTextContent(resolvedFiles.template, 4) %>
+  `,<% } else { %>
+  templateUrl: './<%= dasherize(name) %>.component.html',<% } if(inlineStyle) { %>
+  styles: [`
+    <%= indentTextContent(resolvedFiles.stylesheet, 4) %>
+  `]<% } else { %>
+  styleUrls: ['./<%= dasherize(name) %>.component.<%= style %>']<% } %><% if(!!viewEncapsulation) { %>,
+  encapsulation: ViewEncapsulation.<%= viewEncapsulation %><% } if (changeDetection !== 'Default') { %>,
+  changeDetection: ChangeDetectionStrategy.<%= changeDetection %><% } %>
+})
+export class <%= classify(name) %>Component {
+  public bubbleChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      xAxes: [{
+        ticks: {
+          min: 0,
+          max: 30,
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 30,
+        }
+      }]
+    }
+  };
+  public bubbleChartType: ChartType = 'bubble';
+  public bubbleChartLegend = true;
+
+  public bubbleChartData: ChartDataSetsBubble[] = [
+    {
+      data: [
+        { x: 10, y: 10, r: 10 },
+        { x: 15, y: 5, r: 15 },
+        { x: 26, y: 12, r: 23 },
+        { x: 7, y: 8, r: 8 },
+      ],
+      label: 'Series A',
+    },
+  ];
+
+  constructor() { }
+}

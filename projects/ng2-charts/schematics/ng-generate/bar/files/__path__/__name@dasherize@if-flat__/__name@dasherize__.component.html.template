@@ -1,0 +1,8 @@
+<canvas baseChart
+  [data]="barChartData"
+  [labels]="barChartLabels"
+  [options]="barChartOptions"
+  [plugins]="barChartPlugins"
+  [legend]="barChartLegend"
+  [type]="barChartType">
+</canvas>

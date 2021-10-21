@@ -1,0 +1,8 @@
+<canvas baseChart
+  [data]="pieChartData"
+  [labels]="pieChartLabels"
+  [type]="pieChartType"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas>

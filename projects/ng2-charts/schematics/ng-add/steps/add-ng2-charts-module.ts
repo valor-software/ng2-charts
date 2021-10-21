@@ -5,9 +5,9 @@ import {InsertChange} from '@schematics/angular/utility/change';
 import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 
 import {Schema} from '../schema';
-import {getProjectTargetOptions} from '../../utils/project';
 import {getWorkspace} from '@schematics/angular/utility/workspace';
 import * as messages from '../messages';
+import { getProjectFromWorkspace, getProjectMainFile } from "@angular/cdk/schematics";
 
 const MODULE_NAME = 'NgChartsModule';
 const PACKAGE_NAME = 'ng2-charts';
@@ -19,13 +19,13 @@ export function addChartsModuleToAppModule(options: Schema): Rule {
   return async (host: Tree) => {
     const workspace = await getWorkspace(host);
     const projectName = options.project || (workspace.extensions.defaultProject as string);
-    const project = workspace.projects.get(projectName);
+    const project = getProjectFromWorkspace(workspace, options.project);
+
     if (!project) {
       throw new SchematicsException(messages.noProject(projectName));
     }
-    const buildOptions = getProjectTargetOptions(project, 'build');
 
-    const modulePath = getAppModulePath(host, (buildOptions.main as string));
+    const modulePath = getAppModulePath(host, getProjectMainFile(project));
 
     const text = host.read(modulePath);
     if (text === null) {

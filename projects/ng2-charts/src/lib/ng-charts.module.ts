@@ -1,4 +1,4 @@
-import { Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { Injectable, ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { BaseChartDirective } from './base-chart.directive';
 import {
   ArcElement,
@@ -48,12 +48,7 @@ Chart.register(
 })
 export class NgChartsModule {
 
-  constructor(@Optional() config?: NgChartsConfiguration, @Optional() @SkipSelf() parentModule?: NgChartsModule) {
-    if (parentModule) {
-      throw new Error(
-        'NgChartsModule is already loaded. Use .forRoot() in the AppModule only');
-    }
-
+  constructor(@Optional() config?: NgChartsConfiguration) {
     if (config?.plugins)
       Chart.register(config?.plugins);
 
@@ -72,7 +67,7 @@ export class NgChartsModule {
   }
 }
 
-@Injectable({ providedIn: NgChartsModule })
+@Injectable({ providedIn: 'root' })
 export class NgChartsConfiguration {
   public plugins?: ChartComponentLike;
   public defaults?: any;

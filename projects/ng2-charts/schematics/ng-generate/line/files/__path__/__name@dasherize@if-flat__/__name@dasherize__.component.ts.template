@@ -1,0 +1,35 @@
+import { Component<% if(!!viewEncapsulation) { %>, ViewEncapsulation<% }%><% if(changeDetection !== 'Default') { %>, ChangeDetectionStrategy<% }%> } from '@angular/core';
+
+@Component({
+  selector: '<%= selector %>',<% if(inlineTemplate) { %>
+  template: `
+    <%= indentTextContent(resolvedFiles.template, 4) %>
+  `,<% } else { %>
+  templateUrl: './<%= dasherize(name) %>.component.html',<% } if(inlineStyle) { %>
+  styles: [`
+    <%= indentTextContent(resolvedFiles.stylesheet, 4) %>
+  `]<% } else { %>
+  styleUrls: ['./<%= dasherize(name) %>.component.<%= style %>']<% } %><% if(!!viewEncapsulation) { %>,
+  encapsulation: ViewEncapsulation.<%= viewEncapsulation %><% } if (changeDetection !== 'Default') { %>,
+  changeDetection: ChangeDetectionStrategy.<%= changeDetection %><% } %>
+})
+export class <%= classify(name) %>Component {
+  public lineChartData: ChartDataSetsLine[] = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+  ];
+  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(255,0,0,0.3)',
+    },
+  ];
+  public lineChartLegend = true;
+  public lineChartType: ChartType = 'line';
+  public lineChartPlugins = [];
+
+  constructor() { }
+}

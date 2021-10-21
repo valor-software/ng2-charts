@@ -1,0 +1,5 @@
+<canvas baseChart
+  [data]="scatterChartData"
+  [options]="scatterChartOptions"
+  [type]="scatterChartType">
+</canvas>
