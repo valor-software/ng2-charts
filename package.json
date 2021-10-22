@@ -34,7 +34,7 @@
     "@angular/router": "^12.2.11",
     "chart.js": "^3.5.1",
     "chartjs-adapter-date-fns": "^2.0.0",
-    "chartjs-chart-financial": "github:santam85/chartjs-chart-financial#with-dist",
+    "chartjs-chart-financial": "^0.1.0",
     "chartjs-plugin-annotation": "^1.0.2",
     "chartjs-plugin-datalabels": "^2.0.0",
     "core-js": "^3.18.3",
