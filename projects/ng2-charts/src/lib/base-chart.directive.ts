@@ -85,7 +85,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
       this.chart.destroy();
     }
 
-    return this.chart = new Chart(this.ctx, this.getChartConfiguration());
+    return this.zone.runOutsideAngular(() => this.chart = new Chart(this.ctx, this.getChartConfiguration()));
   }
 
   public update(duration?: any): void {
