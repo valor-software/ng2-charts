@@ -90,7 +90,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private route: ActivatedRoute,
   ) {
     // For consistent rendering across CI and local envs
-    Chart.defaults.font.family = 'Arial';
+    Chart.defaults.set('font', { family: "Arial" })
   }
 
   ngOnInit(): void {

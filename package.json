@@ -32,7 +32,7 @@
     "@angular/platform-browser": "^12.2.12",
     "@angular/platform-browser-dynamic": "^12.2.12",
     "@angular/router": "^12.2.12",
-    "chart.js": "^3.5.1",
+    "chart.js": "^3.6.0",
     "chartjs-adapter-date-fns": "^2.0.0",
     "chartjs-chart-financial": "^0.1.0",
     "chartjs-plugin-annotation": "^1.0.2",
