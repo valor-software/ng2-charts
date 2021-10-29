@@ -20,7 +20,7 @@ import { merge } from 'lodash-es';
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'canvas[baseChart]',
-  exportAs: 'base-chart'
+  exportAs: 'base-chart',
 })
 export class BaseChartDirective<TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
