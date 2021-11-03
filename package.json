@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --deploy-url /ng2-charts/ --base-href /ng2-charts",
+    "build:prod": "ng build --configuration production",
     "build:lib": "ng build --configuration production ng2-charts",
     "build:schematics": "cd projects/ng2-charts && npm run build && cd ../..",
     "build:changelog": "github_changelog_generator -u valor-software -p ng2-charts",

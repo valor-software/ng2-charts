@@ -8,7 +8,7 @@ import {
   CategoryScale,
   Chart,
   ChartComponentLike,
-  ChartConfiguration,
+  ChartConfiguration, Defaults,
   defaults,
   DoughnutController,
   Filler,
@@ -57,7 +57,7 @@ export class NgChartsModule {
     defaults.set(ngChartsDefaults);
   }
 
-  public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & { defaults: any }): ModuleWithProviders<NgChartsModule> {
+  public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & { defaults: Defaults }): ModuleWithProviders<NgChartsModule> {
     return {
       ngModule: NgChartsModule,
       providers: [
@@ -70,5 +70,5 @@ export class NgChartsModule {
 @Injectable({ providedIn: 'root' })
 export class NgChartsConfiguration {
   public plugins?: ChartComponentLike;
-  public defaults?: any;
+  public defaults?: Defaults;
 }
