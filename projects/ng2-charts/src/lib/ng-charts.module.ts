@@ -50,14 +50,14 @@ export class NgChartsModule {
 
   constructor(@Optional() config?: NgChartsConfiguration) {
     if (config?.plugins)
-      Chart.register(config?.plugins);
+      Chart.register(...config?.plugins);
 
     const ngChartsDefaults = merge(builtInDefaults, config?.defaults || {});
 
     defaults.set(ngChartsDefaults);
   }
 
-  public static forRoot(config?: Pick<ChartConfiguration, 'plugins'> & { defaults: Defaults }): ModuleWithProviders<NgChartsModule> {
+  public static forRoot(config?: NgChartsConfiguration): ModuleWithProviders<NgChartsModule> {
     return {
       ngModule: NgChartsModule,
       providers: [
@@ -69,6 +69,6 @@ export class NgChartsModule {
 
 @Injectable({ providedIn: 'root' })
 export class NgChartsConfiguration {
-  public plugins?: ChartComponentLike;
-  public defaults?: Defaults;
+  public plugins?: ChartComponentLike[];
+  public defaults?: Partial<Defaults>;
 }
