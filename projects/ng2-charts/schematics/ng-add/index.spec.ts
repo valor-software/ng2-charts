@@ -28,7 +28,7 @@ describe(`ng add '@ng-bootstrap/ng-bootstrap'`, () => {
     let message = '';
     try {
       await runner.runSchematicAsync('ng-add', {project: 'test'}, appTree).toPromise();
-    } catch (e) {
+    } catch (e: any) {
       message = e.message;
     } finally {
       expect(message).toBe(messages.noProject('test'));

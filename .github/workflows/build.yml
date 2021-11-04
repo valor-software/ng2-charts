@@ -15,10 +15,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
       - uses: actions/cache@v2
         with:
-          path: ~/.npm
+          path: |
+            .angular/cache
+            ~/.npm
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-node-
