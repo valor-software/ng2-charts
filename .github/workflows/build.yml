@@ -1,0 +1,40 @@
+name: Build and test
+
+on:
+  push:
+    branches: [ master, development ]
+  pull_request:
+    branches: [ master, development ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - run: npm ci
+      - run: npm run build:lib
+      - run: npm run test:headless
+      - run: npm run e2e
+      - name: Archive e2e screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-diff
+          path: e2e/src/snapshots/*/__diff_output__
+      - name: Archive e2e video
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-videos
+          path: dist/cypress/*/videos

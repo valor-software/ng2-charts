@@ -22,6 +22,9 @@
 - Updated for Angular 12
 - Upgrade to Chart.js 3.0 [\#1276](https://github.com/valor-software/ng2-charts/pull/1276) ([santam85](https://github.com/santam85))
 
+## [v2.4.3](https://github.com/valor-software/ng2-charts/tree/v2.4.3) (2021-07-06)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.1.0...v2.4.3)
+
 ## [2.4.2](https://github.com/valor-software/ng2-charts/tree/2.4.2) (2020-09-23)
 
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/2.4.1...2.4.2)
