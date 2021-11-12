@@ -8,8 +8,8 @@ import * as messages from './messages';
 import { addPackageToPackageJson, getPackageVersionFromPackageJson } from '../utils/package-config';
 
 
-const NG_BOOTSTRAP_VERSION = '9.0.0';
-const BOOTSTRAP_VERSION = '4.5.0';
+const NG2_CHARTS_VERSION = '3.0.0';
+const CHARTJS_VERSION = '3.6.0';
 
 /**
  * This is executed when `ng add @ng-bootstrap/ng-bootstrap` is run.
@@ -31,14 +31,9 @@ export default function ngAdd(options: Schema): Rule {
 
     // Installing dependencies
     const angularCoreVersion = getPackageVersionFromPackageJson(tree, '@angular/core') !;
-    const angularLocalizeVersion = getPackageVersionFromPackageJson(tree, '@angular/localize');
 
-    addPackageToPackageJson(tree, '@ng-bootstrap/ng-bootstrap', `^${NG_BOOTSTRAP_VERSION}`);
-    addPackageToPackageJson(tree, 'bootstrap', `^${BOOTSTRAP_VERSION}`);
-
-    if (angularLocalizeVersion === null) {
-      addPackageToPackageJson(tree, '@angular/localize', angularCoreVersion);
-    }
+    addPackageToPackageJson(tree, 'ng2-charts', `^${NG2_CHARTS_VERSION}`);
+    addPackageToPackageJson(tree, 'chart.js', `^${CHARTJS_VERSION}`);
 
     context.addTask(new RunSchematicTask('ng-add-setup-project', options), [
       context.addTask(new NodePackageInstallTask()),
