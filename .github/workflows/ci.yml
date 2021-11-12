@@ -24,9 +24,6 @@ jobs:
           path: |
             .angular/cache
           key: angular-build-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
       - run: npm ci
       - run: npm run lint
       - run: npm run build:lib
@@ -41,6 +38,7 @@ jobs:
           name: visual-testing-diff
           path: e2e/src/snapshots/*/__diff_output__
       - name: Archive e2e video
+        if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: visual-testing-videos

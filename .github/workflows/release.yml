@@ -6,72 +6,132 @@ on:
       - published
 
 jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.trim.outputs.version }}
+    steps:
+      - id: trim
+        run: echo "::set-output name=version::${TAG:1}"
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+
   build:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
+          cache: npm
           node-version: 16
       - uses: actions/cache@v2
         with:
           path: |
             .angular/cache
-            ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
+          key: angular-build-cache-${{ hashFiles('**/package-lock.json') }}
       - run: npm ci
       - run: npm run build:lib
       - run: npm run build:schematics
       - run: npm run test:schematics
       - run: npm run test:ci
       - run: npm run e2e:ci
+
+        # build docs
+      - run: npm run build:prod -- --base-href /ng2-charts/next/
+        if: ${{ github.event.release.prerelease }}
+      - run: npm run build:prod -- --base-href /ng2-charts/
+        if: ${{ !github.event.release.prerelease }}
+      - name: Upload lib
+        uses: actions/upload-artifact@v2
+        with:
+          name: ng2-charts
+          path: dist/ng2-charts
+      - name: Upload docs
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: dist/ng2-charts-demo
+
       - name: Archive e2e screenshots
         if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: visual-testing-diff
           path: e2e/src/snapshots/*/__diff_output__
-      - name: Archive e2e video
+      - name: Archive e2e
+        if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: visual-testing-videos
           path: dist/cypress/*/videos
 
   publish-npm:
-    needs: build
+    needs:
+      - setup
+      - build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
+          cache: npm
           node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - uses: actions/cache@v2
+      - uses: actions/download-artifact@v2
         with:
-          path: |
-            .angular/cache
-            ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-      - run: npm ci
-      - run: npm run build:lib
-      - run: npm run build:schematics
+          name: ng2-charts
       - uses: JS-DevTools/npm-publish@v1
         name: prerelease
         if: ${{ github.event.release.prerelease }}
         with:
           tag: next
-          package: dist/ng2-charts/package.json
           token: ${{ secrets.NPM_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         name: release
         if: ${{ !github.event.release.prerelease }}
         with:
           dry-run: true
-          package: dist/ng2-charts/package.json
           token: ${{ secrets.NPM_TOKEN }}
+      - name: Upload NPM package file
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ needs.setup.outputs.version }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
+          asset_name: ${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
+          asset_content_type: application/gzip
+
+  publish-docs:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: npm
+          node-version: 16
+      - uses: actions/download-artifact@v2
+        if: ${{ github.event.release.prerelease }}
+        with:
+          name: ng2-charts-docs
+          path: next
+      - uses: actions/download-artifact@v2
+        if: ${{ !github.event.release.prerelease }}
+        with:
+          name: ng2-charts-docs
+      - run: |
+          git config --local user.email ${GITHUB_ACTOR}@users.noreply.github.com
+          git config --local user.name $GITHUB_ACTOR
+          git commit -m "ci: gh-pages update" -a
+        continue-on-error: true
+      - name: push to gh-pages
+        uses: ad-m/github-push-action@v0.6.0
+        continue-on-error: true
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'gh-pages'
