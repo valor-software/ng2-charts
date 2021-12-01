@@ -7,9 +7,9 @@ Beautiful charts for Angular based on Chart.js
 
 # Usage & Demo
 
-Samples using `ng2-charts@next`
+Samples using `ng2-charts`
 
-https://valor-software.com/ng2-charts/next/
+https://valor-software.com/ng2-charts/
 
 - - -
 
