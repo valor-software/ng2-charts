@@ -13,15 +13,14 @@ import {
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
-import { Subscription } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 import { Chart, ChartOptions } from 'chart.js';
-import { filter } from 'rxjs/operators';
 import { ThemeService } from 'ng2-charts';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.scss' ],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private theme = 'ng2-charts-demo-light-theme';
@@ -42,23 +41,23 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
         scales: {
           x:
-            {
-              ticks: {
-                color: 'white'
-              },
-              grid: {
-                color: 'rgba(255,255,255,0.1)'
-              }
+          {
+            ticks: {
+              color: 'white'
             },
-          y:
-            {
-              ticks: {
-                color: 'white'
-              },
-              grid: {
-                color: 'rgba(255,255,255,0.1)'
-              }
+            grid: {
+              color: 'rgba(255,255,255,0.1)'
             }
+          },
+          y:
+          {
+            ticks: {
+              color: 'white'
+            },
+            grid: {
+              color: 'rgba(255,255,255,0.1)'
+            }
+          }
 
         },
         plugins: {
