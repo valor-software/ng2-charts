@@ -1,0 +1,6 @@
+<canvas baseChart
+  [data]="polarAreaChartData"
+  [labels]="polarAreaChartLabels"
+  [legend]="polarAreaLegend"
+  [type]="polarAreaChartType">
+</canvas>

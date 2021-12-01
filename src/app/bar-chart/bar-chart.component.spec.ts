@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BarChartComponent } from './bar-chart.component';
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 describe('BarChartComponent', () => {
   let component: BarChartComponent;
@@ -11,7 +11,7 @@ describe('BarChartComponent', () => {
     TestBed.configureTestingModule({
       declarations: [BarChartComponent],
       imports: [
-        ChartsModule,
+        NgChartsModule,
       ],
     })
       .compileComponents();

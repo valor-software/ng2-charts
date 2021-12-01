@@ -4,8 +4,9 @@ import { ChartHostComponent } from './chart-host.component';
 import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { MaterialModule } from '../material/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { LanguageFn } from "highlight.js";
 
-export function hljsLanguages(): { [name: string]: () => Promise<any> } {
+export function hljsLanguages(): { [name: string]: Partial<LanguageFn> }{
   return {
     typescript: () => import('highlight.js/lib/languages/typescript'),
     // html: import('highlight.js/lib/languages/html'),

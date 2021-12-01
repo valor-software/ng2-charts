@@ -11,26 +11,25 @@ import {
   ViewChildren
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ThemeService } from 'ng2-charts';
-import { ChartOptions } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabGroup } from '@angular/material/tabs';
-
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Subscription, filter } from 'rxjs';
+import { Chart, ChartOptions } from 'chart.js';
+import { ThemeService } from 'ng2-charts';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.scss' ],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private theme = 'lala';
+  private theme = 'ng2-charts-demo-light-theme';
+
   public get selectedTheme(): string {
     return this.theme;
   }
 
-  public set selectedTheme(value) {
+  public set selectedTheme(value: string) {
     this.renderer.removeClass(this.document.body, this.theme);
     this.theme = value;
     this.renderer.addClass(this.document.body, value);
@@ -39,34 +38,34 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
       overrides = {};
     } else {
       overrides = {
-        legend: {
-          labels: {
-            fontColor: 'white',
-          }
-        },
+
         scales: {
-          xAxes: [
-            {
-              ticks: {
-                fontColor: 'white',
-              },
-              gridLines: {
-                color: 'rgba(255,255,255,0.1)'
-              }
+          x:
+          {
+            ticks: {
+              color: 'white'
+            },
+            grid: {
+              color: 'rgba(255,255,255,0.1)'
             }
-          ],
-          yAxes: [
-            {
-              ticks: {
-                fontColor: 'white',
-              },
-              gridLines: {
-                color: 'rgba(255,255,255,0.1)'
-              }
+          },
+          y:
+          {
+            ticks: {
+              color: 'white'
+            },
+            grid: {
+              color: 'rgba(255,255,255,0.1)'
             }
-          ]
+          }
+
         },
         plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            },
+          },
           datalabels: {
             color: 'white',
           }
@@ -76,9 +75,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.themeService.setColorschemesOptions(overrides);
   }
 
-  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup;
-  @ViewChildren('tab', { read: ElementRef }) tabElements: QueryList<ElementRef>;
-  tabLabels: string[];
+  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup | undefined;
+  @ViewChildren('tab', { read: ElementRef }) tabElements: QueryList<ElementRef> | undefined;
+  tabLabels: string[] = [];
 
   subs: Subscription[] = [];
 
@@ -89,19 +88,18 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.selectedTheme = 'ng2-charts-demo-light-theme';
+    // For consistent rendering across CI and local envs
+    Chart.defaults.set('font', { family: "Arial" })
   }
 
   ngOnInit(): void {
     this.subs.push(
       this.route.fragment
-        .pipe(
-          filter(Boolean)
-        )
-        .subscribe((tabUrl: string) => {
-          if (this.tabElements) {
-            const index = this.tabLabels.indexOf(tabUrl.slice(1));
-            if (index !== -1) {
+        .pipe(filter((tabUrl) => !!tabUrl))
+        .subscribe((tabUrl: string | null) => {
+          if (tabUrl && this.tabElements) {
+            const index = this.tabLabels.indexOf(tabUrl);
+            if (index && index !== -1 && this.tabGroup) {
               this.tabGroup.selectedIndex = index;
             }
           }
@@ -109,7 +107,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.tabLabels = this.tabElements.map(r => r.nativeElement.getAttribute('label').replace(/ /g, ''));
+    if (this.tabElements) {
+      this.tabLabels = this.tabElements.map(r => r.nativeElement.getAttribute('label').replace(/ /g, ''));
+    }
   }
 
   ngOnDestroy(): void {
@@ -118,6 +118,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateRoute(index: number): void {
     const label = this.tabLabels[index];
-    this.router.navigate([], { fragment: `/${ label }` });
+    this.router.navigate([], { fragment: label });
   }
 }

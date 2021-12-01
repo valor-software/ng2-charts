@@ -1,0 +1,45 @@
+name: Build and test
+
+on:
+  pull_request:
+    branches:
+      - master
+      - development
+  push:
+    branches:
+      - master
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          cache: npm
+          node-version: 16
+      - uses: actions/cache@v2
+        with:
+          path: |
+            .angular/cache
+          key: angular-build-cache-${{ hashFiles('**/package-lock.json') }}
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build:lib
+      - run: npm run build:schematics
+      - run: npm run test:ci
+      - run: npm run test:schematics
+      - run: npm run e2e:ci
+      - name: Archive e2e screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-diff
+          path: e2e/src/snapshots/*/__diff_output__
+      - name: Archive e2e video
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: visual-testing-videos
+          path: dist/cypress/*/videos

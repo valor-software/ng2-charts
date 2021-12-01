@@ -17,12 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/ng2-charts-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -35,6 +35,15 @@
             "scripts": [
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-typescript.min.js"
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true,
+            "allowedCommonJsDependencies": [
+              "highlight.js"
             ]
           },
           "configurations": {
@@ -48,7 +57,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -66,7 +74,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -103,24 +112,28 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
             "devServerTarget": "ng2-charts-demo:serve",
-            "cypressConfig": "cypress.json",
-            "tsConfig": "tsconfig.app.json"
+            "cypressConfig": "e2e/cypress.json",
+            "tsConfig": "e2e/tsconfig.e2e.json"
+          },
+          "configurations": {
+            "update-snapshots": {
+              "env": {
+                "updateSnapshots": true
+              }
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
@@ -132,7 +145,7 @@
       "prefix": "ch",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ng2-charts/tsconfig.lib.json",
             "project": "projects/ng2-charts/ng-package.json"
@@ -152,18 +165,19 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ng2-charts/tsconfig.lib.json",
-              "projects/ng2-charts/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ng2-charts/**/*.ts",
+              "projects/ng2-charts/**/*.html"
             ]
           }
         }
       }
-    }},
-  "defaultProject": "ng2-charts-demo"
+    }
+  },
+  "defaultProject": "ng2-charts-demo",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

@@ -6,7 +6,8 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/cypress/snapshots/*/__diff_output__
+/e2e/src/snapshots/*/__diff_output__
+/2e2/src/snapshots/*/*(failed).*
 
 # dependencies
 node_modules
@@ -16,6 +17,7 @@ chrome-profiler-events.json
 speed-measure-plugin.json
 
 # IDEs and editors
+
 /.idea
 .project
 .classpath
@@ -33,6 +35,7 @@ speed-measure-plugin.json
 .history/*
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage

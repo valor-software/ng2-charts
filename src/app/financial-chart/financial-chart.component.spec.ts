@@ -5,7 +5,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 
 import { FinancialChartComponent } from './financial-chart.component';
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 export function hljsLanguages(): { [name: string]: () => Promise<any> } {
   return {
@@ -25,7 +25,7 @@ describe('FinancialChartComponent', () => {
         declarations: [ FinancialChartComponent ],
         imports: [
           HttpClientModule,
-          ChartsModule,
+          NgChartsModule,
           MarkdownModule.forRoot({ loader: HttpClient }),
           HighlightModule,
         ],

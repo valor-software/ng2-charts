@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { SingleDataSet, Label } from 'ng2-charts';
-import { ChartType } from 'chart.js';
+import { Component } from '@angular/core';
+import { ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-polar-area-chart',
   templateUrl: './polar-area-chart.component.html',
-  styleUrls: ['./polar-area-chart.component.scss']
+  styleUrls: [ './polar-area-chart.component.scss' ]
 })
-export class PolarAreaChartComponent implements OnInit {
+export class PolarAreaChartComponent {
   // PolarArea
-  public polarAreaChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-  public polarAreaChartData: SingleDataSet = [300, 500, 100, 40, 120];
+  public polarAreaChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales' ];
+  public polarAreaChartData: ChartData<'polarArea'> = {
+    labels: this.polarAreaChartLabels,
+    datasets: [ {
+      data: [ 300, 500, 100, 40, 120 ],
+      label: 'Series 1'
+    } ]
+  };
   public polarAreaLegend = true;
 
   public polarAreaChartType: ChartType = 'polarArea';
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

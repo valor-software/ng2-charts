@@ -1,7 +1,7 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BubbleChartComponent } from './bubble-chart.component';
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 describe('BubbleChartComponent', () => {
   let component: BubbleChartComponent;
@@ -11,7 +11,7 @@ describe('BubbleChartComponent', () => {
     TestBed.configureTestingModule({
       declarations: [BubbleChartComponent],
       imports: [
-        ChartsModule,
+        NgChartsModule,
       ]
     })
       .compileComponents();

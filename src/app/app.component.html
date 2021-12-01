@@ -58,14 +58,14 @@
             ### Usage
 
             ```typescript
-                import {{ '{' }} ChartsModule } from 'ng2-charts';
+                import {{ '{' }} NgChartsModule } from 'ng2-charts';
 
                 // In your App's module:
                 imports: [
-                  ChartsModule
+                  NgChartsModule
                 ]
             ```
-ё
+
             ### Chart types
             There are one directive for all chart types: `baseChart`, and there are 8 types of charts: [`line`](/ng2-charts/#/LineChart), [`bar`](/ng2-charts/#/BarChart), [`radar`](/ng2-charts/#/RadarChart), [`pie`](/ng2-charts/#/PieChart), [`polarArea`](/ng2-charts/#/PolarAreaChart), [`doughnut`](/ng2-charts/#/DoughnutChart), [`bubble`](/ng2-charts/#/BubbleChart) and [`scatter`](/ng2-charts/#/ScatterChart).
 
@@ -93,7 +93,7 @@
 
             ### Dynamic Theming
 
-              The `ChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
+              The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
 
               ```typescript
               type Theme = 'light-theme' | 'dark-theme';
@@ -152,7 +152,7 @@
               ng generate ng2-charts-schematics:line my-line-chart
               ```
 
-              This calls angular's component schematics and then modifies the result, so all the options for the component schematic are also usable here. This schematics will also add the `ChartsModule` as an imported module in the main app module (or another module as specified in the `--module` command switch).
+              This calls angular's component schematics and then modifies the result, so all the options for the component schematic are also usable here. This schematics will also add the `NgChartsModule` as an imported module in the main app module (or another module as specified in the `--module` command switch).
               </markdown>
             </div>
 
@@ -160,23 +160,81 @@
       <mat-tab #tab label="Line Chart">
         <!-- Lazy load the line chart due to multiple scale layout calculations only possible when canvas in view -->
         <ng-template matTabContent>
-          <app-chart-host chartType="line"><app-line-chart #main></app-line-chart></app-chart-host>
+          <app-chart-host chartType="line">
+            <app-line-chart #main></app-line-chart>
+          </app-chart-host>
         </ng-template>
       </mat-tab>
-      <mat-tab #tab label="Bar Chart"><app-chart-host chartType="bar"><app-bar-chart #main></app-bar-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Doughnut Chart"><app-chart-host chartType="doughnut"><app-doughnut-chart #main></app-doughnut-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Radar Chart"><app-chart-host chartType="radar"><app-radar-chart #main></app-radar-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Pie Chart"><app-chart-host chartType="pie"><app-pie-chart #main></app-pie-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Polar Area Chart"><app-chart-host chartType="polar-area"><app-polar-area-chart #main></app-polar-area-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Bubble Chart"><app-chart-host chartType="bubble"><app-bubble-chart #main></app-bubble-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Scatter Chart"><app-chart-host chartType="scatter"><app-scatter-chart #main></app-scatter-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Dynamic Chart"><app-chart-host chartType="dynamic"><app-dynamic-chart #main></app-dynamic-chart></app-chart-host></mat-tab>
-      <mat-tab #tab label="Financial Chart"><app-chart-host chartType="financial"><app-financial-chart #main></app-financial-chart></app-chart-host></mat-tab>
+      <mat-tab #tab label="Bar Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="bar">
+            <app-bar-chart #main></app-bar-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Doughnut Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="doughnut">
+            <app-doughnut-chart #main></app-doughnut-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Radar Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="radar">
+            <app-radar-chart #main></app-radar-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Pie Chart">
+        <ng-template matTabContent>
+
+          <app-chart-host chartType="pie">
+            <app-pie-chart #main></app-pie-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Polar Area Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="polarArea">
+            <app-polar-area-chart #main></app-polar-area-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Bubble Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="bubble">
+            <app-bubble-chart #main></app-bubble-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Scatter Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="scatter">
+            <app-scatter-chart #main></app-scatter-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Dynamic Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="dynamic">
+            <app-dynamic-chart #main></app-dynamic-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
+      <mat-tab #tab label="Financial Chart">
+        <ng-template matTabContent>
+          <app-chart-host chartType="financial">
+            <app-financial-chart #main></app-financial-chart>
+          </app-chart-host>
+        </ng-template>
+      </mat-tab>
     </mat-tab-group>
   </div>
   <footer class="footer">
     <div class="container">
-      <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts/graphs/contributors">Contributors to ng2-charts</a></p>
+      <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts/graphs/contributors">Contributors
+        to ng2-charts</a></p>
     </div>
   </footer>
 </div>

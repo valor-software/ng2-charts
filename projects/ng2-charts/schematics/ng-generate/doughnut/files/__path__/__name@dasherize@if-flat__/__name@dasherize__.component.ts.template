@@ -1,0 +1,26 @@
+import { Component<% if(!!viewEncapsulation) { %>, ViewEncapsulation<% }%><% if(changeDetection !== 'Default') { %>, ChangeDetectionStrategy<% }%> } from '@angular/core';
+
+@Component({
+  selector: '<%= selector %>',<% if(inlineTemplate) { %>
+  template: `
+    <%= indentTextContent(resolvedFiles.template, 4) %>
+  `,<% } else { %>
+  templateUrl: './<%= dasherize(name) %>.component.html',<% } if(inlineStyle) { %>
+  styles: [`
+    <%= indentTextContent(resolvedFiles.stylesheet, 4) %>
+  `]<% } else { %>
+  styleUrls: ['./<%= dasherize(name) %>.component.<%= style %>']<% } %><% if(!!viewEncapsulation) { %>,
+  encapsulation: ViewEncapsulation.<%= viewEncapsulation %><% } if (changeDetection !== 'Default') { %>,
+  changeDetection: ChangeDetectionStrategy.<%= changeDetection %><% } %>
+})
+export class <%= classify(name) %>Component {
+  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData: MultiDataSet = [
+    [350, 450, 100],
+    [50, 150, 120],
+    [250, 130, 70],
+  ];
+  public doughnutChartType: ChartType = 'doughnut';
+
+  constructor() { }
+}
