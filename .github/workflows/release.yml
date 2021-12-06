@@ -93,6 +93,8 @@ jobs:
         with:
           dry-run: true
           token: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm pack
       - name: Upload NPM package file
         uses: actions/upload-release-asset@v1
         env:
