@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -15,7 +15,7 @@
     "@angular/common": ">=11.0.0",
     "@angular/core": ">=11.0.0",
     "chart.js": "^3.4.0",
-    "rxjs": "^6.3.3"
+    "rxjs": "^6.5.3 || ^7.4.0"
   },
   "dependencies": {
     "lodash-es": "^4.17.15"
