@@ -8,7 +8,7 @@ import {
   CategoryScale,
   Chart,
   ChartComponentLike,
-  ChartConfiguration, Defaults,
+  Defaults,
   defaults,
   DoughnutController,
   Filler,
@@ -41,6 +41,12 @@ Chart.register(
   ScatterController,
   TimeSeriesScale);
 
+@Injectable({ providedIn: 'root' })
+export class NgChartsConfiguration {
+  public plugins?: ChartComponentLike[];
+  public defaults?: Partial<Defaults>;
+}
+
 @NgModule({
   imports: [],
   declarations: [ BaseChartDirective ],
@@ -65,10 +71,4 @@ export class NgChartsModule {
       ]
     };
   }
-}
-
-@Injectable({ providedIn: 'root' })
-export class NgChartsConfiguration {
-  public plugins?: ChartComponentLike[];
-  public defaults?: Partial<Defaults>;
 }
