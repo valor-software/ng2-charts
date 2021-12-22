@@ -86,6 +86,7 @@ jobs:
         if: ${{ github.event.release.prerelease }}
         with:
           tag: next
+          path: dist/ng2-charts
           token: ${{ secrets.NPM_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         name: release
@@ -93,7 +94,9 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm pack
+      - name: Pack release
+        run: npm pack
+        working-directory: ./dist/ng2-charts
       - name: Upload NPM package file
         uses: actions/upload-release-asset@v1
         env:
@@ -101,8 +104,8 @@ jobs:
           VERSION: ${{ needs.setup.outputs.version }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
-          asset_name: ${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
+          asset_path: dist/ng2-charts/${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
+          asset_name: dist/ng2-charts/${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
           asset_content_type: application/gzip
 
   publish-docs:
