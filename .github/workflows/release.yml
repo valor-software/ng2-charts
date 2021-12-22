@@ -73,7 +73,6 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           cache: npm
@@ -86,17 +85,18 @@ jobs:
         if: ${{ github.event.release.prerelease }}
         with:
           tag: next
-          path: dist/ng2-charts
+          path: ng2-charts
           token: ${{ secrets.NPM_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         name: release
         if: ${{ !github.event.release.prerelease }}
         with:
+          path: ng2-charts
           token: ${{ secrets.NPM_TOKEN }}
 
       - name: Pack release
         run: npm pack
-        working-directory: ./dist/ng2-charts
+        working-directory: ./ng2-charts
       - name: Upload NPM package file
         uses: actions/upload-release-asset@v1
         env:
