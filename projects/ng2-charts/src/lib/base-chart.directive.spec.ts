@@ -1,6 +1,6 @@
 import { BaseChartDirective } from './base-chart.directive';
 import { By } from '@angular/platform-browser';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { Chart, registerables } from "chart.js";
 
@@ -8,12 +8,15 @@ import { Chart, registerables } from "chart.js";
   template: '<canvas baseChart' +
     ' [data]="data"' +
     ' [datasets]="datasets"' +
-    ' [labels]="labels"></canvas>'
+    ' [labels]="labels"' +
+    ' (chartClick)="click()"></canvas>'
 })
 class TestComponent {
   public data?: any
   public datasets?: any[]
   public labels?: string[]
+  public click? = jasmine.createSpy('chartClick')
+  public hover? = jasmine.createSpy('chartHover')
 }
 
 describe('BaseChartDirective', () => {
@@ -79,7 +82,7 @@ describe('BaseChartDirective', () => {
     expect(directive.chart?.data.labels).toEqual(element.data.labels);
 
     element.data = {
-      labels: [ 'Life', 'Universe', 'Everything'],
+      labels: [ 'Life', 'Universe', 'Everything' ],
       datasets: []
     }
 
@@ -88,5 +91,27 @@ describe('BaseChartDirective', () => {
     expect(directive.chart?.data.labels?.length).toBe(3);
     expect(directive.chart?.data?.labels && directive.chart?.data?.labels[0]).not.toEqual('Answers');
   });
+
+  it('should emit when the chart is clicked', fakeAsync(() => {
+
+    fixture.detectChanges();
+
+    let canvas = fixture.nativeElement.querySelector('canvas');
+
+    canvas.dispatchEvent(
+      new MouseEvent(
+        "click",
+        {
+          clientX: canvas.getBoundingClientRect().left + 50,
+          clientY: canvas.getBoundingClientRect().top + 50,
+          bubbles: true
+        }
+      )
+    );
+
+    tick(25);
+
+    expect(element.click).toHaveBeenCalled();
+  }));
 
 });
