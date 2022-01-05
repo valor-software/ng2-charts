@@ -17,7 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "preserveSymlinks": true,
             "outputPath": "dist/ng2-charts-demo",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -121,13 +121,18 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private getChartOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
-          if (active && !active.length) {
+          if (this.chartHover.observed && active && !active.length) {
             return;
           }
-          this.chartHover.emit({ event, active });
+
+          this.zone.run(() => this.chartHover.emit({ event, active }));
         },
         onClick: (event?: ChartEvent, active?: {}[]) => {
-          this.chartClick.emit({ event, active });
+          if(!this.chartClick.observed){
+            return;
+          }
+
+          this.zone.run(() => this.chartClick.emit({ event, active }));
         }
       },
       this.themeOverrides,
