@@ -13,10 +13,9 @@
       "factory": "./ng-add/setup-project",
       "schema": "./ng-add/schema.json"
     },
-
     "bar": {
       "description": "Generate a component with a bar chart.",
-      "factory": "./ng-generate/index",
+      "factory": "./ng-generate/bar/index",
       "schema": "./ng-generate/schema.json"
     },
     "bubble": {
