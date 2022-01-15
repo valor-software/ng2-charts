@@ -5,11 +5,19 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "build": "sh ../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "test": "jasmine",
     "copy:schemas": "rsync -R schematics/*/schema.json ../../dist/ng2-charts/",
     "copy:collection": "cp schematics/collection.json ../../dist/ng2-charts/schematics/collection.json",
-    "postbuild": "npm run copy:schemas && npm run copy:collection"
+    "copy:templates": "npm run copy:templates:bar && npm run copy:templates:bubble && npm run copy:templates:doughnut && npm run copy:templates:line && npm run copy:templates:pie && npm run copy:templates:polar-area &&npm run copy:templates:radar",
+    "copy:templates:bar": "cp -r schematics/ng-generate/bar/files ../../dist/ng2-charts/schematics/ng-generate/bar",
+    "copy:templates:bubble": "cp -r schematics/ng-generate/bubble/files ../../dist/ng2-charts/schematics/ng-generate/bubble",
+    "copy:templates:doughnut": "cp -r schematics/ng-generate/doughnut/files ../../dist/ng2-charts/schematics/ng-generate/doughnut",
+    "copy:templates:line": "cp -r schematics/ng-generate/line/files ../../dist/ng2-charts/schematics/ng-generate/line",
+    "copy:templates:pie": "cp -r schematics/ng-generate/pie/files ../../dist/ng2-charts/schematics/ng-generate/pie",
+    "copy:templates:polar-area": "cp -r schematics/ng-generate/polar-area/files ../../dist/ng2-charts/schematics/ng-generate/polar-area",
+    "copy:templates:radar": "cp -r schematics/ng-generate/radar/files ../../dist/ng2-charts/schematics/ng-generate/radar",
+    "postbuild": "npm run copy:schemas && npm run copy:collection && npm run copy:templates"
   },
   "peerDependencies": {
     "@angular/common": ">=11.0.0",
