@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -8,8 +8,9 @@
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "test": "jasmine",
     "copy:schemas": "rsync -R schematics/*/schema.json ../../dist/ng2-charts/",
+    "copy:templates": "rsync -aR schematics/ng-generate --include '*.template' --include '*/' --exclude '*' ../../dist/ng2-charts/",
     "copy:collection": "cp schematics/collection.json ../../dist/ng2-charts/schematics/collection.json",
-    "postbuild": "npm run copy:schemas && npm run copy:collection"
+    "postbuild": "npm run copy:schemas && npm run copy:templates && npm run copy:collection"
   },
   "peerDependencies": {
     "@angular/common": ">=11.0.0",
