@@ -128,7 +128,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
           this.zone.run(() => this.chartHover.emit({ event, active }));
         },
         onClick: (event?: ChartEvent, active?: {}[]) => {
-          if(!this.chartClick.observed){
+          if (this.chartClick.observed) {
             return;
           }
 
