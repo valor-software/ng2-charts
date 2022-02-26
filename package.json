@@ -43,7 +43,7 @@
     "lodash-es": "^4.17.21",
     "ngx-highlightjs": "^6.1.0",
     "ngx-markdown": "^13.0.0",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "rxjs": "^7.4.0",
     "zone.js": "~0.11.4"
   },
