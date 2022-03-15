@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -45,11 +45,11 @@ export class BarChartComponent {
   };
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
 

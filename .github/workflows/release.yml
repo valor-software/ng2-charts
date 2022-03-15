@@ -81,19 +81,26 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: ng2-charts
+          path: dist
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: dist
       - uses: JS-DevTools/npm-publish@v1
         name: prerelease
         if: ${{ github.event.release.prerelease }}
         with:
           tag: next
+          package: dist/package.json
           token: ${{ secrets.NPM_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         name: release
         if: ${{ !github.event.release.prerelease }}
         with:
+          package: dist/package.json
           token: ${{ secrets.NPM_TOKEN }}
-
-      - run: npm pack
+      - name: Pack release
+        run: npm pack
+        working-directory: ./dist
       - name: Upload NPM package file
         uses: actions/upload-release-asset@v1
         env:
@@ -101,7 +108,7 @@ jobs:
           VERSION: ${{ needs.setup.outputs.version }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
+          asset_path: dist/${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
           asset_name: ${{ format('ng2-charts-{0}.tgz', needs.setup.outputs.version) }}
           asset_content_type: application/gzip
 
@@ -125,7 +132,8 @@ jobs:
       - run: |
           git config --local user.email ${GITHUB_ACTOR}@users.noreply.github.com
           git config --local user.name $GITHUB_ACTOR
-          git commit -m "ci: gh-pages update" -a
+          git add -A
+          git commit -m "ci: gh-pages update"
         continue-on-error: true
       - name: push to gh-pages
         uses: ad-m/github-push-action@v0.6.0
