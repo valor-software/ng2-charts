@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-radar-chart',

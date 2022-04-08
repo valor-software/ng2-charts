@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChartData, ChartType } from 'chart.js';
+import { ChartData, ChartEvent, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-polar-area-chart',
