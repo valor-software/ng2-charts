@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ChartData, ChartType } from 'chart.js';
+import { Component } from '@angular/core';
+import { ChartData, ChartEvent, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-doughnut-chart',
@@ -20,11 +20,11 @@ export class DoughnutChartComponent {
   public doughnutChartType: ChartType = 'doughnut';
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
     console.log(event, active);
   }
 }

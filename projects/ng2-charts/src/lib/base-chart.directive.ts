@@ -121,7 +121,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private getChartOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
-          if (this.chartHover.observed && active && !active.length) {
+          if (!this.chartHover.observed || !active || !active.length) {
             return;
           }
 

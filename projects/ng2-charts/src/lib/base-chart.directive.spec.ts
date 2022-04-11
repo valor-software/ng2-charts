@@ -9,7 +9,8 @@ import { Chart, registerables } from "chart.js";
     ' [data]="data"' +
     ' [datasets]="datasets"' +
     ' [labels]="labels"' +
-    ' (chartClick)="click()"></canvas>'
+    ' (chartClick)="click()"' +
+    ' (chartHover)="hover()"></canvas>'
 })
 class TestComponent {
   public data?: any

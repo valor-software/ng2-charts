@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChartData, ChartType } from 'chart.js';
+import { ChartData, ChartEvent, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-polar-area-chart',
@@ -21,11 +21,11 @@ export class PolarAreaChartComponent {
   public polarAreaChartType: ChartType = 'polarArea';
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
     console.log(event, active);
   }
 }
