@@ -104,8 +104,7 @@ describe('BaseChartDirective', () => {
         "click",
         {
           clientX: canvas.getBoundingClientRect().left + 50,
-          clientY: canvas.getBoundingClientRect().top + 50,
-          bubbles: true
+          clientY: canvas.getBoundingClientRect().top + 50
         }
       )
     );
@@ -115,4 +114,24 @@ describe('BaseChartDirective', () => {
     expect(element.click).toHaveBeenCalled();
   }));
 
+  it('should emit when the chart is hovered', fakeAsync(() => {
+
+    fixture.detectChanges();
+
+    let canvas = fixture.nativeElement.querySelector('canvas');
+
+    canvas.dispatchEvent(
+      new MouseEvent(
+        "mousemove",
+        {
+          clientX: canvas.getBoundingClientRect().left + 50,
+          clientY: canvas.getBoundingClientRect().top + 50
+        }
+      )
+    );
+
+    tick(25);
+
+    expect(element.hover).toHaveBeenCalled();
+  }));
 });
