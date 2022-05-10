@@ -121,14 +121,14 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private getChartOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
-          if (!this.chartHover.observed) {
+          if (!this.chartHover.observed && !this.chartHover.observers.length) {
             return;
           }
 
           this.zone.run(() => this.chartHover.emit({ event, active }));
         },
         onClick: (event?: ChartEvent, active?: {}[]) => {
-          if(!this.chartClick.observed){
+          if(!this.chartClick.observed && !this.chartClick.observers.length) {
             return;
           }
 
