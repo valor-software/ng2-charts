@@ -175,8 +175,9 @@
       }
     }
   },
-  "defaultProject": "ng2-charts-demo",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
