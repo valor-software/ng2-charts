@@ -23,7 +23,6 @@ import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
-import { default as Annotation } from 'chartjs-plugin-annotation';
 import { LanguageFn } from "highlight.js";
 
 const routes: Route[] = [];
@@ -54,16 +53,13 @@ export function hljsLanguages(): { [name: string]: Partial<LanguageFn> } {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
-    NgChartsModule.forRoot({
-      defaults: {},
-      plugins: [ Annotation ]
-    }),
-    MarkdownModule.forRoot({ loader: HttpClient }),
-    BrowserAnimationsModule,
+    NgChartsModule,
     MaterialModule,
+    HighlightModule,
     HttpClientModule,
-    HighlightModule
+    BrowserAnimationsModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
   ],
   providers: [
     {

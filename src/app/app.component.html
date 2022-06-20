@@ -67,18 +67,17 @@
             ```
 
             ### Chart types
-            There are one directive for all chart types: `baseChart`, and there are 8 types of charts: [`line`](/ng2-charts/#/LineChart), [`bar`](/ng2-charts/#/BarChart), [`radar`](/ng2-charts/#/RadarChart), [`pie`](/ng2-charts/#/PieChart), [`polarArea`](/ng2-charts/#/PolarAreaChart), [`doughnut`](/ng2-charts/#/DoughnutChart), [`bubble`](/ng2-charts/#/BubbleChart) and [`scatter`](/ng2-charts/#/ScatterChart).
+            There are one directive for all chart types: `baseChart`, and there are 8 types of charts in the default chart.js package: [`line`](/ng2-charts/#/LineChart), [`bar`](/ng2-charts/#/BarChart), [`radar`](/ng2-charts/#/RadarChart), [`pie`](/ng2-charts/#/PieChart), [`polarArea`](/ng2-charts/#/PolarAreaChart), [`doughnut`](/ng2-charts/#/DoughnutChart), [`bubble`](/ng2-charts/#/BubbleChart) and [`scatter`](/ng2-charts/#/ScatterChart).
 
             ### Properties
 
             **Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
 
-            - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
-            - `datasets` (`{{ '{' }}data: SingleDataSet, label: string}[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
-            - `labels` (`Label[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`. `Label` is either a single `string`, or it may be a `string[]` representing a multi-line label where each array element is on a new line.
-            - `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
+            - `data` - set of points of the chart. See https://www.chartjs.org/docs/latest/general/data-structures.html for some examples and further reference. Use this property or `datasets`/`labels` depending on what's convenient.
+            - `datasets` - Same as the `datasets` property for the `data` input. `data` Has priority over this.
+            - `labels` - Same as the `labels` property for the `data` input. `data` has priority over this.
+            - `type` (`ChartType`) - indicates the type of charts. Defaults to `bar`.
             - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
-            - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
             - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
 
             ### Events
@@ -89,80 +88,78 @@
 
             ### Colors
 
-            There are a set several default colors. Colors can be replaced using the `colors` attribute. If there is more data than colors, colors are generated randomly.
+            There are a set several default colors. If there is more data than colors, more colors are generated randomly. Colors can be replaced using the dataset options or overriding the global defaults.
 
             ### Dynamic Theming
 
-              The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
+            The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The structure is interpreted as an override, with special functionality when dealing with arrays. Example:
 
-              ```typescript
-              type Theme = 'light-theme' | 'dark-theme';
+            ```typescript
+            type Theme = 'light-theme' | 'dark-theme';
 
-              private _selectedTheme: Theme = 'light-theme';
-              public get selectedTheme() {{ '{' }}
-                return this._selectedTheme;
+            private _selectedTheme: Theme = 'light-theme';
+            public get selectedTheme() {{ '{' }}
+              return this._selectedTheme;
+            }
+            public set selectedTheme(value) {{ '{' }}
+              this._selectedTheme = value;
+              let overrides: ChartOptions;
+              if (this.selectedTheme === 'dark-theme') {{ '{' }}
+                overrides = {{ '{' }}
+                  legend: {{ '{' }}
+                    labels: {{ '{' }} fontColor: 'white' }
+                  },
+                  scales: {{ '{' }}
+                    xAxes: [{{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' },
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                    }],
+                    yAxes: [{{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' },
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                    }]
+                  }
+                };
+              } else {{ '{' }}
+                overrides = {{ '{' }}};
               }
-              public set selectedTheme(value) {{ '{' }}
-                this._selectedTheme = value;
-                let overrides: ChartOptions;
-                if (this.selectedTheme === 'dark-theme') {{ '{' }}
-                  overrides = {{ '{' }}
-                    legend: {{ '{' }}
-                      labels: {{ '{' }} fontColor: 'white' }
-                    },
-                    scales: {{ '{' }}
-                      xAxes: [{{ '{' }}
-                        ticks: {{ '{' }} fontColor: 'white' },
-                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-                      }],
-                      yAxes: [{{ '{' }}
-                        ticks: {{ '{' }} fontColor: 'white' },
-                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-                      }]
-                    }
-                  };
-                } else {{ '{' }}
-                  overrides = {{ '{' }}};
-                }
-                this.themeService.setColorschemesOptions(overrides);
-              }
+              this.themeService.setColorschemesOptions(overrides);
+            }
 
-              constructor(private themeService: ThemeService) {{ '{' }} }
+            constructor(private themeService: ThemeService) {{ '{' }} }
 
-              setCurrentTheme(theme: Theme) {{ '{' }}
-                this.selectedTheme = theme;
-              }
-              ```
+            setCurrentTheme(theme: Theme) {{ '{' }}
+              this.selectedTheme = theme;
+            }
+            ```
 
-              The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
+            The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
 
-              ## Schematics
+            ## Schematics
 
-              There are schematics that may be used to generate chart components using Angular CLI. The components are defined in package `ng2-charts-schematics`.
+            There are schematics that may be used to generate chart components using Angular CLI. The components are defined in package `ng2-charts-schematics`.
 
-              ### Installation of library through ng-add schematics
+            ### Installation of library through ng-add schematics
 
-              ```bash
-              ng add ng2-charts
-              ```
+            ```bash
+            ng add ng2-charts
+            ```
 
-              This schematics will add the `NgChartsModule` as an imported module in the main app module (or another module as specified
-              in the `--module` command option).
+            This schematics will add the `NgChartsModule` as an imported module in the main app module (or another module as specified
+            in the `--module` command option).
 
-              ### Example of Generating a Line Chart using Angular CLI
+            ### Example of Generating a Line Chart using Angular CLI
 
-              ```bash
-              ng generate ng2-charts:line my-line-chart
-              ```
+            ```bash
+            ng generate ng2-charts:line my-line-chart
+            ```
 
-              This calls angular's component schematics and then modifies the result, so all the options for the component schematic
-              are also usable here.
-              </markdown>
-            </div>
-
+            This calls angular's component schematics and then modifies the result, so all the options for the component schematic
+            are also usable here.
+            </markdown>
+          </div>
       </mat-tab>
       <mat-tab #tab label="Line Chart">
-        <!-- Lazy load the line chart due to multiple scale layout calculations only possible when canvas in view -->
         <ng-template matTabContent>
           <app-chart-host chartType="line">
             <app-line-chart #main></app-line-chart>

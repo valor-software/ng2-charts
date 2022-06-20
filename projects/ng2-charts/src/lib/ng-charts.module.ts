@@ -1,51 +1,16 @@
 import { Injectable, ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { BaseChartDirective } from './base-chart.directive';
-import {
-  ArcElement,
-  BarController,
-  BarElement,
-  BubbleController,
-  CategoryScale,
-  Chart,
-  ChartComponentLike,
-  Defaults,
-  defaults,
-  DoughnutController,
-  Filler,
-  Legend,
-  LinearScale,
-  LineController,
-  LineElement,
-  PieController,
-  PointElement,
-  PolarAreaController,
-  RadarController,
-  RadialLinearScale,
-  ScatterController,
-  TimeSeriesScale,
-  Title,
-  Tooltip
-} from 'chart.js';
+import { Chart, registerables, ChartComponentLike, Defaults, defaults } from 'chart.js';
 import { merge } from "lodash-es";
 import { builtInDefaults } from "./get-colors";
-
-Chart.register(
-  Title, Tooltip, Filler, Legend,
-  LineController, LineElement, PointElement, LinearScale, CategoryScale,
-  BarController, BarElement,
-  DoughnutController, ArcElement,
-  RadarController, RadialLinearScale,
-  PieController,
-  PolarAreaController,
-  BubbleController,
-  ScatterController,
-  TimeSeriesScale);
 
 @Injectable({ providedIn: 'root' })
 export class NgChartsConfiguration {
   public plugins?: ChartComponentLike[];
   public defaults?: Partial<Defaults>;
 }
+
+Chart.register(...registerables);
 
 @NgModule({
   imports: [],

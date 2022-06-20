@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
+import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+
+import {default as Annotation} from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-line-chart',
@@ -8,6 +10,10 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: [ './line-chart.component.scss' ]
 })
 export class LineChartComponent {
+
+  constructor() {
+    Chart.register(Annotation)
+  }
 
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
