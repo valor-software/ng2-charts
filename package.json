@@ -51,11 +51,11 @@
     "@angular-devkit/build-angular": "^14.0.2",
     "@angular-devkit/core": "^14.0.2",
     "@angular-devkit/schematics": "^14.0.2",
-    "@angular-eslint/builder": "^13.5.0",
-    "@angular-eslint/eslint-plugin": "^13.5.0",
-    "@angular-eslint/eslint-plugin-template": "^13.5.0",
-    "@angular-eslint/schematics": "^13.5.0",
-    "@angular-eslint/template-parser": "^13.5.0",
+    "@angular-eslint/builder": "next",
+    "@angular-eslint/eslint-plugin": "next",
+    "@angular-eslint/eslint-plugin-template": "next",
+    "@angular-eslint/schematics": "next",
+    "@angular-eslint/template-parser": "next",
     "@angular/cli": "^14.0.2",
     "@angular/compiler-cli": "^14.0.2",
     "@angular/language-service": "^14.0.2",
@@ -68,7 +68,6 @@
     "@types/node": "^16.11.26",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
-    "chartjs-test-utils": "^0.4.0",
     "cypress": "^9.1.0",
     "cypress-image-snapshot": "^4.0.1",
     "eslint": "^8.2.0",
@@ -88,5 +87,8 @@
     "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
     "typescript": "~4.7.2"
+  },
+  "overrides": {
+    "cypress": "^9.1.0"
   }
 }
