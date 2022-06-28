@@ -44,7 +44,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private subs: Subscription[] = [];
   private themeOverrides: ChartConfiguration['options'];
 
-  public constructor(private element: ElementRef, private zone: NgZone, private themeService: ThemeService) {
+  public constructor(element: ElementRef, private zone: NgZone, private themeService: ThemeService) {
     this.ctx = element.nativeElement.getContext('2d');
     this.subs.push(this.themeService.colorschemesOptions
       .pipe(distinctUntilChanged())
