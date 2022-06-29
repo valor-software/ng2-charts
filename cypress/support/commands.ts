@@ -45,7 +45,7 @@ import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 addMatchImageSnapshotCommand({
-  customSnapshotsDir: "./snapshots",
+  customSnapshotsDir: "./cypress/snapshots",
   failureThreshold: 0.01, // threshold for entire image
   failureThresholdType: 'percent', // percent of image or number of pixels
   dumpDiffToConsole: true,
