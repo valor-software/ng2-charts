@@ -18,7 +18,9 @@
     "e2e:ci": "ng e2e",
     "e2e:update-snapshots": "npm run e2e:ci -- --configuration update-snapshots",
     "cy:verify": "cypress verify",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -59,8 +61,9 @@
     "@angular/cli": "^14.0.3",
     "@angular/compiler-cli": "^14.0.3",
     "@angular/language-service": "^14.0.3",
-    "@nrwl/cypress": "^14.3.6",
+    "@cypress/schematic": "^2.0.0",
     "@schematics/angular": "^14.0.2",
+    "@types/cypress-image-snapshot": "^3.1.6",
     "@types/jasmine": "~4.0.3",
     "@types/jasminewd2": "^2.0.10",
     "@types/lodash-es": "^4.17.5",
@@ -68,7 +71,7 @@
     "@types/node": "^16.11.26",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
-    "cypress": "^9.1.0",
+    "cypress": "^10.3.0",
     "cypress-image-snapshot": "^4.0.1",
     "eslint": "^8.18.0",
     "eyes.images": "^3.8.7",
@@ -89,6 +92,6 @@
     "typescript": "~4.7.2"
   },
   "overrides": {
-    "cypress": "^9.1.0"
+    "cypress": "^10.3.0"
   }
 }

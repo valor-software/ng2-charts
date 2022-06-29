@@ -6,8 +6,8 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/e2e/src/snapshots/*/__diff_output__
-/2e2/src/snapshots/*/*(failed).*
+/cypress/snapshots/*/__diff_output__
+/cypress/snapshots/*/*(failed).*
 
 # dependencies
 node_modules
