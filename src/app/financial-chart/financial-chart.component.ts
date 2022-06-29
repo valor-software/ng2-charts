@@ -1,16 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import 'chartjs-adapter-date-fns';
-import 'chartjs-chart-financial';
 import { BaseChartDirective } from 'ng2-charts';
 import { Chart, ChartConfiguration, ChartType } from 'chart.js';
 import { enUS } from 'date-fns/locale';
 import { add, parseISO } from 'date-fns';
-import { CandlestickController, CandlestickElement, OhlcController, OhlcElement } from 'chartjs-chart-financial';
+import { CandlestickController, CandlestickElement, OhlcController, OhlcElement, } from 'chartjs-chart-financial';
 
 @Component({
   selector: 'app-financial-chart',
-  templateUrl: './financial-chart.component.html',
-  styleUrls: [ './financial-chart.component.css' ]
+  templateUrl: './financial-chart.component.html'
 })
 export class FinancialChartComponent {
   barCount = 60;
@@ -25,6 +23,7 @@ export class FinancialChartComponent {
 
   public financialChartOptions: ChartConfiguration['options'] = {
     responsive: true,
+    animation: false,
     maintainAspectRatio: false,
     scales: {
       x: {
@@ -40,18 +39,17 @@ export class FinancialChartComponent {
           source: 'auto'
         }
       }
+    },
+    borderColor: 'black',
+    backgroundColor: 'rgba(255,0,0,0,0.3)',
+    plugins: {
+      legend: {
+        display: true
+      }
     }
   };
-  public financialChartColors = [
-    {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-    },
-  ];
 
-  public financialChartLegend = true;
   public financialChartType: ChartType = 'candlestick';
-  public financialChartPlugins = [];
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 

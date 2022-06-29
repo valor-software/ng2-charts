@@ -1,38 +1,21 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "schematics",
-    "lib": [
-      "es2018"
-    ],
+    "rootDir": "./",
+    "baseUrl": "./",
+    "outDir": "dist",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "../../dist/ng2-charts/schematics",
-    "noEmitOnError": false,
-    "strictNullChecks": true,
-    "noImplicitOverride": true,
-    "noImplicitAny": true,
+    "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
     "noImplicitThis": true,
-    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "skipDefaultLibCheck": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "strictFunctionTypes": true,
     "skipLibCheck": true,
-    "sourceMap": true,
-    "declaration": true,
-    "target": "es6",
-    "types": [
-      "jasmine",
-      "node"
-    ]
+    "strict": true
   },
   "include": [
-    "schematics/**/*.ts"
-  ],
-  "exclude": [
-    "schematics/**/*.spec.ts",
-    "schematics/ng-generate/*/files/**/*.ts"
+    "./**/*.ts"
   ]
 }

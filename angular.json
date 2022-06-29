@@ -41,6 +41,7 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
+            "preserveSymlinks": true,
             "allowedCommonJsDependencies": [
               "highlight.js"
             ]
@@ -112,11 +113,9 @@
           }
         },
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "ng2-charts-demo:serve",
-            "cypressConfig": "e2e/cypress.json",
-            "tsConfig": "e2e/tsconfig.e2e.json"
+            "devServerTarget": "ng2-charts-demo:serve"
           },
           "configurations": {
             "update-snapshots": {
@@ -133,6 +132,24 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ng2-charts-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng2-charts-demo:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
           }
         }
       }
@@ -175,8 +192,9 @@
       }
     }
   },
-  "defaultProject": "ng2-charts-demo",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

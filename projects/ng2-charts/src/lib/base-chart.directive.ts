@@ -9,7 +9,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Chart, ChartConfiguration, ChartEvent, ChartType, DefaultDataPoint } from 'chart.js';
+import { Chart, ChartComponentLike, ChartConfiguration, ChartEvent, ChartType, DefaultDataPoint } from 'chart.js';
 
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
@@ -29,8 +29,8 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   @Input() public type: ChartConfiguration<TType, TData, TLabel>['type'] = 'bar' as TType;
   @Input() public legend?: boolean;
   @Input() public data?: ChartConfiguration<TType, TData, TLabel>['data'];
-  @Input() public options?: ChartConfiguration<TType, TData, TLabel>['options'];
-  @Input() public plugins?: ChartConfiguration<TType, TData, TLabel>['plugins'] = [];
+  @Input() public options: ChartConfiguration<TType, TData, TLabel>['options'];
+  @Input() public plugins: ChartComponentLike[] = [];
 
   @Input() public labels?: ChartConfiguration<TType, TData, TLabel>['data']['labels'];
   @Input() public datasets?: ChartConfiguration<TType, TData, TLabel>['data']['datasets'];
@@ -44,7 +44,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private subs: Subscription[] = [];
   private themeOverrides: ChartConfiguration['options'];
 
-  public constructor(private element: ElementRef, private zone: NgZone, private themeService: ThemeService) {
+  public constructor(element: ElementRef, private zone: NgZone, private themeService: ThemeService) {
     this.ctx = element.nativeElement.getContext('2d');
     this.subs.push(this.themeService.colorschemesOptions
       .pipe(distinctUntilChanged())
@@ -64,8 +64,12 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
 
       if (this.chart) {
         Object.assign(this.chart.config.data, config.data);
-        Object.assign(this.chart.config.plugins, config.plugins);
-        Object.assign(this.chart.config.options, config.options);
+        if (this.chart.config.plugins) {
+          Object.assign(this.chart.config.plugins, config.plugins);
+        }
+        if (this.chart.config.options) {
+          Object.assign(this.chart.config.options, config.options);
+        }
       }
 
       this.update();
@@ -84,6 +88,8 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     if (this.chart) {
       this.chart.destroy();
     }
+
+    Chart.register(...this.plugins);
 
     return this.zone.runOutsideAngular(() => this.chart = new Chart(this.ctx, this.getChartConfiguration()));
   }
@@ -112,7 +118,9 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private themeChanged(options: ChartConfiguration['options']): void {
     this.themeOverrides = options;
     if (this.chart) {
-      Object.assign(this.chart.config.options, this.getChartOptions());
+      if (this.chart.config.options) {
+        Object.assign(this.chart.config.options, this.getChartOptions());
+      }
 
       this.update();
     }
@@ -121,14 +129,14 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   private getChartOptions(): ChartConfiguration<TType, TData, TLabel>['options'] {
     return merge({
         onHover: (event: ChartEvent, active: {}[]) => {
-          if (!this.chartHover.observed && !this.chartHover.observers.length) {
+          if (!this.chartHover.observed && !this.chartHover.observers?.length) {
             return;
           }
 
           this.zone.run(() => this.chartHover.emit({ event, active }));
         },
         onClick: (event?: ChartEvent, active?: {}[]) => {
-          if(!this.chartClick.observed && !this.chartClick.observers.length) {
+          if (!this.chartClick.observed && !this.chartClick.observers?.length) {
             return;
           }
 
@@ -150,7 +158,6 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     return {
       type: this.type,
       data: this.getChartData(),
-      plugins: this.plugins,
       options: this.getChartOptions()
     };
   }

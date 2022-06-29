@@ -5,7 +5,7 @@ import { getWorkspace } from '@schematics/angular/utility/workspace';
 
 import { Schema } from './schema';
 import * as messages from './messages';
-import { addPackageToPackageJson, getPackageVersionFromPackageJson } from '../utils/package-config';
+import { addPackageToPackageJson } from '../utils/package-config';
 
 
 const NG2_CHARTS_VERSION = '3.0.0';
@@ -29,11 +29,8 @@ export default function ngAdd(options: Schema): Rule {
       }
     }
 
-    // Installing dependencies
-    const angularCoreVersion = getPackageVersionFromPackageJson(tree, '@angular/core') !;
-
-    addPackageToPackageJson(tree, 'ng2-charts', `^${NG2_CHARTS_VERSION}`);
-    addPackageToPackageJson(tree, 'chart.js', `^${CHARTJS_VERSION}`);
+    addPackageToPackageJson(tree, 'ng2-charts', `^${ NG2_CHARTS_VERSION }`);
+    addPackageToPackageJson(tree, 'chart.js', `^${ CHARTJS_VERSION }`);
 
     context.addTask(new RunSchematicTask('ng-add-setup-project', options), [
       context.addTask(new NodePackageInstallTask()),
