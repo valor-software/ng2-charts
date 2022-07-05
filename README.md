@@ -65,14 +65,14 @@ or with yarn:
 
 ### Stackblitz Starting Templates
 
-* Line Chart - https://stackblitz.com/edit/ng2-charts-line-template
-* Pie Chart - https://stackblitz.com/edit/ng2-charts-pie-template
-* Bar Chart - https://stackblitz.com/edit/ng2-charts-bar-template
-* Doughnut Chart - https://stackblitz.com/edit/ng2-charts-doughnut-template
-* Radar Chart - https://stackblitz.com/edit/ng2-charts-radar-template
-* Polar Area Chart - https://stackblitz.com/edit/ng2-charts-polar-area-template
-* Bubble Chart - https://stackblitz.com/edit/ng2-charts-bubble-template
-* Scatter Chart - https://stackblitz.com/edit/ng2-charts-scatter-template
+* Line Chart - https://stackblitz.com/edit/ng2-charts-line-template-v3
+* Pie Chart - https://stackblitz.com/edit/ng2-charts-pie-template-v3
+* Bar Chart - https://stackblitz.com/edit/ng2-charts-bar-template-v3
+* Doughnut Chart - https://stackblitz.com/edit/ng2-charts-doughnut-template-v3
+* Radar Chart - https://stackblitz.com/edit/ng2-charts-radar-template-v3
+* Polar Area Chart - https://stackblitz.com/edit/ng2-charts-polar-area-template-v3
+* Bubble Chart - https://stackblitz.com/edit/ng2-charts-bubble-template-v3
+* Scatter Chart - https://stackblitz.com/edit/ng2-charts-scatter-template-v3
 
 ## API
 
