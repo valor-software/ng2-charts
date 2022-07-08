@@ -60,7 +60,7 @@
     "@angular-eslint/template-parser": "^13.0.0",
     "@angular/cli": "^13.0.0",
     "@angular/compiler-cli": "^13.0.0",
-    "@angular/language-service": "^13.0.0",
+    "@angular/language-service": "^14.0.5",
     "@cypress/schematic": "^2.0.0",
     "@schematics/angular": "^13.0.0",
     "@types/cypress-image-snapshot": "^3.1.6",
