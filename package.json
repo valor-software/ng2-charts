@@ -62,7 +62,7 @@
     "@angular/compiler-cli": "^14.0.5",
     "@angular/language-service": "^14.0.5",
     "@cypress/schematic": "^2.0.0",
-    "@schematics/angular": "^13.0.0",
+    "@schematics/angular": "^14.0.0",
     "@types/cypress-image-snapshot": "^3.1.6",
     "@types/jasmine": "~4.0.3",
     "@types/jasminewd2": "^2.0.10",
