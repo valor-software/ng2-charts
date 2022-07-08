@@ -141,3 +141,24 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: 'gh-pages'
+
+  version-bump:
+    needs: publish-docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump version
+        working-directory: ./projects/ng2-charts
+        run: npm version patch
+      - run: |
+          git config --local user.email ${GITHUB_ACTOR}@users.noreply.github.com
+          git config --local user.name $GITHUB_ACTOR
+          git add -A
+          git commit -m "ci: bump to next dev version"
+        continue-on-error: true
+      - name: push
+        uses: ad-m/github-push-action@v0.6.0
+        continue-on-error: true
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
