@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "3.1.2",
+  "version": "4.0.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -13,8 +13,8 @@
     "postbuild": "npm run copy:schemas && npm run copy:templates && npm run copy:collection"
   },
   "peerDependencies": {
-    "@angular/common": ">=11.0.0",
-    "@angular/core": ">=11.0.0",
+    "@angular/common": ">=14.0.0",
+    "@angular/core": ">=14.0.0",
     "chart.js": "^3.4.0",
     "rxjs": "^6.5.3 || ^7.4.0"
   },
