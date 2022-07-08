@@ -65,14 +65,14 @@ or with yarn:
 
 ### Stackblitz Starting Templates
 
-* Line Chart - https://stackblitz.com/edit/ng2-charts-line-template-v3
-* Pie Chart - https://stackblitz.com/edit/ng2-charts-pie-template-v3
-* Bar Chart - https://stackblitz.com/edit/ng2-charts-bar-template-v3
-* Doughnut Chart - https://stackblitz.com/edit/ng2-charts-doughnut-template-v3
-* Radar Chart - https://stackblitz.com/edit/ng2-charts-radar-template-v3
-* Polar Area Chart - https://stackblitz.com/edit/ng2-charts-polar-area-template-c3
-* Bubble Chart - https://stackblitz.com/edit/ng2-charts-bubble-template-v3
-* Scatter Chart - https://stackblitz.com/edit/ng2-charts-scatter-template-v3
+* Line Chart - https://stackblitz.com/github/santam85/ng2-charts-line-template?preset=node
+* Pie Chart - https://stackblitz.com/github/santam85/ng2-charts-pie-template?preset=node
+* Bar Chart - https://stackblitz.com/github/santam85/ng2-charts-bar-template?preset=node
+* Doughnut Chart - https://stackblitz.com/github/santam85/ng2-charts-doughnut-template?preset=node
+* Radar Chart - https://stackblitz.com/github/santam85/ng2-charts-radar-template?preset=node
+* Polar Area Chart - https://stackblitz.com/github/santam85/ng2-charts-polar-area-template?preset=node
+* Bubble Chart - https://stackblitz.com/github/santam85/ng2-charts-bubble-template?preset=node
+* Scatter Chart - https://stackblitz.com/github/santam85/ng2-charts-scatter-template?preset=node
 
 ## API
 
