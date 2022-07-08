@@ -43,8 +43,8 @@
     "date-fns": "^2.25.0",
     "highlight.js": "^11.3.1",
     "lodash-es": "^4.17.21",
-    "ngx-highlightjs": "^6.0.0",
-    "ngx-markdown": "^13.0.0",
+    "ngx-highlightjs": "^7.0.0",
+    "ngx-markdown": "^14.0.0",
     "prismjs": "^1.27.0",
     "rxjs": "^7.4.0",
     "zone.js": "~0.11.4"
