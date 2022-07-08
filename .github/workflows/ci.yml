@@ -33,13 +33,13 @@ jobs:
       - run: npm run e2e:ci
       - name: Archive e2e screenshots
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: visual-testing-diff
           path: e2e/src/snapshots/*/__diff_output__
       - name: Archive e2e video
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: visual-testing-videos
           path: dist/cypress/*/videos
