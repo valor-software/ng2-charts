@@ -19,7 +19,7 @@ jobs:
         with:
           cache: npm
           node-version: 16
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: |
             .angular/cache
