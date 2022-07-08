@@ -89,7 +89,7 @@
     "raw-loader": "^4.0.2",
     "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
-    "typescript": "~4.6.4"
+    "typescript": "~4.7.4"
   },
   "overrides": {
     "cypress": "^10.3.0"
