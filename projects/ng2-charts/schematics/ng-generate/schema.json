@@ -1,12 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "SchematicsMaterialAddressForm",
+  "$id": "ng2-chart-ng-generate",
   "title": "Material Address Form Options Schema",
   "type": "object",
   "properties": {
     "path": {
       "type": "string",
       "format": "path",
+      "$default": {
+        "$source": "workingDirectory"
+      },
       "description": "The path to create the component.",
       "visible": false
     },

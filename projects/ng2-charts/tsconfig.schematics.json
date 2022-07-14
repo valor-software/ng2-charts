@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "./",
     "baseUrl": "./",
-    "outDir": "dist",
+    "outDir": "../../dist/ng2-charts",
     "module": "commonjs",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
