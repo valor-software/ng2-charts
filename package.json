@@ -73,7 +73,7 @@
     "@typescript-eslint/parser": "^5.29.0",
     "cypress": "^10.3.0",
     "cypress-image-snapshot": "^4.0.1",
-    "eslint": "^8.18.0",
+    "eslint": "^8.20.0",
     "eyes.images": "^3.8.7",
     "gh-pages": "^4.0.0",
     "jasmine": "^4.2.0",
