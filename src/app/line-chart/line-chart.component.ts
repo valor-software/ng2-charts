@@ -90,8 +90,8 @@ export class LineChartComponent {
             borderColor: 'orange',
             borderWidth: 2,
             label: {
+              display: true,
               position: 'center',
-              enabled: true,
               color: 'orange',
               content: 'LineAnno',
               font: {

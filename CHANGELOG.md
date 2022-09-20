@@ -2,28 +2,323 @@
 
 ## [Unreleased](https://github.com/valor-software/ng2-charts/tree/HEAD)
 
-[Full Changelog](https://github.com/valor-software/ng2-charts/compare/2.4.2...HEAD)
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v4.0.0...HEAD)
 
 **Closed issues:**
 
-- Any plans to support Chart.js version 3? [\#1292](https://github.com/valor-software/ng2-charts/issues/1292)
-- Build errors out on Angular 11 [\#1286](https://github.com/valor-software/ng2-charts/issues/1286)
-- Angular 8 + ng2-chart not working in IE [\#1278](https://github.com/valor-software/ng2-charts/issues/1278)
-- How can I use the ChartDataSet dynamical [\#1277](https://github.com/valor-software/ng2-charts/issues/1277)
-- Charts initialized with an empty dataset cause errors on change detection [\#1265](https://github.com/valor-software/ng2-charts/issues/1265)
-- Bar chart columns fail to render above a certain width [\#1249](https://github.com/valor-software/ng2-charts/issues/1249)
-- Chart.js 3.0 update [\#1214](https://github.com/valor-software/ng2-charts/issues/1214)
-- How to integrate plugin of chartJs [\#1211](https://github.com/valor-software/ng2-charts/issues/1211)
-- Updated for Angular 13
+- NG0303: Can't bind to 'type' since it isn't a known property of 'canvas' [\#1459](https://github.com/valor-software/ng2-charts/issues/1459)
+- can't import the named export 'ɵɵngdeclarefactory' from non ecmascript module [\#1457](https://github.com/valor-software/ng2-charts/issues/1457)
+- ng2-charts version compatibility with Angular 12 [\#1444](https://github.com/valor-software/ng2-charts/issues/1444)
+- Chart.min.js file not found angular 14 [\#1420](https://github.com/valor-software/ng2-charts/issues/1420)
+- Breaking Change v3.1.0 [\#1418](https://github.com/valor-software/ng2-charts/issues/1418)
+- Polar Area rescaling [\#1409](https://github.com/valor-software/ng2-charts/issues/1409)
+- ERROR Error: "logarithmic" is not a registered scale. [\#1377](https://github.com/valor-software/ng2-charts/issues/1377)
+- Build errors after adding 3.0.1 to project [\#1355](https://github.com/valor-software/ng2-charts/issues/1355)
+- Create proper documentation with updated examples [\#1341](https://github.com/valor-software/ng2-charts/issues/1341)
+- ERROR NullInjectorError in radar chart [\#1269](https://github.com/valor-software/ng2-charts/issues/1269)
+- ng2-charts - Display only monday's date on x-axis of linechart [\#1244](https://github.com/valor-software/ng2-charts/issues/1244)
+- feature: Allow running Chart.js through NgZone.runOutsideAngular\(\) [\#1218](https://github.com/valor-software/ng2-charts/issues/1218)
 
 **Merged pull requests:**
 
-- Fix typo on AppComponent [\#1290](https://github.com/valor-software/ng2-charts/pull/1290) ([KevinPy](https://github.com/KevinPy))
-- Updated for Angular 11 [\#1281](https://github.com/valor-software/ng2-charts/pull/1281) ([paviad](https://github.com/paviad))
-- Upgrade to Chart.js 3.0 [\#1276](https://github.com/valor-software/ng2-charts/pull/1276) ([santam85](https://github.com/santam85))
+- chore\(deps\): bump core-js from 3.23.3 to 3.23.5 [\#1449](https://github.com/valor-software/ng2-charts/pull/1449) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump eslint from 8.19.0 to 8.20.0 [\#1448](https://github.com/valor-software/ng2-charts/pull/1448) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump rxjs from 7.5.5 to 7.5.6 [\#1446](https://github.com/valor-software/ng2-charts/pull/1446) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump @typescript-eslint/parser from 5.30.5 to 5.30.6 [\#1445](https://github.com/valor-software/ng2-charts/pull/1445) ([dependabot[bot]](https://github.com/apps/dependabot))
 
-## [v2.4.3](https://github.com/valor-software/ng2-charts/tree/v2.4.3) (2021-07-06)
-[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.1.0...v2.4.3)
+## [v4.0.0](https://github.com/valor-software/ng2-charts/tree/v4.0.0) (2022-07-14)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.1.2...v4.0.0)
+
+**Closed issues:**
+
+- Generate new chart: An unhandled exception occurred: NOT SUPPORTED: keyword "id", use "$id" for schema ID [\#1443](https://github.com/valor-software/ng2-charts/issues/1443)
+- Creating chart component fails in Angular 14  [\#1412](https://github.com/valor-software/ng2-charts/issues/1412)
+
+## [v3.1.2](https://github.com/valor-software/ng2-charts/tree/v3.1.2) (2022-07-08)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.1.1...v3.1.2)
+
+**Closed issues:**
+
+- Bar Chart skipNull \#1416 [\#1422](https://github.com/valor-software/ng2-charts/issues/1422)
+- Error while using ng2-charts with Angular 13 [\#1419](https://github.com/valor-software/ng2-charts/issues/1419)
+- Cannot set point colors [\#1413](https://github.com/valor-software/ng2-charts/issues/1413)
+- StackBlitz examples are out of date [\#1410](https://github.com/valor-software/ng2-charts/issues/1410)
+
+**Merged pull requests:**
+
+- chore\(deps\): bump actions/download-artifact from 2 to 3 [\#1427](https://github.com/valor-software/ng2-charts/pull/1427) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/setup-node from 2 to 3 [\#1426](https://github.com/valor-software/ng2-charts/pull/1426) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/upload-artifact from 2 to 3 [\#1425](https://github.com/valor-software/ng2-charts/pull/1425) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 2 to 3 [\#1424](https://github.com/valor-software/ng2-charts/pull/1424) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/cache from 2 to 3 [\#1423](https://github.com/valor-software/ng2-charts/pull/1423) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v3.1.1](https://github.com/valor-software/ng2-charts/tree/v3.1.1) (2022-07-08)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.1.0...v3.1.1)
+
+**Closed issues:**
+
+- npm install ng2-charts@next --save command throws ERRORS [\#1417](https://github.com/valor-software/ng2-charts/issues/1417)
+- Bar Chart skipNull? [\#1416](https://github.com/valor-software/ng2-charts/issues/1416)
+- How to left-align the entire chart in the canvas, Currently We can align the legend but not the chart [\#1414](https://github.com/valor-software/ng2-charts/issues/1414)
+
+## [v3.1.0](https://github.com/valor-software/ng2-charts/tree/v3.1.0) (2022-06-29)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.11...v3.1.0)
+
+**Closed issues:**
+
+- Horizontal Bar Chart [\#1407](https://github.com/valor-software/ng2-charts/issues/1407)
+- ERROR Error: NotYetImplemented SSR [\#1401](https://github.com/valor-software/ng2-charts/issues/1401)
+- canvas can't bind to \[colors\] property in Angular 12 [\#1400](https://github.com/valor-software/ng2-charts/issues/1400)
+- Not Compatible with Angular 9 Ivy [\#1239](https://github.com/valor-software/ng2-charts/issues/1239)
+
+**Merged pull requests:**
+
+- Feature/ng update [\#1415](https://github.com/valor-software/ng2-charts/pull/1415) ([santam85](https://github.com/santam85))
+
+## [v3.0.11](https://github.com/valor-software/ng2-charts/tree/v3.0.11) (2022-05-10)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.10...v3.0.11)
+
+**Merged pull requests:**
+
+- chore\(deps\): bump async from 2.6.3 to 2.6.4 [\#1404](https://github.com/valor-software/ng2-charts/pull/1404) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ejs from 3.1.6 to 3.1.7 [\#1403](https://github.com/valor-software/ng2-charts/pull/1403) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump plist from 3.0.4 to 3.0.5 [\#1397](https://github.com/valor-software/ng2-charts/pull/1397) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v3.0.10](https://github.com/valor-software/ng2-charts/tree/v3.0.10) (2022-04-29)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.9...v3.0.10)
+
+**Closed issues:**
+
+- Cannot find module 'ng2-charts' or its corresponding type declarations. [\#1402](https://github.com/valor-software/ng2-charts/issues/1402)
+- Last XAxis label not always shown for large data sets [\#1398](https://github.com/valor-software/ng2-charts/issues/1398)
+
+## [v3.0.9](https://github.com/valor-software/ng2-charts/tree/v3.0.9) (2022-04-11)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.8...v3.0.9)
+
+**Closed issues:**
+
+- How to set the cutout values for Doughnut charts [\#1393](https://github.com/valor-software/ng2-charts/issues/1393)
+- Update chart.js/awesome README [\#1392](https://github.com/valor-software/ng2-charts/issues/1392)
+- bar graph tooltip is not showing for smaller values. [\#1391](https://github.com/valor-software/ng2-charts/issues/1391)
+- Hide Background gridlines [\#1390](https://github.com/valor-software/ng2-charts/issues/1390)
+- Type '....' is not generic [\#1389](https://github.com/valor-software/ng2-charts/issues/1389)
+- Unable to import Color and Label from ng2-charts v.3.0.8 Angular v12 [\#1386](https://github.com/valor-software/ng2-charts/issues/1386)
+- Imports not found after update [\#1380](https://github.com/valor-software/ng2-charts/issues/1380)
+- Trouble installing ng2-charts with rxjs 7.4.0, ng13 [\#1379](https://github.com/valor-software/ng2-charts/issues/1379)
+- On angular 13 the generate command doesn't allow generating new cart components [\#1373](https://github.com/valor-software/ng2-charts/issues/1373)
+- Can't bind to 'chartType' since it isn't a known property of 'canvas' [\#1372](https://github.com/valor-software/ng2-charts/issues/1372)
+- An unhandled exception occurred: NOT SUPPORTED: keyword "id", use "$id" for schema ID [\#1368](https://github.com/valor-software/ng2-charts/issues/1368)
+- Run test with jest "Cannot find module 'ng2-charts'" [\#1352](https://github.com/valor-software/ng2-charts/issues/1352)
+
+**Merged pull requests:**
+
+- chore\(deps\): bump minimist from 1.2.5 to 1.2.6 [\#1396](https://github.com/valor-software/ng2-charts/pull/1396) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump nanoid from 3.1.30 to 3.3.1 [\#1388](https://github.com/valor-software/ng2-charts/pull/1388) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump engine.io from 6.1.0 to 6.1.3 [\#1387](https://github.com/valor-software/ng2-charts/pull/1387) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps-dev\): bump karma from 6.3.9 to 6.3.16 [\#1385](https://github.com/valor-software/ng2-charts/pull/1385) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump prismjs from 1.25.0 to 1.27.0 [\#1384](https://github.com/valor-software/ng2-charts/pull/1384) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump follow-redirects from 1.14.6 to 1.14.8 [\#1382](https://github.com/valor-software/ng2-charts/pull/1382) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v3.0.8](https://github.com/valor-software/ng2-charts/tree/v3.0.8) (2022-01-17)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.7...v3.0.8)
+
+## [v3.0.7](https://github.com/valor-software/ng2-charts/tree/v3.0.7) (2022-01-14)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.6...v3.0.7)
+
+**Fixed bugs:**
+
+- \(chartClick\) occurs outside ngZone with ng2-charts 3.X versions? [\#1358](https://github.com/valor-software/ng2-charts/issues/1358)
+
+**Closed issues:**
+
+- Unable to get plugins like 'chartjs-plugin-crosshair' to work [\#1371](https://github.com/valor-software/ng2-charts/issues/1371)
+- package install failed for Angular 13 using command ng add ng2-charts@next --force [\#1370](https://github.com/valor-software/ng2-charts/issues/1370)
+- Tooltip doesn't work as expected on safari [\#1369](https://github.com/valor-software/ng2-charts/issues/1369)
+- scale type "time" with version 3+ [\#1367](https://github.com/valor-software/ng2-charts/issues/1367)
+- scales type "time" [\#1366](https://github.com/valor-software/ng2-charts/issues/1366)
+- The generateLegend\(\) method exists on the Chart object so we can access it by grabbing it from the Viewchild of the BaseChartDirective like so [\#1363](https://github.com/valor-software/ng2-charts/issues/1363)
+- Having issue with generateLegend in BaseChartDirective [\#1362](https://github.com/valor-software/ng2-charts/issues/1362)
+
+## [v3.0.6](https://github.com/valor-software/ng2-charts/tree/v3.0.6) (2022-01-05)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.5...v3.0.6)
+
+**Closed issues:**
+
+- ChartPoint Equivalent in v3 [\#1364](https://github.com/valor-software/ng2-charts/issues/1364)
+- Uncaught TypeError: Object\(...\) is not a function [\#1361](https://github.com/valor-software/ng2-charts/issues/1361)
+- Error: ./node\_modules/ng2-charts/fesm2015/ng2-charts.mjs 418:22-44 Can't import the named export '╔╡╔╡ngDeclareInjector' from non EcmaScript module \(only default export is available\) [\#1359](https://github.com/valor-software/ng2-charts/issues/1359)
+
+**Merged pull requests:**
+
+- Run event handlers in zone [\#1365](https://github.com/valor-software/ng2-charts/pull/1365) ([santam85](https://github.com/santam85))
+
+## [v3.0.5](https://github.com/valor-software/ng2-charts/tree/v3.0.5) (2021-12-22)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.4...v3.0.5)
+
+## [v3.0.4](https://github.com/valor-software/ng2-charts/tree/v3.0.4) (2021-12-22)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.3...v3.0.4)
+
+## [v3.0.3](https://github.com/valor-software/ng2-charts/tree/v3.0.3) (2021-12-22)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.2...v3.0.3)
+
+**Closed issues:**
+
+- scales with type:time support [\#1356](https://github.com/valor-software/ng2-charts/issues/1356)
+- Line chart tooltips don't show when colors change [\#1289](https://github.com/valor-software/ng2-charts/issues/1289)
+
+## [v3.0.2](https://github.com/valor-software/ng2-charts/tree/v3.0.2) (2021-12-17)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.1...v3.0.2)
+
+**Closed issues:**
+
+- Jest test end with "ReferenceError: Cannot access 'NgChartsConfiguration' before initialization" error [\#1354](https://github.com/valor-software/ng2-charts/issues/1354)
+- horizontalBar no more available [\#1353](https://github.com/valor-software/ng2-charts/issues/1353)
+- Update dependencies [\#1350](https://github.com/valor-software/ng2-charts/issues/1350)
+
+## [v3.0.1](https://github.com/valor-software/ng2-charts/tree/v3.0.1) (2021-12-07)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0...v3.0.1)
+
+**Closed issues:**
+
+- ng2-chart not working with angular 10.2.1 [\#1349](https://github.com/valor-software/ng2-charts/issues/1349)
+- Angular 13 Support [\#1346](https://github.com/valor-software/ng2-charts/issues/1346)
+- When can we expect stable release of version 3.0.0 [\#1328](https://github.com/valor-software/ng2-charts/issues/1328)
+
+## [v3.0.0](https://github.com/valor-software/ng2-charts/tree/v3.0.0) (2021-12-06)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-rc.7...v3.0.0)
+
+**Closed issues:**
+
+- Ivy Distribution [\#1348](https://github.com/valor-software/ng2-charts/issues/1348)
+- Does ng2-charts supports RTL \(scale, legend, tooltip\) [\#1347](https://github.com/valor-software/ng2-charts/issues/1347)
+- Create percent stcked bar chart [\#1344](https://github.com/valor-software/ng2-charts/issues/1344)
+- I have used "chart.js": "^2.9.4" and the error is resolved. so you can use this version. [\#1343](https://github.com/valor-software/ng2-charts/issues/1343)
+- \> I edited the stackblitz above and fixed the double instance of the module, when using a shared module: [\#1342](https://github.com/valor-software/ng2-charts/issues/1342)
+- error: Type alias '\_DeepPartialArray' circularly references itself [\#1339](https://github.com/valor-software/ng2-charts/issues/1339)
+- Compatibiliy ng2chart 3.0.0.rc.5 with angular 8 and char.js 3.5.1  [\#1338](https://github.com/valor-software/ng2-charts/issues/1338)
+- How to make a Chart visually update after the value of the dataset changes [\#1337](https://github.com/valor-software/ng2-charts/issues/1337)
+- Jest error with Angular 11 [\#1291](https://github.com/valor-software/ng2-charts/issues/1291)
+- ng2-chart doughnut breaks on mouse hover [\#1271](https://github.com/valor-software/ng2-charts/issues/1271)
+- Is there any way to implement zooming & dragging features [\#388](https://github.com/valor-software/ng2-charts/issues/388)
+
+**Merged pull requests:**
+
+- v3.0.0 release [\#1345](https://github.com/valor-software/ng2-charts/pull/1345) ([santam85](https://github.com/santam85))
+
+## [v3.0.0-rc.7](https://github.com/valor-software/ng2-charts/tree/v3.0.0-rc.7) (2021-10-22)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-rc.5...v3.0.0-rc.7)
+
+**Closed issues:**
+
+- Ticks with images [\#1335](https://github.com/valor-software/ng2-charts/issues/1335)
+- How to left-align the entire chart in the canvas? [\#1334](https://github.com/valor-software/ng2-charts/issues/1334)
+- NgChartsModule is already loaded. Use .forRoot\(\) in the AppModule only [\#1333](https://github.com/valor-software/ng2-charts/issues/1333)
+- Stale data and labels due to merging [\#1320](https://github.com/valor-software/ng2-charts/issues/1320)
+- Upgrading from 2.3.3 to 2.4.2: Error: getInternalNameOfClass\(\) called on a non-ES5 class: expected ThemeService to have an inner class declaration [\#1306](https://github.com/valor-software/ng2-charts/issues/1306)
+- Unable to create new Chart object [\#1302](https://github.com/valor-software/ng2-charts/issues/1302)
+- Canvas is not displaying  [\#1300](https://github.com/valor-software/ng2-charts/issues/1300)
+- Rendering issue with charts with several rows or columns [\#1298](https://github.com/valor-software/ng2-charts/issues/1298)
+- Adding jquery.min.js to 'scripts' breaks functionality [\#1151](https://github.com/valor-software/ng2-charts/issues/1151)
+
+## [v3.0.0-rc.5](https://github.com/valor-software/ng2-charts/tree/v3.0.0-rc.5) (2021-08-06)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.4.3...v3.0.0-rc.5)
+
+**Closed issues:**
+
+- Chart.Plugin afterfit not working [\#1327](https://github.com/valor-software/ng2-charts/issues/1327)
+- Do you support chart.js 3+ version? [\#1326](https://github.com/valor-software/ng2-charts/issues/1326)
+- Angular 12, some changes in properties [\#1325](https://github.com/valor-software/ng2-charts/issues/1325)
+- \[options\] on line ng2-chart [\#1318](https://github.com/valor-software/ng2-charts/issues/1318)
+- AngularWebpackPlugin missing error  [\#1310](https://github.com/valor-software/ng2-charts/issues/1310)
+- Plugin annotation is not working  [\#1295](https://github.com/valor-software/ng2-charts/issues/1295)
+- How to Customize font for a specific label in yAxes or xAxes [\#1293](https://github.com/valor-software/ng2-charts/issues/1293)
+- Line-Chart - Non-numeric yAxis support? [\#1287](https://github.com/valor-software/ng2-charts/issues/1287)
+- Group chart labels together? \(Nested\) [\#1284](https://github.com/valor-software/ng2-charts/issues/1284)
+- version 2.4.2 not work on ie 11 because of syntax error [\#1283](https://github.com/valor-software/ng2-charts/issues/1283)
+- Build warning with Angular 10 [\#1282](https://github.com/valor-software/ng2-charts/issues/1282)
+- Chart.js is giving me a console error in Angular 8 environment [\#1279](https://github.com/valor-software/ng2-charts/issues/1279)
+- Lodash Tree Shaking not working [\#1272](https://github.com/valor-software/ng2-charts/issues/1272)
+- Its imposible to add rounded corners through ng2-charts for bar chart [\#1231](https://github.com/valor-software/ng2-charts/issues/1231)
+
+## [v2.4.3](https://github.com/valor-software/ng2-charts/tree/v2.4.3) (2021-07-07)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-rc.4...v2.4.3)
+
+**Merged pull requests:**
+
+- Fix/issue 1283 [\#1324](https://github.com/valor-software/ng2-charts/pull/1324) ([santam85](https://github.com/santam85))
+- Clean history and release 2.4.2 [\#1270](https://github.com/valor-software/ng2-charts/pull/1270) ([santam85](https://github.com/santam85))
+
+## [v3.0.0-rc.4](https://github.com/valor-software/ng2-charts/tree/v3.0.0-rc.4) (2021-07-06)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-rc.3...v3.0.0-rc.4)
+
+**Closed issues:**
+
+- When do we support the Angular 12 project and chart.js 3.3.x ? [\#1319](https://github.com/valor-software/ng2-charts/issues/1319)
+- Generating a new chart using chart schematics throws error: Index 2760 outside of range \[0, 329\]. [\#1315](https://github.com/valor-software/ng2-charts/issues/1315)
+- upgrading chart.js to 3.1.1 and getting many errors [\#1309](https://github.com/valor-software/ng2-charts/issues/1309)
+- Dump lodash-es, use lodash instead [\#1294](https://github.com/valor-software/ng2-charts/issues/1294)
+
+## [v3.0.0-rc.3](https://github.com/valor-software/ng2-charts/tree/v3.0.0-rc.3) (2021-06-14)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-rc.2...v3.0.0-rc.3)
+
+**Fixed bugs:**
+
+- Chart isn't updating with Response data \(Chart.js: 3.2.1, ng2-charts: 3.0.0-beta.9\) [\#1313](https://github.com/valor-software/ng2-charts/issues/1313)
+
+**Closed issues:**
+
+- ng2-charts hovering over one Chart, should show horizontal and vertical line across all charts [\#1308](https://github.com/valor-software/ng2-charts/issues/1308)
+- Gradient for each bar in bar-charts [\#1305](https://github.com/valor-software/ng2-charts/issues/1305)
+- Is plugin updated for Angular 9. 10 and 11 version? [\#1304](https://github.com/valor-software/ng2-charts/issues/1304)
+- How to display value beside bar chart? I'm new [\#1299](https://github.com/valor-software/ng2-charts/issues/1299)
+
+## [v3.0.0-rc.2](https://github.com/valor-software/ng2-charts/tree/v3.0.0-rc.2) (2021-05-21)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-rc.1...v3.0.0-rc.2)
+
+**Closed issues:**
+
+- Request : Can there be a property added for 'font-color' similar to 'backgroundColor' in color.d.ts [\#1314](https://github.com/valor-software/ng2-charts/issues/1314)
+
+## [v3.0.0-rc.1](https://github.com/valor-software/ng2-charts/tree/v3.0.0-rc.1) (2021-05-19)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.9...v3.0.0-rc.1)
+
+## [v3.0.0-beta.9](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.9) (2021-05-10)
+
+[Full Changelog](https://github.com/valor-software/ng2-charts/compare/2.4.2...v3.0.0-beta.9)
+
+**Closed issues:**
+
+- Any plans to support chart.js version 3? [\#1292](https://github.com/valor-software/ng2-charts/issues/1292)
+- Build errors out on Angular 11 [\#1286](https://github.com/valor-software/ng2-charts/issues/1286)
+- Angular 8 + ng2-chart not working in IE [\#1278](https://github.com/valor-software/ng2-charts/issues/1278)
+- How can i use the ChartDataSet dynamical [\#1277](https://github.com/valor-software/ng2-charts/issues/1277)
+- Charts initialized with an empty dataset cause errors on change detection [\#1265](https://github.com/valor-software/ng2-charts/issues/1265)
+- Bar chart columns fail to render above a certain width [\#1249](https://github.com/valor-software/ng2-charts/issues/1249)
+- chart Js 3.0 update [\#1214](https://github.com/valor-software/ng2-charts/issues/1214)
+- How to integrate plugin of chartJs [\#1211](https://github.com/valor-software/ng2-charts/issues/1211)
 
 ## [2.4.2](https://github.com/valor-software/ng2-charts/tree/2.4.2) (2020-09-23)
 
@@ -38,7 +333,6 @@
 - Module not found error [\#1257](https://github.com/valor-software/ng2-charts/issues/1257)
 - Error after updating the vesion 2.3.2 to 2.4.0 [\#1255](https://github.com/valor-software/ng2-charts/issues/1255)
 - can't resetZoom\(\) [\#1247](https://github.com/valor-software/ng2-charts/issues/1247)
-- Not Compatible with Angular 9 Ivy [\#1239](https://github.com/valor-software/ng2-charts/issues/1239)
 - error TS2322: Type '{ responsive: true; scales: { xAxes: {}\[\]; - ChartOptions TypeScript [\#1221](https://github.com/valor-software/ng2-charts/issues/1221)
 - cannot find module moment [\#1220](https://github.com/valor-software/ng2-charts/issues/1220)
 - Release new version [\#1196](https://github.com/valor-software/ng2-charts/issues/1196)
@@ -46,11 +340,6 @@
 - Can someone let me know how to label each point in scatter plot. [\#1176](https://github.com/valor-software/ng2-charts/issues/1176)
 - Line-Chart schematic generation error: "Index 1390 outside of range \[0, 284\]." [\#1162](https://github.com/valor-software/ng2-charts/issues/1162)
 - How to compile with lodash-es instead of lodash [\#1120](https://github.com/valor-software/ng2-charts/issues/1120)
-
-**Merged pull requests:**
-
-- Updated comparison method for visual testing [\#1262](https://github.com/valor-software/ng2-charts/pull/1262) ([santam85](https://github.com/santam85))
-- Remove Applitools dependency for visual testing [\#1259](https://github.com/valor-software/ng2-charts/pull/1259) ([santam85](https://github.com/santam85))
 
 ## [2.4.1](https://github.com/valor-software/ng2-charts/tree/2.4.1) (2020-09-09)
 
@@ -64,11 +353,6 @@
 - Remove peer dependency [\#1224](https://github.com/valor-software/ng2-charts/issues/1224)
 - error in angular 9 [\#1205](https://github.com/valor-software/ng2-charts/issues/1205)
 - Schematic does not work [\#1160](https://github.com/valor-software/ng2-charts/issues/1160)
-
-**Merged pull requests:**
-
-- Angular 10.1 update  [\#1256](https://github.com/valor-software/ng2-charts/pull/1256) ([santam85](https://github.com/santam85))
-- fix: Remove duplicate OnDestroy from implements. Closes \#1246 [\#1252](https://github.com/valor-software/ng2-charts/pull/1252) ([danmana](https://github.com/danmana))
 
 ## [2.4.0](https://github.com/valor-software/ng2-charts/tree/2.4.0) (2020-08-25)
 
@@ -85,10 +369,6 @@
 **Closed issues:**
 
 - Pie chart having groupped labels with values [\#1242](https://github.com/valor-software/ng2-charts/issues/1242)
-
-**Merged pull requests:**
-
-- fix: match Angular 8 and Angular 9 [\#1227](https://github.com/valor-software/ng2-charts/pull/1227) ([Eugeno](https://github.com/Eugeno))
 
 ## [3.0.0-beta.6](https://github.com/valor-software/ng2-charts/tree/3.0.0-beta.6) (2020-05-13)
 
@@ -119,15 +399,6 @@
 - Can you please tell me how to get broken pie charts using ng2-charts [\#1111](https://github.com/valor-software/ng2-charts/issues/1111)
 - Angular 4? [\#1100](https://github.com/valor-software/ng2-charts/issues/1100)
 - ReferenceError: Chart is not defined [\#1099](https://github.com/valor-software/ng2-charts/issues/1099)
-
-**Merged pull requests:**
-
-- fix: Change peer dependency to match Angular 9 [\#1225](https://github.com/valor-software/ng2-charts/pull/1225) ([pedroCX486](https://github.com/pedroCX486))
-- Feat update cypress applitools sdk to support canvas testing [\#1163](https://github.com/valor-software/ng2-charts/pull/1163) ([ludmilanesvitiy](https://github.com/ludmilanesvitiy))
-- fix on url is null [\#1157](https://github.com/valor-software/ng2-charts/pull/1157) ([Domainv](https://github.com/Domainv))
-- fix\(doc\): fix links, add command for depolying to gh-pages [\#1156](https://github.com/valor-software/ng2-charts/pull/1156) ([Domainv](https://github.com/Domainv))
-- fix\(doc\): fix links [\#1155](https://github.com/valor-software/ng2-charts/pull/1155) ([Domainv](https://github.com/Domainv))
-- Correct the lodash import for tree shaking [\#1123](https://github.com/valor-software/ng2-charts/pull/1123) ([philjones88](https://github.com/philjones88))
 
 ## [2.3.0](https://github.com/valor-software/ng2-charts/tree/2.3.0) (2019-06-01)
 
@@ -162,7 +433,6 @@
 **Implemented enhancements:**
 
 - CSS properties list for all charts [\#816](https://github.com/valor-software/ng2-charts/issues/816)
-- fix\(tests\): removed check for info in main view [\#1090](https://github.com/valor-software/ng2-charts/pull/1090) ([ludmilanesvitiy](https://github.com/ludmilanesvitiy))
 
 **Closed issues:**
 
@@ -174,10 +444,6 @@
 - Is it possible to create a stacked line area chart? [\#1091](https://github.com/valor-software/ng2-charts/issues/1091)
 - Mac Safari Chart Plugin Service Register Not Working [\#1063](https://github.com/valor-software/ng2-charts/issues/1063)
 - How to use it with Ionic in a service [\#1049](https://github.com/valor-software/ng2-charts/issues/1049)
-
-**Merged pull requests:**
-
-- Fixed grammar errors [\#1093](https://github.com/valor-software/ng2-charts/pull/1093) ([tommygaessler](https://github.com/tommygaessler))
 
 ## [v2.2.0](https://github.com/valor-software/ng2-charts/tree/v2.2.0) (2019-03-27)
 
@@ -196,10 +462,6 @@
 
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/v3.0.0-beta.4...v2.1.0)
 
-**Merged pull requests:**
-
-- feat: Detect changes in property fields [\#1089](https://github.com/valor-software/ng2-charts/pull/1089) ([paviad](https://github.com/paviad))
-
 ## [v3.0.0-beta.4](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.4) (2019-03-26)
 
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/v2.0.4...v3.0.0-beta.4)
@@ -215,10 +477,6 @@
 **Closed issues:**
 
 - How to draw a mathematical function ? [\#1085](https://github.com/valor-software/ng2-charts/issues/1085)
-
-**Merged pull requests:**
-
-- tests\(common\): add snapshot tests with cypress and applitools [\#1072](https://github.com/valor-software/ng2-charts/pull/1072) ([ludmilanesvitiy](https://github.com/ludmilanesvitiy))
 
 ## [v3.0.0-beta.3](https://github.com/valor-software/ng2-charts/tree/v3.0.0-beta.3) (2019-03-21)
 
@@ -320,10 +578,6 @@
 - Responsive feature for a chart nested into a container [\#253](https://github.com/valor-software/ng2-charts/issues/253)
 - Update problem with scatter chart [\#230](https://github.com/valor-software/ng2-charts/issues/230)
 
-**Merged pull requests:**
-
-- fix\(common\): small enhancements to charts, buttons after testing [\#1070](https://github.com/valor-software/ng2-charts/pull/1070) ([ludmilanesvitiy](https://github.com/ludmilanesvitiy))
-
 ## [2.0.0-beta.21](https://github.com/valor-software/ng2-charts/tree/2.0.0-beta.21) (2019-03-08)
 
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/2.0.0-beta.20...2.0.0-beta.21)
@@ -414,10 +668,6 @@
 
 - Access to the .toBase64Image\(\) method [\#325](https://github.com/valor-software/ng2-charts/issues/325)
 
-**Merged pull requests:**
-
-- Default colors are not exposed [\#1068](https://github.com/valor-software/ng2-charts/pull/1068) ([santam85](https://github.com/santam85))
-
 ## [2.0.0-beta.15](https://github.com/valor-software/ng2-charts/tree/2.0.0-beta.15) (2019-03-06)
 
 [Full Changelog](https://github.com/valor-software/ng2-charts/compare/2.0.0-beta.14...2.0.0-beta.15)
@@ -459,10 +709,6 @@
 - ng2-charts double Y axis is not working [\#929](https://github.com/valor-software/ng2-charts/issues/929)
 - Documentation incorrectly states you cannot provide an array of arrays for the dataset for a doughnut chart. [\#831](https://github.com/valor-software/ng2-charts/issues/831)
 - Ng2-charts cannot handle empty datasets [\#751](https://github.com/valor-software/ng2-charts/issues/751)
-
-**Merged pull requests:**
-
-- Fix README.md [\#1067](https://github.com/valor-software/ng2-charts/pull/1067) ([rbromley10](https://github.com/rbromley10))
 
 ## [2.0.0-beta.13](https://github.com/valor-software/ng2-charts/tree/2.0.0-beta.13) (2019-03-06)
 
