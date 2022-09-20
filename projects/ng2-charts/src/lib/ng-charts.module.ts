@@ -8,6 +8,7 @@ import { builtInDefaults } from "./get-colors";
 export class NgChartsConfiguration {
   public plugins?: ChartComponentLike[];
   public defaults?: Partial<Defaults>;
+  public generateColors = true;
 }
 
 Chart.register(...registerables);
@@ -23,7 +24,7 @@ export class NgChartsModule {
     if (config?.plugins)
       Chart.register(...config?.plugins);
 
-    const ngChartsDefaults = merge(builtInDefaults, config?.defaults || {});
+    const ngChartsDefaults = merge(config?.generateColors ? builtInDefaults : {}, config?.defaults || {});
 
     defaults.set(ngChartsDefaults);
   }
