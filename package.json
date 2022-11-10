@@ -31,7 +31,7 @@
     "@angular/core": "^14.2.2",
     "@angular/forms": "^14.2.2",
     "@angular/material": "^14.2.2",
-    "@angular/platform-browser": "^14.2.2",
+    "@angular/platform-browser": "^14.2.10",
     "@angular/platform-browser-dynamic": "^14.2.2",
     "@angular/router": "^14.2.2",
     "chart.js": "^3.6.0",
