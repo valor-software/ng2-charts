@@ -53,7 +53,7 @@
     "@angular-devkit/build-angular": "^14.2.3",
     "@angular-devkit/core": "^14.2.3",
     "@angular-devkit/schematics": "^14.2.3",
-    "@angular-eslint/builder": "^14.1.1",
+    "@angular-eslint/builder": "^15.0.0",
     "@angular-eslint/eslint-plugin": "^14.1.1",
     "@angular-eslint/eslint-plugin-template": "^14.1.1",
     "@angular-eslint/schematics": "^14.1.1",
