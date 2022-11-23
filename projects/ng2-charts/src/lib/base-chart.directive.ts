@@ -9,7 +9,14 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Chart, ChartComponentLike, ChartConfiguration, ChartEvent, ChartType, DefaultDataPoint } from 'chart.js';
+import {
+  Chart,
+  ChartConfiguration,
+  ChartEvent,
+  ChartType,
+  DefaultDataPoint,
+  Plugin
+} from 'chart.js';
 
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
@@ -30,7 +37,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   @Input() public legend?: boolean;
   @Input() public data?: ChartConfiguration<TType, TData, TLabel>['data'];
   @Input() public options: ChartConfiguration<TType, TData, TLabel>['options'];
-  @Input() public plugins: ChartComponentLike[] = [];
+  @Input() public plugins: Plugin<TType>[] = [];
 
   @Input() public labels?: ChartConfiguration<TType, TData, TLabel>['data']['labels'];
   @Input() public datasets?: ChartConfiguration<TType, TData, TLabel>['data']['datasets'];
@@ -62,6 +69,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     } else {
       const config = this.getChartConfiguration();
 
+      // Using assign to avoid changing the original object reference
       if (this.chart) {
         Object.assign(this.chart.config.data, config.data);
         if (this.chart.config.plugins) {
@@ -88,8 +96,6 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     if (this.chart) {
       this.chart.destroy();
     }
-
-    Chart.register(...this.plugins);
 
     return this.zone.runOutsideAngular(() => this.chart = new Chart(this.ctx, this.getChartConfiguration()));
   }
@@ -158,7 +164,8 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
     return {
       type: this.type,
       data: this.getChartData(),
-      options: this.getChartOptions()
+      options: this.getChartOptions(),
+      plugins: this.plugins
     };
   }
 
