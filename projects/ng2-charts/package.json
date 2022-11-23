@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
