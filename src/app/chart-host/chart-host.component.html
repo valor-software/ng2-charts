@@ -1,26 +1,26 @@
-<section style="padding-top: 50px;">
-  <div>
-    <div>
-      <h4>{{heading}}</h4>
-    </div>
-  </div>
-  <div>
-    <ng-content></ng-content>
-  </div>
-  <div>
-    <div>
-      <mat-tab-group>
-        <mat-tab label="Markup">
-          <div class="card card-block panel panel-default panel-body">
+<section>
+  <h4>{{heading}}</h4>
+
+  <ng-content></ng-content>
+
+  <mat-tab-group>
+    <mat-tab label="Markup">
+      <div style="padding: 2em;">
+        <mat-card>
+          <mat-card-content>
             <pre><code [highlight]="html"></code></pre>
-          </div>
-        </mat-tab>
-        <mat-tab label="TypeScript">
-          <div class="card card-block panel panel-default panel-body">
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="TypeScript">
+      <div style="padding: 2em;">
+        <mat-card>
+          <mat-card-content>
             <pre><code [highlight]="ts"></code></pre>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-    </div>
-  </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </section>

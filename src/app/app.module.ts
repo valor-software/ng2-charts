@@ -24,6 +24,7 @@ import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
 import { LanguageFn } from "highlight.js";
+import { MatDividerModule } from "@angular/material/divider";
 
 const routes: Route[] = [];
 
@@ -59,7 +60,8 @@ export function hljsLanguages(): { [name: string]: Partial<LanguageFn> } {
     HttpClientModule,
     BrowserAnimationsModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(routes, {}),
+    MatDividerModule
   ],
   providers: [
     {

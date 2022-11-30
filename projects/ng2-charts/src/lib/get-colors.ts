@@ -2,6 +2,7 @@ import { baseColors } from './base-colors';
 import { Color } from 'chart.js';
 
 export const builtInDefaults = {
+  plugins: { colors: {enabled: false }},
   datasets: {
     line: {
       backgroundColor: (context: any) => rgba(generateColor(context.datasetIndex), 0.4),

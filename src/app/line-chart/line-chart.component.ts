@@ -42,7 +42,7 @@ export class LineChartComponent {
       {
         data: [ 180, 480, 770, 90, 1000, 270, 400 ],
         label: 'Series C',
-        yAxisID: 'y-axis-1',
+        yAxisID: 'y1',
         backgroundColor: 'rgba(255,0,0,0.3)',
         borderColor: 'red',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -63,12 +63,11 @@ export class LineChartComponent {
     },
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
-      x: {},
-      'y-axis-0':
+      y:
         {
           position: 'left',
         },
-      'y-axis-1': {
+      y1: {
         position: 'right',
         grid: {
           color: 'rgba(255,0,0,0.3)',

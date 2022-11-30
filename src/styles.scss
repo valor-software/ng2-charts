@@ -1,143 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
-
 @use '@angular/material' as mat;
-@import '~highlight.js/styles/github.css';
-@mixin ng2-charts-demo($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $warn: map-get($theme, warn);
-  $is-dark-theme: map-get($theme, is-dark);
-  pre {
-    display: block;
-    padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.42857143;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .panel {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-  }
-  .panel-body {
-    padding: 15px;
-  }
-  @if($is-dark-theme) {
-    .panel,
-    .hljs,
-    pre {
-      background-color: #333;
-    }
-    .panel-default,
-    pre {
-      border-color: rgb(39, 39, 39);
-    }
-    .hljs {
-      color: #ddd;
-    }
-    .hljs-name,
-    .hljs-built_in {
-      color: rgb(173, 177, 255);
-    }
-    .hljs-tag,
-    .hljs-keyword {
-      color: rgb(245, 245, 255);
-    }
-    .hljs-attr,
-    .hljs-number,
-    .hljs-literal {
-      color: #00c7c7;
-    }
-    .hljs-string {
-      color: rgb(255, 170, 192);
-    }
-    markdown code {
-      color: #c77d8f;
-      background-color: #2f2f2f;
-    } // prism
-    $languages: typescript bash;
-    @each $lang in $languages {
-      .language-#{$lang} {
-        background-color: black;
-        text-shadow: 0 1px #202020;
-      }
-    }
-    .token.operator {
-      background-color: rgb(42, 42, 42);
-    }
-    pre {
-      color: rgb(214, 214, 214);
-      background-color: #141414;
-      border: 1px solid rgb(59, 59, 59);
-    }
-    .panel {
-      background-color: rgb(0, 0, 0);
-      -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
-      box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
-    }
-    .panel-body {
-      padding: 15px;
-    }
+@import 'highlight.js/scss/github.scss';
+
+@include mat.core();
+
+// Define a light theme
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$deep-purple-palette),
+    accent: mat.define-palette(mat.$amber-palette),
+  ),
+  // Only include `typography` and `density` in the default dark theme.
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$deep-purple-palette),
+    accent: mat.define-palette(mat.$amber-palette),
+  ),
+));
+
+// Apply the light theme by default
+@include mat.all-component-themes($light-theme);
+
+// Apply the light theme only when the user prefers light themes.
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+  @import 'highlight.js/scss/github-dark.scss';
+
+  .hljs {
+    background: transparent;
   }
 }
 
-@include mat.core(); // Define your application's custom theme.
-.ng2-charts-demo-light-theme {
-  $primary: mat.define-palette(mat.$blue-gray-palette);
-  $accent: mat.define-palette(mat.$gray-palette);
-  $warn: mat.define-palette(mat.$red-palette);
-  $theme: mat.define-light-theme($primary, $accent, $warn);
-  @include mat.all-component-themes($theme);
-  @include ng2-charts-demo($theme);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.button-row > button { margin-right: 8px; }
+
+.chart {
+  width: 60%;
+  margin: auto;
 }
 
-.ng2-charts-demo-dark-theme {
-  $primary: mat.define-palette(mat.$indigo-palette, A200);
-  $accent: mat.define-palette(mat.$blue-palette, 300);
-  $warn: mat.define-palette(mat.$red-palette, 400);
-  $theme: mat.define-dark-theme($primary, $accent, $warn);
-  @include mat.all-component-themes($theme);
-  @include ng2-charts-demo($theme);
-}
-
-.ng2-charts-demo-old-theme {
-  $primary: mat.define-palette(mat.$brown-palette);
-  $accent: mat.define-palette(mat.$deep-orange-palette);
-  $warn: mat.define-palette(mat.$orange-palette);
-  $theme: mat.define-dark-theme($primary, $accent, $warn);
-  @include mat.all-component-themes($theme);
-  @include ng2-charts-demo($theme);
-}
-
-.ng2-charts-demo-weird-theme {
-  $primary: mat.define-palette(mat.$light-blue-palette);
-  $accent: mat.define-palette(mat.$yellow-palette);
-  $warn: mat.define-palette(mat.$red-palette);
-  $theme: mat.define-light-theme($primary, $accent, $warn);
-  @include mat.all-component-themes($theme);
-  @include ng2-charts-demo($theme);
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.button-row > [mat-button] {
-  margin-left: 8px;
-  margin-right: 8px;
+.hljs {
+  background: transparent;
 }
