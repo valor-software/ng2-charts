@@ -4,8 +4,6 @@ import { initPlugin } from "@frsource/cypress-plugin-visual-regression-diff/plug
 export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:4200/",
-    viewportWidth: 1440,
-    viewportHeight: 900,
     chromeWebSecurity: false,
     videosFolder: "../dist/cypress/ng2-charts-e2e/videos",
     screenshotsFolder: "../dist/cypress/ng2-charts-e2e/screenshots",
