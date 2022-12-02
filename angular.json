@@ -121,7 +121,7 @@
           "configurations": {
             "update-snapshots": {
               "env": {
-                "updateSnapshots": true
+                "pluginVisualRegressionUpdateImages": true
               }
             }
           }

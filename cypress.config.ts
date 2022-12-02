@@ -1,5 +1,5 @@
 import { defineConfig } from "cypress";
-import { addMatchImageSnapshotPlugin } from "cypress-image-snapshot/plugin";
+import { initPlugin } from "@frsource/cypress-plugin-visual-regression-diff/plugins";
 
 export default defineConfig({
   e2e: {
@@ -11,7 +11,7 @@ export default defineConfig({
     screenshotsFolder: "../dist/cypress/ng2-charts-e2e/screenshots",
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      addMatchImageSnapshotPlugin(on, config);
+      initPlugin(on, config);
     },
-  },
+  }
 });
