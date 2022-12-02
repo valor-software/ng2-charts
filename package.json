@@ -61,7 +61,6 @@
     "@angular/cli": "^15.0.2",
     "@angular/compiler-cli": "^15.0.2",
     "@angular/language-service": "^15.0.2",
-    "@briebug/jest-schematic": "^5.0.0",
     "@cypress/schematic": "^2.0.0",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.2.3",
     "@schematics/angular": "^15.0.0",
