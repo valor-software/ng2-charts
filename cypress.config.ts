@@ -13,6 +13,6 @@ export default defineConfig({
     },
   },
   env: {
-    pluginVisualRegressionDiffConfig: { threshold: 0.1, includeAA: false },
+    pluginVisualRegressionDiffConfig: { includeAA: false },
   },
 });
