@@ -42,4 +42,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: visual-testing-videos
-          path: dist/cypress/ng2-charts-e2e/videos
+          path: dist/cypress/videos
