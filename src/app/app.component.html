@@ -1,307 +1,310 @@
-<div [ngClass]="selectedTheme">
-  <mat-toolbar>
-    <span>ng2-charts</span>
-    <a mat-button (click)="selectedTheme='dark-theme'">Dark Theme</a>
-    <a mat-button (click)="selectedTheme='light-theme'">Light Theme</a>
-  </mat-toolbar>
+<mat-toolbar>
+  <span>ng2-charts</span>
 
-  <main class="bd-pageheader">
-    <div class="container">
-      <div class="flex">
-        <img src="http://www.chartjs.org/img/chartjs-logo.svg" alt="Chart.js logo"
-             style="background: top center no-repeat;background-size: contain;">
-        <div>
-          <h1 style="font-family: Consolas, monospace">ng2-charts</h1>
-          <p>Angular directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
+  <div class="spacer"></div>
+
+  <mat-slide-toggle color="primary" [(ngModel)]="isDarkTheme" (ngModelChange)="themeChanged()">
+    Dark Theme
+  </mat-slide-toggle>
+</mat-toolbar>
+
+<main class="bd-pageheader">
+  <div class="container">
+    <div class="flex">
+      <img src="http://www.chartjs.org/img/chartjs-logo.svg" alt="Chart.js logo"
+           style="background: top center no-repeat;background-size: contain;">
+      <div>
+        <h1 style="font-family: Consolas, monospace">ng2-charts</h1>
+        <p>Angular directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
 
 
-          <a target="_blank"
-             href="https://ngx-home.slack.com/archives/C1QFKA5QE">
-            <img src="https://a.slack-edge.com/66f9/img/icons/ios-256.png" width="25" height="25"
-                 alt="slack of ng2-charts">
-          </a>
-          <a target="_blank" href="https://stackoverflow.com/questions/tagged/ng2-charts">
-            <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg" width="25"
-                 height="25"
-                 alt="ng2-charts on stackoverflow">
-          </a>
-          <a target="_blank" href="https://github.com/valor-software/ng2-charts">
-            <img src="https://github.githubassets.com/favicon.ico" width="25" height="25" alt="ng2-charts on github">
-          </a>
-
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=star&count=true"></iframe>
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=fork&count=true"></iframe>
-
-        </div>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=star&count=true"></iframe>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=fork&count=true"></iframe>
+        &nbsp;
+        <a target="_blank"
+           href="https://ngx-home.slack.com/archives/C1QFKA5QE">
+          <img src="https://a.slack-edge.com/66f9/img/icons/ios-256.png" width="25" height="25"
+               alt="slack of ng2-charts">
+        </a>
+        &nbsp;
+        <a target="_blank" href="https://stackoverflow.com/questions/tagged/ng2-charts">
+          <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg" width="25"
+               height="25"
+               alt="ng2-charts on stackoverflow">
+        </a>
+        &nbsp;
+        <a target="_blank" href="https://github.com/valor-software/ng2-charts">
+          <img src="https://github.githubassets.com/favicon.ico" width="25" height="25" alt="ng2-charts on github">
+        </a>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 
-  <div class="section">
-    <mat-tab-group #tabGroup (selectedIndexChange)="updateRoute($event)">
-      <mat-tab #tab label="General Info">
-        <div class="container">
-          <h2>Installation</h2>
-          <markdown ngPreserveWhitespaces>
-            ### Installation
+<div class="section">
+  <mat-tab-group #tabGroup (selectedIndexChange)="updateRoute($event)">
+    <mat-tab #tab label="General Info">
+      <div class="container">
+        <h2>Installation</h2>
+        <markdown ngPreserveWhitespaces>
+          ### Installation
 
-            1. Install ***ng2-charts*** using npm
+          1. Install ***ng2-charts*** using npm
 
-            ```bash
-            npm install --save ng2-charts
-            ```
-            2. Install ***Chart.js*** library
+          ```bash
+          npm install --save ng2-charts
+          ```
+          2. Install ***Chart.js*** library
 
-            ```bash
-            npm install --save chart.js
-            ```
+          ```bash
+          npm install --save chart.js
+          ```
 
-          </markdown>
+        </markdown>
 
-          <h2>API</h2>
-          <markdown ngPreserveWhitespaces>
-            ### Usage
-            In order to use ***ng2-charts*** you need to import `NgChartsModule`:
+        <h2>API</h2>
+        <markdown ngPreserveWhitespaces>
+          ### Usage
+          In order to use ***ng2-charts*** you need to import `NgChartsModule`:
 
-            ```typescript
-            import {{ '{' }} NgChartsModule } from 'ng2-charts';
+          ```typescript
+          import {{ '{' }} NgChartsModule } from 'ng2-charts';
 
-            // In your App's module:
-            imports: [
+          // In your App's module:
+          imports: [
             NgChartsModule
-            ]
-            ```
-            ### Global configuration
-            When you import `NgChartsModule` you can pass a global configuration object to it:
+          ]
+          ```
+          ### Global configuration
+          When you import `NgChartsModule` you can pass a global configuration object to it:
 
-            ```typescript
-            import {{ '{' }} NgChartsModule } from 'ng2-charts';
+          ```typescript
+          import {{ '{' }} NgChartsModule } from 'ng2-charts';
 
-            // In your App's module:
-            imports: [
+          // In your App's module:
+          imports: [
             NgChartsModule.forRoot({{ '{' }} defaults: {{ '{' }} ... } })
-            ]
-            ```
-            Alternatively, include a provider in your module, or one of the parent modules:
+          ]
+          ```
+          Alternatively, include a provider in your module, or one of the parent modules:
 
-            ```typescript
-            import {{ '{' }} NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+          ```typescript
+          import {{ '{' }} NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 
-            imports: [
+          imports: [
             NgChartsModule
-            ],
-            providers: [
+          ],
+          providers: [
             {{ '{' }} provide: NgChartsConfiguration, useValue: {{ '{' }} generateColors: false }}
-            ]
-            ```
+          ]
+          ```
 
-            ### Chart types
-            There are one directive for all chart types: `baseChart`, and there are 8 types of charts in the default
-            chart.js package: [`line`](/ng2-charts/#/LineChart), [`bar`](/ng2-charts/#/BarChart),
-            [`radar`](/ng2-charts/#/RadarChart), [`pie`](/ng2-charts/#/PieChart),
-            [`polarArea`](/ng2-charts/#/PolarAreaChart), [`doughnut`](/ng2-charts/#/DoughnutChart),
-            [`bubble`](/ng2-charts/#/BubbleChart) and [`scatter`](/ng2-charts/#/ScatterChart).
+          ### Chart types
+          There are one directive for all chart types: `baseChart`, and there are 8 types of charts in the default
+          chart.js package: [`line`](/ng2-charts/#/LineChart), [`bar`](/ng2-charts/#/BarChart),
+          [`radar`](/ng2-charts/#/RadarChart), [`pie`](/ng2-charts/#/PieChart),
+          [`polarArea`](/ng2-charts/#/PolarAreaChart), [`doughnut`](/ng2-charts/#/DoughnutChart),
+          [`bubble`](/ng2-charts/#/BubbleChart) and [`scatter`](/ng2-charts/#/ScatterChart).
 
-            ### Properties
+          ### Properties
 
-            **Note**: For more information about possible options please refer to original
-            [chart.js](http://www.chartjs.org/docs) documentation
+          **Note**: For more information about possible options please refer to original
+          [chart.js](http://www.chartjs.org/docs) documentation
 
-            - `data` - set of points of the chart. See https://www.chartjs.org/docs/latest/general/data-structures.html
-            for some examples and further reference. Use this property or `datasets`/`labels` depending on what's
-            convenient.
-            - `datasets` - Same as the `datasets` property for the `data` input. `data` Has priority over this.
-            - `labels` - Same as the `labels` property for the `data` input. `data` has priority over this.
-            - `type` (`ChartType`) - indicates the type of charts. Defaults to `bar`.
-            - `options` (`ChartOptions`) - chart options (as from [Chart.js
-            documentation](http://www.chartjs.org/docs/))
-            - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
+          - `data` - set of points of the chart. See https://www.chartjs.org/docs/latest/general/data-structures.html
+          for some examples and further reference. Use this property or `datasets`/`labels` depending on what's
+          convenient.
+          - `datasets` - Same as the `datasets` property for the `data` input. `data` Has priority over this.
+          - `labels` - Same as the `labels` property for the `data` input. `data` has priority over this.
+          - `type` (`ChartType`) - indicates the type of charts. Defaults to `bar`.
+          - `options` (`ChartOptions`) - chart options (as from [Chart.js
+          documentation](http://www.chartjs.org/docs/))
+          - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
 
-            ### Events
+          ### Events
 
-            - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and
-            labels
-            - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active
-            points and labels
+          - `chartClick`: fires when click on a chart has occurred, returns information regarding active points and
+          labels
+          - `chartHover`: fires when mousemove (hover) on a chart has occurred, returns information regarding active
+          points and labels
 
-            ### Chart instance
-            You can get access to the chart instance by using the `@ViewChild` annotation and a suitable selector for
-            the directive (see the Angular [docs](https://angular.io/api/core/ViewChild)). For example, to get the chart
-            instance and call the `toBase64Image()` method, you can add the following to the parent component:
+          ### Chart instance
+          You can get access to the chart instance by using the `@ViewChild` annotation and a suitable selector for
+          the directive (see the Angular [docs](https://angular.io/api/core/ViewChild)). For example, to get the chart
+          instance and call the `toBase64Image()` method, you can add the following to the parent component:
 
-            ```typescript
-            @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+          ```typescript
+          @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
-            public someAction(): void {{ '{' }}
+          public someAction(): void {{ '{' }}
             this.chart?.toBase64Image();
-            {{ '}' }}
-            ```
+          {{ '}' }}
+          ```
 
-            ### Colors
+          ### Colors
 
-            There are a set several default colors. If there is more data than colors, more colors are generated
-            randomly. Colors can be replaced using the dataset options or overriding the global defaults.
+          There are a set several default colors. If there is more data than colors, more colors are generated
+          randomly. Colors can be replaced using the dataset options or overriding the global defaults.
 
-            ### Dynamic Theming
+          ### Dynamic Theming
 
-            The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure
-            specifying colors override settings. This service may be called when the dynamic theme changes, with colors
-            which fit the theme. The structure is interpreted as an override, with special functionality when dealing
-            with arrays. Example:
+          The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure
+          specifying colors override settings. This service may be called when the dynamic theme changes, with colors
+          which fit the theme. The structure is interpreted as an override, so in order to reset any existing option
+          or customization you will have to define `undefined` properties explicitly. For example:
 
-            ```typescript
-            type Theme = 'light-theme' | 'dark-theme';
+          ```typescript
+          type Theme = 'light-theme' | 'dark-theme';
 
-            private _selectedTheme: Theme = 'light-theme';
-            public get selectedTheme() {{ '{' }}
-            return this._selectedTheme;
+          private _selectedTheme: Theme = 'light-theme';
+          public get selectedTheme() {{ '{' }}
+              return this._selectedTheme;
             }
             public set selectedTheme(value) {{ '{' }}
-            this._selectedTheme = value;
-            let overrides: ChartOptions;
-            if (this.selectedTheme === 'dark-theme') {{ '{' }}
-            overrides = {{ '{' }}
-            legend: {{ '{' }}
-            labels: {{ '{' }} fontColor: 'white' }
-            },
-            scales: {{ '{' }}
-            xAxes: [{{ '{' }}
-            ticks: {{ '{' }} fontColor: 'white' },
-            gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-            }],
-            yAxes: [{{ '{' }}
-            ticks: {{ '{' }} fontColor: 'white' },
-            gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-            }]
-            }
-            };
-            } else {{ '{' }}
-            overrides = {{ '{' }}};
-            }
-            this.themeService.setColorschemesOptions(overrides);
-            }
+              this._selectedTheme = value;
+              let overrides: ChartOptions;
+              if (this.selectedTheme === 'dark-theme') {{ '{' }}
+                overrides = {{ '{' }}
+                  scales: {{ '{' }}
+                    x: [{{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' },
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                    }],
+                    y: [{{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' },
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                    }]
+                  }
+                };
+              } else {{ '{' }}
+                overrides = {{ '{' }}
+                  scales: undefined
+                };
+              }
 
-            constructor(private themeService: ThemeService) {{ '{' }} }
+              this.themeService.setColorschemesOptions(overrides);
+          }
 
-            setCurrentTheme(theme: Theme) {{ '{' }}
+          constructor(private themeService: ThemeService) {{ '{' }} }
+
+          setCurrentTheme(theme: Theme) {{ '{' }}
             this.selectedTheme = theme;
-            }
-            ```
+          }
+          ```
 
-            The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple
-            field is encountered it replaces the matching field in the `options` object. When an array is encountered
-            (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to
-            override all array elements in the matching field in the `options` object. So in the case above, every axis
-            will have its ticks and gridline colors changed.
+          The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple
+          field is encountered it replaces the matching field in the `options` object. When an array is encountered
+          (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to
+          override all array elements in the matching field in the `options` object. So in the case above, every axis
+          will have its ticks and gridline colors changed.
 
-            ## Schematics
+          ## Schematics
 
-            There are schematics that may be used to generate chart components using Angular CLI. The components are
-            defined in package `ng2-charts-schematics`.
+          There are schematics that may be used to generate chart components using Angular CLI. The components are
+          defined in package `ng2-charts-schematics`.
 
-            ### Installation of library through ng-add schematics
+          ### Installation of library through ng-add schematics
 
-            ```bash
-            ng add ng2-charts
-            ```
+          ```bash
+          ng add ng2-charts
+          ```
 
-            This schematics will add the `NgChartsModule` as an imported module in the main app module (or another
-            module as specified
-            in the `--module` command option).
+          This schematics will add the `NgChartsModule` as an imported module in the main app module (or another
+          module as specified
+          in the `--module` command option).
 
-            ### Example of Generating a Line Chart using Angular CLI
+          ### Example of Generating a Line Chart using Angular CLI
 
-            ```bash
-            ng generate ng2-charts:line my-line-chart
-            ```
+          ```bash
+          ng generate ng2-charts:line my-line-chart
+          ```
 
-            This calls Angular's component schematics and then modifies the result, so all the options for the component
-            schematic
-            are also usable here.
-          </markdown>
-        </div>
-      </mat-tab>
-      <mat-tab #tab label="Line Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="line">
-            <app-line-chart #main></app-line-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Bar Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="bar">
-            <app-bar-chart #main></app-bar-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Doughnut Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="doughnut">
-            <app-doughnut-chart #main></app-doughnut-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Radar Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="radar">
-            <app-radar-chart #main></app-radar-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Pie Chart">
-        <ng-template matTabContent>
+          This calls Angular's component schematics and then modifies the result, so all the options for the component
+          schematic
+          are also usable here.
+        </markdown>
+      </div>
+    </mat-tab>
+    <mat-tab #tab label="Line Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="line">
+          <app-line-chart #main></app-line-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Bar Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="bar">
+          <app-bar-chart #main></app-bar-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Doughnut Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="doughnut">
+          <app-doughnut-chart #main></app-doughnut-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Radar Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="radar">
+          <app-radar-chart #main></app-radar-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Pie Chart">
+      <ng-template matTabContent>
 
-          <app-chart-host chartType="pie">
-            <app-pie-chart #main></app-pie-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Polar Area Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="polarArea">
-            <app-polar-area-chart #main></app-polar-area-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Bubble Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="bubble">
-            <app-bubble-chart #main></app-bubble-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Scatter Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="scatter">
-            <app-scatter-chart #main></app-scatter-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Dynamic Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="dynamic">
-            <app-dynamic-chart #main></app-dynamic-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-      <mat-tab #tab label="Financial Chart">
-        <ng-template matTabContent>
-          <app-chart-host chartType="financial">
-            <app-financial-chart #main></app-financial-chart>
-          </app-chart-host>
-        </ng-template>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <p class="text-center">
-        <a mat-button href="https://github.com/valor-software/ng2-charts/graphs/contributors">Contributors to
-          ng2-charts</a>
-      </p>
-    </div>
-  </footer>
+        <app-chart-host chartType="pie">
+          <app-pie-chart #main></app-pie-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Polar Area Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="polarArea">
+          <app-polar-area-chart #main></app-polar-area-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Bubble Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="bubble">
+          <app-bubble-chart #main></app-bubble-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Scatter Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="scatter">
+          <app-scatter-chart #main></app-scatter-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Dynamic Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="dynamic">
+          <app-dynamic-chart #main></app-dynamic-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+    <mat-tab #tab label="Financial Chart">
+      <ng-template matTabContent>
+        <app-chart-host chartType="financial">
+          <app-financial-chart #main></app-financial-chart>
+        </app-chart-host>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
 </div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-center">
+      <a mat-button href="https://github.com/valor-software/ng2-charts/graphs/contributors">Contributors to
+        ng2-charts</a>
+    </p>
+  </div>
+</footer>

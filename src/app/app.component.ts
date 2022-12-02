@@ -17,30 +17,26 @@ import { Subscription, filter } from 'rxjs';
 import { Chart, ChartOptions } from 'chart.js';
 import { ThemeService } from 'ng2-charts';
 
+const darkThemeClass = 'dark-theme'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private theme = 'ng2-charts-demo-light-theme';
+  public isDarkTheme: boolean = false;
 
-  public get selectedTheme(): string {
-    return this.theme;
-  }
+  public themeChanged() {
+    console.log(this.isDarkTheme);
 
-  public set selectedTheme(value: string) {
-    this.renderer.removeClass(this.document.body, this.theme);
-    this.theme = value;
-    this.renderer.addClass(this.document.body, value);
+    this.renderer.removeClass(this.document.body, darkThemeClass);
+
     let overrides: ChartOptions;
 
-    if (this.selectedTheme === 'light-theme') {
-      overrides = {
-        scales: undefined,
-        plugins: undefined
-      };
-    } else {
+    if (this.isDarkTheme) {
+      this.renderer.addClass(this.document.body, darkThemeClass);
+
       overrides = {
         scales: {
           x: {
@@ -70,6 +66,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             color: 'white',
           }
         }
+      };
+    } else {
+      overrides = {
+        scales: undefined,
+        plugins: undefined
       };
     }
 
