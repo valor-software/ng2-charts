@@ -1,6 +1,5 @@
 {
   "name": "ng2-charts",
-  "type": "module",
   "version": "4.1.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
