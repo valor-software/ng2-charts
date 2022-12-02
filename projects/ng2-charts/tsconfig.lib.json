@@ -6,19 +6,9 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": [],
-    "lib": [
-      "dom",
-      "es2018"
-    ]
-  },
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "enableResourceInlining": true
+    "types": []
   },
   "exclude": [
-    "src/test.ts",
     "**/*.spec.ts"
   ]
 }

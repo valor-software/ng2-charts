@@ -2,6 +2,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PieChartComponent } from './pie-chart.component';
 import { NgChartsModule } from 'ng2-charts';
+import { MatDividerModule } from "@angular/material/divider";
 
 describe('PieChartComponent', () => {
   let component: PieChartComponent;
@@ -12,6 +13,7 @@ describe('PieChartComponent', () => {
       declarations: [PieChartComponent],
       imports: [
         NgChartsModule,
+        MatDividerModule
       ],
     })
       .compileComponents();
