@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-import {default as Annotation} from 'chartjs-plugin-annotation';
+import { default as Annotation } from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-line-chart',
@@ -10,6 +10,7 @@ import {default as Annotation} from 'chartjs-plugin-annotation';
   styleUrls: [ './line-chart.component.scss' ]
 })
 export class LineChartComponent {
+  private newLabel? = 'New label';
 
   constructor() {
     Chart.register(Annotation)
@@ -152,9 +153,9 @@ export class LineChartComponent {
   }
 
   public changeLabel(): void {
-    if (this.lineChartData.labels) {
-      this.lineChartData.labels[2] = [ '1st Line', '2nd Line' ];
-    }
+    const tmp = this.newLabel;
+    this.newLabel = this.lineChartData.datasets[2].label;
+    this.lineChartData.datasets[2].label = tmp;
 
     this.chart?.update();
   }

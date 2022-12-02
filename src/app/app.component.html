@@ -4,43 +4,45 @@
     <a mat-button (click)="selectedTheme='dark-theme'">Dark Theme</a>
     <a mat-button (click)="selectedTheme='light-theme'">Light Theme</a>
   </mat-toolbar>
+
   <main class="bd-pageheader">
     <div class="container">
-      <img alt="" src="http://www.chartjs.org/img/chartjs-logo.svg"
-           style="background: top center no-repeat;background-size: contain;">
-      <h1>ng2-charts</h1>
-      <p>Angular2 directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
-      <a mat-button mat-raised-button color="primary" href="https://github.com/valor-software/ng2-charts">View on
-        GitHub</a>
-      <div class="badges">
-        <div class="badge">
-          <iframe frameborder="0" height="20px" scrolling="0"
-                  src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=star&amp;count=true"
-                  width="170px"></iframe>
-        </div>
-        <div class="badge">
-          <iframe frameborder="0" height="20px" scrolling="0"
-                  src="https://ghbtns.com/github-btn.html?user=valor-software&amp;repo=ng2-charts&amp;type=fork&amp;count=true"
-                  width="170px"></iframe>
+      <div class="flex">
+        <img src="http://www.chartjs.org/img/chartjs-logo.svg" alt="Chart.js logo"
+             style="background: top center no-repeat;background-size: contain;">
+        <div>
+          <h1 style="font-family: Consolas, monospace">ng2-charts</h1>
+          <p>Angular directives for <a href="http://www.chartjs.org/" style="color:white">Chart.js</a></p>
+
+
+          <a target="_blank"
+             href="https://ngx-home.slack.com/archives/C1QFKA5QE">
+            <img src="https://a.slack-edge.com/66f9/img/icons/ios-256.png" width="25" height="25"
+                 alt="slack of ng2-charts">
+          </a>
+          <a target="_blank" href="https://stackoverflow.com/questions/tagged/ng2-charts">
+            <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg" width="25"
+                 height="25"
+                 alt="ng2-charts on stackoverflow">
+          </a>
+          <a target="_blank" href="https://github.com/valor-software/ng2-charts">
+            <img src="https://github.githubassets.com/favicon.ico" width="25" height="25" alt="ng2-charts on github">
+          </a>
+
+          <iframe
+            src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=star&count=true"></iframe>
+          <iframe
+            src="https://ghbtns.com/github-btn.html?user=valor-software&repo=ng2-charts&type=fork&count=true"></iframe>
+
         </div>
       </div>
-      <a target="_blank"
-         href="https://join.slack.com/t/ngx-home/shared_invite/enQtNTExMTY5MzcwMTM0LWQ5M2Y4OWM0OGJjNmZiOGYyNjFlZTdlOGI1YjcxYWQ2ODhiOTY4NzhiODgwMTIzNDczODIyNWNmM2RlYWRhNTg">
-        <img src="https://a.slack-edge.com/66f9/img/icons/ios-256.png" width="25" height="25" alt="slack of ng2-charts">
-      </a>
-      <a target="_blank" href="https://stackoverflow.com/questions/tagged/ng2-charts">
-        <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg" width="25" height="25"
-             alt="ng2-charts on stackoverflow">
-      </a>
-      <a target="_blank" href="https://github.com/valor-software/ng2-charts">
-        <img src="https://github.githubassets.com/favicon.ico" width="25" height="25" alt="ng2-charts on github">
-      </a>
     </div>
   </main>
+
   <div class="section">
     <mat-tab-group #tabGroup (selectedIndexChange)="updateRoute($event)">
       <mat-tab #tab label="General Info">
-        <div class="section">
+        <div class="container">
           <h2>Installation</h2>
           <markdown ngPreserveWhitespaces>
             ### Installation
@@ -215,7 +217,7 @@
             ng generate ng2-charts:line my-line-chart
             ```
 
-            This calls angular's component schematics and then modifies the result, so all the options for the component
+            This calls Angular's component schematics and then modifies the result, so all the options for the component
             schematic
             are also usable here.
           </markdown>
@@ -296,8 +298,10 @@
   </div>
   <footer class="footer">
     <div class="container">
-      <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts/graphs/contributors">Contributors
-        to ng2-charts</a></p>
+      <p class="text-center">
+        <a mat-button href="https://github.com/valor-software/ng2-charts/graphs/contributors">Contributors to
+          ng2-charts</a>
+      </p>
     </div>
   </footer>
 </div>

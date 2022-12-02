@@ -49,7 +49,7 @@ export class BaseChartDirective<TType extends ChartType = ChartType,
   public chart?: Chart<TType, TData, TLabel>;
 
   private subs: Subscription[] = [];
-  private themeOverrides: ChartConfiguration['options'];
+  private themeOverrides: ChartConfiguration['options'] = {};
 
   public constructor(element: ElementRef, private zone: NgZone, private themeService: ThemeService) {
     this.ctx = element.nativeElement.getContext('2d');

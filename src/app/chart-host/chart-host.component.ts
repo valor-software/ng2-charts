@@ -56,8 +56,7 @@ export const chartTypes = {
 
 @Component({
   selector: 'app-chart-host',
-  templateUrl: './chart-host.component.html',
-  styleUrls: [ './chart-host.component.scss' ]
+  templateUrl: './chart-host.component.html'
 })
 export class ChartHostComponent implements AfterContentInit {
   @Input() chartType: keyof typeof chartTypes = 'bar';

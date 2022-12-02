@@ -34,14 +34,16 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.theme = value;
     this.renderer.addClass(this.document.body, value);
     let overrides: ChartOptions;
-    if (this.selectedTheme === 'ng2-charts-demo-light-theme') {
-      overrides = {};
+
+    if (this.selectedTheme === 'light-theme') {
+      overrides = {
+        scales: undefined,
+        plugins: undefined
+      };
     } else {
       overrides = {
-
         scales: {
-          x:
-          {
+          x: {
             ticks: {
               color: 'white'
             },
@@ -49,8 +51,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
               color: 'rgba(255,255,255,0.1)'
             }
           },
-          y:
-          {
+          y: {
             ticks: {
               color: 'white'
             },
@@ -58,7 +59,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
               color: 'rgba(255,255,255,0.1)'
             }
           }
-
         },
         plugins: {
           legend: {
@@ -72,6 +72,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       };
     }
+
     this.themeService.setColorschemesOptions(overrides);
   }
 
