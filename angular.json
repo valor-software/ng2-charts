@@ -116,7 +116,8 @@
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "ng2-charts-demo:serve"
+            "devServerTarget": "ng2-charts-demo:serve",
+            "browser": "chrome"
           },
           "configurations": {
             "update-snapshots": {
