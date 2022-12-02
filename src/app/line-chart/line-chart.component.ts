@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-import {default as Annotation} from 'chartjs-plugin-annotation';
+import { default as Annotation } from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-line-chart',
@@ -10,6 +10,7 @@ import {default as Annotation} from 'chartjs-plugin-annotation';
   styleUrls: [ './line-chart.component.scss' ]
 })
 export class LineChartComponent {
+  private newLabel? = 'New label';
 
   constructor() {
     Chart.register(Annotation)
@@ -42,7 +43,7 @@ export class LineChartComponent {
       {
         data: [ 180, 480, 770, 90, 1000, 270, 400 ],
         label: 'Series C',
-        yAxisID: 'y-axis-1',
+        yAxisID: 'y1',
         backgroundColor: 'rgba(255,0,0,0.3)',
         borderColor: 'red',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -63,12 +64,11 @@ export class LineChartComponent {
     },
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
-      x: {},
-      'y-axis-0':
+      y:
         {
           position: 'left',
         },
-      'y-axis-1': {
+      y1: {
         position: 'right',
         grid: {
           color: 'rgba(255,0,0,0.3)',
@@ -153,9 +153,9 @@ export class LineChartComponent {
   }
 
   public changeLabel(): void {
-    if (this.lineChartData.labels) {
-      this.lineChartData.labels[2] = [ '1st Line', '2nd Line' ];
-    }
+    const tmp = this.newLabel;
+    this.newLabel = this.lineChartData.datasets[2].label;
+    this.lineChartData.datasets[2].label = tmp;
 
     this.chart?.update();
   }

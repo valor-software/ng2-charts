@@ -20,16 +20,16 @@
             "outputPath": "dist/ng2-charts-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/bootstrap.css",
-              "node_modules/prismjs/themes/prism.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/prismjs/prism.js",
@@ -97,16 +97,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -115,12 +116,13 @@
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "ng2-charts-demo:serve"
+            "devServerTarget": "ng2-charts-demo:serve",
+            "browser": "chrome"
           },
           "configurations": {
             "update-snapshots": {
               "env": {
-                "updateSnapshots": true
+                "pluginVisualRegressionUpdateImages": true
               }
             }
           }
@@ -175,9 +177,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng2-charts/src/test.ts",
             "tsConfig": "projects/ng2-charts/tsconfig.spec.json",
-            "karmaConfig": "projects/ng2-charts/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
         "lint": {
@@ -196,5 +200,13 @@
     "schematicCollections": [
       "@angular-eslint/schematics"
     ]
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
   }
 }

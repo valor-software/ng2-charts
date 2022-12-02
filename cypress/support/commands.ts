@@ -1,5 +1,3 @@
-import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
-
 // ***********************************************
 // This example namespace declaration will help
 // with Intellisense and code completion in your
@@ -44,10 +42,8 @@ import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-addMatchImageSnapshotCommand({
-  customSnapshotsDir: "./cypress/snapshots",
-  failureThreshold: 0.01, // threshold for entire image
-  failureThresholdType: 'percent', // percent of image or number of pixels
-  dumpDiffToConsole: true,
-  comparisonMethod: 'ssim'
-});
+import "@frsource/cypress-plugin-visual-regression-diff";
+
+Cypress.Screenshot.defaults({
+  capture: 'viewport',
+})

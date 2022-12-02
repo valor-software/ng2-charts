@@ -1,15 +1,12 @@
-<div>
-  <div>
-    <div class="chart">
-      <canvas baseChart
-              [data]="pieChartData"
-              [type]="pieChartType"
-              [options]="pieChartOptions"
-              [plugins]="pieChartPlugins">
-      </canvas>
-    </div>
-  </div>
-</div>
+<canvas baseChart class="chart"
+        [data]="pieChartData"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins">
+</canvas>
+
+<mat-divider style="margin: 1em 0;"></mat-divider>
+
 <div class="button-row">
   <button mat-button mat-raised-button color="primary" (click)="toggleLegend()">Toggle Legend</button>
   <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>

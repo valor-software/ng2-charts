@@ -1,17 +1,18 @@
 import { defineConfig } from "cypress";
-import { addMatchImageSnapshotPlugin } from "cypress-image-snapshot/plugin";
+import { initPlugin } from "@frsource/cypress-plugin-visual-regression-diff/plugins";
 
 export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:4200/",
-    viewportWidth: 1440,
-    viewportHeight: 900,
     chromeWebSecurity: false,
-    videosFolder: "../dist/cypress/ng2-charts-e2e/videos",
-    screenshotsFolder: "../dist/cypress/ng2-charts-e2e/screenshots",
+    videosFolder: "dist/cypress/videos",
+    screenshotsFolder: "dist/cypress/screenshots",
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      addMatchImageSnapshotPlugin(on, config);
+      initPlugin(on, config);
     },
+  },
+  env: {
+    pluginVisualRegressionDiffConfig: { includeAA: false },
   },
 });

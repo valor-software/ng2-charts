@@ -3,10 +3,10 @@ describe('Ng2 Charts Demo', () => {
     const topBarSelector = 'mat-toolbar';
     const mainContentSelector = 'main';
     cy.visit('');
-
+    cy.wait(1000);
     cy.get(topBarSelector)
       .should('be.visible')
-      .matchImageSnapshot();
+      .matchImage();
 
     cy.get(mainContentSelector).should('be.visible');
   });
@@ -32,7 +32,7 @@ describe('Charts canvas ', () => {
       cy.get(component.selector)
         .find('canvas')
         .should('be.visible')
-        .matchImageSnapshot();
+        .matchImage();
     });
   });
 });

@@ -24,6 +24,7 @@ import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
 import { LanguageFn } from "highlight.js";
+import { FormsModule } from "@angular/forms";
 
 const routes: Route[] = [];
 
@@ -53,13 +54,14 @@ export function hljsLanguages(): { [name: string]: Partial<LanguageFn> } {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgChartsModule,
     MaterialModule,
     HighlightModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(routes, {})
   ],
   providers: [
     {

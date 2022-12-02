@@ -15,7 +15,7 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
       "es2018",
@@ -26,7 +26,8 @@
         "dist/ng2-charts/ng2-charts",
         "dist/ng2-charts"
       ]
-    }
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
