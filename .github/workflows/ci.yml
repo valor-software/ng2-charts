@@ -36,10 +36,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: visual-testing-diff
-          path: e2e/src/snapshots/*/__diff_output__
+          path: cypress/e2e/__image_snapshots__
       - name: Archive e2e video
         if: failure()
         uses: actions/upload-artifact@v3
         with:
           name: visual-testing-videos
-          path: dist/cypress/*/videos
+          path: dist/cypress/ng2-charts-e2e/videos
