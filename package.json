@@ -62,7 +62,7 @@
     "@angular/compiler-cli": "^15.0.2",
     "@angular/language-service": "^15.0.2",
     "@cypress/schematic": "^2.0.0",
-    "@frsource/cypress-plugin-visual-regression-diff": "^3.2.3",
+    "@frsource/cypress-plugin-visual-regression-diff": "^3.2.4",
     "@schematics/angular": "^15.0.0",
     "@types/jasmine": "^4.0.3",
     "@types/jasminewd2": "^2.0.10",
