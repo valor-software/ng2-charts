@@ -72,7 +72,7 @@
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "cypress": "^11.2.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.29.0",
     "gh-pages": "^4.0.0",
     "jasmine": "^4.2.0",
     "jasmine-core": "^4.2.0",
