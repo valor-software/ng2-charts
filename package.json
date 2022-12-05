@@ -46,7 +46,7 @@
     "ngx-highlightjs": "^7.0.0",
     "ngx-markdown": "^15.0.0",
     "prismjs": "^1.29.0",
-    "rxjs": "^7.5.6",
+    "rxjs": "^7.6.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
