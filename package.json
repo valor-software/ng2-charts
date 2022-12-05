@@ -64,7 +64,7 @@
     "@cypress/schematic": "^2.0.0",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.2.3",
     "@schematics/angular": "^15.0.0",
-    "@types/jasmine": "^4.0.3",
+    "@types/jasmine": "^4.3.1",
     "@types/jasminewd2": "^2.0.10",
     "@types/lodash-es": "^4.17.5",
     "@types/luxon": "^3.0.1",
