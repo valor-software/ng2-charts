@@ -63,6 +63,80 @@ or with yarn:
   ]
   ```
 
+### Angular version compability table
+
+<table role="table">
+ <tbody><tr>
+  <td></td>
+  <td colspan="4">ng2-chart version</td>
+ </tr>
+
+ <tr>
+  <td>Angular version</td>
+  <td>v1.x</td>
+  <td>v2.x</td>
+  <td>v3.x</td>
+  <td>v4.x</td>
+ </tr>
+
+ <tr>
+  <td>2 - 9</td>
+  <td>✓</td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>10</td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>11</td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>12</td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>13</td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>14</td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td>✓</td>
+ </tr>
+
+ <tr>
+  <td>15</td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td>✓</td>
+ </tr>
+
+</tbody></table>
+
 ### Stackblitz Starting Templates
 
 * Line Chart - https://stackblitz.com/github/santam85/ng2-charts-line-template?preset=node
