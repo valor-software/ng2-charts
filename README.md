@@ -285,3 +285,5 @@ Thanks for understanding!
 
 The MIT License (see the [LICENSE](https://github.com/valor-software/ng2-charts/blob/master/LICENSE) file for the full
 text)
+
+If you like this library and want to say thanks, consider [buying me a coffee](https://www.buymeacoffee.com/santam)!

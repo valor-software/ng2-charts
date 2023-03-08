@@ -20,7 +20,7 @@ export class PieChartComponent {
         position: 'top',
       },
       datalabels: {
-        formatter: (value, ctx) => {
+        formatter: (value: any, ctx: any) => {
           if (ctx.chart.data.labels) {
             return ctx.chart.data.labels[ctx.dataIndex];
           }
