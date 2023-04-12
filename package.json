@@ -1,6 +1,7 @@
 {
   "name": "ng2-charts-demo",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "demo.deploy-gh-pages": "gh-pages -d dist/ng2-charts-demo",
     "ng": "ng",
