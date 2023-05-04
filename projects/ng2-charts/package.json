@@ -13,9 +13,9 @@
     "postbuild": "npm run copy:schemas && npm run copy:templates && npm run copy:collection"
   },
   "peerDependencies": {
-    "@angular/common": ">=14.0.0",
-    "@angular/core": ">=14.0.0",
-    "@angular/cdk": ">=14.0.0",
+    "@angular/common": "^14.0.0 || ^15.0.0 || ^16.0.0",
+    "@angular/core": "^14.0.0 || ^15.0.0 || ^16.0.0",
+    "@angular/cdk": "^14.0.0 || ^15.0.0 || ^16.0.0",
     "chart.js": "^3.4.0 || ^4.0.0",
     "rxjs": "^6.5.3 || ^7.4.0"
   },
