@@ -38,7 +38,7 @@
     "chart.js": "^4.0.1",
     "chartjs-adapter-date-fns": "^2.0.0",
     "chartjs-chart-financial": "^0.1.1",
-    "chartjs-plugin-annotation": "^2.0.1",
+    "chartjs-plugin-annotation": "^3.0.1",
     "chartjs-plugin-datalabels": "^2.1.0",
     "core-js": "^3.23.5",
     "date-fns": "^2.25.0",
