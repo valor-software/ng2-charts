@@ -42,7 +42,7 @@
     "chartjs-plugin-datalabels": "^2.1.0",
     "core-js": "^3.23.5",
     "date-fns": "^2.25.0",
-    "highlight.js": "^11.6.0",
+    "highlight.js": "^11.8.0",
     "lodash-es": "^4.17.21",
     "ngx-highlightjs": "^7.0.0",
     "ngx-markdown": "^14.0.1",
