@@ -61,80 +61,6 @@ import { NgChartsModule } from 'ng2-charts';
 imports: [NgChartsModule];
 ```
 
-### Angular version compability table
-
-<table role="table">
- <tbody><tr>
-  <td></td>
-  <td colspan="4">ng2-chart version</td>
- </tr>
-
- <tr>
-  <td>Angular version</td>
-  <td>v1.x</td>
-  <td>v2.x</td>
-  <td>v3.x</td>
-  <td>v4.x</td>
- </tr>
-
- <tr>
-  <td>2 - 9</td>
-  <td>✓</td>
-  <td></td>
-  <td></td>
-  <td></td>
- </tr>
-
- <tr>
-  <td>10</td>
-  <td></td>
-  <td>✓</td>
-  <td></td>
-  <td></td>
- </tr>
-
- <tr>
-  <td>11</td>
-  <td></td>
-  <td>✓</td>
-  <td></td>
-  <td></td>
- </tr>
-
- <tr>
-  <td>12</td>
-  <td></td>
-  <td>✓</td>
-  <td></td>
-  <td></td>
- </tr>
-
- <tr>
-  <td>13</td>
-  <td></td>
-  <td></td>
-  <td>✓</td>
-  <td></td>
- </tr>
-
- <tr>
-  <td>14</td>
-  <td></td>
-  <td></td>
-  <td>✓</td>
-  <td>✓</td>
- </tr>
-
- <tr>
-  <td>15</td>
-  <td></td>
-  <td></td>
-  <td>✓</td>
-  <td>✓</td>
- </tr>
-
-</tbody></table>
-
 ### Stackblitz Starting Templates
 
 - Line Chart - https://stackblitz.com/github/santam85/ng2-charts-line-template?preset=node
@@ -279,8 +205,3 @@ Thanks for understanding!
 
 The MIT License (see the [LICENSE](https://github.com/valor-software/ng2-charts/blob/master/LICENSE) file for the full
 text)
-
-If you like this library and want to say thanks, consider [buying me a coffee](https://www.buymeacoffee.com/santam)!
-
-[//]: # 'super hidden section about running `npm test:ci` in win11 wsl2'
-[//]: # 'export CHROME_BIN=/mnt/c/Program\\ Files\ (x86)/Google/Chrome/Application/chrome.exe'

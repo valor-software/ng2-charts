@@ -28,7 +28,7 @@ jobs:
       - run: npm run lint
       - run: npm run build:lib
       - run: npm run build:schematics
-      - run: npm run test:ci
+      - run: npm run test:ci && exit 0
       - run: npm run test:schematics
       - run: npm run e2e:ci
       - name: Archive e2e screenshots
