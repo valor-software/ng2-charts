@@ -5,7 +5,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "build": "npx tsc -p tsconfig.schematics.json",
     "test": "jasmine",
     "copy:schemas": "rsync -R schematics/*/schema.json ../../dist/ng2-charts/",
     "copy:templates": "rsync -aR schematics/ng-generate --include '*.template' --include '*/' --exclude '*' ../../dist/ng2-charts/",

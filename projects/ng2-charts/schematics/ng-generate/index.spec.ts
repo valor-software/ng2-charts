@@ -1,16 +1,15 @@
-import { Tree } from '@angular-devkit/schematics';
-import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
+import {Tree} from '@angular-devkit/schematics';
+import {SchematicTestRunner, UnitTestTree} from '@angular-devkit/schematics/testing';
 
 let appTree: Tree;
 
 function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
   return runner
-    .runExternalSchematicAsync('@schematics/angular', 'workspace', {
+    .runExternalSchematic('@schematics/angular', 'workspace', {
       name: 'workspace',
       version: '10.0.0',
       newProjectRoot: 'projects'
-    })
-    .toPromise();
+    });
 }
 
 /**
@@ -20,8 +19,7 @@ export async function createTestApp(runner: SchematicTestRunner, appOptions = {}
   const tree = await createWorkspace(runner);
 
   return runner
-    .runExternalSchematicAsync('@schematics/angular', 'application', { name: 'app', ...appOptions }, tree)
-    .toPromise();
+    .runExternalSchematic('@schematics/angular', 'application', {name: 'app', ...appOptions}, tree)
 }
 
 describe('ng2-charts-schematics', () => {
@@ -33,8 +31,8 @@ describe('ng2-charts-schematics', () => {
   });
 
   it('works', async () => {
-    const tree = await runner.runSchematicAsync('line', { name: 'test-chart', project: 'app' }, appTree).toPromise();
+    const tree = await runner.runSchematicAsync('line', {name: 'test-chart', project: 'app'}, appTree).toPromise();
 
-    expect(tree.files.length).toBeGreaterThan(0);
+    expect(tree?.files.length).toBeGreaterThan(0);
   });
 });

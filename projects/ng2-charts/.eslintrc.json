@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/ng2-charts/tsconfig.lib.json",
-          "projects/ng2-charts/tsconfig.spec.json"
+          "tsconfig.lib.json",
+          "tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },

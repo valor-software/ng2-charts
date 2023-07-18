@@ -19,8 +19,7 @@ import { createTestApp } from '../utils/testing';
 
       expect(tree.read(appModulePath) !.toString()).not.toContain('NgChartsModule');
 
-      tree = await runner.runSchematicAsync('ng-add-setup-project', projectName ? { project: projectName } : {}, tree)
-        .toPromise();
+      tree = await runner.runSchematic('ng-add-setup-project', projectName ? { project: projectName } : {}, tree);
       expect(tree.read(appModulePath) !.toString()).toContain('NgChartsModule');
     });
 
