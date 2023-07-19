@@ -6,9 +6,12 @@ export default defineConfig({
   e2e: {
     ...nxE2EPreset(__dirname),
     chromeWebSecurity: false,
-    videosFolder: 'dist/cypress/videos',
-    screenshotsFolder: 'dist/cypress/screenshots',
-    setupNodeEvents(on, config) {
+    videosFolder: '../../dist/cypress/videos',
+    screenshotsFolder: '../../dist/cypress/screenshots',
+    setupNodeEvents(
+      on: Cypress.PluginEvents,
+      config: Cypress.PluginConfigOptions
+    ) {
       // implement node event listeners here
       initPlugin(on, config);
     },

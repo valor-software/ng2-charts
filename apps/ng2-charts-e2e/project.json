@@ -13,7 +13,7 @@
       },
       "configurations": {
         "production": {
-          "devServerTarget": "ng2-charts:serve:production"
+          "devServerTarget": "ng2-charts-demo:serve:production"
         },
         "ci": {
           "devServerTarget": "ng2-charts-demo:serve-static"

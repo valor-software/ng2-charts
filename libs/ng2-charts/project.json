@@ -10,7 +10,6 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-
         "project": "libs/ng2-charts/ng-package.json"
       },
       "configurations": {
@@ -48,7 +47,5 @@
       }
     }
   },
-  "implicitDependencies": [
-    "ng2-charts-schematics"
-  ]
+  "implicitDependencies": ["ng2-charts-schematics"]
 }

@@ -15,7 +15,8 @@
     "test:schematics": "nx run ng2-charts-schematics:build",
     "e2e": "nx run ng2-charts-e2e:e2e",
     "e2e:ci": "nx run ng2-charts-e2e:e2e:ci",
-    "lint": "nx run-many --target=lint --verbose --all"
+    "lint": "nx run-many --target=lint --verbose --all",
+    "cy:update": "CYPRESS_updateSnapshots=true npx nx run ng2-charts-e2e:e2e:ci"
   },
   "private": true,
   "dependencies": {

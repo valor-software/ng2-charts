@@ -6,7 +6,6 @@ on:
       - published
 
 jobs:
-
   setup:
     runs-on: ubuntu-latest
     outputs:

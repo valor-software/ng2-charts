@@ -3,8 +3,12 @@ describe('Ng2 Charts Demo', () => {
     const topBarSelector = 'mat-toolbar';
     const mainContentSelector = 'main';
     cy.visit('');
-    // cy.wait(1000);
-    cy.get(topBarSelector).should('be.visible').matchImage();
+    // wait for animations to finish
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(1000);
+    cy.get(topBarSelector)
+      .should('be.visible')
+      .matchImage({ updateImages: false });
 
     cy.get(mainContentSelector).should('be.visible');
   });
@@ -26,11 +30,13 @@ describe('Charts canvas ', () => {
   componentsArray.forEach((component) => {
     it(`${component.url}`, () => {
       cy.visit(component.url);
-      // cy.wait(1000);
+      // wait for animations to finish
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(1000);
       cy.get(component.selector)
         .find('canvas')
         .should('be.visible')
-        .matchImage();
+        .matchImage({ updateImages: false });
     });
   });
 });
