@@ -8,7 +8,7 @@
       "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "apps/ng2-charts-e2e/cypress.config.ts",
-        "devServerTarget": "ng2-charts:serve:development",
+        "devServerTarget": "ng2-charts-demo:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
@@ -16,7 +16,7 @@
           "devServerTarget": "ng2-charts:serve:production"
         },
         "ci": {
-          "devServerTarget": "ng2-charts:serve-static"
+          "devServerTarget": "ng2-charts-demo:serve-static"
         }
       }
     },
@@ -29,5 +29,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["ng2-charts"]
+  "implicitDependencies": ["ng2-charts-demo", "ng2-charts"]
 }
