@@ -8,8 +8,8 @@
     "build": "npx tsc -p ../../../libs/ng2-charts/tsconfig.schematics.json",
     "test": "jasmine",
     "copy:schemas": "rsync -R ../../libs/ng2-charts/schematics/*/schema.json ../../../dist/ng2-charts",
-    "copy:templates": "rsync -aR ../../../libs/ng2-charts/schematics/ng-generate --include '*.template' --include '*/' --exclude '*' ../../dist/ng2-charts/",
-    "copy:collection": "cp ../../../libs/ng2-charts/schematics/collection.json ../../dist/ng2-charts/schematics/collection.json",
+    "copy:templates": "rsync -aR ../../../libs/ng2-charts-schematics/src/ng-generate --include '*.template' --include '*/' --exclude '*' ../../dist/ng2-charts/",
+    "copy:collection": "cp ../../../libs/ng2-charts-schematics/src/collection.json ../../dist/ng2-charts/schematics/collection.json",
     "postbuild": "npm run copy:schemas && npm run copy:templates && npm run copy:collection"
   },
   "peerDependencies": {

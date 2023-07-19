@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "ng2-charts": ["libs/ng2-charts/src/index.ts"]
+      "ng2-charts": ["libs/ng2-charts/src/index.ts"],
+      "ng2-charts-schematics": ["libs/ng2-charts-schematics/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

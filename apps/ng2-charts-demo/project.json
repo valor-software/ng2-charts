@@ -97,5 +97,6 @@
         "buildTarget": "ng2-charts-demo:build"
       }
     }
-  }
+  },
+  "implicitDependencies": ["ng2-charts"]
 }

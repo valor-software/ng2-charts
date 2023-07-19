@@ -1,17 +1,7 @@
 {
-  "name": "ng2-charts",
   "version": "5.0.0",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "scripts": {
-    "build": "npx tsc -p tsconfig.schematics.json",
-    "test": "nx test ng2-charts --verbose",
-    "copy:schemas": "rsync -R ../../libs/ng2-charts/schematics/*/schema.json ../../dist/ng2-charts/",
-    "copy:templates": "rsync -aR ../../libs/ng2-charts/schematics/ng-generate --include '*.template' --include '*/' --exclude '*' ../../dist/ng2-charts/",
-    "copy:collection": "cp ../../libs/ng2-charts/schematics/collection.json ../../dist/ng2-charts/schematics/collection.json",
-    "postbuild": "npm run copy:schemas && npm run copy:templates && npm run copy:collection"
-  },
+  "name": "ng2-charts",
+  "description": "Reactive, responsive, beautiful charts for Angular based on Chart.js",
   "peerDependencies": {
     "@angular/common": ">=16.0.0",
     "@angular/core": ">=16.0.0",
@@ -22,8 +12,6 @@
   "dependencies": {
     "lodash-es": "^4.17.15"
   },
-  "description": "Reactive, responsive, beautiful charts for Angular based on Chart.js",
-  "main": "../../libs/ng2-charts/src/public_api.ts",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "contributors": [
     {
@@ -45,7 +33,7 @@
     "type": "git",
     "url": "git+https://github.com/valor-software/ng2-charts.git"
   },
-  "schematics": "./schematics/collection.json",
+  "schematics": "./schematics/src/collection.json",
   "ng-add": {
     "save": "dependencies"
   },
