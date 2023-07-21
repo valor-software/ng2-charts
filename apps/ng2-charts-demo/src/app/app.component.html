@@ -74,7 +74,7 @@
 
           // In your App's module:
           imports: [
-          NgChartsModule
+            NgChartsModule
           ]
           ```
           ### Global configuration
@@ -85,7 +85,7 @@
 
           // In your App's module:
           imports: [
-          NgChartsModule.forRoot({{ '{' }} defaults: {{ '{' }} ... } })
+            NgChartsModule.forRoot({{ '{' }} defaults: {{ '{' }} ... } })
           ]
           ```
           Alternatively, include a provider in your module, or one of the parent modules:
@@ -94,10 +94,10 @@
           import {{ '{' }} NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 
           imports: [
-          NgChartsModule
+            NgChartsModule
           ],
           providers: [
-          {{ '{' }} provide: NgChartsConfiguration, useValue: {{ '{' }} generateColors: false }}
+            {{ '{' }} provide: NgChartsConfiguration, useValue: {{ '{' }} generateColors: false }}
           ]
           ```
 
@@ -139,7 +139,7 @@
           @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
           public someAction(): void {{ '{' }}
-          this.chart?.toBase64Image();
+            this.chart?.toBase64Image();
           {{ '}' }}
           ```
 
@@ -160,37 +160,37 @@
 
           private _selectedTheme: Theme = 'light-theme';
           public get selectedTheme() {{ '{' }}
-          return this._selectedTheme;
-          }
-          public set selectedTheme(value) {{ '{' }}
-          this._selectedTheme = value;
-          let overrides: ChartOptions;
-          if (this.selectedTheme === 'dark-theme') {{ '{' }}
-          overrides = {{ '{' }}
-          scales: {{ '{' }}
-          x: [{{ '{' }}
-          ticks: {{ '{' }} fontColor: 'white' },
-          gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-          }],
-          y: [{{ '{' }}
-          ticks: {{ '{' }} fontColor: 'white' },
-          gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-          }]
-          }
-          };
-          } else {{ '{' }}
-          overrides = {{ '{' }}
-          scales: undefined
-          };
-          }
+              return this._selectedTheme;
+            }
+            public set selectedTheme(value) {{ '{' }}
+              this._selectedTheme = value;
+              let overrides: ChartOptions;
+              if (this.selectedTheme === 'dark-theme') {{ '{' }}
+                overrides = {{ '{' }}
+                  scales: {{ '{' }}
+                    x: [{{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' },
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                    }],
+                    y: [{{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' },
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
+                    }]
+                  }
+                };
+              } else {{ '{' }}
+                overrides = {{ '{' }}
+                  scales: undefined
+                };
+              }
 
-          this.themeService.setColorschemesOptions(overrides);
+              this.themeService.setColorschemesOptions(overrides);
           }
 
           constructor(private themeService: ThemeService) {{ '{' }} }
 
           setCurrentTheme(theme: Theme) {{ '{' }}
-          this.selectedTheme = theme;
+            this.selectedTheme = theme;
           }
           ```
 

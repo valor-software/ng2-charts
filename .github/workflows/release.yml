@@ -146,7 +146,7 @@ jobs:
         with:
           ref: 'master'
       - run: npm version patch
-        working-directory: ./projects/ng2-charts
+        working-directory: ./libs/ng2-charts
       - run: |
           git config --local user.email ${GITHUB_ACTOR}@users.noreply.github.com
           git config --local user.name $GITHUB_ACTOR
