@@ -4,6 +4,12 @@ on:
   release:
     types:
       - published
+  workflow_dispatch:
+
+env:
+  CACHE_NODE_MODULES_PATH: |
+    ~/.npm
+    node_modules
 
 jobs:
   setup:
