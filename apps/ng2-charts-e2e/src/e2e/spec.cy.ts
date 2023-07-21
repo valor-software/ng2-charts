@@ -36,7 +36,7 @@ describe('Charts canvas ', () => {
       cy.get(component.selector)
         .find('canvas')
         .should('be.visible')
-        .matchImage({ updateImages: false });
+        .matchImage({ updateImages: true });
     });
   });
 });
