@@ -2,9 +2,6 @@
 
 Beautiful charts for Angular based on Chart.js
 
-[![NPM](https://nodei.co/npm/ng2-charts.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ng2-charts)
-[![NPM](https://nodei.co/npm-dl/ng2-charts.png?height=3&months=9)](https://npmjs.org/ng2-charts)
-
 # Usage & Demo
 
 Samples using `ng2-charts`
@@ -75,6 +72,7 @@ imports: [NgChartsModule];
   <td>v2.x</td>
   <td>v3.x</td>
   <td>v4.x</td>
+  <td>v5.x</td>
  </tr>
 
  <tr>
@@ -130,6 +128,15 @@ imports: [NgChartsModule];
   <td></td>
   <td></td>
   <td>✓</td>
+  <td>✓</td>
+ </tr>
+
+ <tr>
+  <td>16</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td>✓</td>
  </tr>
 
