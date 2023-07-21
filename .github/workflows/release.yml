@@ -55,12 +55,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ng2-charts
-          path: dist/ng2-charts
+          path: dist/libs/ng2-charts
       - name: Upload docs
         uses: actions/upload-artifact@v3
         with:
           name: ng2-charts-docs
-          path: dist/ng2-charts-demo
+          path: dist/apps/ng2-charts-demo
 
   publish-npm:
     needs:
