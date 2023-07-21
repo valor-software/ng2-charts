@@ -50,3 +50,5 @@ testem.log
 Thumbs.db
 /temp
 /Web.config
+
+.angular

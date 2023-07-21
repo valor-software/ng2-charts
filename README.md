@@ -11,57 +11,55 @@ Samples using `ng2-charts`
 
 https://valor-software.com/ng2-charts/
 
-- - -
+---
 
 ### Installation
 
-You can install ***ng2-charts*** by using the Angular CLI:
+You can install **_ng2-charts_** by using the Angular CLI:
 
-  ```bash
-  ng add ng2-charts
-  ```
+```bash
+ng add ng2-charts
+```
 
 The required packages will be automatically installed, and your `app.module.ts` will be updated with the required
 changes to start using the library right away.
 
 #### Manual install through package managers
 
-1. You can install ***ng2-charts*** using npm
+1. You can install **_ng2-charts_** using npm
 
-  ```bash
-  npm install ng2-charts --save
-  ```
+```bash
+npm install ng2-charts --save
+```
 
 or yarn
 
-  ```bash
-  yarn add ng2-charts --save
-  ```
+```bash
+yarn add ng2-charts --save
+```
 
 2. You will also need to install and include `Chart.js` library in your application (it is a peer dependency of this
    library, more info can be found in the
    official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
-  ```bash
-  npm install chart.js --save
-  ```
+```bash
+npm install chart.js --save
+```
 
 or with yarn:
 
-  ```bash
-  yarn add  chart.js --save
-  ```
+```bash
+yarn add  chart.js --save
+```
 
 3. Import the `NgChartsModule` in your app main module:
 
-  ```typescript
-  import { NgChartsModule } from 'ng2-charts';
+```typescript
+import { NgChartsModule } from 'ng2-charts';
 
-  // In your App's module:
-  imports: [
-    NgChartsModule
-  ]
-  ```
+// In your App's module:
+imports: [NgChartsModule];
+```
 
 ### Angular version compability table
 
@@ -139,14 +137,14 @@ or with yarn:
 
 ### Stackblitz Starting Templates
 
-* Line Chart - https://stackblitz.com/github/santam85/ng2-charts-line-template?preset=node
-* Pie Chart - https://stackblitz.com/github/santam85/ng2-charts-pie-template?preset=node
-* Bar Chart - https://stackblitz.com/github/santam85/ng2-charts-bar-template?preset=node
-* Doughnut Chart - https://stackblitz.com/github/santam85/ng2-charts-doughnut-template?preset=node
-* Radar Chart - https://stackblitz.com/github/santam85/ng2-charts-radar-template?preset=node
-* Polar Area Chart - https://stackblitz.com/github/santam85/ng2-charts-polar-area-template?preset=node
-* Bubble Chart - https://stackblitz.com/github/santam85/ng2-charts-bubble-template?preset=node
-* Scatter Chart - https://stackblitz.com/github/santam85/ng2-charts-scatter-template?preset=node
+- Line Chart - https://stackblitz.com/github/santam85/ng2-charts-line-template?preset=node
+- Pie Chart - https://stackblitz.com/github/santam85/ng2-charts-pie-template?preset=node
+- Bar Chart - https://stackblitz.com/github/santam85/ng2-charts-bar-template?preset=node
+- Doughnut Chart - https://stackblitz.com/github/santam85/ng2-charts-doughnut-template?preset=node
+- Radar Chart - https://stackblitz.com/github/santam85/ng2-charts-radar-template?preset=node
+- Polar Area Chart - https://stackblitz.com/github/santam85/ng2-charts-polar-area-template?preset=node
+- Bubble Chart - https://stackblitz.com/github/santam85/ng2-charts-bubble-template?preset=node
+- Scatter Chart - https://stackblitz.com/github/santam85/ng2-charts-scatter-template?preset=node
 
 ## API
 
@@ -155,13 +153,9 @@ or with yarn:
 There is one directive for all chart types: `baseChart`, and there are 8 types of charts: `line`, `bar`, `radar`, `pie`
 , `polarArea`, `doughnut`, `bubble` and `scatter`. You can use the directive on a `canvas` element as follows:
 
-  ```html
-<canvas baseChart
-        [data]="barChartData"
-        [options]="barChartOptions"
-        [type]="'bar'">
-</canvas>
-  ```
+```html
+<canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"> </canvas>
+```
 
 ### Properties
 
@@ -287,3 +281,6 @@ The MIT License (see the [LICENSE](https://github.com/valor-software/ng2-charts/
 text)
 
 If you like this library and want to say thanks, consider [buying me a coffee](https://www.buymeacoffee.com/santam)!
+
+[//]: # 'super hidden section about running `npm test:ci` in win11 wsl2'
+[//]: # 'export CHROME_BIN=/mnt/c/Program\\ Files\ (x86)/Google/Chrome/Application/chrome.exe'
