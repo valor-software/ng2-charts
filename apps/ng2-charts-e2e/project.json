@@ -17,6 +17,12 @@
         },
         "ci": {
           "devServerTarget": "ng2-charts-demo:serve-static"
+        },
+        "update-screenshots": {
+          "devServerTarget": "ng2-charts-demo:serve-static",
+          "env": {
+            "pluginVisualRegressionUpdateImages": true
+          }
         }
       }
     },

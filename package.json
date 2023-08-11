@@ -16,7 +16,7 @@
     "e2e": "nx run ng2-charts-e2e:e2e",
     "e2e:ci": "nx run ng2-charts-e2e:e2e:ci",
     "lint": "nx run-many --target=lint --verbose --all",
-    "cy:update": "CYPRESS_updateSnapshots=true npx nx run ng2-charts-e2e:e2e:ci"
+    "cy:update": "npx nx run ng2-charts-e2e:e2e:update-screenshots"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +30,7 @@
     "@angular/platform-browser": "^16.1.5",
     "@angular/platform-browser-dynamic": "^16.1.5",
     "@angular/router": "^16.1.5",
-    "@nx/angular": "16.5.0",
+    "@nx/angular": "16.6.0",
     "chart.js": "^4.0.1",
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-chart-financial": "^0.1.1",
@@ -61,13 +61,13 @@
     "@angular/language-service": "^16.1.5",
     "@cypress/schematic": "^2.0.0",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.2.3",
-    "@nx/cypress": "16.5.0",
-    "@nx/eslint-plugin": "16.5.0",
-    "@nx/jest": "16.5.0",
-    "@nx/js": "16.5.0",
-    "@nx/linter": "16.5.0",
-    "@nx/web": "16.5.0",
-    "@nx/workspace": "16.5.0",
+    "@nx/cypress": "16.6.0",
+    "@nx/eslint-plugin": "16.6.0",
+    "@nx/jest": "16.6.0",
+    "@nx/js": "16.6.0",
+    "@nx/linter": "16.6.0",
+    "@nx/web": "16.6.0",
+    "@nx/workspace": "16.6.0",
     "@schematics/angular": "^16.1.4",
     "@types/jest": "^29.5.3",
     "@types/lodash-es": "^4.17.5",
@@ -88,8 +88,8 @@
     "jest-preset-angular": "^13.1.1",
     "jest-raw-loader": "^1.0.1",
     "ng-packagr": "^16.1.0",
-    "nx": "16.5.0",
-    "nx-cloud": "latest",
+    "nx": "16.6.0",
+    "nx-cloud": "16.3.0",
     "postcss": "^8.4.5",
     "postcss-import": "~14.1.0",
     "postcss-preset-env": "~7.5.0",
@@ -105,3 +105,4 @@
     "chart.js": "^4.0.1"
   }
 }
+

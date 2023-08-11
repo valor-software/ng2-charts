@@ -6,8 +6,8 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/cypress/e2e/__image_snapshots__/*.actual.png
-/cypress/e2e/__image_snapshots__/*.diff.png
+/apps/ng2-charts-e2e/src/e2e/__image_snapshots__/*.actual.png
+/apps/ng2-charts-e2e/src/e2e/__image_snapshots__/*.diff.png
 
 # dependencies
 node_modules

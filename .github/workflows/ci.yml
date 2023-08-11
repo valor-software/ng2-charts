@@ -36,7 +36,6 @@ jobs:
       - run: npm run build:lib
       - run: npm run build:schematics
       - run: npm run test:ci
-        continue-on-error: true
       - run: npm run test:schematics
       - run: |
           npx cypress install
