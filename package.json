@@ -11,7 +11,7 @@
     "build:schematics": "nx run ng2-charts-schematics:build",
     "publish:lib": "npm publish dist/ng2-charts",
     "test": "nx run-many --target=test --verbose --all",
-    "test:ci": "nx run-many --target=test --verbose --all",
+    "test:ci": "nx run-many --target=test -p ng2-charts ng2-charts-schematics --configuration=ci",
     "test:schematics": "nx run ng2-charts-schematics:build",
     "e2e": "nx run ng2-charts-e2e:e2e",
     "e2e:ci": "nx run ng2-charts-e2e:e2e:ci",
