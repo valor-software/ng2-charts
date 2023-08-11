@@ -8,7 +8,7 @@ describe('Ng2 Charts Demo', () => {
     cy.wait(1000);
     cy.get(topBarSelector)
       .should('be.visible')
-      .matchImage({ updateImages: false });
+      .matchImage();
 
     cy.get(mainContentSelector).should('be.visible');
   });
@@ -36,7 +36,7 @@ describe('Charts canvas ', () => {
       cy.get(component.selector)
         .find('canvas')
         .should('be.visible')
-        .matchImage({ updateImages: true });
+        .matchImage();
     });
   });
 });
