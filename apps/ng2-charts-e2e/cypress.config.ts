@@ -4,6 +4,7 @@ import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plug
 
 export default defineConfig({
   e2e: {
+    viewportWidth: 1000,
     ...nxE2EPreset(__dirname),
     chromeWebSecurity: false,
     videosFolder: '../../dist/cypress/videos',
