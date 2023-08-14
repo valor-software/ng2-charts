@@ -15,5 +15,8 @@ export default defineConfig({
       // implement node event listeners here
       initPlugin(on, config);
     },
-  }
+  },
+  env: {
+    pluginVisualRegressionDiffConfig: { includeAA: false },
+  },
 });

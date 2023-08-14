@@ -9,8 +9,7 @@
       "options": {
         "cypressConfig": "apps/ng2-charts-e2e/cypress.config.ts",
         "devServerTarget": "ng2-charts-demo:serve:development",
-        "testingType": "e2e",
-        "browser": "chrome"
+        "testingType": "e2e"
       },
       "configurations": {
         "production": {
