@@ -78,11 +78,6 @@ body {
   }
 }
 
-.chart {
-  width: 600px;
-  margin: auto;
-}
-
 .hljs {
   background: transparent;
 }
@@ -100,4 +95,9 @@ body {
 .bd-pageheader {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+canvas {
+  width: 600px;
+  margin: auto;
 }
