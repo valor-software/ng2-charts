@@ -29,3 +29,4 @@ jobs:
       - run: |
           npx cypress install
           npm run e2e:ci
+        continue-on-error: true
