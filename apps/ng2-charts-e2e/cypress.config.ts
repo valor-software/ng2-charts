@@ -5,7 +5,6 @@ import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plug
 export default defineConfig({
   e2e: {
     ...nxE2EPreset(__dirname),
-    viewportWidth: 1000,
     chromeWebSecurity: false,
     videosFolder: '../../dist/cypress/videos',
     screenshotsFolder: '../../dist/cypress/screenshots',
@@ -15,14 +14,6 @@ export default defineConfig({
     ) {
       // implement node event listeners here
       initPlugin(on, config);
-
-      on('before:browser:launch', (browser, launchOptions) => {
-        if (browser.name === 'electron') {
-          launchOptions.preferences['width'] = 600
-        }
-
-        return launchOptions
-      })
     },
   }
 });
