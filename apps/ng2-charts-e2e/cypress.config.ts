@@ -16,6 +16,15 @@ export default defineConfig({
     ) {
       // implement node event listeners here
       initPlugin(on, config);
+      on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.name === 'electron' && browser.isHeadless) {
+          // fullPage screenshot size is 1400x1200
+          launchOptions.preferences.width = 800
+          launchOptions.preferences.height = 400
+        }
+
+        return launchOptions
+      })
     },
   },
   env: {
