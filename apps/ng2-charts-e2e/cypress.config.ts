@@ -18,8 +18,7 @@ export default defineConfig({
 
       on('before:browser:launch', (browser, launchOptions) => {
         if (browser.name === 'electron') {
-          // fullPage screenshot size is 1400x1200
-          launchOptions.preferences['width'] = 800
+          launchOptions.preferences['width'] = 600
         }
 
         return launchOptions
