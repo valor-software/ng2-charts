@@ -89,7 +89,7 @@
     "nx": "16.6.0",
     "nx-cloud": "16.3.0",
     "postcss-preset-env": "^9.1.1",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.1",
     "raw-loader": "^4.0.2",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
