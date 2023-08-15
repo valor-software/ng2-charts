@@ -28,8 +28,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   public isDarkTheme = false;
 
   public themeChanged() {
-    console.log(this.isDarkTheme);
-
     this.renderer.removeClass(this.document.body, darkThemeClass);
 
     let overrides: ChartOptions;

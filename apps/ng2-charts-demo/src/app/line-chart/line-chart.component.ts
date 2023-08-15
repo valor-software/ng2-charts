@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-import { default as Annotation } from 'chartjs-plugin-annotation';
+import Annotation from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-line-chart',
