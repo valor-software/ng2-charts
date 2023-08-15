@@ -1,5 +1,5 @@
 /* eslint-disable */
-const esModules = ['@angular', 'lodash-es'].join('|');
+const esModules = ['lodash-es'].join('|');
 export default {
   displayName: 'ng2-charts',
   preset: '../../jest.preset.js',
