@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "demo.deploy-gh-pages": "gh-pages -d dist/ng2-charts-demo",
     "start": "nx serve",
     "build": "nx run ng2-charts-demo:build:development",
     "build:prod": "nx run ng2-charts-demo:build",
@@ -78,7 +77,6 @@
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "gh-pages": "^5.0.0",
     "jest": "^29.6.1",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.4.1",
