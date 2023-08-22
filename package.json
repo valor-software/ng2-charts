@@ -64,7 +64,7 @@
     "@nx/jest": "16.6.0",
     "@nx/js": "16.6.0",
     "@nx/linter": "16.6.0",
-    "@nx/web": "16.6.0",
+    "@nx/web": "16.7.3",
     "@nx/workspace": "16.6.0",
     "@schematics/angular": "^16.1.4",
     "@types/jest": "^29.5.3",
