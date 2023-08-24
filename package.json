@@ -12,10 +12,10 @@
     "test": "nx run-many --target=test --verbose --all",
     "test:ci": "nx run-many --target=test -p ng2-charts ng2-charts-schematics --configuration=ci",
     "test:schematics": "nx run ng2-charts-schematics:build",
-    "e2e": "nx run ng2-charts-e2e:e2e",
-    "e2e:ci": "nx run ng2-charts-e2e:e2e:ci",
+    "e2e": "nx e2e",
+    "e2e:ci": "nx e2e",
     "lint": "nx run-many --target=lint --verbose --all",
-    "cy:update": "npx nx run ng2-charts-e2e:e2e:update-screenshots"
+    "cy:update": "nx run ng2-charts-e2e:e2e:update-screenshots"
   },
   "private": true,
   "dependencies": {
@@ -57,15 +57,14 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "^16.1.5",
     "@angular/language-service": "^16.1.5",
-    "@cypress/schematic": "^2.0.0",
-    "@frsource/cypress-plugin-visual-regression-diff": "^3.2.3",
-    "@nx/cypress": "16.7.4",
     "@nx/eslint-plugin": "16.7.4",
     "@nx/jest": "16.7.4",
     "@nx/js": "16.7.4",
     "@nx/linter": "16.7.4",
+    "@nx/playwright": "^16.7.4",
     "@nx/web": "16.7.4",
     "@nx/workspace": "16.7.4",
+    "@playwright/test": "^1.36.0",
     "@schematics/angular": "^16.1.4",
     "@types/jest": "^29.5.3",
     "@types/lodash-es": "^4.17.5",
@@ -77,6 +76,7 @@
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-playwright": "^0.15.3",
     "jest": "^29.6.1",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.4.1",
@@ -98,4 +98,3 @@
     "chart.js": "^4.0.1"
   }
 }
-
