@@ -10,14 +10,24 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "ng2-charts": ["libs/ng2-charts/src/index.ts"],
-      "ng2-charts-schematics": ["libs/ng2-charts-schematics/src/index.ts"]
+      "ng2-charts": [
+        "libs/ng2-charts/src/index.ts"
+      ],
+      "ng2-charts-schematics": [
+        "libs/ng2-charts-schematics/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

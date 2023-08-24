@@ -15,8 +15,8 @@ import { Schema } from './schema';
 import * as messages from './messages';
 import { addPackageToPackageJson } from '../utils/package-config';
 
-const NG2_CHARTS_VERSION = '3.0.0';
-const CHARTJS_VERSION = '3.6.0';
+const NG2_CHARTS_VERSION = '5.0.0';
+const CHARTJS_VERSION = '4.3.0';
 
 /**
  * This is executed when `ng add @ng-bootstrap/ng-bootstrap` is run.
