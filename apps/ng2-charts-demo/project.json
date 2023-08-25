@@ -94,7 +94,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "ng2-charts-demo:build"
+        "buildTarget": "ng2-charts-demo:build:development"
       }
     },
     "e2e": {
@@ -104,14 +104,9 @@
         "config": "apps/ng2-charts-demo/playwright.config.ts"
       },
       "configurations": {
-        "ci": {
+        "update-snapshots": {
           "options": {
-
-          }
-        },
-        "update-screenshots": {
-          "options": {
-            "updateSnapshots": true
+            "updateSnapshots": "all"
           }
         }
       }

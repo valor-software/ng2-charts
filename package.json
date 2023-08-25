@@ -13,9 +13,8 @@
     "test:ci": "nx run-many --target=test -p ng2-charts ng2-charts-schematics --configuration=ci",
     "test:schematics": "nx run ng2-charts-schematics:build",
     "e2e": "nx e2e",
-    "e2e:ci": "nx e2e",
-    "lint": "nx run-many --target=lint --verbose --all",
-    "cy:update": "nx run ng2-charts-e2e:e2e:update-screenshots"
+    "e2e:update-screenshots": "nx run ng2-charts-demo:e2e:update-screenshots",
+    "lint": "nx run-many --target=lint --verbose --all"
   },
   "private": true,
   "dependencies": {
