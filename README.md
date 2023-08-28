@@ -63,7 +63,7 @@ imports: [NgChartsModule];
 <table role="table">
  <tbody><tr>
   <td></td>
-  <td colspan="4">ng2-chart version</td>
+  <td colspan="5">ng2-chart version</td>
  </tr>
 
  <tr>
@@ -81,12 +81,14 @@ imports: [NgChartsModule];
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>10</td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
  </tr>
@@ -97,12 +99,14 @@ imports: [NgChartsModule];
   <td>✓</td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>12</td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
  </tr>
@@ -113,6 +117,7 @@ imports: [NgChartsModule];
   <td></td>
   <td>✓</td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -121,6 +126,7 @@ imports: [NgChartsModule];
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
  </tr>
 
  <tr>
@@ -129,6 +135,7 @@ imports: [NgChartsModule];
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
  </tr>
 
  <tr>
