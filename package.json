@@ -75,7 +75,7 @@
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-cypress": "^2.14.0",
-    "eslint-plugin-playwright": "^0.15.3",
+    "eslint-plugin-playwright": "^0.16.0",
     "jest": "^29.6.1",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.4.1",
