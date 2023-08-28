@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           cache: npm
-          node-version: 18.17.0
+          node-version: 18
       - run: npm ci
 
       - run: npm run lint
@@ -26,6 +26,5 @@ jobs:
       - run: npm run build:schematics
       - run: npm run test:ci
       - run: npm run test:schematics
-      - run: |
-          npx cypress install
-          npm run e2e:ci
+      - run: npm run build:prod
+      - run: npm run e2e

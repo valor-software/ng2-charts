@@ -96,6 +96,21 @@
       "options": {
         "buildTarget": "ng2-charts-demo:build"
       }
+    },
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/ng2-charts-demo"],
+      "options": {
+        "config": "apps/ng2-charts-demo/playwright.config.ts"
+      },
+      "configurations": {
+        "update-snapshots": {
+          "options": {
+            "skipInstall": true,
+            "updateSnapshots": "all"
+          }
+        }
+      }
     }
   },
   "implicitDependencies": ["ng2-charts"]
