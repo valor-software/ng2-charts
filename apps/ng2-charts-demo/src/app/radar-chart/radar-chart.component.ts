@@ -8,9 +8,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 })
 export class RadarChartComponent {
   // Radar
-  public radarChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-  };
+  public radarChartOptions: ChartConfiguration['options'] = {};
   public radarChartLabels: string[] = [
     'Eating',
     'Drinking',

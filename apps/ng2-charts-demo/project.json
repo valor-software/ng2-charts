@@ -94,7 +94,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "ng2-charts-demo:build:development"
+        "buildTarget": "ng2-charts-demo:build"
       }
     },
     "e2e": {
@@ -106,6 +106,7 @@
       "configurations": {
         "update-snapshots": {
           "options": {
+            "skipInstall": true,
             "updateSnapshots": "all"
           }
         }

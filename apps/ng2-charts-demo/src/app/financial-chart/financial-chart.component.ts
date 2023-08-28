@@ -29,7 +29,6 @@ export class FinancialChartComponent {
   };
 
   public financialChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
     animation: false,
     maintainAspectRatio: false,
     scales: {

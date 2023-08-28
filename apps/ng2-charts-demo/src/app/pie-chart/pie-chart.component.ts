@@ -13,7 +13,6 @@ export class PieChartComponent {
 
   // Pie
   public pieChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
     plugins: {
       legend: {
         display: true,

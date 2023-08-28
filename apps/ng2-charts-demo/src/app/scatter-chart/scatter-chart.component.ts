@@ -8,9 +8,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 })
 export class ScatterChartComponent {
   // scatter
-  public scatterChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-  };
+  public scatterChartOptions: ChartConfiguration['options'] = {};
   public scatterChartLabels: string[] = [
     'Eating',
     'Drinking',
