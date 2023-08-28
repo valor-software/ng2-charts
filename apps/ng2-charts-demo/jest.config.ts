@@ -4,6 +4,7 @@ const esModules = [
 export default {
   displayName: 'ng2-charts',
   preset: '../../jest.preset.js',
+  roots: ['./src'],
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../coverage/apps/ng2-charts',
   transform: {
