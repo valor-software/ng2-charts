@@ -121,7 +121,7 @@ jobs:
           git commit -m "ci: gh-pages update"
         continue-on-error: true
       - name: push to gh-pages
-        uses: ad-m/github-push-action@v0.6.0
+        uses: ad-m/github-push-action@v0.8.0
         continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
