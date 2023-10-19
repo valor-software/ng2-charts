@@ -70,14 +70,14 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: dist
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v3
         name: prerelease
         if: ${{ github.event.release.prerelease }}
         with:
           tag: next
           package: dist/package.json
           token: ${{ secrets.NPM_TOKEN }}
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v3
         name: release
         if: ${{ !github.event.release.prerelease }}
         with:
