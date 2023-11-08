@@ -6,3 +6,5 @@
 
 # Ignore this file or it will break markdown formatting
 /apps/ng2-charts-demo/src/app/app.component.html
+
+/.nx/cache

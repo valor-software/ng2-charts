@@ -92,7 +92,7 @@ export class BubbleChartComponent {
 
   public randomize(): void {
     const numberOfPoints = this.rand(5) + 5;
-    this.bubbleChartData.datasets[0].data = new Array(numberOfPoints).map((r) =>
+    this.bubbleChartData.datasets[0].data = new Array(numberOfPoints).map(() =>
       this.randomPoint(30)
     );
   }

@@ -52,4 +52,5 @@ Thumbs.db
 /Web.config
 
 .angular
-.nx
+
+.nx/cache

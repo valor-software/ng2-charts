@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -19,10 +19,11 @@ export class PieChartComponent {
         position: 'top',
       },
       datalabels: {
-        formatter: (value: any, ctx: any) => {
+        formatter: (value, ctx) => {
           if (ctx.chart.data.labels) {
             return ctx.chart.data.labels[ctx.dataIndex];
           }
+          return '';
         },
       },
     },
@@ -113,7 +114,7 @@ export class PieChartComponent {
       'funny',
     ];
     const randomWord = () => words[Math.trunc(Math.random() * words.length)];
-    this.pieChartData.labels = new Array(3).map((_) => randomWord());
+    this.pieChartData.labels = new Array(3).map(() => randomWord());
 
     this.chart?.update();
   }
