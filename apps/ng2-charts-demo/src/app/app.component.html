@@ -68,7 +68,7 @@
           In order to use ***ng2-charts*** you need to import `NgChartsModule`:
 
           ```typescript
-          import {{ '{' }} NgChartsModule } from 'ng2-charts';
+          import {{ '{' }} NgChartsModule &#125; from 'ng2-charts';
 
           // In your App's module:
           imports: [
@@ -79,23 +79,23 @@
           When you import `NgChartsModule` you can pass a global configuration object to it:
 
           ```typescript
-          import {{ '{' }} NgChartsModule } from 'ng2-charts';
+          import {{ '{' }} NgChartsModule &#125; from 'ng2-charts';
 
           // In your App's module:
           imports: [
-            NgChartsModule.forRoot({{ '{' }} defaults: {{ '{' }} ... } })
+            NgChartsModule.forRoot({{ '{' }} defaults: {{ '{' }} ... &#125; &#125;)
           ]
           ```
           Alternatively, include a provider in your module, or one of the parent modules:
 
           ```typescript
-          import {{ '{' }} NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+          import {{ '{' }} NgChartsModule, NgChartsConfiguration &#125; from 'ng2-charts';
 
           imports: [
             NgChartsModule
           ],
           providers: [
-            {{ '{' }} provide: NgChartsConfiguration, useValue: {{ '{' }} generateColors: false }}
+            {{ '{' }} provide: NgChartsConfiguration, useValue: {{ '{' }} generateColors: false &#125;&#125;
           ]
           ```
 
@@ -129,12 +129,12 @@
           points and labels
 
           ### Chart instance
-          You can get access to the chart instance by using the `@ViewChild` annotation and a suitable selector for
+          You can get access to the chart instance by using the `&#64;ViewChild` annotation and a suitable selector for
           the directive (see the Angular [docs](https://angular.io/api/core/ViewChild)). For example, to get the chart
           instance and call the `toBase64Image()` method, you can add the following to the parent component:
 
           ```typescript
-          @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+          &#64;ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
           public someAction(): void {{ '{' }}
             this.chart?.toBase64Image();
@@ -159,7 +159,7 @@
           private _selectedTheme: Theme = 'light-theme';
           public get selectedTheme() {{ '{' }}
               return this._selectedTheme;
-            }
+            &#125;
             public set selectedTheme(value) {{ '{' }}
               this._selectedTheme = value;
               let overrides: ChartOptions;
@@ -167,29 +167,29 @@
                 overrides = {{ '{' }}
                   scales: {{ '{' }}
                     x: [{{ '{' }}
-                      ticks: {{ '{' }} fontColor: 'white' },
-                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-                    }],
+                      ticks: {{ '{' }} fontColor: 'white' &#125;,
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' &#125;
+                    &#125;],
                     y: [{{ '{' }}
-                      ticks: {{ '{' }} fontColor: 'white' },
-                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-                    }]
-                  }
-                };
-              } else {{ '{' }}
+                      ticks: {{ '{' }} fontColor: 'white' &#125;,
+                      gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' &#125;
+                    &#125;]
+                  &#125;
+                &#125;;
+              &#125; else {{ '{' }}
                 overrides = {{ '{' }}
                   scales: undefined
-                };
-              }
+                &#125;;
+              &#125;
 
               this.themeService.setColorschemesOptions(overrides);
-          }
+          &#125;
 
-          constructor(private themeService: ThemeService) {{ '{' }} }
+          constructor(private themeService: ThemeService) {{ '{' }} &#125;
 
           setCurrentTheme(theme: Theme) {{ '{' }}
             this.selectedTheme = theme;
-          }
+          &#125;
           ```
 
           The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple

@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "ng2-charts-demo:build:production"
+          "buildTarget": "ng2-charts-demo:build:production"
         },
         "development": {
-          "browserTarget": "ng2-charts-demo:build:development"
+          "buildTarget": "ng2-charts-demo:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "ng2-charts-demo:build"
+        "buildTarget": "ng2-charts-demo:build"
       }
     },
     "lint": {
@@ -81,14 +81,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/ng2-charts-demo/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/ng2-charts-demo/jest.config.ts"
       }
     },
     "serve-static": {
@@ -105,10 +98,8 @@
       },
       "configurations": {
         "update-snapshots": {
-          "options": {
-            "skipInstall": true,
-            "updateSnapshots": "all"
-          }
+          "skipInstall": true,
+          "updateSnapshots": true
         }
       }
     }
