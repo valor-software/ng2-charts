@@ -7,7 +7,7 @@ import {
   tick,
 } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Chart, ChartData, ChartDataset, registerables } from "chart.js";
 
 @Component({
   template:
@@ -19,8 +19,8 @@ import { Chart, registerables } from 'chart.js';
     ' (chartHover)="hover()"></canvas>',
 })
 class TestComponent {
-  public data?: any;
-  public datasets?: any[];
+  public data?: ChartData;
+  public datasets?: ChartDataset[];
   public labels?: string[];
   public click = jest.fn();
   public hover = jest.fn();
