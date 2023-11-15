@@ -44,12 +44,11 @@ describe('ng2-charts-schematics', () => {
 
   it('works', async () => {
     const tree = await runner
-      .runSchematicAsync(
+      .runSchematic(
         'line',
         { name: 'test-chart', project: 'app' },
         appTree
-      )
-      .toPromise();
+      );
 
     expect(tree?.files.length).toBeGreaterThan(0);
   });

@@ -16,7 +16,9 @@ function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
  */
 export async function createTestApp(
   runner: SchematicTestRunner,
-  appOptions = {}
+  appOptions = {
+    standalone: false
+  }
 ): Promise<UnitTestTree> {
   let tree = await createWorkspace(runner);
   tree = await runner.runExternalSchematic(
