@@ -5,6 +5,7 @@ import {
   findModuleFromOptions,
 } from '@angular/cdk/schematics';
 import { Schema } from '../ng-generate/schema';
+import { TargetDefinition } from "@schematics/angular/utility";
 
 /**
  * Resolves options for the build target of the given project
@@ -12,7 +13,7 @@ import { Schema } from '../ng-generate/schema';
 export function getProjectTargetOptions(
   project: ProjectDefinition,
   buildTarget: string
-): any {
+): TargetDefinition['options'] {
   const buildTargetObject = project.targets.get(buildTarget);
   if (buildTargetObject && buildTargetObject.options) {
     return buildTargetObject.options;

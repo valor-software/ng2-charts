@@ -1,8 +1,9 @@
 import { chain, noop, Rule } from '@angular-devkit/schematics';
 import { buildComponent } from '@angular/cdk/schematics';
 import { addChartsModulesToModule } from '../../utils/project';
+import { Schema } from "../schema";
 
-export default function (options: any): Rule {
+export default function (options: Schema): Rule {
   return chain([
     buildComponent(
       { ...options },
