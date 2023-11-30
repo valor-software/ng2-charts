@@ -49,7 +49,7 @@
     "@angular-devkit/core": "^16.1.4",
     "@angular-devkit/schematics": "^16.1.4",
     "@angular-eslint/builder": "^16.1.0",
-    "@angular-eslint/eslint-plugin": "^16.1.0",
+    "@angular-eslint/eslint-plugin": "^17.1.1",
     "@angular-eslint/eslint-plugin-template": "^16.1.0",
     "@angular-eslint/schematics": "^16.1.0",
     "@angular-eslint/template-parser": "^16.1.0",
