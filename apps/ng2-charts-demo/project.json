@@ -7,12 +7,12 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ng2-charts-demo",
         "index": "apps/ng2-charts-demo/src/index.html",
-        "main": "apps/ng2-charts-demo/src/main.ts",
+        "browser": "apps/ng2-charts-demo/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/ng2-charts-demo/tsconfig.app.json",
         "assets": [
@@ -20,7 +20,11 @@
           "apps/ng2-charts-demo/src/assets"
         ],
         "styles": ["apps/ng2-charts-demo/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "loader": {
+          ".html": "text",
+          ".ts": "text"
+        }
       },
       "configurations": {
         "production": {
@@ -39,9 +43,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true

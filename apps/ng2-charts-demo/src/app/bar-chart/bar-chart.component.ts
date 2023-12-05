@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { Chart, ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
 import { BaseChartDirective } from 'ng2-charts';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -11,6 +11,10 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 })
 export class BarChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+
+  constructor() {
+    Chart.register(DataLabelsPlugin);
+  }
 
   public barChartOptions: ChartConfiguration['options'] = {
     // We use these empty structures as placeholders for dynamic theming.
@@ -31,7 +35,6 @@ export class BarChartComponent {
     },
   };
   public barChartType: ChartType = 'bar';
-  public barChartPlugins = [DataLabelsPlugin];
 
   public barChartData: ChartData<'bar'> = {
     labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],

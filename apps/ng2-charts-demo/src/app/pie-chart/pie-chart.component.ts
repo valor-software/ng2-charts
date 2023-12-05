@@ -37,7 +37,6 @@ export class PieChartComponent {
     ],
   };
   public pieChartType: ChartType = 'pie';
-  public pieChartPlugins = [DatalabelsPlugin];
 
   // events
   public chartClicked({
