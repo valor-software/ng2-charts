@@ -147,6 +147,15 @@ imports: [NgChartsModule];
   <td>✓</td>
  </tr>
 
+ <tr>
+  <td>17</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+ </tr>
+
 </tbody></table>
 
 ### Stackblitz Starting Templates
