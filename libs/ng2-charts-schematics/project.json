@@ -13,7 +13,8 @@
         "tsConfig": "libs/ng2-charts-schematics/tsconfig.lib.json",
         "assets": [
           "libs/ng2-charts-schematics/*.md",
-          "libs/ng2-charts-schematics/src/**/*.json"
+          "libs/ng2-charts-schematics/src/**/*.json",
+          "libs/ng2-charts-schematics/src/**/*.template"
         ]
       }
     },
