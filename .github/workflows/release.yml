@@ -62,7 +62,7 @@ jobs:
           cache: npm
           node-version: 18
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: ng2-charts
           path: dist
@@ -104,12 +104,12 @@ jobs:
         with:
           ref: 'gh-pages'
           fetch-depth: 0
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         if: ${{ github.event.release.prerelease }}
         with:
           name: ng2-charts-docs
           path: next
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         if: ${{ !github.event.release.prerelease }}
         with:
           name: ng2-charts-docs
