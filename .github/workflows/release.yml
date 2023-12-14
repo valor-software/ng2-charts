@@ -40,12 +40,12 @@ jobs:
       - run: npm run build:schematics
       - run: npm run test:schematics
       - name: Upload lib
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ng2-charts
           path: dist/libs/ng2-charts
       - name: Upload docs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ng2-charts-docs
           path: dist/apps/ng2-charts-demo
