@@ -1,71 +1,89 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import {
   AfterContentInit,
   Component,
   ContentChild,
-  Input,
+  Input
 } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 
-import ts from '../bar-chart/bar-chart.component.ts?raw';
-import html from '../bar-chart/bar-chart.component.html?raw';
+import barTs from '../bar-chart/bar-chart.component.txt';
+import barHtml from '../bar-chart/bar-chart.component.html';
+import doughnutTs from '../doughnut-chart/doughnut-chart.component.txt';
+import doughnutHtml from '../doughnut-chart/doughnut-chart.component.html';
+import dynamicTs from '../dynamic-chart/dynamic-chart.component.txt';
+import dynamicHtml from '../dynamic-chart/dynamic-chart.component.html';
+import lineTs from '../line-chart/line-chart.component.txt';
+import lineHtml from '../line-chart/line-chart.component.html';
+import pieTs from '../pie-chart/pie-chart.component.txt';
+import pieHtml from '../pie-chart/pie-chart.component.html';
+import polarAreaTs from '../polar-area-chart/polar-area-chart.component.txt';
+import polarAreaHtml from '../polar-area-chart/polar-area-chart.component.html';
+import bubbleTs from '../bubble-chart/bubble-chart.component.txt';
+import bubbleHtml from '../bubble-chart/bubble-chart.component.html';
+import radarTs from '../radar-chart/radar-chart.component.txt';
+import radarHtml from '../radar-chart/radar-chart.component.html';
+import scatterTs from '../scatter-chart/scatter-chart.component.txt';
+import scatterHtml from '../scatter-chart/scatter-chart.component.html';
+import financialTs from '../financial-chart/financial-chart.component.txt';
+import financialHtml from '../financial-chart/financial-chart.component.html';
 
-export const chartTypes = {
+export const chartTypes: { [type: string]: { heading: string, ts: string, html: string } } = {
   bar: {
     heading: 'Bar Chart',
-    // ts: ts,
-    html: html,
+    ts: barTs,
+    html: barHtml
   },
   doughnut: {
     heading: 'Doughnut Chart',
-    ts: '',
-    html: '',
+    ts: doughnutTs,
+    html: doughnutHtml
   },
   dynamic: {
     heading: 'Dynamic Chart',
-    ts: '',
-    html: '',
+    ts: dynamicTs,
+    html: dynamicHtml
   },
   line: {
     heading: 'Line Chart',
-    ts: '',
-    html: '',
+    ts: lineTs,
+    html: lineHtml
+
   },
   pie: {
     heading: 'Pie Chart',
-    ts: '',
-    html: '',
+    ts: pieTs,
+    html: pieHtml
   },
   polarArea: {
     heading: 'Polar Area Chart',
-    ts: '',
-    html: '',
+    ts: polarAreaTs,
+    html: polarAreaHtml
   },
   bubble: {
     heading: 'Bubble Chart',
-    ts: '',
-    html: '',
+    ts: bubbleTs,
+    html: bubbleHtml
   },
   radar: {
     heading: 'Radar Chart',
-    ts: '',
-    html: '',
+    ts: radarTs,
+    html: radarHtml
   },
   scatter: {
     heading: 'Scatter Chart',
-    ts: '',
-    html: '',
+    ts: scatterTs,
+    html: scatterHtml
   },
   financial: {
     heading: 'Financial Chart',
-    ts: '',
-    html: '',
-  },
+    ts: financialTs,
+    html: financialHtml
+  }
 };
 
 @Component({
   selector: 'app-chart-host',
-  templateUrl: './chart-host.component.html',
+  templateUrl: './chart-host.component.html'
 })
 export class ChartHostComponent implements AfterContentInit {
   @Input() chartType: keyof typeof chartTypes = 'bar';
@@ -80,7 +98,7 @@ export class ChartHostComponent implements AfterContentInit {
     if (chartTypes[compName]) {
       this.heading = chartTypes[compName].heading;
       this.html = chartTypes[compName].html;
-      // this.ts = chartTypes[compName].ts;
+      this.ts = chartTypes[compName].ts;
     }
   }
 }
