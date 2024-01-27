@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "serve-static": "nx serve-static",
     "build": "nx run ng2-charts-demo:build:development",
     "build:prod": "nx run ng2-charts-demo:build",
     "prebuild:prod": "node copy-sources.mjs",
@@ -13,7 +14,7 @@
     "test": "nx run-many --target=test --verbose --all",
     "test:ci": "nx run-many --target=test -p ng2-charts ng2-charts-schematics --configuration=ci",
     "e2e": "nx e2e",
-    "e2e:update-snapshots": "nx run ng2-charts-demo:e2e:update-snapshots",
+    "e2e:update-snapshots": "nx run ng2-charts-demo:e2e:update-snapshots --skip-nx-cache",
     "lint": "nx run-many --target=lint --verbose --all"
   },
   "private": true,

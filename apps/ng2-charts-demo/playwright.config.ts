@@ -22,7 +22,7 @@ export default defineConfig({
     use: { ...devices["Desktop Chrome"] }
   }],
   webServer: {
-    command: "nx serve-static",
+    command: "npm run serve-static",
     url: baseURL,
     reuseExistingServer: !process.env.CI
   },
