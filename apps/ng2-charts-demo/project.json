@@ -7,12 +7,12 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ng2-charts-demo",
         "index": "apps/ng2-charts-demo/src/index.html",
-        "main": "apps/ng2-charts-demo/src/main.ts",
+        "browser": "apps/ng2-charts-demo/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/ng2-charts-demo/tsconfig.app.json",
         "assets": [
@@ -20,7 +20,11 @@
           "apps/ng2-charts-demo/src/assets"
         ],
         "styles": ["apps/ng2-charts-demo/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "loader": {
+          ".html": "text",
+          ".ts": "text"
+        }
       },
       "configurations": {
         "production": {
@@ -39,9 +43,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
@@ -53,10 +55,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "ng2-charts-demo:build:production"
+          "buildTarget": "ng2-charts-demo:build:production"
         },
         "development": {
-          "browserTarget": "ng2-charts-demo:build:development"
+          "buildTarget": "ng2-charts-demo:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,11 +66,11 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "ng2-charts-demo:build"
+        "buildTarget": "ng2-charts-demo:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
@@ -81,20 +83,14 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/ng2-charts-demo/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/ng2-charts-demo/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "ng2-charts-demo:build"
+        "buildTarget": "ng2-charts-demo:build",
+        "staticFilePath": "dist/apps/ng2-charts-demo/browser"
       }
     },
     "e2e": {
@@ -105,10 +101,8 @@
       },
       "configurations": {
         "update-snapshots": {
-          "options": {
-            "skipInstall": true,
-            "updateSnapshots": "all"
-          }
+          "skipInstall": true,
+          "updateSnapshots": true
         }
       }
     }

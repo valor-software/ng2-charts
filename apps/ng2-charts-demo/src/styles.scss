@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'node_modules/@angular/material/index' as mat;
+@use 'node_modules/@angular/material/_index.scss' as mat;
 @import 'node_modules/prismjs/themes/prism.css';
-@import 'node_modules/highlight.js/scss/github';
+@import 'node_modules/highlight.js/scss/github.scss';
 
 @include mat.core();
 
@@ -53,7 +53,7 @@ $dark-theme: mat.define-dark-theme(
 .dark-theme {
   @include mat.all-component-colors($dark-theme);
   @include page-header-color($dark-theme);
-  @import 'node_modules/highlight.js/scss/github-dark';
+  @import 'node_modules/highlight.js/scss/github-dark.scss';
 
   .hljs {
     background: transparent;

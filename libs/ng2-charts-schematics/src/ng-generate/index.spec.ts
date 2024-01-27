@@ -9,8 +9,9 @@ let appTree: Tree;
 function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
   return runner.runExternalSchematic('@schematics/angular', 'workspace', {
     name: 'workspace',
-    version: '10.0.0',
+    version: '17.0.0',
     newProjectRoot: 'projects',
+
   });
 }
 
@@ -18,6 +19,20 @@ function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
  * Creates a sample workspace with two applications: 'app' (default) and 'second-app'
  */
 export async function createTestApp(
+  runner: SchematicTestRunner,
+  appOptions = {}
+): Promise<UnitTestTree> {
+  const tree = await createWorkspace(runner);
+
+  return runner.runExternalSchematic(
+    '@schematics/angular',
+    'application',
+    { name: 'app', standalone: false, ...appOptions },
+    tree
+  );
+}
+
+export async function createStandaloneTestApp(
   runner: SchematicTestRunner,
   appOptions = {}
 ): Promise<UnitTestTree> {
@@ -44,12 +59,34 @@ describe('ng2-charts-schematics', () => {
 
   it('works', async () => {
     const tree = await runner
-      .runSchematicAsync(
+      .runSchematic(
         'line',
         { name: 'test-chart', project: 'app' },
         appTree
-      )
-      .toPromise();
+      );
+
+    expect(tree?.files.length).toBeGreaterThan(0);
+  });
+});
+
+describe('ng2-charts-schematics standalone', () => {
+  let runner: SchematicTestRunner;
+
+  beforeEach(async () => {
+    runner = new SchematicTestRunner(
+      'schematics',
+      require.resolve('../collection.json')
+    );
+    appTree = await createStandaloneTestApp(runner);
+  });
+
+  it('works', async () => {
+    const tree = await runner
+      .runSchematic(
+        'line',
+        { name: 'test-chart', project: 'app' },
+        appTree
+      );
 
     expect(tree?.files.length).toBeGreaterThan(0);
   });

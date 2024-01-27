@@ -15,8 +15,8 @@ import {
   ChartEvent,
   ChartType,
   DefaultDataPoint,
-  Plugin,
-} from 'chart.js';
+  Plugin, UpdateMode
+} from "chart.js";
 
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
@@ -126,9 +126,9 @@ export class BaseChartDirective<
     );
   }
 
-  public update(duration?: any): void {
+  public update(mode?: UpdateMode): void {
     if (this.chart) {
-      this.zone.runOutsideAngular(() => this.chart?.update(duration));
+      this.zone.runOutsideAngular(() => this.chart?.update(mode));
     }
   }
 

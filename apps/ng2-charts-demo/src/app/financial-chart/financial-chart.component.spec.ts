@@ -7,7 +7,7 @@ import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 import { FinancialChartComponent } from './financial-chart.component';
 import { NgChartsModule } from 'ng2-charts';
 
-export function hljsLanguages(): { [name: string]: () => Promise<any> } {
+export function hljsLanguages(): { [name: string]: () => Promise<unknown> } {
   return {
     typescript: () => import('highlight.js/lib/languages/typescript'),
     // html: import('highlight.js/lib/languages/html'),

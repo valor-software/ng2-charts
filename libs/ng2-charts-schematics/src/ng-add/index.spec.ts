@@ -30,8 +30,8 @@ describe(`ng add 'ng2-charts'`, () => {
     let message = '';
     try {
       await runner.runSchematic('ng-add', { project: 'test' }, appTree);
-    } catch (e: any) {
-      message = e.message;
+    } catch (e) {
+      message = (e as Error).message;
     } finally {
       expect(message).toBe(messages.noProject('test'));
     }

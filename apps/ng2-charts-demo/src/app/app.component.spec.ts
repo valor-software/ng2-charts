@@ -22,7 +22,7 @@ import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 
-export function hljsLanguages(): { [name: string]: () => Promise<any> } {
+export function hljsLanguages(): { [name: string]: () => Promise<unknown> } {
   return {
     typescript: () => import('highlight.js/lib/languages/typescript'),
     // html: import('highlight.js/lib/languages/html'),

@@ -25,6 +25,7 @@ jobs:
       - run: npm run build:lib
       - run: npm run build:schematics
       - run: npm run test:ci
-      - run: npm run test:schematics
       - run: npm run build:prod
       - run: npm run e2e
+        env:
+          CI: true

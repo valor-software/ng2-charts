@@ -1,82 +1,89 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import {
   AfterContentInit,
   Component,
   ContentChild,
-  Input,
+  Input
 } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 
-export const chartTypes = {
+import barTs from '../bar-chart/bar-chart.component.txt';
+import barHtml from '../bar-chart/bar-chart.component.html';
+import doughnutTs from '../doughnut-chart/doughnut-chart.component.txt';
+import doughnutHtml from '../doughnut-chart/doughnut-chart.component.html';
+import dynamicTs from '../dynamic-chart/dynamic-chart.component.txt';
+import dynamicHtml from '../dynamic-chart/dynamic-chart.component.html';
+import lineTs from '../line-chart/line-chart.component.txt';
+import lineHtml from '../line-chart/line-chart.component.html';
+import pieTs from '../pie-chart/pie-chart.component.txt';
+import pieHtml from '../pie-chart/pie-chart.component.html';
+import polarAreaTs from '../polar-area-chart/polar-area-chart.component.txt';
+import polarAreaHtml from '../polar-area-chart/polar-area-chart.component.html';
+import bubbleTs from '../bubble-chart/bubble-chart.component.txt';
+import bubbleHtml from '../bubble-chart/bubble-chart.component.html';
+import radarTs from '../radar-chart/radar-chart.component.txt';
+import radarHtml from '../radar-chart/radar-chart.component.html';
+import scatterTs from '../scatter-chart/scatter-chart.component.txt';
+import scatterHtml from '../scatter-chart/scatter-chart.component.html';
+import financialTs from '../financial-chart/financial-chart.component.txt';
+import financialHtml from '../financial-chart/financial-chart.component.html';
+
+export const chartTypes: { [type: string]: { heading: string, ts: string, html: string } } = {
   bar: {
     heading: 'Bar Chart',
-    ts: require('!!raw-loader!../bar-chart/bar-chart.component.ts').default,
-    html: require('!!raw-loader!../bar-chart/bar-chart.component.html').default,
+    ts: barTs,
+    html: barHtml
   },
   doughnut: {
     heading: 'Doughnut Chart',
-    ts: require('!!raw-loader!../doughnut-chart/doughnut-chart.component.ts')
-      .default,
-    html: require('!!raw-loader!../doughnut-chart/doughnut-chart.component.html')
-      .default,
+    ts: doughnutTs,
+    html: doughnutHtml
   },
   dynamic: {
     heading: 'Dynamic Chart',
-    ts: require('!!raw-loader!../dynamic-chart/dynamic-chart.component.ts')
-      .default,
-    html: require('!!raw-loader!../dynamic-chart/dynamic-chart.component.html')
-      .default,
+    ts: dynamicTs,
+    html: dynamicHtml
   },
   line: {
     heading: 'Line Chart',
-    ts: require('!!raw-loader!../line-chart/line-chart.component.ts').default,
-    html: require('!!raw-loader!../line-chart/line-chart.component.html')
-      .default,
+    ts: lineTs,
+    html: lineHtml
+
   },
   pie: {
     heading: 'Pie Chart',
-    ts: require('!!raw-loader!../pie-chart/pie-chart.component.ts').default,
-    html: require('!!raw-loader!../pie-chart/pie-chart.component.html').default,
+    ts: pieTs,
+    html: pieHtml
   },
   polarArea: {
     heading: 'Polar Area Chart',
-    ts: require('!!raw-loader!../polar-area-chart/polar-area-chart.component.ts')
-      .default,
-    html: require('!!raw-loader!../polar-area-chart/polar-area-chart.component.html')
-      .default,
+    ts: polarAreaTs,
+    html: polarAreaHtml
   },
   bubble: {
     heading: 'Bubble Chart',
-    ts: require('!!raw-loader!../bubble-chart/bubble-chart.component.ts')
-      .default,
-    html: require('!!raw-loader!../bubble-chart/bubble-chart.component.html')
-      .default,
+    ts: bubbleTs,
+    html: bubbleHtml
   },
   radar: {
     heading: 'Radar Chart',
-    ts: require('!!raw-loader!../radar-chart/radar-chart.component.ts').default,
-    html: require('!!raw-loader!../radar-chart/radar-chart.component.html')
-      .default,
+    ts: radarTs,
+    html: radarHtml
   },
   scatter: {
     heading: 'Scatter Chart',
-    ts: require('!!raw-loader!../scatter-chart/scatter-chart.component.ts')
-      .default,
-    html: require('!!raw-loader!../scatter-chart/scatter-chart.component.html')
-      .default,
+    ts: scatterTs,
+    html: scatterHtml
   },
   financial: {
     heading: 'Financial Chart',
-    ts: require('!!raw-loader!../financial-chart/financial-chart.component.ts')
-      .default,
-    html: require('!!raw-loader!../financial-chart/financial-chart.component.html')
-      .default,
-  },
+    ts: financialTs,
+    html: financialHtml
+  }
 };
 
 @Component({
   selector: 'app-chart-host',
-  templateUrl: './chart-host.component.html',
+  templateUrl: './chart-host.component.html'
 })
 export class ChartHostComponent implements AfterContentInit {
   @Input() chartType: keyof typeof chartTypes = 'bar';
