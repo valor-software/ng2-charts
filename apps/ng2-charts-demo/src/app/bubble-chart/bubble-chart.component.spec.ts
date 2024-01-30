@@ -1,7 +1,6 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BubbleChartComponent } from './bubble-chart.component';
-import { NgChartsModule } from 'ng2-charts';
+import {provideCharts, withDefaultRegisterables} from "ng2-charts";
 
 describe('BubbleChartComponent', () => {
   let component: BubbleChartComponent;
@@ -9,8 +8,7 @@ describe('BubbleChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BubbleChartComponent],
-      imports: [NgChartsModule],
+      providers: [provideCharts(withDefaultRegisterables())],
     }).compileComponents();
   }));
 

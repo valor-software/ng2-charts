@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { ChartData, ChartEvent, ChartType } from 'chart.js';
+import {BaseChartDirective} from "ng2-charts";
 
 @Component({
-  selector: 'app-doughnut-chart',
-  templateUrl: './doughnut-chart.component.html',
-  styleUrls: ['./doughnut-chart.component.scss'],
+    selector: 'app-doughnut-chart',
+    templateUrl: './doughnut-chart.component.html',
+    styleUrls: ['./doughnut-chart.component.scss'],
+    standalone: true,
+    imports:[ BaseChartDirective]
 })
 export class DoughnutChartComponent {
   // Doughnut

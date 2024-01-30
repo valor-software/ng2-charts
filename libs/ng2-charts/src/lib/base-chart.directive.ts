@@ -2,10 +2,12 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
+  Inject,
   Input,
   NgZone,
   OnChanges,
   OnDestroy,
+  Optional,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -14,26 +16,31 @@ import {
   ChartConfiguration,
   ChartEvent,
   ChartType,
-  DefaultDataPoint,
-  Plugin, UpdateMode
-} from "chart.js";
-
+  DefaultDataPoint, defaults,
+  Plugin,
+  UpdateMode,
+} from 'chart.js';
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
-
 import { merge } from 'lodash-es';
+import {
+  NG_CHARTS_CONFIGURATION,
+  NgChartsConfiguration,
+} from './ng-charts.provider';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart',
+  standalone: true,
 })
 export class BaseChartDirective<
-  TType extends ChartType = ChartType,
-  TData = DefaultDataPoint<TType>,
-  TLabel = unknown
-> implements OnDestroy, OnChanges
+    TType extends ChartType = ChartType,
+    TData = DefaultDataPoint<TType>,
+    TLabel = unknown,
+  >
+  implements OnDestroy, OnChanges
 {
   @Input() public type: ChartConfiguration<TType, TData, TLabel>['type'] =
     'bar' as TType;
@@ -71,13 +78,22 @@ export class BaseChartDirective<
   public constructor(
     element: ElementRef,
     private zone: NgZone,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    @Optional() @Inject(NG_CHARTS_CONFIGURATION) config?: NgChartsConfiguration,
   ) {
+    if (config?.registerables) {
+      Chart.register(...config.registerables);
+    }
+
+    if (config?.defaults) {
+      defaults.set(config.defaults);
+    }
+
     this.ctx = element.nativeElement.getContext('2d');
     this.subs.push(
       this.themeService.colorschemesOptions
         .pipe(distinctUntilChanged())
-        .subscribe((r) => this.themeChanged(r))
+        .subscribe((r) => this.themeChanged(r)),
     );
   }
 
@@ -122,7 +138,7 @@ export class BaseChartDirective<
     }
 
     return this.zone.runOutsideAngular(
-      () => (this.chart = new Chart(this.ctx, this.getChartConfiguration()))
+      () => (this.chart = new Chart(this.ctx, this.getChartConfiguration())),
     );
   }
 
@@ -188,7 +204,7 @@ export class BaseChartDirective<
             display: this.legend,
           },
         },
-      }
+      },
     );
   }
 

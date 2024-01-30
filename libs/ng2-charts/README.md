@@ -49,21 +49,40 @@ or with yarn:
 yarn add  chart.js --save
 ```
 
-3. Import the `NgChartsModule` in your app main module:
+3. Import the directive in your standalone component:
 
 ```typescript
-import { NgChartsModule } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 
-// In your App's module:
-imports: [NgChartsModule];
+@Component({
+  standalone: true,
+  imports: [BaseChartDirective],
+})
+export class MyComponent { }
 ```
 
-### Angular version compability table
+4. Provide a configuration, typically in your `main.ts`:
+
+```typescript
+import {
+  provideCharts,
+  withColorGenerator,
+  withDefaultRegisterables,
+} from 'ng2-charts';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideCharts(withDefaultRegisterables(), withColorGenerator()),
+  ],
+}).catch((err) => console.error(err));
+```
+
+### Angular version compatibility table
 
 <table role="table">
  <tbody><tr>
   <td></td>
-  <td colspan="5">ng2-chart version</td>
+  <td colspan="6">ng2-chart version</td>
  </tr>
 
  <tr>
@@ -73,11 +92,13 @@ imports: [NgChartsModule];
   <td>v3.x</td>
   <td>v4.x</td>
   <td>v5.x</td>
+  <td>v6.x</td>
  </tr>
 
  <tr>
   <td>2 - 9</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -91,12 +112,14 @@ imports: [NgChartsModule];
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>11</td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -109,6 +132,7 @@ imports: [NgChartsModule];
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -116,6 +140,7 @@ imports: [NgChartsModule];
   <td></td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
  </tr>
@@ -127,6 +152,7 @@ imports: [NgChartsModule];
   <td>✓</td>
   <td>✓</td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -136,6 +162,7 @@ imports: [NgChartsModule];
   <td>✓</td>
   <td>✓</td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -144,6 +171,17 @@ imports: [NgChartsModule];
   <td></td>
   <td></td>
   <td></td>
+  <td>✓</td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>17</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
   <td>✓</td>
  </tr>
 

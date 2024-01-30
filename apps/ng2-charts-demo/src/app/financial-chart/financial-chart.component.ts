@@ -10,10 +10,14 @@ import {
   OhlcController,
   OhlcElement,
 } from 'chartjs-chart-financial';
+import { MatButton } from '@angular/material/button';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
-  selector: 'app-financial-chart',
-  templateUrl: './financial-chart.component.html',
+    selector: 'app-financial-chart',
+    templateUrl: './financial-chart.component.html',
+    standalone: true,
+    imports: [MarkdownComponent, MatButton, BaseChartDirective],
 })
 export class FinancialChartComponent {
   barCount = 60;

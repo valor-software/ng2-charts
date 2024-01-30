@@ -8,9 +8,7 @@ import {
   NodePackageInstallTask,
   RunSchematicTask,
 } from '@angular-devkit/schematics/tasks';
-
 import { getWorkspace } from '@schematics/angular/utility/workspace';
-
 import { Schema } from './schema';
 import * as messages from './messages';
 import { addPackageToPackageJson } from '../utils/package-config';

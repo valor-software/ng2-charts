@@ -1,6 +1,4 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NgChartsModule } from 'ng2-charts';
-
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 
 describe('<%= classify(name) %>Component', () => {

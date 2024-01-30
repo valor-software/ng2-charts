@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { MatButton } from '@angular/material/button';
+import {BaseChartDirective} from "ng2-charts";
 
 @Component({
-  selector: 'app-bubble-chart',
-  templateUrl: './bubble-chart.component.html',
-  styleUrls: ['./bubble-chart.component.scss'],
+    selector: 'app-bubble-chart',
+    templateUrl: './bubble-chart.component.html',
+    styleUrls: ['./bubble-chart.component.scss'],
+    standalone: true,
+    imports: [MatButton, BaseChartDirective],
 })
 export class BubbleChartComponent {
   public bubbleChartOptions: ChartConfiguration['options'] = {

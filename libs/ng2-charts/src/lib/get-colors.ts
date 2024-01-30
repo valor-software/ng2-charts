@@ -1,7 +1,8 @@
 import { baseColors } from './base-colors';
 import { Color, ScriptableContext } from "chart.js";
+import {AnyObject} from "chart.js/dist/types/basic";
 
-export const builtInDefaults = {
+export const builtInDefaults :AnyObject= {
   plugins: { colors: { enabled: false } },
   datasets: {
     line: {

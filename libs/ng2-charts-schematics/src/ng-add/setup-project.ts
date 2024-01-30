@@ -1,5 +1,4 @@
 import { chain, Rule } from '@angular-devkit/schematics';
-
 import { Schema } from './schema';
 import { addChartsModuleToAppModule } from './steps/add-ng2-charts-module';
 

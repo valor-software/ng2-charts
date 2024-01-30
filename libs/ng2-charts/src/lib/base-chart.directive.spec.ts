@@ -1,4 +1,5 @@
 import { BaseChartDirective } from './base-chart.directive';
+import { provideCharts, withDefaultRegisterables } from './ng-charts.provider';
 import { By } from '@angular/platform-browser';
 import {
   ComponentFixture,
@@ -7,7 +8,7 @@ import {
   tick,
 } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { Chart, ChartData, ChartDataset, registerables } from "chart.js";
+import { ChartData, ChartDataset } from 'chart.js';
 
 @Component({
   template:
@@ -17,6 +18,8 @@ import { Chart, ChartData, ChartDataset, registerables } from "chart.js";
     ' [labels]="labels"' +
     ' (chartClick)="click()"' +
     ' (chartHover)="hover()"></canvas>',
+  standalone: true,
+  imports:[BaseChartDirective]
 })
 class TestComponent {
   public data?: ChartData;
@@ -33,10 +36,8 @@ describe('BaseChartDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, BaseChartDirective],
+      providers: [provideCharts(withDefaultRegisterables())],
     });
-
-    Chart.register(...registerables);
 
     fixture = TestBed.createComponent(TestComponent);
     element = fixture.componentInstance;
@@ -97,7 +98,7 @@ describe('BaseChartDirective', () => {
 
     expect(directive.chart?.data.labels?.length).toBe(3);
     expect(
-      directive.chart?.data?.labels && directive.chart?.data?.labels[0]
+      directive.chart?.data?.labels && directive.chart?.data?.labels[0],
     ).not.toEqual('Answers');
   });
 
@@ -112,7 +113,7 @@ describe('BaseChartDirective', () => {
       {
         clientX: canvas.getBoundingClientRect().left + 50,
         clientY: canvas.getBoundingClientRect().top + 50,
-      }
+      },
     );
 
     canvas.dispatchEvent(event);
@@ -133,7 +134,7 @@ describe('BaseChartDirective', () => {
       {
         clientX: canvas.getBoundingClientRect().left + 50,
         clientY: canvas.getBoundingClientRect().top + 50,
-      }
+      },
     );
 
     canvas.dispatchEvent(event);
