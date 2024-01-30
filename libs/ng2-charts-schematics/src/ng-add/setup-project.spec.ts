@@ -15,12 +15,12 @@ import { createTestApp } from '../utils/testing';
       runner.logger.subscribe(({ message }) => log.push(message));
     });
 
-    it(`should add ng2-charts module`, async () => {
+    it(`should add provideCharts`, async () => {
       let tree = await createTestApp(runner);
-      const appModulePath = `projects/${projectName}/src/app/app.module.ts`;
+      const appModulePath = `projects/${projectName}/src/app/app.config.ts`;
       let actualAppModulePath = tree.read(appModulePath)?.toString();
 
-      expect(actualAppModulePath).not.toContain('NgChartsModule');
+      expect(actualAppModulePath).not.toContain('provideCharts');
 
       tree = await runner.runSchematic(
         'ng-add-setup-project',
@@ -28,7 +28,7 @@ import { createTestApp } from '../utils/testing';
         tree
       );
       actualAppModulePath = tree.read(appModulePath)?.toString();
-      expect(actualAppModulePath).toContain('NgChartsModule');
+      expect(actualAppModulePath).toContain('provideCharts(withDefaultRegisterables())');
     });
   });
 });

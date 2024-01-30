@@ -16,22 +16,19 @@ function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
  */
 export async function createTestApp(
   runner: SchematicTestRunner,
-  appOptions = {
-    standalone: false
-  }
 ): Promise<UnitTestTree> {
   let tree = await createWorkspace(runner);
   tree = await runner.runExternalSchematic(
     '@schematics/angular',
     'application',
-    { name: 'app', ...appOptions },
+    { name: 'app', standalone: true },
     tree
   );
 
   return runner.runExternalSchematic(
     '@schematics/angular',
     'application',
-    { name: 'second-app', ...appOptions },
+    { name: 'second-app', standalone: true },
     tree
   );
 }

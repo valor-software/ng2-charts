@@ -18,7 +18,7 @@ You can install **_ng2-charts_** by using the Angular CLI:
 ng add ng2-charts
 ```
 
-The required packages will be automatically installed, and your `app.module.ts` will be updated with the required
+The required packages will be automatically installed, and your `app.config.ts` will be updated with the required
 changes to start using the library right away.
 
 #### Manual install through package managers
@@ -242,7 +242,7 @@ these [instructions](https://www.chartjs.org/docs/latest/general/colors.html).
 
 ### Dynamic Theming
 
-The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors
+The `ThemeService` allows clients to set a structure specifying colors
 override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The
 structure is interpreted as an override, with special functionality when dealing with arrays. Example:
 
