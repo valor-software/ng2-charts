@@ -293,29 +293,6 @@ and `yAxes` fields above), the single object inside the array is used as a templ
 the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors
 changed.
 
-## Schematics
-
-There are schematics that may be used to add this library to your project and generate chart components using Angular
-CLI.
-
-### Installation of library through ng-add schematics
-
-```bash
-ng add ng2-charts
-```
-
-This schematics will add the `NgChartsModule` as an imported module in the main app module (or another module as specified
-in the `--module` command option).
-
-### Example of Generating a Line Chart using Angular CLI
-
-```bash
-ng generate ng2-charts:line my-line-chart
-```
-
-This calls angular's component schematics and then modifies the result, so all the options for the component schematic
-are also usable here.
-
 ## Troubleshooting
 
 Please follow this guidelines when reporting bugs and feature requests:
