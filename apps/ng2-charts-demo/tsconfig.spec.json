@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "target": "es2016",
     "types": ["jest", "node"]
   },
   "files": ["src/test-setup.ts"],
