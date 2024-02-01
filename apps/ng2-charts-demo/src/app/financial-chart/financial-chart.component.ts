@@ -14,10 +14,10 @@ import { MatButton } from '@angular/material/button';
 import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
-    selector: 'app-financial-chart',
-    templateUrl: './financial-chart.component.html',
-    standalone: true,
-    imports: [MarkdownComponent, MatButton, BaseChartDirective],
+  selector: 'app-financial-chart',
+  templateUrl: './financial-chart.component.html',
+  standalone: true,
+  imports: [MarkdownComponent, MatButton, BaseChartDirective],
 })
 export class FinancialChartComponent {
   barCount = 60;
@@ -68,7 +68,7 @@ export class FinancialChartComponent {
       CandlestickController,
       OhlcController,
       CandlestickElement,
-      OhlcElement
+      OhlcElement,
     );
   }
 
@@ -78,17 +78,17 @@ export class FinancialChartComponent {
 
   randomBar(
     date: Date,
-    lastClose: number
+    lastClose: number,
   ): { c: number; x: number; h: number; l: number; o: number } {
     const open = this.randomNumber(lastClose * 0.95, lastClose * 1.05);
     const close = this.randomNumber(open * 0.95, open * 1.05);
     const high = this.randomNumber(
       Math.max(open, close),
-      Math.max(open, close) * 1.1
+      Math.max(open, close) * 1.1,
     );
     const low = this.randomNumber(
       Math.min(open, close) * 0.9,
-      Math.min(open, close)
+      Math.min(open, close),
     );
     return {
       x: +date,
@@ -101,7 +101,7 @@ export class FinancialChartComponent {
 
   getRandomData(
     dateStr: string,
-    count: number
+    count: number,
   ): { c: number; x: number; h: number; l: number; o: number }[] {
     let date = parseISO(dateStr);
     const data = [this.randomBar(date, 30)];

@@ -2,7 +2,7 @@ import {
   AfterContentInit,
   Component,
   ContentChild,
-  Input
+  Input,
 } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import barTs from '../bar-chart/bar-chart.component.txt';
@@ -29,65 +29,66 @@ import { Highlight } from 'ngx-highlightjs';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatTabGroup, MatTab } from '@angular/material/tabs';
 
-export const chartTypes: { [type: string]: { heading: string, ts: string, html: string } } = {
+export const chartTypes: {
+  [type: string]: { heading: string; ts: string; html: string };
+} = {
   bar: {
     heading: 'Bar Chart',
     ts: barTs,
-    html: barHtml
+    html: barHtml,
   },
   doughnut: {
     heading: 'Doughnut Chart',
     ts: doughnutTs,
-    html: doughnutHtml
+    html: doughnutHtml,
   },
   dynamic: {
     heading: 'Dynamic Chart',
     ts: dynamicTs,
-    html: dynamicHtml
+    html: dynamicHtml,
   },
   line: {
     heading: 'Line Chart',
     ts: lineTs,
-    html: lineHtml
-
+    html: lineHtml,
   },
   pie: {
     heading: 'Pie Chart',
     ts: pieTs,
-    html: pieHtml
+    html: pieHtml,
   },
   polarArea: {
     heading: 'Polar Area Chart',
     ts: polarAreaTs,
-    html: polarAreaHtml
+    html: polarAreaHtml,
   },
   bubble: {
     heading: 'Bubble Chart',
     ts: bubbleTs,
-    html: bubbleHtml
+    html: bubbleHtml,
   },
   radar: {
     heading: 'Radar Chart',
     ts: radarTs,
-    html: radarHtml
+    html: radarHtml,
   },
   scatter: {
     heading: 'Scatter Chart',
     ts: scatterTs,
-    html: scatterHtml
+    html: scatterHtml,
   },
   financial: {
     heading: 'Financial Chart',
     ts: financialTs,
-    html: financialHtml
-  }
+    html: financialHtml,
+  },
 };
 
 @Component({
-    selector: 'app-chart-host',
-    templateUrl: './chart-host.component.html',
-    standalone: true,
-    imports: [MatTabGroup, MatTab, MatCard, MatCardContent, Highlight]
+  selector: 'app-chart-host',
+  templateUrl: './chart-host.component.html',
+  standalone: true,
+  imports: [MatTabGroup, MatTab, MatCard, MatCardContent, Highlight],
 })
 export class ChartHostComponent implements AfterContentInit {
   @Input() chartType: keyof typeof chartTypes = 'bar';

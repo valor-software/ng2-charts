@@ -1,15 +1,21 @@
 import { Component, ViewChild } from '@angular/core';
-import { Chart, ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
+import {
+  Chart,
+  ChartConfiguration,
+  ChartData,
+  ChartEvent,
+  ChartType,
+} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-    selector: 'app-bar-chart',
-    templateUrl: './bar-chart.component.html',
-    styleUrls: ['./bar-chart.component.scss'],
-    standalone: true,
-    imports: [MatButton, BaseChartDirective],
+  selector: 'app-bar-chart',
+  templateUrl: './bar-chart.component.html',
+  styleUrls: ['./bar-chart.component.scss'],
+  standalone: true,
+  imports: [MatButton, BaseChartDirective],
 })
 export class BarChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;

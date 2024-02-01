@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { MatButton } from '@angular/material/button';
-import {BaseChartDirective} from "ng2-charts";
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
-    selector: 'app-bubble-chart',
-    templateUrl: './bubble-chart.component.html',
-    styleUrls: ['./bubble-chart.component.scss'],
-    standalone: true,
-    imports: [MatButton, BaseChartDirective],
+  selector: 'app-bubble-chart',
+  templateUrl: './bubble-chart.component.html',
+  styleUrls: ['./bubble-chart.component.scss'],
+  standalone: true,
+  imports: [MatButton, BaseChartDirective],
 })
 export class BubbleChartComponent {
   public bubbleChartOptions: ChartConfiguration['options'] = {
@@ -97,7 +97,7 @@ export class BubbleChartComponent {
   public randomize(): void {
     const numberOfPoints = this.rand(5) + 5;
     this.bubbleChartData.datasets[0].data = new Array(numberOfPoints).map(() =>
-      this.randomPoint(30)
+      this.randomPoint(30),
     );
   }
 }

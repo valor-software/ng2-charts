@@ -22,13 +22,13 @@ export async function createTestApp(
     '@schematics/angular',
     'application',
     { name: 'app', standalone: true },
-    tree
+    tree,
   );
 
   return runner.runExternalSchematic(
     '@schematics/angular',
     'application',
     { name: 'second-app', standalone: true },
-    tree
+    tree,
   );
 }

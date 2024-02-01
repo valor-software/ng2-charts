@@ -2,13 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.app.json",
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./tsconfig.spec.json",
     },
     {
-      "path": "./tsconfig.editor.json"
-    }
-  ]
+      "path": "./tsconfig.editor.json",
+    },
+  ],
 }

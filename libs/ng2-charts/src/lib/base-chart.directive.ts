@@ -16,7 +16,8 @@ import {
   ChartConfiguration,
   ChartEvent,
   ChartType,
-  DefaultDataPoint, defaults,
+  DefaultDataPoint,
+  defaults,
   Plugin,
   UpdateMode,
 } from 'chart.js';

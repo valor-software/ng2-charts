@@ -10,9 +10,9 @@ jobs:
   correct_repository:
     runs-on: ubuntu-latest
     steps:
-    - name: fail on fork
-      if: github.repository_owner != 'valor-software'
-      run: exit 1
+      - name: fail on fork
+        if: github.repository_owner != 'valor-software'
+        run: exit 1
 
   update_release_draft:
     needs: correct_repository

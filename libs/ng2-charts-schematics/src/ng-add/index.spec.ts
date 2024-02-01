@@ -10,7 +10,7 @@ describe(`ng add 'ng2-charts'`, () => {
   beforeEach(async () => {
     runner = new SchematicTestRunner(
       'schematics',
-      require.resolve('../collection.json')
+      require.resolve('../collection.json'),
     );
     appTree = await createTestApp(runner);
   });

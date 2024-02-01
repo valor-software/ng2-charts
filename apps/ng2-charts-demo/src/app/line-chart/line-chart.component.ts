@@ -6,11 +6,11 @@ import { MatButton } from '@angular/material/button';
 import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-line-chart',
-    templateUrl: './line-chart.component.html',
-    styleUrls: ['./line-chart.component.scss'],
-    standalone: true,
-    imports: [NgFor, MatButton, BaseChartDirective],
+  selector: 'app-line-chart',
+  templateUrl: './line-chart.component.html',
+  styleUrls: ['./line-chart.component.scss'],
+  standalone: true,
+  imports: [NgFor, MatButton, BaseChartDirective],
 })
 export class LineChartComponent {
   private newLabel? = 'New label';
@@ -156,7 +156,7 @@ export class LineChartComponent {
       x.data.push(num);
     });
     this.lineChartData?.labels?.push(
-      `Label ${this.lineChartData.labels.length}`
+      `Label ${this.lineChartData.labels.length}`,
     );
 
     this.chart?.update();

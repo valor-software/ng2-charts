@@ -19,25 +19,15 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "emitDecoratorMetadata": true,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "ng2-charts": [
-        "libs/ng2-charts/src/index.ts"
-      ],
-      "ng2-charts-schematics": [
-        "libs/ng2-charts-schematics/src/index.ts"
-      ]
+      "ng2-charts": ["libs/ng2-charts/src/index.ts"],
+      "ng2-charts-schematics": ["libs/ng2-charts-schematics/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ],
+  "exclude": ["node_modules", "tmp"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

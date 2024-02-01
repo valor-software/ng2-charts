@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { PieChartComponent } from './pie-chart.component';
-import {provideCharts, withDefaultRegisterables} from "ng2-charts";
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 describe('PieChartComponent', () => {
   let component: PieChartComponent;

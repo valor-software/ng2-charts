@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BarChartComponent } from './bar-chart.component';
-import {provideCharts, withDefaultRegisterables} from "ng2-charts";
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 describe('BarChartComponent', () => {
   let component: BarChartComponent;
