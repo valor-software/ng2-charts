@@ -1,6 +1,5 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-
 import { createTestApp } from '../utils/testing';
 import * as messages from './messages';
 

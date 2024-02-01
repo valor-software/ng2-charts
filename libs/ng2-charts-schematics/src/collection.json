@@ -12,46 +12,6 @@
       "description": "Sets up the project after dependencies have been installed",
       "factory": "./ng-add/setup-project",
       "schema": "./ng-add/schema.json"
-    },
-    "bar": {
-      "description": "Generate a component with a bar chart.",
-      "factory": "./ng-generate/bar/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "bubble": {
-      "description": "Generate a component with a bubble chart.",
-      "factory": "./ng-generate/bubble/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "doughnut": {
-      "description": "Generate a component with a doughnut chart.",
-      "factory": "./ng-generate/doughnut/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "line": {
-      "description": "Generate a component with a line chart.",
-      "factory": "./ng-generate/line/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "pie": {
-      "description": "Generate a component with a pie chart.",
-      "factory": "./ng-generate/pie/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "polar-area": {
-      "description": "Generate a component with a polar area chart.",
-      "factory": "./ng-generate/polar-area/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "radar": {
-      "description": "Generate a component with a radar chart.",
-      "factory": "./ng-generate/radar/index",
-      "schema": "./ng-generate/schema.json"
-    },
-    "scatter": {
-      "description": "Generate a component with a scatter chart.",
-      "factory": "./ng-generate/scatter/index",
-      "schema": "./ng-generate/schema.json"
     }
   }
 }

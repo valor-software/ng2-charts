@@ -1,9 +1,0 @@
-<canvas baseChart width="400" height="400"
-  [data]="lineChartData"
-  [labels]="lineChartLabels"
-  [options]="lineChartOptions"
-  [colors]="lineChartColors"
-  [legend]="lineChartLegend"
-  [type]="lineChartType"
-  [plugins]="lineChartPlugins">
-</canvas>

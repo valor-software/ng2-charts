@@ -5,7 +5,6 @@ import {
   Input
 } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
-
 import barTs from '../bar-chart/bar-chart.component.txt';
 import barHtml from '../bar-chart/bar-chart.component.html';
 import doughnutTs from '../doughnut-chart/doughnut-chart.component.txt';
@@ -26,6 +25,9 @@ import scatterTs from '../scatter-chart/scatter-chart.component.txt';
 import scatterHtml from '../scatter-chart/scatter-chart.component.html';
 import financialTs from '../financial-chart/financial-chart.component.txt';
 import financialHtml from '../financial-chart/financial-chart.component.html';
+import { Highlight } from 'ngx-highlightjs';
+import { MatCard, MatCardContent } from '@angular/material/card';
+import { MatTabGroup, MatTab } from '@angular/material/tabs';
 
 export const chartTypes: { [type: string]: { heading: string, ts: string, html: string } } = {
   bar: {
@@ -82,8 +84,10 @@ export const chartTypes: { [type: string]: { heading: string, ts: string, html: 
 };
 
 @Component({
-  selector: 'app-chart-host',
-  templateUrl: './chart-host.component.html'
+    selector: 'app-chart-host',
+    templateUrl: './chart-host.component.html',
+    standalone: true,
+    imports: [MatTabGroup, MatTab, MatCard, MatCardContent, Highlight]
 })
 export class ChartHostComponent implements AfterContentInit {
   @Input() chartType: keyof typeof chartTypes = 'bar';

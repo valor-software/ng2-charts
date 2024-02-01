@@ -1,7 +1,6 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { PolarAreaChartComponent } from './polar-area-chart.component';
-import { NgChartsModule } from 'ng2-charts';
+import {provideCharts, withDefaultRegisterables} from "ng2-charts";
 
 describe('PolarAreaChartComponent', () => {
   let component: PolarAreaChartComponent;
@@ -9,8 +8,7 @@ describe('PolarAreaChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [PolarAreaChartComponent],
-      imports: [NgChartsModule],
+      providers: [provideCharts(withDefaultRegisterables())],
     }).compileComponents();
   }));
 

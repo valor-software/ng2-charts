@@ -1,11 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-dynamic-chart',
-  templateUrl: './dynamic-chart.component.html',
-  styleUrls: ['./dynamic-chart.component.scss'],
+    selector: 'app-dynamic-chart',
+    templateUrl: './dynamic-chart.component.html',
+    styleUrls: ['./dynamic-chart.component.scss'],
+    standalone: true,
+    imports: [MatButton, BaseChartDirective],
 })
 export class DynamicChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;

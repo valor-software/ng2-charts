@@ -18,47 +18,88 @@ You can install **_ng2-charts_** by using the Angular CLI:
 ng add ng2-charts
 ```
 
-The required packages will be automatically installed, and your `app.module.ts` will be updated with the required
+The required packages will be automatically installed, and your `app.config.ts` will be updated with the required
 changes to start using the library right away.
 
 #### Manual install through package managers
 
-1. You can install **_ng2-charts_** using npm
+1. You can install **_ng2-charts_** using npm:
 
-```bash
-npm install ng2-charts --save
-```
+    ```bash
+    npm install ng2-charts --save
+    ```
 
-or yarn
+   or yarn:
 
-```bash
-yarn add ng2-charts --save
-```
+    ```bash
+    yarn add ng2-charts --save
+    ```
 
 2. You will also need to install and include `Chart.js` library in your application (it is a peer dependency of this
    library, more info can be found in the
    official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
-```bash
-npm install chart.js --save
-```
+    ```bash
+    npm install chart.js --save
+    ```
 
-or with yarn:
+   or with yarn:
 
-```bash
-yarn add  chart.js --save
-```
+    ```bash
+    yarn add  chart.js --save
+    ```
 
-3. Import the `NgChartsModule` in your app main module:
+3. Import the directive in your standalone component:
 
-```typescript
-import { NgChartsModule } from 'ng2-charts';
+    ```typescript
+    import { BaseChartDirective } from 'ng2-charts';
+    
+    @Component({
+      standalone: true,
+      imports: [BaseChartDirective],
+    })
+    export class MyComponent { }
+    ```
 
-// In your App's module:
-imports: [NgChartsModule];
-```
+4. Provide a configuration, typically in your `main.ts`:
 
-### Angular version compability table
+    ```typescript
+    import {
+      provideCharts,
+      withColorGenerator,
+      withDefaultRegisterables,
+    } from 'ng2-charts';
+    
+    bootstrapApplication(AppComponent, {
+      providers: [
+        provideCharts(withDefaultRegisterables(), withColorGenerator()),
+      ],
+    }).catch((err) => console.error(err));
+    ```
+
+    Alternatively, include a minimal configuration to reduce the bundle size, eg:
+
+    ```typescript
+    provideCharts({registerables: [BarController, Legend, Colors]})
+    ```
+   
+    Or in your AppModule:
+
+    ```typescript
+    import {
+      provideCharts,
+      withColorGenerator,
+      withDefaultRegisterables,
+    } from 'ng2-charts';
+    
+    @NgModule({
+      providers: [provideCharts(withDefaultRegisterables(), withColorGenerator())],
+      bootstrap: [AppComponent],
+    })
+    export class AppModule {}
+    ```
+
+### Angular version compatibility table
 
 <table role="table">
  <tbody><tr>
@@ -223,7 +264,7 @@ these [instructions](https://www.chartjs.org/docs/latest/general/colors.html).
 
 ### Dynamic Theming
 
-The `NgChartsModule` provides a service called `ThemeService` which allows clients to set a structure specifying colors
+The `ThemeService` allows clients to set a structure specifying colors
 override settings. This service may be called when the dynamic theme changes, with colors which fit the theme. The
 structure is interpreted as an override, with special functionality when dealing with arrays. Example:
 
@@ -273,29 +314,6 @@ encountered it replaces the matching field in the `options` object. When an arra
 and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in
 the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors
 changed.
-
-## Schematics
-
-There are schematics that may be used to add this library to your project and generate chart components using Angular
-CLI.
-
-### Installation of library through ng-add schematics
-
-```bash
-ng add ng2-charts
-```
-
-This schematics will add the `NgChartsModule` as an imported module in the main app module (or another module as specified
-in the `--module` command option).
-
-### Example of Generating a Line Chart using Angular CLI
-
-```bash
-ng generate ng2-charts:line my-line-chart
-```
-
-This calls angular's component schematics and then modifies the result, so all the options for the component schematic
-are also usable here.
 
 ## Troubleshooting
 

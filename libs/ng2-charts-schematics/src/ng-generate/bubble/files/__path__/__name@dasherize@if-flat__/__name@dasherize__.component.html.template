@@ -1,7 +1,0 @@
-<canvas baseChart
-  [data]="bubbleChartData"
-  [options]="bubbleChartOptions"
-  [colors]="bubbleChartColors"
-  [legend]="bubbleChartLegend"
-  [type]="bubbleChartType">
-</canvas>

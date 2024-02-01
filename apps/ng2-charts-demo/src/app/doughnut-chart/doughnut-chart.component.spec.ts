@@ -1,7 +1,6 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DoughnutChartComponent } from './doughnut-chart.component';
-import { NgChartsModule } from 'ng2-charts';
+import {provideCharts, withDefaultRegisterables} from "ng2-charts";
 
 describe('DoughnutChartComponent', () => {
   let component: DoughnutChartComponent;
@@ -9,8 +8,7 @@ describe('DoughnutChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DoughnutChartComponent],
-      imports: [NgChartsModule],
+      providers: [provideCharts(withDefaultRegisterables())],
     }).compileComponents();
   }));
 

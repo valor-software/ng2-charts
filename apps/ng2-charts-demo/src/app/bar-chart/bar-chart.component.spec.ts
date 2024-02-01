@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { BarChartComponent } from './bar-chart.component';
-import { NgChartsModule } from 'ng2-charts';
+import {provideCharts, withDefaultRegisterables} from "ng2-charts";
 
 describe('BarChartComponent', () => {
   let component: BarChartComponent;
@@ -9,8 +8,7 @@ describe('BarChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BarChartComponent],
-      imports: [NgChartsModule],
+      providers: [provideCharts(withDefaultRegisterables())],
     }).compileComponents();
   }));
 
