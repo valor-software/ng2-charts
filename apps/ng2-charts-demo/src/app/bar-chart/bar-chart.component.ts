@@ -18,7 +18,7 @@ import { MatButton } from '@angular/material/button';
   imports: [MatButton, BaseChartDirective],
 })
 export class BarChartComponent {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;
 
   constructor() {
     Chart.register(DataLabelsPlugin);
@@ -42,7 +42,7 @@ export class BarChartComponent {
       },
     },
   };
-  public barChartType: ChartType = 'bar';
+  public barChartType = 'bar' as const;
 
   public barChartData: ChartData<'bar'> = {
     labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
