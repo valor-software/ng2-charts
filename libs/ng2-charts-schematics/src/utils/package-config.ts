@@ -4,13 +4,15 @@ import { Tree } from '@angular-devkit/schematics';
  * Sorts the keys of the given object.
  * @returns A new object instance with sorted keys
  */
-function sortObjectByKeys(obj: { [key: string]: object }): { [key: string]: object } {
+function sortObjectByKeys(obj: { [key: string]: object }): {
+  [key: string]: object;
+} {
   return Object.keys(obj)
     .sort()
     .reduce(
       (result: { [key: string]: object }, key) =>
         (result[key] = obj[key]) && result,
-      {}
+      {},
     );
 }
 
@@ -20,7 +22,7 @@ function sortObjectByKeys(obj: { [key: string]: object }): { [key: string]: obje
 export function addPackageToPackageJson(
   tree: Tree,
   pkg: string,
-  version: string
+  version: string,
 ): Tree {
   if (tree.exists('package.json')) {
     const sourceText = tree.read('package.json')!.toString('utf-8');

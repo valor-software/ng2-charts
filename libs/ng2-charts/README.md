@@ -25,79 +25,69 @@ changes to start using the library right away.
 
 1. You can install **_ng2-charts_** using npm:
 
-    ```bash
-    npm install ng2-charts --save
-    ```
+   ```bash
+   npm install ng2-charts --save
+   ```
 
    or yarn:
 
-    ```bash
-    yarn add ng2-charts --save
-    ```
+   ```bash
+   yarn add ng2-charts --save
+   ```
 
 2. You will also need to install and include `Chart.js` library in your application (it is a peer dependency of this
    library, more info can be found in the
    official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
-    ```bash
-    npm install chart.js --save
-    ```
+   ```bash
+   npm install chart.js --save
+   ```
 
    or with yarn:
 
-    ```bash
-    yarn add  chart.js --save
-    ```
+   ```bash
+   yarn add  chart.js --save
+   ```
 
 3. Import the directive in your standalone component:
 
-    ```typescript
-    import { BaseChartDirective } from 'ng2-charts';
-    
-    @Component({
-      standalone: true,
-      imports: [BaseChartDirective],
-    })
-    export class MyComponent { }
-    ```
+   ```typescript
+   import { BaseChartDirective } from 'ng2-charts';
+
+   @Component({
+     standalone: true,
+     imports: [BaseChartDirective],
+   })
+   export class MyComponent {}
+   ```
 
 4. Provide a configuration, typically in your `main.ts`:
 
-    ```typescript
-    import {
-      provideCharts,
-      withColorGenerator,
-      withDefaultRegisterables,
-    } from 'ng2-charts';
-    
-    bootstrapApplication(AppComponent, {
-      providers: [
-        provideCharts(withDefaultRegisterables(), withColorGenerator()),
-      ],
-    }).catch((err) => console.error(err));
-    ```
+   ```typescript
+   import { provideCharts, withColorGenerator, withDefaultRegisterables } from 'ng2-charts';
+
+   bootstrapApplication(AppComponent, {
+     providers: [provideCharts(withDefaultRegisterables(), withColorGenerator())],
+   }).catch((err) => console.error(err));
+   ```
 
    Alternatively, include a minimal configuration to reduce the bundle size, eg:
 
-    ```typescript
-    provideCharts({registerables: [BarController, Legend, Colors]})
-    ```
+   ```typescript
+   provideCharts({ registerables: [BarController, Legend, Colors] });
+   ```
 
    Or in your AppModule:
 
-    ```typescript
-    import {
-      provideCharts,
-      withColorGenerator,
-      withDefaultRegisterables,
-    } from 'ng2-charts';
-    
-    @NgModule({
-      providers: [provideCharts(withDefaultRegisterables(), withColorGenerator())],
-      bootstrap: [AppComponent],
-    })
-    export class AppModule {}
-    ```
+   ```typescript
+   import { provideCharts, withColorGenerator, withDefaultRegisterables } from 'ng2-charts';
+
+   @NgModule({
+     providers: [provideCharts(withDefaultRegisterables(), withColorGenerator())],
+     bootstrap: [AppComponent],
+   })
+   export class AppModule {}
+   ```
 
 ### Angular version compatibility table
 
@@ -334,4 +324,4 @@ text)
 If you like this library and want to say thanks, consider [buying me a coffee](https://www.buymeacoffee.com/santam)!
 
 [//]: # 'super hidden section about running `npm test:ci` in win11 wsl2'
-[//]: # 'export CHROME_BIN=/mnt/c/Program\\ Files\ (x86)/Google/Chrome/Application/chrome.exe'
+[//]: # 'export CHROME_BIN=/mnt/c/Program\\ Files\\ (x86)/Google/Chrome/Application/chrome.exe'

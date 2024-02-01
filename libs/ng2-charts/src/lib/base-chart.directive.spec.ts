@@ -19,7 +19,7 @@ import { ChartData, ChartDataset } from 'chart.js';
     ' (chartClick)="click()"' +
     ' (chartHover)="hover()"></canvas>',
   standalone: true,
-  imports:[BaseChartDirective]
+  imports: [BaseChartDirective],
 })
 class TestComponent {
   public data?: ChartData;

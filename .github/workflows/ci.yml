@@ -21,6 +21,7 @@ jobs:
           node-version: 18
       - run: npm ci
 
+      - run: npx prettier --check .
       - run: npm run lint
       - run: npm run build:lib
       - run: npm run build:schematics

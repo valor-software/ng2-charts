@@ -1,8 +1,8 @@
 import { baseColors } from './base-colors';
-import { Color, ScriptableContext } from "chart.js";
-import {AnyObject} from "chart.js/dist/types/basic";
+import { Color, ScriptableContext } from 'chart.js';
+import { AnyObject } from 'chart.js/dist/types/basic';
 
-export const builtInDefaults :AnyObject= {
+export const builtInDefaults: AnyObject = {
   plugins: { colors: { enabled: false } },
   datasets: {
     line: {
@@ -20,7 +20,9 @@ export const builtInDefaults :AnyObject= {
       borderColor: (context: ScriptableContext<'bar'>) =>
         rgba(generateColor(context.datasetIndex), 1),
     },
-    get radar(): { [key: string]: ((context: ScriptableContext<'line'>) => Color) | Color } {
+    get radar(): {
+      [key: string]: ((context: ScriptableContext<'line'>) => Color) | Color;
+    } {
       return this.line;
     },
     doughnut: {
@@ -28,21 +30,38 @@ export const builtInDefaults :AnyObject= {
         rgba(generateColor(context.dataIndex), 0.6),
       borderColor: '#fff',
     },
-    get pie(): { [key: string]: ((context: ScriptableContext<'doughnut'>) => Color) | Color } {
+    get pie(): {
+      [key: string]:
+        | ((context: ScriptableContext<'doughnut'>) => Color)
+        | Color;
+    } {
       return this.doughnut;
     },
     polarArea: {
       backgroundColor: (context: ScriptableContext<'polarArea'>) =>
         rgba(generateColor(context.dataIndex), 0.6),
-      borderColor: (context: ScriptableContext<'polarArea'>) => rgba(generateColor(context.dataIndex), 1),
+      borderColor: (context: ScriptableContext<'polarArea'>) =>
+        rgba(generateColor(context.dataIndex), 1),
     },
-    get bubble(): { [key: string]: ((context: ScriptableContext<'doughnut'>) => Color) | Color } {
+    get bubble(): {
+      [key: string]:
+        | ((context: ScriptableContext<'doughnut'>) => Color)
+        | Color;
+    } {
       return this.doughnut;
     },
-    get scatter(): { [key: string]: ((context: ScriptableContext<'doughnut'>) => Color) | Color } {
+    get scatter(): {
+      [key: string]:
+        | ((context: ScriptableContext<'doughnut'>) => Color)
+        | Color;
+    } {
       return this.doughnut;
     },
-    get area(): { [key: string]: ((context: ScriptableContext<'polarArea'>) => Color) | Color } {
+    get area(): {
+      [key: string]:
+        | ((context: ScriptableContext<'polarArea'>) => Color)
+        | Color;
+    } {
       return this.polarArea;
     },
   },

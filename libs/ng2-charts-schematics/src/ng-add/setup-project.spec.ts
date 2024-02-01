@@ -10,7 +10,7 @@ import { createTestApp } from '../utils/testing';
       log = [];
       runner = new SchematicTestRunner(
         'schematics',
-        require.resolve('../collection.json')
+        require.resolve('../collection.json'),
       );
       runner.logger.subscribe(({ message }) => log.push(message));
     });
@@ -25,10 +25,12 @@ import { createTestApp } from '../utils/testing';
       tree = await runner.runSchematic(
         'ng-add-setup-project',
         projectName ? { project: projectName } : {},
-        tree
+        tree,
       );
       actualAppModulePath = tree.read(appModulePath)?.toString();
-      expect(actualAppModulePath).toContain('provideCharts(withDefaultRegisterables())');
+      expect(actualAppModulePath).toContain(
+        'provideCharts(withDefaultRegisterables())',
+      );
     });
   });
 });
