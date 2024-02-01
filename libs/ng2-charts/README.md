@@ -28,9 +28,9 @@ changes to start using the library right away.
     ```bash
     npm install ng2-charts --save
     ```
-  
-    or yarn:
-    
+
+   or yarn:
+
     ```bash
     yarn add ng2-charts --save
     ```
@@ -42,9 +42,9 @@ changes to start using the library right away.
     ```bash
     npm install chart.js --save
     ```
-    
-    or with yarn:
-    
+
+   or with yarn:
+
     ```bash
     yarn add  chart.js --save
     ```
@@ -76,7 +76,14 @@ changes to start using the library right away.
       ],
     }).catch((err) => console.error(err));
     ```
-    Or in your AppModule:
+
+   Alternatively, include a minimal configuration to reduce the bundle size, eg:
+
+    ```typescript
+    provideCharts({registerables: [BarController, Legend, Colors]})
+    ```
+
+   Or in your AppModule:
 
     ```typescript
     import {

@@ -76,7 +76,14 @@ changes to start using the library right away.
       ],
     }).catch((err) => console.error(err));
     ```
-   Or in your AppModule:
+
+    Alternatively, include a minimal configuration to reduce the bundle size, eg:
+
+    ```typescript
+    provideCharts({registerables: [BarController, Legend, Colors]})
+    ```
+   
+    Or in your AppModule:
 
     ```typescript
     import {
