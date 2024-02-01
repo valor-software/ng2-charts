@@ -64,10 +64,10 @@ changes to start using the library right away.
 4. Provide a configuration, typically in your `main.ts`:
 
    ```typescript
-   import { provideCharts, withColorGenerator, withDefaultRegisterables } from 'ng2-charts';
+   import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
    bootstrapApplication(AppComponent, {
-     providers: [provideCharts(withDefaultRegisterables(), withColorGenerator())],
+     providers: [provideCharts(withDefaultRegisterables())],
    }).catch((err) => console.error(err));
    ```
 
@@ -80,10 +80,10 @@ changes to start using the library right away.
    Or in your AppModule:
 
    ```typescript
-   import { provideCharts, withColorGenerator, withDefaultRegisterables } from 'ng2-charts';
+   import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
    @NgModule({
-     providers: [provideCharts(withDefaultRegisterables(), withColorGenerator())],
+     providers: [provideCharts(withDefaultRegisterables())],
      bootstrap: [AppComponent],
    })
    export class AppModule {}
@@ -248,9 +248,8 @@ documentation
 
 ### Colors
 
-The library comes with a set of predefined default colors (which are exported as `baseColors`). If there are more
-datasets than colors, colors are generated randomly. You can specify custom colors by following
-these [instructions](https://www.chartjs.org/docs/latest/general/colors.html).
+By default, this library uses the colors as [defined by Chart.js](https://www.chartjs.org/docs/latest/general/colors.html#default-color-palette).
+If you need more control on colors, eg: generating colors on the fly, see [the advanced color palettes](https://www.chartjs.org/docs/latest/general/colors.html#advanced-color-palettes).
 
 ### Dynamic Theming
 
