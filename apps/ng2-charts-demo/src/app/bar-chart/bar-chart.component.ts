@@ -24,7 +24,7 @@ export class BarChartComponent {
     Chart.register(DataLabelsPlugin);
   }
 
-  public barChartOptions: ChartConfiguration['options'] = {
+  public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
       x: {},
