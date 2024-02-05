@@ -1,4 +1,4 @@
-docker run -it -v "$PWD":/workdir -w /workdir node:lts-alpine npx playwright install &&
+docker run -it -v "$PWD":/workdir -w /workdir node:lts npx playwright install &&
 npx playwright install-deps &&
 npm ci &&
 npm run build:lib &&
