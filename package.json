@@ -63,7 +63,7 @@
     "@angular/language-service": "^17.0.7",
     "@nx/eslint": "17.3.1",
     "@nx/eslint-plugin": "17.3.1",
-    "@nx/jest": "17.3.1",
+    "@nx/jest": "18.0.2",
     "@nx/js": "17.3.1",
     "@nx/playwright": "17.3.1",
     "@nx/web": "17.3.1",
