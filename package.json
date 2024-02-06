@@ -67,7 +67,7 @@
     "@nx/js": "17.3.1",
     "@nx/playwright": "17.3.1",
     "@nx/web": "17.3.1",
-    "@nx/workspace": "17.3.1",
+    "@nx/workspace": "18.0.2",
     "@playwright/test": "^1.41.2",
     "@schematics/angular": "^17.0.7",
     "@types/jest": "^29.5.12",
