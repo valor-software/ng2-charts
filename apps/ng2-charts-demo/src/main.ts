@@ -43,7 +43,9 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideMarkdown({ loader: HttpClient }),
     provideAnimations(),
-    provideCharts(withDefaultRegisterables(), withColorGenerator()),
+    provideCharts(withDefaultRegisterables(), withColorGenerator(), {
+      defaults: { responsive: false },
+    }),
     highlightProvider,
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),

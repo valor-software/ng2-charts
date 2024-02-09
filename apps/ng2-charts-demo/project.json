@@ -85,6 +85,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
+        "watch": false,
         "buildTarget": "ng2-charts-demo:build",
         "staticFilePath": "dist/apps/ng2-charts-demo/browser"
       }
