@@ -1,13 +1,14 @@
-<canvas
-  baseChart
-  class="chart"
-  [data]="bubbleChartData"
-  [options]="bubbleChartOptions"
-  [legend]="true"
-  [type]="bubbleChartType"
->
-</canvas>
+<app-chart-host chartType="bubble">
+  <canvas
+    baseChart
+    [data]="bubbleChartData"
+    [options]="bubbleChartOptions"
+    [legend]="true"
+    [type]="bubbleChartType"
+  >
+  </canvas>
 
-<button mat-button mat-raised-button color="primary" (click)="randomize()">
-  Update
-</button>
+  <button mat-button mat-raised-button color="primary" (click)="randomize()">
+    Update
+  </button>
+</app-chart-host>

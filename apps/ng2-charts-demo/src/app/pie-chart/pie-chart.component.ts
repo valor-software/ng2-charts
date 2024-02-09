@@ -3,13 +3,14 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { MatButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
+import { ChartHostComponent } from '../chart-host/chart-host.component';
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss'],
   standalone: true,
-  imports: [MatDivider, MatButton, BaseChartDirective],
+  imports: [MatDivider, MatButton, BaseChartDirective, ChartHostComponent],
 })
 export class PieChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;

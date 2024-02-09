@@ -4,13 +4,14 @@ import { BaseChartDirective } from 'ng2-charts';
 import Annotation from 'chartjs-plugin-annotation';
 import { MatButton } from '@angular/material/button';
 import { NgFor } from '@angular/common';
+import { ChartHostComponent } from '../chart-host/chart-host.component';
 
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
   standalone: true,
-  imports: [NgFor, MatButton, BaseChartDirective],
+  imports: [NgFor, MatButton, BaseChartDirective, ChartHostComponent],
 })
 export class LineChartComponent {
   private newLabel? = 'New label';

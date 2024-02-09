@@ -1,13 +1,14 @@
-<canvas
-  class="chart"
-  baseChart
-  [data]="barChartData"
-  [options]="barChartOptions"
-  [type]="barChartType"
-  (chartHover)="chartHovered($event)"
-  (chartClick)="chartClicked($event)"
->
-</canvas>
-<button mat-button mat-raised-button color="primary" (click)="randomize()">
-  Update
-</button>
+<app-chart-host chartType="dynamic">
+  <canvas
+    baseChart
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [type]="barChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  >
+  </canvas>
+  <button mat-button mat-raised-button color="primary" (click)="randomize()">
+    Update
+  </button>
+</app-chart-host>

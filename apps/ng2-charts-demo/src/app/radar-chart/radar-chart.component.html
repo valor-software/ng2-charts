@@ -1,8 +1,9 @@
-<canvas
-  baseChart
-  class="chart"
-  [data]="radarChartData"
-  [options]="radarChartOptions"
-  [type]="radarChartType"
->
-</canvas>
+<app-chart-host chartType="radar">
+  <canvas
+    baseChart
+    [data]="radarChartData"
+    [options]="radarChartOptions"
+    [type]="radarChartType"
+  >
+  </canvas>
+</app-chart-host>

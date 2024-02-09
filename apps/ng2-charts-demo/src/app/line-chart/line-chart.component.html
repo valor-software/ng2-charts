@@ -1,39 +1,50 @@
-<canvas
-  baseChart
-  class="chart"
-  [data]="lineChartData"
-  [options]="lineChartOptions"
-  [type]="lineChartType"
-  (chartHover)="chartHovered($event)"
-  (chartClick)="chartClicked($event)"
-></canvas>
-<table>
-  <tr>
-    <th *ngFor="let label of lineChartData.labels">{{ label }}</th>
-  </tr>
-  <tr
-    *ngFor="let d of lineChartData.datasets; let i = index"
-    [class]="'line-' + i"
-  >
-    <td *ngFor="let label of lineChartData.labels; let j = index">
-      {{ d && d.data[j] }}
-    </td>
-  </tr>
-</table>
-<div class="button-row">
-  <button mat-button mat-raised-button color="primary" (click)="randomize()">
-    Randomize
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="pushOne()">
-    Push
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="changeColor()">
-    Recolor
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="hideOne()">
-    Toggle Series B
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="changeLabel()">
-    Change Label
-  </button>
-</div>
+<app-chart-host chartType="line">
+  <canvas
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  ></canvas>
+  <table>
+    <tr>
+      <th *ngFor="let label of lineChartData.labels">{{ label }}</th>
+    </tr>
+    <tr
+      *ngFor="let d of lineChartData.datasets; let i = index"
+      [class]="'line-' + i"
+    >
+      <td *ngFor="let label of lineChartData.labels; let j = index">
+        {{ d && d.data[j] }}
+      </td>
+    </tr>
+  </table>
+  <div class="button-row">
+    <button mat-button mat-raised-button color="primary" (click)="randomize()">
+      Randomize
+    </button>
+    <button mat-button mat-raised-button color="primary" (click)="pushOne()">
+      Push
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="changeColor()"
+    >
+      Recolor
+    </button>
+    <button mat-button mat-raised-button color="primary" (click)="hideOne()">
+      Toggle Series B
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="changeLabel()"
+    >
+      Change Label
+    </button>
+  </div>
+</app-chart-host>

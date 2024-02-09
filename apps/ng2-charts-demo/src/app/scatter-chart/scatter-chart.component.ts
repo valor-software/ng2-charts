@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { ChartHostComponent } from '../chart-host/chart-host.component';
 
 @Component({
   selector: 'app-scatter-chart',
   templateUrl: './scatter-chart.component.html',
   styleUrls: ['./scatter-chart.component.scss'],
   standalone: true,
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, ChartHostComponent],
 })
 export class ScatterChartComponent {
   // scatter

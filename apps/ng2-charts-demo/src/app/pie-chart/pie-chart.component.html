@@ -1,33 +1,49 @@
-<canvas
-  baseChart
-  class="chart"
-  [data]="pieChartData"
-  [type]="pieChartType"
-  [options]="pieChartOptions"
->
-</canvas>
-
-<mat-divider style="margin: 1em 0"></mat-divider>
-
-<div class="button-row">
-  <button mat-button mat-raised-button color="primary" (click)="toggleLegend()">
-    Toggle Legend
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="changeLabels()">
-    Change Labels
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="addSlice()">
-    Add Slice
-  </button>
-  <button mat-button mat-raised-button color="primary" (click)="removeSlice()">
-    Remove Slice
-  </button>
-  <button
-    mat-button
-    mat-raised-button
-    color="primary"
-    (click)="changeLegendPosition()"
+<app-chart-host chartType="pie">
+  <canvas
+    baseChart
+    [data]="pieChartData"
+    [type]="pieChartType"
+    [options]="pieChartOptions"
   >
-    Change Legend Position
-  </button>
-</div>
+  </canvas>
+
+  <mat-divider style="margin: 1em 0"></mat-divider>
+
+  <div class="button-row">
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="toggleLegend()"
+    >
+      Toggle Legend
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="changeLabels()"
+    >
+      Change Labels
+    </button>
+    <button mat-button mat-raised-button color="primary" (click)="addSlice()">
+      Add Slice
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="removeSlice()"
+    >
+      Remove Slice
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="changeLegendPosition()"
+    >
+      Change Legend Position
+    </button>
+  </div>
+</app-chart-host>

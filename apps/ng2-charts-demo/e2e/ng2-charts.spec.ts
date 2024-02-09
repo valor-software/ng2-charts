@@ -14,27 +14,26 @@ test(`navigate to main Demo page and check info`, async ({ page }) => {
 });
 
 const componentsArray = [
-  { url: '/#LineChart', selector: 'app-line-chart' },
-  { url: '/#BarChart', selector: 'app-bar-chart' },
-  { url: '/#DoughnutChart', selector: 'app-doughnut-chart' },
-  { url: '/#RadarChart', selector: 'app-radar-chart' },
-  { url: '/#PieChart', selector: 'app-pie-chart' },
-  { url: '/#PolarAreaChart', selector: 'app-polar-area-chart' },
-  { url: '/#BubbleChart', selector: 'app-bubble-chart' },
-  { url: '/#ScatterChart', selector: 'app-scatter-chart' },
-  { url: '/#DynamicChart', selector: 'app-dynamic-chart' },
+  { url: '/line', selector: 'app-line-chart' },
+  { url: '/bar', selector: 'app-bar-chart' },
+  { url: '/doughnut', selector: 'app-doughnut-chart' },
+  { url: '/radar', selector: 'app-radar-chart' },
+  { url: '/pie', selector: 'app-pie-chart' },
+  { url: '/polar-area', selector: 'app-polar-area-chart' },
+  { url: '/bubble', selector: 'app-bubble-chart' },
+  { url: '/scatter', selector: 'app-scatter-chart' },
+  { url: '/dynamic', selector: 'app-dynamic-chart' },
+  { url: '/financial', selector: 'app-financial-chart' },
 ];
 
 componentsArray.forEach((component) => {
   test(`${component.selector}`, async ({ page }) => {
     await page.goto(component.url);
     // wait for animations to finish
-    await expect(
-      page.locator(component.selector).locator('canvas'),
-    ).toBeVisible();
+    await expect(page.locator(component.selector + ' canvas')).toBeVisible();
 
     return expect(
-      page.locator(component.selector).locator('canvas'),
+      page.locator(component.selector + ' canvas'),
     ).toHaveScreenshot();
   });
 });

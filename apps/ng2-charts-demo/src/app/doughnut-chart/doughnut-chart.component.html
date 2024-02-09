@@ -1,7 +1,4 @@
-<canvas
-  baseChart
-  class="chart"
-  [data]="doughnutChartData"
-  [type]="doughnutChartType"
->
-</canvas>
+<app-chart-host chartType="doughnut">
+  <canvas baseChart [data]="doughnutChartData" [type]="doughnutChartType">
+  </canvas>
+</app-chart-host>

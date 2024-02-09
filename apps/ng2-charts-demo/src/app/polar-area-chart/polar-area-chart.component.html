@@ -1,8 +1,9 @@
-<canvas
-  baseChart
-  class="chart"
-  [data]="polarAreaChartData"
-  [legend]="polarAreaLegend"
-  [type]="polarAreaChartType"
->
-</canvas>
+<app-chart-host chartType="polarArea">
+  <canvas
+    baseChart
+    [data]="polarAreaChartData"
+    [legend]="polarAreaLegend"
+    [type]="polarAreaChartType"
+  >
+  </canvas>
+</app-chart-host>

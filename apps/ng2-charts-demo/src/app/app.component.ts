@@ -3,35 +3,22 @@ import {
   Component,
   ElementRef,
   Inject,
-  OnDestroy,
-  OnInit,
   QueryList,
   Renderer2,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
-import { filter, Subscription } from 'rxjs';
-import { Chart, ChartOptions } from 'chart.js';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { MatTabGroup } from '@angular/material/tabs';
+import { ChartOptions } from 'chart.js';
 import { ThemeService } from 'ng2-charts';
-import { ChartHostComponent } from './chart-host/chart-host.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { LineChartComponent } from './line-chart/line-chart.component';
-import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
-import { RadarChartComponent } from './radar-chart/radar-chart.component';
-import { PieChartComponent } from './pie-chart/pie-chart.component';
-import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.component';
-import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
-import { FinancialChartComponent } from './financial-chart/financial-chart.component';
-import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
-import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import { MatAnchor } from '@angular/material/button';
-import { MarkdownComponent } from 'ngx-markdown';
+import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { MatIcon } from '@angular/material/icon';
 
 const darkThemeClass = 'dark-theme';
 
@@ -41,26 +28,21 @@ const darkThemeClass = 'dark-theme';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    BarChartComponent,
-    BubbleChartComponent,
-    ChartHostComponent,
-    DoughnutChartComponent,
-    DynamicChartComponent,
-    FinancialChartComponent,
-    FormsModule,
-    LineChartComponent,
-    MarkdownComponent,
     MatAnchor,
-    MatSlideToggle,
-    MatTabsModule,
     MatToolbar,
-    PieChartComponent,
-    PolarAreaChartComponent,
-    RadarChartComponent,
-    ScatterChartComponent,
+    RouterOutlet,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    MatButton,
+    RouterLink,
+    MatIcon,
+    MatIconButton,
+    MatSlideToggle,
+    FormsModule,
   ],
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+export class AppComponent implements AfterViewInit {
   public isDarkTheme = false;
 
   public themeChanged() {
@@ -117,33 +99,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     | undefined;
   tabLabels: string[] = [];
 
-  subs: Subscription[] = [];
-
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private themeService: ThemeService,
     private router: Router,
-    private route: ActivatedRoute,
-  ) {
-    // For consistent rendering across CI and local envs
-    Chart.defaults.set('font', { family: 'Arial' });
-  }
-
-  ngOnInit(): void {
-    this.subs.push(
-      this.route.fragment
-        .pipe(filter((tabUrl) => !!tabUrl))
-        .subscribe((tabUrl: string | null) => {
-          if (tabUrl && this.tabElements) {
-            const index = this.tabLabels.indexOf(tabUrl);
-            if (index && index !== -1 && this.tabGroup) {
-              this.tabGroup.selectedIndex = index;
-            }
-          }
-        }),
-    );
-  }
+  ) {}
 
   ngAfterViewInit(): void {
     if (this.tabElements) {
@@ -151,14 +112,5 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         r.nativeElement.getAttribute('label').replace(/ /g, ''),
       );
     }
-  }
-
-  ngOnDestroy(): void {
-    this.subs.forEach((x) => x.unsubscribe());
-  }
-
-  updateRoute(index: number): void {
-    const label = this.tabLabels[index];
-    this.router.navigate([], { fragment: label });
   }
 }

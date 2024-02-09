@@ -5,6 +5,6 @@
 .angular
 
 # Ignore this file or it will break markdown formatting
-/apps/ng2-charts-demo/src/app/app.component.html
+/apps/ng2-charts-demo/src/app/landing/landing.component.html
 
 /.nx/cache

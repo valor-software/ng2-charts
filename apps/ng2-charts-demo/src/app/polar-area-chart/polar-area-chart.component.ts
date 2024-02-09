@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { ChartHostComponent } from '../chart-host/chart-host.component';
 
 @Component({
   selector: 'app-polar-area-chart',
   templateUrl: './polar-area-chart.component.html',
   styleUrls: ['./polar-area-chart.component.scss'],
   standalone: true,
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, ChartHostComponent],
 })
 export class PolarAreaChartComponent {
   // PolarArea

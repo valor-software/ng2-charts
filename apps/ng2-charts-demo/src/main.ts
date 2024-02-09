@@ -17,8 +17,61 @@ import {
   withColorGenerator,
   withDefaultRegisterables,
 } from 'ng2-charts';
+import { LandingComponent } from './app/landing/landing.component';
+import { LineChartComponent } from './app/line-chart/line-chart.component';
+import { BarChartComponent } from './app/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './app/doughnut-chart/doughnut-chart.component';
+import { RadarChartComponent } from './app/radar-chart/radar-chart.component';
+import { PieChartComponent } from './app/pie-chart/pie-chart.component';
+import { PolarAreaChartComponent } from './app/polar-area-chart/polar-area-chart.component';
+import { BubbleChartComponent } from './app/bubble-chart/bubble-chart.component';
+import { ScatterChartComponent } from './app/scatter-chart/scatter-chart.component';
+import { DynamicChartComponent } from './app/dynamic-chart/dynamic-chart.component';
+import { FinancialChartComponent } from './app/financial-chart/financial-chart.component';
 
-const routes: Route[] = [];
+const routes: Route[] = [
+  {
+    path: 'line',
+    component: LineChartComponent,
+  },
+  {
+    path: 'bar',
+    component: BarChartComponent,
+  },
+  {
+    path: 'doughnut',
+    component: DoughnutChartComponent,
+  },
+  {
+    path: 'radar',
+    component: RadarChartComponent,
+  },
+  {
+    path: 'pie',
+    component: PieChartComponent,
+  },
+  {
+    path: 'polar-area',
+    component: PolarAreaChartComponent,
+  },
+  {
+    path: 'bubble',
+    component: BubbleChartComponent,
+  },
+  {
+    path: 'scatter',
+    component: ScatterChartComponent,
+  },
+  {
+    path: 'dynamic',
+    component: DynamicChartComponent,
+  },
+  {
+    path: 'financial',
+    component: FinancialChartComponent,
+  },
+  { path: '', component: LandingComponent },
+];
 
 function hljsLanguages(): { [name: string]: Partial<LanguageFn> } {
   return {
@@ -44,7 +97,10 @@ bootstrapApplication(AppComponent, {
     provideMarkdown({ loader: HttpClient }),
     provideAnimations(),
     provideCharts(withDefaultRegisterables(), withColorGenerator(), {
-      defaults: { responsive: false },
+      defaults: {
+        // For consistent rendering across CI and local envs
+        font: { family: 'Arial' },
+      },
     }),
     highlightProvider,
     provideHttpClient(withInterceptorsFromDi()),

@@ -12,29 +12,36 @@ import {
 } from 'chartjs-chart-financial';
 import { MatButton } from '@angular/material/button';
 import { MarkdownComponent } from 'ngx-markdown';
+import { ChartHostComponent } from '../chart-host/chart-host.component';
+import financialChartData from './financial-chart.data';
 
 @Component({
   selector: 'app-financial-chart',
   templateUrl: './financial-chart.component.html',
   standalone: true,
-  imports: [MarkdownComponent, MatButton, BaseChartDirective],
+  imports: [
+    MarkdownComponent,
+    MatButton,
+    BaseChartDirective,
+    ChartHostComponent,
+  ],
 })
 export class FinancialChartComponent {
   barCount = 60;
   initialDateStr = '2017-04-01T00:00:00';
+  data = financialChartData;
 
   public financialChartData: ChartConfiguration['data'] = {
     datasets: [
       {
         label: 'CHRT - Chart.js Corporation',
-        data: this.getRandomData(this.initialDateStr, this.barCount),
+        data: this.data,
       },
     ],
   };
 
   public financialChartOptions: ChartConfiguration['options'] = {
     animation: false,
-    maintainAspectRatio: false,
     scales: {
       x: {
         time: {
@@ -50,11 +57,9 @@ export class FinancialChartComponent {
         },
       },
     },
-    borderColor: 'black',
-    backgroundColor: 'rgba(255,0,0,0,0.3)',
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
     },
   };
@@ -111,6 +116,7 @@ export class FinancialChartComponent {
         data.push(this.randomBar(date, data[data.length - 1].c));
       }
     }
+
     return data;
   }
 
@@ -118,5 +124,15 @@ export class FinancialChartComponent {
     // candlestick vs ohlc
     this.financialChartType =
       this.financialChartType === 'candlestick' ? 'ohlc' : 'candlestick';
+  }
+
+  randomize() {
+    this.financialChartData.datasets = [
+      {
+        label: 'CHRT - Chart.js Corporation',
+        data: this.getRandomData(this.initialDateStr, this.barCount),
+      },
+    ];
+    this.chart?.update();
   }
 }

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { ChartHostComponent } from '../chart-host/chart-host.component';
 
 @Component({
   selector: 'app-radar-chart',
   templateUrl: './radar-chart.component.html',
   styleUrls: ['./radar-chart.component.scss'],
   standalone: true,
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, ChartHostComponent],
 })
 export class RadarChartComponent {
   // Radar
