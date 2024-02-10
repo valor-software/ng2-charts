@@ -1,7 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { ChartComponentLike, registerables } from 'chart.js';
 import { merge } from 'lodash-es';
-import { builtInDefaults } from './get-colors';
 import { AnyObject } from 'chart.js/dist/types/basic';
 
 export const NG_CHARTS_CONFIGURATION =
@@ -24,14 +23,6 @@ export type NgChartsConfiguration = {
  */
 export function withDefaultRegisterables(): NgChartsConfiguration {
   return { registerables: registerables };
-}
-
-/**
- * Provide predefined default colors (which are exported as `baseColors`), and then, if there are more
- * datasets than colors, colors are generated randomly.
- */
-export function withColorGenerator(): NgChartsConfiguration {
-  return { defaults: builtInDefaults };
 }
 
 /**

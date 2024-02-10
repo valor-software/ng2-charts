@@ -12,11 +12,7 @@ import {
 import { bootstrapApplication } from '@angular/platform-browser';
 import { LanguageFn } from 'highlight.js';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-import {
-  provideCharts,
-  withColorGenerator,
-  withDefaultRegisterables,
-} from 'ng2-charts';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { LandingComponent } from './app/landing/landing.component';
 import { LineChartComponent } from './app/line-chart/line-chart.component';
 import { BarChartComponent } from './app/bar-chart/bar-chart.component';
@@ -96,7 +92,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideMarkdown({ loader: HttpClient }),
     provideAnimations(),
-    provideCharts(withDefaultRegisterables(), withColorGenerator(), {
+    provideCharts(withDefaultRegisterables(), {
       defaults: {
         // For consistent rendering across CI and local envs
         font: { family: 'Arial' },

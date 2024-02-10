@@ -30,13 +30,12 @@
     ```typescript
     import &#123;
     provideCharts,
-    withColorGenerator,
     withDefaultRegisterables,
     &#125; from 'ng2-charts';
 
     bootstrapApplication(AppComponent, &#123;
     providers: [
-    provideCharts(withDefaultRegisterables(), withColorGenerator()),
+    provideCharts(withDefaultRegisterables()),
     ],
     &#125;).catch((err) => console.error(err));
     ```
