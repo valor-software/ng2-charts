@@ -9,16 +9,19 @@
   ></canvas>
   <table>
     <tr>
-      <th *ngFor="let label of lineChartData.labels">{{ label }}</th>
+      @for (label of lineChartData.labels; track label) {
+        <th>{{ label }}</th>
+      }
     </tr>
-    <tr
-      *ngFor="let d of lineChartData.datasets; let i = index"
-      [class]="'line-' + i"
-    >
-      <td *ngFor="let label of lineChartData.labels; let j = index">
-        {{ d && d.data[j] }}
-      </td>
-    </tr>
+    @for (d of lineChartData.datasets; track d; let i = $index) {
+      <tr [class]="'line-' + i">
+        @for (label of lineChartData.labels; track label; let j = $index) {
+          <td>
+            {{ d && d.data[j] }}
+          </td>
+        }
+      </tr>
+    }
   </table>
   <div class="button-row">
     <button mat-button mat-raised-button color="primary" (click)="randomize()">
