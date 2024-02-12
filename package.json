@@ -62,7 +62,7 @@
     "@angular/compiler-cli": "^17.0.7",
     "@angular/language-service": "^17.0.7",
     "@nx/eslint": "18.0.3",
-    "@nx/eslint-plugin": "18.0.3",
+    "@nx/eslint-plugin": "18.0.4",
     "@nx/jest": "18.0.3",
     "@nx/js": "18.0.3",
     "@nx/playwright": "18.0.3",
