@@ -85,7 +85,7 @@
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",
-    "jest-preset-angular": "^14.0.0",
+    "jest-preset-angular": "^14.0.2",
     "jest-raw-loader": "^1.0.1",
     "lint-staged": "^15.2.2",
     "ng-packagr": "^17.0.3",
