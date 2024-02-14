@@ -26,7 +26,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run serve-static',
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env['CI'],
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

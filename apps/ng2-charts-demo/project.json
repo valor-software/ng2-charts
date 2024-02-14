@@ -86,7 +86,7 @@
       "executor": "@nx/web:file-server",
       "options": {
         "spa": true,
-        "buildTarget": "ng2-charts-demo:build",
+        "buildTarget": "ng2-charts-demo:build:development",
         "staticFilePath": "dist/apps/ng2-charts-demo/browser"
       }
     },
@@ -98,7 +98,6 @@
       },
       "configurations": {
         "update-snapshots": {
-          "skipInstall": true,
           "updateSnapshots": true
         }
       }

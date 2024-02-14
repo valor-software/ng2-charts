@@ -13,8 +13,8 @@
     "publish:lib": "npm publish dist/ng2-charts",
     "test": "nx run-many --target=test --verbose --all",
     "test:ci": "nx run-many --target=test -p ng2-charts ng2-charts-schematics ng2-charts-demo --configuration=ci",
-    "e2e": "nx e2e",
-    "e2e:update-snapshots": "nx run ng2-charts-demo:e2e:update-snapshots",
+    "e2e": "nx e2e --skip-nx-cache",
+    "e2e:update-snapshots": "nx run ng2-charts-demo:e2e:update-snapshots --skip-nx-cache",
     "lint": "nx run-many --target=lint --verbose --all",
     "prepare": "husky"
   },
