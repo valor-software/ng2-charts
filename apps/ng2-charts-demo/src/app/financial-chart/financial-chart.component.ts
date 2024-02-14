@@ -52,6 +52,9 @@ export class FinancialChartComponent {
       },
     },
     plugins: {
+      datalabels: {
+        display: false,
+      },
       legend: {
         display: false,
       },
@@ -116,6 +119,7 @@ export class FinancialChartComponent {
       {
         label: 'CHRT - Chart.js Corporation',
         data: this.getRandomData(this.initialDateStr, this.barCount),
+        pointBorderColor: 'rgb(0, 0,0)',
       },
     ];
     this.chart?.update();

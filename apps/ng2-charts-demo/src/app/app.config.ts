@@ -8,11 +8,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {
-  provideCharts,
-  withColorGenerator,
-  withDefaultRegisterables,
-} from 'ng2-charts';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { ApplicationConfig, Provider } from '@angular/core';
 
 import AnnotationPlugin from 'chartjs-plugin-annotation';
@@ -23,8 +19,61 @@ import {
   OhlcController,
   OhlcElement,
 } from 'chartjs-chart-financial';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
+import { RadarChartComponent } from './radar-chart/radar-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.component';
+import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
+import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
+import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
+import { FinancialChartComponent } from './financial-chart/financial-chart.component';
+import { LandingComponent } from './landing/landing.component';
 
-const routes: Route[] = [];
+const routes: Route[] = [
+  {
+    path: 'line',
+    component: LineChartComponent,
+  },
+  {
+    path: 'bar',
+    component: BarChartComponent,
+  },
+  {
+    path: 'doughnut',
+    component: DoughnutChartComponent,
+  },
+  {
+    path: 'radar',
+    component: RadarChartComponent,
+  },
+  {
+    path: 'pie',
+    component: PieChartComponent,
+  },
+  {
+    path: 'polar-area',
+    component: PolarAreaChartComponent,
+  },
+  {
+    path: 'bubble',
+    component: BubbleChartComponent,
+  },
+  {
+    path: 'scatter',
+    component: ScatterChartComponent,
+  },
+  {
+    path: 'dynamic',
+    component: DynamicChartComponent,
+  },
+  {
+    path: 'financial',
+    component: FinancialChartComponent,
+  },
+  { path: '', component: LandingComponent },
+];
 
 const hljsLanguages = (): { [name: string]: Partial<LanguageFn> } => ({
   typescript: () => import('highlight.js/lib/languages/typescript'),
@@ -46,7 +95,6 @@ export const appConfig: ApplicationConfig = {
     provideMarkdown({ loader: HttpClient }),
     provideAnimations(),
     provideCharts(
-      withColorGenerator(),
       withDefaultRegisterables(
         CandlestickController,
         CandlestickElement,
@@ -55,6 +103,12 @@ export const appConfig: ApplicationConfig = {
         DataLabelsPlugin,
         AnnotationPlugin,
       ),
+      {
+        defaults: {
+          // For consistent rendering across CI and local envs
+          font: { family: 'Arial' },
+        },
+      },
     ),
     provideHighlightjs(),
     provideHttpClient(withInterceptorsFromDi()),
