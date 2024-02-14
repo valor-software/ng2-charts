@@ -9,6 +9,7 @@ import {
   OhlcController,
   OhlcElement,
 } from 'chartjs-chart-financial';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 describe('FinancialChartComponent', () => {
   let component: FinancialChartComponent;
@@ -18,6 +19,7 @@ describe('FinancialChartComponent', () => {
     return TestBed.configureTestingModule({
       imports: [FinancialChartComponent],
       providers: [
+        provideNoopAnimations(),
         provideCharts(withDefaultRegisterables(), {
           registerables: [
             CandlestickController,

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { LineChartComponent } from './line-chart.component';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideHighlightjs } from '../app.config';
 
 describe('LineChartComponent', () => {
   let component: LineChartComponent;
@@ -8,7 +10,11 @@ describe('LineChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      providers: [provideCharts(withDefaultRegisterables())],
+      providers: [
+        provideHighlightjs(),
+        provideNoopAnimations(),
+        provideCharts(withDefaultRegisterables()),
+      ],
     }).compileComponents();
   }));
 
