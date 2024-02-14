@@ -35,5 +35,5 @@ jobs:
         if: always()
         with:
           name: test-diff
-          path: /dist/.playwright/apps/ng2-charts-demo/**/*-diff.png
+          path: ./dist/.playwright/apps/ng2-charts-demo/**/*-diff.png
           retention-days: 30
