@@ -16,7 +16,7 @@ export default {
   },
   transformIgnorePatterns: [`node_modules/(?!.*\\.mjs$|${esModules})`],
   moduleNameMapper: {
-    '^!!raw-loader!.*': 'jest-raw-loader',
+    '.*\\.txt': 'jest-raw-loader',
   },
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',

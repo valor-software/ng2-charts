@@ -1,15 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import 'chartjs-adapter-date-fns';
 import { BaseChartDirective } from 'ng2-charts';
-import { Chart, ChartConfiguration, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartType } from 'chart.js';
 import { enUS } from 'date-fns/locale';
 import { add, parseISO } from 'date-fns';
-import {
-  CandlestickController,
-  CandlestickElement,
-  OhlcController,
-  OhlcElement,
-} from 'chartjs-chart-financial';
 import { MatButton } from '@angular/material/button';
 import { MarkdownComponent } from 'ngx-markdown';
 import { ChartHostComponent } from '../chart-host/chart-host.component';
@@ -67,15 +61,6 @@ export class FinancialChartComponent {
   public financialChartType: ChartType = 'candlestick';
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
-
-  constructor() {
-    Chart.register(
-      CandlestickController,
-      OhlcController,
-      CandlestickElement,
-      OhlcElement,
-    );
-  }
 
   randomNumber(min: number, max: number): number {
     return Math.random() * (max - min) + min;

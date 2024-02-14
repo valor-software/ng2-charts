@@ -1,5 +1,8 @@
 import { InjectionToken } from '@angular/core';
-import { ChartComponentLike, registerables } from 'chart.js';
+import {
+  ChartComponentLike,
+  registerables as defaultRegisterables,
+} from 'chart.js';
 import { merge } from 'lodash-es';
 import { AnyObject } from 'chart.js/dist/types/basic';
 
@@ -21,8 +24,10 @@ export type NgChartsConfiguration = {
 /**
  * Provide all the default registerable as defined by Chart.js
  */
-export function withDefaultRegisterables(): NgChartsConfiguration {
-  return { registerables: registerables };
+export function withDefaultRegisterables(
+  ...registerables: ChartComponentLike[]
+): NgChartsConfiguration {
+  return { registerables: [...defaultRegisterables, ...registerables] };
 }
 
 /**

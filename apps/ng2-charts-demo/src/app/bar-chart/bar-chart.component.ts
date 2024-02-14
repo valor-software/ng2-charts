@@ -15,10 +15,6 @@ import { ChartHostComponent } from '../chart-host/chart-host.component';
 export class BarChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;
 
-  constructor() {
-    Chart.register(DataLabelsPlugin);
-  }
-
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
