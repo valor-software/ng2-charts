@@ -30,3 +30,10 @@ jobs:
       - run: npm run e2e
         env:
           CI: true
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-diff
+          path: /dist/.playwright/apps/ng2-charts-demo/**/*-diff.png
+          retention-days: 30
