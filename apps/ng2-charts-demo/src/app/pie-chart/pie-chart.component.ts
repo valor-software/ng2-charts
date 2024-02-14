@@ -1,11 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import {
-  Chart,
-  ChartConfiguration,
-  ChartData,
-  ChartEvent,
-  ChartType,
-} from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { MatButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
