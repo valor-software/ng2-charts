@@ -1,5 +1,5 @@
 {
-  "version": "6.0.0-beta.1",
+  "version": "6.0.0",
   "name": "ng2-charts",
   "description": "Reactive, responsive, beautiful charts for Angular based on Chart.js",
   "peerDependencies": {
