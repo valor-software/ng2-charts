@@ -60,7 +60,7 @@
     "@angular-eslint/template-parser": "^17.0.1",
     "@angular/cli": "^17.2.1",
     "@angular/compiler-cli": "^17.0.7",
-    "@angular/language-service": "^17.0.7",
+    "@angular/language-service": "^17.2.3",
     "@nx/eslint": "18.0.5",
     "@nx/eslint-plugin": "18.0.5",
     "@nx/jest": "18.0.5",
