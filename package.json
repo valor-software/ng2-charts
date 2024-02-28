@@ -59,7 +59,7 @@
     "@angular-eslint/schematics": "^17.1.0",
     "@angular-eslint/template-parser": "^17.0.1",
     "@angular/cli": "^17.2.1",
-    "@angular/compiler-cli": "^17.0.7",
+    "@angular/compiler-cli": "^17.2.3",
     "@angular/language-service": "^17.0.7",
     "@nx/eslint": "18.0.5",
     "@nx/eslint-plugin": "18.0.5",
