@@ -1,22 +1,19 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { MarkdownModule } from 'ngx-markdown';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import 'highlight.js';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { highlightProvider } from '../main';
+import { provideMarkdown } from 'ngx-markdown';
+import { RouterTestingModule } from '@angular/router/testing';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
-        RouterTestingModule,
-        HttpClientModule,
-        MarkdownModule.forRoot({ loader: HttpClient }),
+      imports: [AppComponent, RouterTestingModule],
+      providers: [
+        provideMarkdown(),
+        provideCharts(withDefaultRegisterables(DataLabelsPlugin)),
       ],
-      providers: [highlightProvider],
     }).compileComponents();
   }));
 

@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ChartHostComponent } from './chart-host.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { highlightProvider } from '../../main';
+import {
+  NoopAnimationsModule,
+  provideNoopAnimations,
+} from '@angular/platform-browser/animations';
+import { provideHighlightjs } from '../app.config';
 
 describe('ChartHostComponent', () => {
   let component: ChartHostComponent;
@@ -9,8 +12,8 @@ describe('ChartHostComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule],
-      providers: [highlightProvider],
+      imports: [ChartHostComponent, NoopAnimationsModule],
+      providers: [provideNoopAnimations(), provideHighlightjs()],
     }).compileComponents();
   }));
 

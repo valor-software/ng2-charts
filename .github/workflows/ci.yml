@@ -20,7 +20,6 @@ jobs:
           cache: npm
           node-version: 18
       - run: npm ci
-
       - run: npx prettier --check .
       - run: npm run lint
       - run: npm run build:lib
@@ -30,3 +29,11 @@ jobs:
       - run: npm run e2e
         env:
           CI: true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-diff
+          path: ./dist/.playwright/apps/ng2-charts-demo/**/*-diff.png
+          retention-days: 30

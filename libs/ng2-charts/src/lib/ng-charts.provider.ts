@@ -1,7 +1,11 @@
 import { InjectionToken } from '@angular/core';
-import { ChartComponentLike, registerables } from 'chart.js';
+import {
+  ChartComponentLike,
+  Defaults,
+  registerables as defaultRegisterables,
+} from 'chart.js';
+import { DeepPartial } from 'chart.js/dist/types/utils';
 import { merge } from 'lodash-es';
-import { AnyObject } from 'chart.js/dist/types/basic';
 
 export const NG_CHARTS_CONFIGURATION =
   new InjectionToken<NgChartsConfiguration>('Configuration for ngCharts');
@@ -15,14 +19,16 @@ export type NgChartsConfiguration = {
   /**
    * Default configuration that can be used with `defaults.set()`.
    */
-  defaults?: AnyObject;
+  defaults?: DeepPartial<Defaults>;
 };
 
 /**
  * Provide all the default registerable as defined by Chart.js
  */
-export function withDefaultRegisterables(): NgChartsConfiguration {
-  return { registerables: registerables };
+export function withDefaultRegisterables(
+  ...registerables: ChartComponentLike[]
+): NgChartsConfiguration {
+  return { registerables: [...defaultRegisterables, ...registerables] };
 }
 
 /**

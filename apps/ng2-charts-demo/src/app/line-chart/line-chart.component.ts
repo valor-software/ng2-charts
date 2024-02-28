@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import Annotation from 'chartjs-plugin-annotation';
 import { MatButton } from '@angular/material/button';
 
 import { ChartHostComponent } from '../chart-host/chart-host.component';
@@ -15,10 +14,6 @@ import { ChartHostComponent } from '../chart-host/chart-host.component';
 })
 export class LineChartComponent {
   private newLabel? = 'New label';
-
-  constructor() {
-    Chart.register(Annotation);
-  }
 
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [

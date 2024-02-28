@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Chart, ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { MatButton } from '@angular/material/button';
 import { ChartHostComponent } from '../chart-host/chart-host.component';
 
@@ -14,10 +13,6 @@ import { ChartHostComponent } from '../chart-host/chart-host.component';
 })
 export class BarChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;
-
-  constructor() {
-    Chart.register(DataLabelsPlugin);
-  }
 
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     // We use these empty structures as placeholders for dynamic theming.
