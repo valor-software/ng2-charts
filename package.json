@@ -64,7 +64,7 @@
     "@nx/eslint": "18.0.5",
     "@nx/eslint-plugin": "18.0.5",
     "@nx/jest": "18.0.5",
-    "@nx/js": "18.0.5",
+    "@nx/js": "18.0.6",
     "@nx/playwright": "18.0.5",
     "@nx/web": "18.0.5",
     "@nx/workspace": "18.0.5",
