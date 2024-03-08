@@ -23,7 +23,7 @@
     "*": "prettier --ignore-unknown --write"
   },
   "dependencies": {
-    "@angular/animations": "^17.1.2",
+    "@angular/animations": "^17.2.4",
     "@angular/cdk": "^17.0.4",
     "@angular/common": "^17.0.7",
     "@angular/compiler": "^17.0.7",
