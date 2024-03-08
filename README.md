@@ -199,17 +199,6 @@ changes to start using the library right away.
 
 </tbody></table>
 
-### Stackblitz Starting Templates
-
-- Line Chart - https://stackblitz.com/github/santam85/ng2-charts-line-template?preset=node
-- Pie Chart - https://stackblitz.com/github/santam85/ng2-charts-pie-template?preset=node
-- Bar Chart - https://stackblitz.com/github/santam85/ng2-charts-bar-template?preset=node
-- Doughnut Chart - https://stackblitz.com/github/santam85/ng2-charts-doughnut-template?preset=node
-- Radar Chart - https://stackblitz.com/github/santam85/ng2-charts-radar-template?preset=node
-- Polar Area Chart - https://stackblitz.com/github/santam85/ng2-charts-polar-area-template?preset=node
-- Bubble Chart - https://stackblitz.com/github/santam85/ng2-charts-bubble-template?preset=node
-- Scatter Chart - https://stackblitz.com/github/santam85/ng2-charts-scatter-template?preset=node
-
 ## API
 
 ### Chart types
