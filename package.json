@@ -68,7 +68,7 @@
     "@nx/playwright": "18.0.7",
     "@nx/web": "18.0.5",
     "@nx/workspace": "18.0.5",
-    "@playwright/test": "^1.41.2",
+    "@playwright/test": "^1.42.1",
     "@schematics/angular": "^17.0.7",
     "@types/jest": "^29.5.12",
     "@types/lodash-es": "^4.17.5",
