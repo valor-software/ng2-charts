@@ -88,7 +88,7 @@
     "jest-preset-angular": "^14.0.0",
     "jest-raw-loader": "^1.0.1",
     "lint-staged": "^15.2.2",
-    "ng-packagr": "^17.2.0",
+    "ng-packagr": "^17.3.0",
     "nx": "18.0.8",
     "postcss-preset-env": "^9.1.1",
     "postcss-url": "^10.1.3",
