@@ -1,9 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultProject": "ng2-charts-demo",
-  "affected": {
-    "defaultBase": "master"
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
@@ -63,5 +60,6 @@
       "style": "scss"
     }
   },
-  "nxCloudAccessToken": "NTI2NzA0ZWMtNDUyMi00ZWI2LWI4NzUtODgzNzJlZjY3N2JifHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NTI2NzA0ZWMtNDUyMi00ZWI2LWI4NzUtODgzNzJlZjY3N2JifHJlYWQtd3JpdGU=",
+  "defaultBase": "master"
 }

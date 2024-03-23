@@ -30,7 +30,6 @@ export class FinancialChartComponent {
       {
         label: 'CHRT - Chart.js Corporation',
         data: this.data,
-        borderColor: 'rgb(201, 203, 207)',
       },
     ],
   };
