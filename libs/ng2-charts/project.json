@@ -35,5 +35,6 @@
         "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
       }
     }
-  }
+  },
+  "implicitDependencies": ["ng2-charts-schematics"]
 }
