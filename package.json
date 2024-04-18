@@ -33,7 +33,7 @@
     "@angular/platform-browser": "^17.0.7",
     "@angular/platform-browser-dynamic": "^17.0.7",
     "@angular/router": "^17.0.7",
-    "@nx/angular": "18.1.2",
+    "@nx/angular": "18.3.2",
     "chart.js": "^4.0.1",
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-chart-financial": "^0.2.0",
