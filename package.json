@@ -90,7 +90,7 @@
     "lint-staged": "^15.2.2",
     "ng-packagr": "^17.2.0",
     "nx": "18.3.4",
-    "postcss-preset-env": "^9.1.1",
+    "postcss-preset-env": "^9.5.11",
     "postcss-url": "^10.1.3",
     "prettier": "^3.0.2",
     "raw-loader": "^4.0.2",
