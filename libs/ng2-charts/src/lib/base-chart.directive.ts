@@ -3,14 +3,15 @@ import {
   ElementRef,
   EventEmitter,
   Inject,
-  Input,
   NgZone,
   OnChanges,
   OnDestroy,
   Optional,
   Output,
   SimpleChanges,
+  input,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   Chart,
   ChartConfiguration,
@@ -22,7 +23,6 @@ import {
   UpdateMode,
 } from 'chart.js';
 import { ThemeService } from './theme.service';
-import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { merge } from 'lodash-es';
 import {
@@ -43,23 +43,19 @@ export class BaseChartDirective<
   >
   implements OnDestroy, OnChanges
 {
-  @Input() public type: ChartConfiguration<TType, TData, TLabel>['type'] =
-    'bar' as TType;
-  @Input() public legend?: boolean;
-  @Input() public data?: ChartConfiguration<TType, TData, TLabel>['data'];
-  @Input() public options: ChartConfiguration<TType, TData, TLabel>['options'];
-  @Input() public plugins: Plugin<TType>[] = [];
+  public type = input<ChartConfiguration<TType, TData, TLabel>['type']>(
+    'bar' as TType,
+  );
+  public legend = input<boolean>();
+  public data = input<ChartConfiguration<TType, TData, TLabel>['data']>();
+  public options = input<ChartConfiguration<TType, TData, TLabel>['options']>();
+  public plugins = input<Plugin<TType>[]>([]);
 
-  @Input() public labels?: ChartConfiguration<
-    TType,
-    TData,
-    TLabel
-  >['data']['labels'];
-  @Input() public datasets?: ChartConfiguration<
-    TType,
-    TData,
-    TLabel
-  >['data']['datasets'];
+  public labels =
+    input<ChartConfiguration<TType, TData, TLabel>['data']['labels']>();
+
+  public datasets =
+    input<ChartConfiguration<TType, TData, TLabel>['data']['datasets']>();
 
   @Output() public chartClick: EventEmitter<{
     event?: ChartEvent;
@@ -73,7 +69,6 @@ export class BaseChartDirective<
   public ctx: string;
   public chart?: Chart<TType, TData, TLabel>;
 
-  private subs: Subscription[] = [];
   private themeOverrides: ChartConfiguration['options'] = {};
 
   public constructor(
@@ -91,11 +86,10 @@ export class BaseChartDirective<
     }
 
     this.ctx = element.nativeElement.getContext('2d');
-    this.subs.push(
-      this.themeService.colorschemesOptions
-        .pipe(distinctUntilChanged())
-        .subscribe((r) => this.themeChanged(r)),
-    );
+
+    this.themeService.colorschemesOptions
+      .pipe(distinctUntilChanged(), takeUntilDestroyed())
+      .subscribe((r) => this.themeChanged(r));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -126,17 +120,11 @@ export class BaseChartDirective<
   }
 
   public ngOnDestroy(): void {
-    if (this.chart) {
-      this.chart.destroy();
-      this.chart = void 0;
-    }
-    this.subs.forEach((s) => s.unsubscribe());
+    this.destroy();
   }
 
   public render(): Chart<TType, TData, TLabel> {
-    if (this.chart) {
-      this.chart.destroy();
-    }
+    this.destroy();
 
     return this.zone.runOutsideAngular(
       () => (this.chart = new Chart(this.ctx, this.getChartConfiguration())),
@@ -145,7 +133,7 @@ export class BaseChartDirective<
 
   public update(mode?: UpdateMode): void {
     if (this.chart) {
-      this.zone.runOutsideAngular(() => this.chart?.update(mode));
+      this.zone.runOutsideAngular(() => this.chart!.update(mode));
     }
   }
 
@@ -198,11 +186,11 @@ export class BaseChartDirective<
         },
       },
       this.themeOverrides,
-      this.options,
+      this.options(),
       {
         plugins: {
           legend: {
-            display: this.legend,
+            display: this.legend(),
           },
         },
       },
@@ -211,19 +199,24 @@ export class BaseChartDirective<
 
   private getChartConfiguration(): ChartConfiguration<TType, TData, TLabel> {
     return {
-      type: this.type,
+      type: this.type(),
       data: this.getChartData(),
       options: this.getChartOptions(),
-      plugins: this.plugins,
+      plugins: this.plugins(),
     };
   }
 
   private getChartData(): ChartConfiguration<TType, TData, TLabel>['data'] {
-    return this.data
-      ? this.data
+    return this.data()
+      ? this.data()!
       : {
-          labels: this.labels || [],
-          datasets: this.datasets || [],
+          labels: this.labels() || [],
+          datasets: this.datasets() || [],
         };
+  }
+
+  private destroy(): void {
+    this.chart?.destroy();
+    this.chart = undefined;
   }
 }

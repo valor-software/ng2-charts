@@ -9,7 +9,11 @@ import {
 } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { ApplicationConfig, Provider } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideExperimentalZonelessChangeDetection,
+  Provider,
+} from '@angular/core';
 
 import AnnotationPlugin from 'chartjs-plugin-annotation';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -92,6 +96,7 @@ export const provideHighlightjs = (): Provider[] => [
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideExperimentalZonelessChangeDetection(),
     provideMarkdown({ loader: HttpClient }),
     provideAnimations(),
     provideCharts(
