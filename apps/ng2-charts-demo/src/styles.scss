@@ -6,41 +6,41 @@
 @include mat.core();
 
 // Define a light theme
-$light-theme: mat.define-light-theme(
+$light-theme: mat.m2-define-light-theme(
   (
     color: (
-      primary: mat.define-palette(mat.$deep-purple-palette),
-      accent: mat.define-palette(mat.$amber-palette),
+      primary: mat.m2-define-palette(mat.$m2-deep-purple-palette),
+      accent: mat.m2-define-palette(mat.$m2-amber-palette),
     ),
     // Only include `typography` and `density` in the default dark theme.
-    typography: mat.define-typography-config(),
+    typography: mat.m2-define-typography-config(),
     density: 0,
   )
 );
 
 // Define a dark theme
-$dark-theme: mat.define-dark-theme(
+$dark-theme: mat.m2-define-dark-theme(
   (
     color: (
-      primary: mat.define-palette(mat.$deep-purple-palette, 300, 100, 500),
-      accent: mat.define-palette(mat.$amber-palette),
+      primary: mat.m2-define-palette(mat.$m2-deep-purple-palette, 300, 100, 500),
+      accent: mat.m2-define-palette(mat.$m2-amber-palette),
     ),
   )
 );
 
 @mixin page-header-color($theme) {
   // Get the color config from the theme.
-  $color-config: mat.get-color-config($theme);
+  $color-config: mat.m2-get-color-config($theme);
 
   // Get the primary color palette from the color-config.
   $primary-palette: map.get($color-config, 'primary');
 
   .bd-pageheader {
-    color: mat.get-color-from-palette($primary-palette, '500-contrast');
+    color: mat.m2-get-color-from-palette($primary-palette, '500-contrast');
     background-image: linear-gradient(
       to bottom,
-      mat.get-color-from-palette($primary-palette, 700) 0,
-      mat.get-color-from-palette($primary-palette, 500) 100%
+      mat.m2-get-color-from-palette($primary-palette, 700) 0,
+      mat.m2-get-color-from-palette($primary-palette, 500) 100%
     );
   }
 }

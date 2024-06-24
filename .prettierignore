@@ -8,3 +8,5 @@
 /apps/ng2-charts-demo/src/app/landing/landing.component.html
 
 /.nx/cache
+
+/.nx/workspace-data
