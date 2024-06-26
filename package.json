@@ -73,7 +73,7 @@
     "@types/jest": "^29.5.12",
     "@types/lodash-es": "^4.17.5",
     "@types/luxon": "^3.0.1",
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.14.9",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
     "autoprefixer": "^10.4.18",
