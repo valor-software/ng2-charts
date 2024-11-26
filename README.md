@@ -94,7 +94,7 @@ changes to start using the library right away.
 <table role="table">
  <tbody><tr>
   <td></td>
-  <td colspan="6">ng2-chart version</td>
+  <td colspan="7">ng2-chart version</td>
  </tr>
 
  <tr>
@@ -105,6 +105,7 @@ changes to start using the library right away.
   <td>v4.x</td>
   <td>v5.x</td>
   <td>v6.x</td>
+  <td>v7.x</td>
  </tr>
 
  <tr>
@@ -194,6 +195,17 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td>✓</td>
+  <td>✓</td>
+ </tr>
+
+ <tr>
+  <td>18</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td>✓</td>
  </tr>
 
