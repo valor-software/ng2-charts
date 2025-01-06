@@ -30,6 +30,7 @@ import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 import { LandingComponent } from './landing/landing.component';
+import { provideClientHydration } from '@angular/platform-browser';
 
 const routes: Route[] = [
   {
@@ -114,5 +115,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
     provideRouter(routes),
+    provideClientHydration(),
   ],
 };

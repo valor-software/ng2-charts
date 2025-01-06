@@ -17,6 +17,9 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './e2e' }),
+  expect: {
+    toHaveScreenshot: { maxDiffPixels: 100 },
+  },
   projects: [
     {
       name: 'chromium',

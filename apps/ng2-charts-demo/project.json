@@ -24,6 +24,11 @@
         "loader": {
           ".html": "text",
           ".ts": "text"
+        },
+        "server": "apps/ng2-charts-demo/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/ng2-charts-demo/server.ts"
         }
       },
       "configurations": {
@@ -102,6 +107,72 @@
           "updateSnapshots": true
         }
       }
+    },
+
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/ng2-charts-demo/server",
+        "main": "apps/ng2-charts-demo/server.ts",
+        "tsConfig": "apps/ng2-charts-demo/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "buildOptimizer": true,
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/ng2-charts-demo/src/environments/environment.ts",
+              "with": "apps/ng2-charts-demo/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "sourceMap": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+
+    "serve-ssr": {
+      "executor": "@angular-devkit/build-angular:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "ng2-charts-demo:build:development",
+          "serverTarget": "ng2-charts-demo:server:development"
+        },
+        "production": {
+          "browserTarget": "ng2-charts-demo:build:production",
+          "serverTarget": "ng2-charts-demo:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+
+    "prerender": {
+      "executor": "@angular-devkit/build-angular:prerender",
+      "options": {
+        "routes": ["/"]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "ng2-charts-demo:build:production",
+          "serverTarget": "ng2-charts-demo:server:production"
+        },
+        "development": {
+          "browserTarget": "ng2-charts-demo:build:development",
+          "serverTarget": "ng2-charts-demo:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "implicitDependencies": ["ng2-charts"]
