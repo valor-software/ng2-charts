@@ -94,7 +94,7 @@ changes to start using the library right away.
 <table role="table">
  <tbody><tr>
   <td></td>
-  <td colspan="7">ng2-chart version</td>
+  <td colspan="8">ng2-chart version</td>
  </tr>
 
  <tr>
@@ -112,6 +112,7 @@ changes to start using the library right away.
  <tr>
   <td>2 - 9</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -141,12 +142,14 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>12</td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -163,6 +166,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -171,6 +175,7 @@ changes to start using the library right away.
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -185,6 +190,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -194,6 +200,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
  </tr>
@@ -206,6 +213,7 @@ changes to start using the library right away.
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
   <td></td>
  </tr>
 
