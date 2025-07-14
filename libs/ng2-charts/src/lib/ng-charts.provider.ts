@@ -5,7 +5,7 @@ import {
   registerables as defaultRegisterables,
 } from 'chart.js';
 import { DeepPartial } from 'chart.js/dist/types/utils';
-import { merge } from 'lodash-es';
+import { merge } from 'es-toolkit';
 
 export const NG_CHARTS_CONFIGURATION =
   new InjectionToken<NgChartsConfiguration>('Configuration for ngCharts');
@@ -38,6 +38,6 @@ export function withDefaultRegisterables(
 export function provideCharts(
   ...configurations: readonly NgChartsConfiguration[]
 ) {
-  const config: NgChartsConfiguration = merge({}, ...configurations);
+  const config: NgChartsConfiguration = configurations.reduce(merge, {});
   return { provide: NG_CHARTS_CONFIGURATION, useValue: config };
 }

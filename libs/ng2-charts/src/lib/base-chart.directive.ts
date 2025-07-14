@@ -24,7 +24,7 @@ import {
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { merge } from 'lodash-es';
+import { merge } from 'es-toolkit';
 import {
   NG_CHARTS_CONFIGURATION,
   NgChartsConfiguration,
@@ -180,7 +180,7 @@ export class BaseChartDirective<
     TData,
     TLabel
   >['options'] {
-    return merge(
+    return [
       {
         onHover: (event: ChartEvent, active: object[]) => {
           if (!this.chartHover.observed && !this.chartHover.observers?.length) {
@@ -197,8 +197,8 @@ export class BaseChartDirective<
           this.zone.run(() => this.chartClick.emit({ event, active }));
         },
       },
-      this.themeOverrides,
-      this.options,
+      this.themeOverrides ?? {},
+      this.options ?? {},
       {
         plugins: {
           legend: {
@@ -206,7 +206,7 @@ export class BaseChartDirective<
           },
         },
       },
-    );
+    ].reduce(merge, {}) as ChartConfiguration<TType, TData, TLabel>['options'];
   }
 
   private getChartConfiguration(): ChartConfiguration<TType, TData, TLabel> {
