@@ -5,5 +5,5 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "allowedNonPeerDependencies": ["lodash-es"]
+  "allowedNonPeerDependencies": ["es-toolkit"]
 }
