@@ -70,7 +70,12 @@
     "@angular/compiler-cli": "20.0.0",
     "@angular/language-service": "20.0.0",
     "@nx/eslint": "21.3.0",
-    "@nx/eslint-plugin": "21.3.0"
+    "@nx/eslint-plugin": "21.3.0",
+    "@nx/jest": "21.3.0",
+    "@nx/js": "21.3.0",
+    "@nx/playwright": "21.3.0",
+    "@nx/web": "21.3.0",
+    "@nx/workspace": "21.3.0"
   },
   "overrides": {
     "chart.js": "^4.0.1"
