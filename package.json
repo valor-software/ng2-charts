@@ -68,7 +68,9 @@
     "@angular-eslint/template-parser": "20.0.0",
     "@angular/cli": "20.0.0",
     "@angular/compiler-cli": "20.0.0",
-    "@angular/language-service": "20.0.0"
+    "@angular/language-service": "20.0.0",
+    "@nx/eslint": "21.3.0",
+    "@nx/eslint-plugin": "21.3.0"
   },
   "overrides": {
     "chart.js": "^4.0.1"
