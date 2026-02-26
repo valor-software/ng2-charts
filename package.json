@@ -57,26 +57,7 @@
     "rxjs": "^7.5.6",
     "zone.js": "0.15.0"
   },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "20.0.0",
-    "@angular-devkit/core": "20.0.0",
-    "@angular-devkit/schematics": "20.0.0",
-    "@angular-eslint/builder": "20.0.0",
-    "@angular-eslint/eslint-plugin": "20.0.0",
-    "@angular-eslint/eslint-plugin-template": "20.0.0",
-    "@angular-eslint/schematics": "20.0.0",
-    "@angular-eslint/template-parser": "20.0.0",
-    "@angular/cli": "20.0.0",
-    "@angular/compiler-cli": "20.0.0",
-    "@angular/language-service": "20.0.0",
-    "@nx/eslint": "21.3.0",
-    "@nx/eslint-plugin": "21.3.0",
-    "@nx/jest": "21.3.0",
-    "@nx/js": "21.3.0",
-    "@nx/playwright": "21.3.0",
-    "@nx/web": "21.3.0",
-    "@nx/workspace": "21.3.0"
-  },
+  "devDependencies": {},
   "overrides": {
     "chart.js": "^4.0.1"
   }
