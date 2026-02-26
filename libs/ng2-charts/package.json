@@ -1,12 +1,12 @@
 {
-  "version": "8.0.0",
+  "version": "9.0.0",
   "name": "ng2-charts",
   "description": "Reactive, responsive, beautiful charts for Angular based on Chart.js",
   "peerDependencies": {
-    "@angular/platform-browser": ">=19.0.0",
-    "@angular/common": ">=19.0.0",
-    "@angular/core": ">=19.0.0",
-    "@angular/cdk": ">=19.0.0",
+    "@angular/platform-browser": ">=20.0.0",
+    "@angular/common": ">=20.0.0",
+    "@angular/core": ">=20.0.0",
+    "@angular/cdk": ">=20.0.0",
     "chart.js": "^3.4.0 || ^4.0.0",
     "rxjs": "^6.5.3 || ^7.4.0"
   },
