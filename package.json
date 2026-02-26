@@ -40,14 +40,7 @@
     "@angular/router": "20.0.0",
     "@angular/ssr": "20.0.0",
     "@nx/angular": "21.3.0",
-    "chart.js": "^4.0.1",
-    "chartjs-adapter-date-fns": "^3.0.0",
-    "chartjs-chart-financial": "^0.2.0",
-    "chartjs-plugin-annotation": "^3.0.0",
-    "chartjs-plugin-datalabels": "^2.1.0"
-  },
-  "devDependencies": {},
-  "overrides": {
     "chart.js": "^4.0.1"
-  }
+  },
+  "devDependencies": {}
 }
