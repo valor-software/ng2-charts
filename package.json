@@ -40,5 +40,8 @@
     "@angular/router": "20.0.0",
     "@angular/ssr": "20.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "overrides": {
+    "chart.js": "^4.0.1"
+  }
 }
