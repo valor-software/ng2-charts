@@ -19,7 +19,7 @@ jobs:
         with:
           cache: npm
           node-version: 20.19
-      - run: npm ci
+      - run: npm ci --verbose
       - run: npx prettier --check .
       - run: npm run lint
       - run: npm run build:lib
