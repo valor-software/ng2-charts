@@ -13,13 +13,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           cache: npm
           node-version: 20.19
-      - run: npm ci --verbose
+      - name: Debug environment
+        run: |
+          node --version
+          npm --version
+          free -h
+          df -h
+      - name: Install dependencies with timeout
+        run: |
+          timeout 1200 npm ci --verbose || {
+            echo "npm ci timed out, checking what's running..."
+            ps aux
+            echo "Checking npm cache..."
+            npm cache verify
+            exit 1
+          }
       - run: npx prettier --check .
       - run: npm run lint
       - run: npm run build:lib
