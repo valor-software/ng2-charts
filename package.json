@@ -39,8 +39,7 @@
     "@angular/platform-server": "20.0.0",
     "@angular/router": "20.0.0",
     "@angular/ssr": "20.0.0",
-    "@nx/angular": "21.3.0",
-    "chart.js": "4.5.0"
+    "@nx/angular": "21.3.0"
   },
   "devDependencies": {}
 }
