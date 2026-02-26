@@ -100,6 +100,9 @@
     "typescript": "5.8.2"
   },
   "overrides": {
-    "chart.js": "^4.0.1"
+    "chart.js": "^4.0.1",
+    "html-encoding-sniffer": "^6.0.0",
+    "jsdom": "^28.1.0",
+    "glob": "^13.0.6"
   }
 }
