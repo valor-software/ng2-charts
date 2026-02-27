@@ -1,24 +1,25 @@
 import { glob } from 'glob';
-import fs from 'fs';
+import fs from 'fs/promises';
 
-glob(
-  `apps/ng2-charts-demo/src/**/*.component.ts`,
-  { ignore: 'man.css' },
-  (err, files) => {
-    if (err) {
-      // Handle the error
-    }
+async function copyComponentFiles() {
+  try {
+    const files = await glob('apps/ng2-charts-demo/src/**/*.component.ts');
 
     // Iterate over the list of files
-    files.forEach((srcPath) => {
+    for (const srcPath of files) {
       // Construct the full path to the destination file
       const destPath = srcPath.replace('.ts', '.txt');
 
-      fs.copyFile(srcPath, destPath, (err) => {
-        if (err) {
-          // Handle the error
-        }
-      });
-    });
-  },
-);
+      try {
+        await fs.copyFile(srcPath, destPath);
+        console.log(`Copied ${srcPath} to ${destPath}`);
+      } catch (err) {
+        console.error(`Error copying ${srcPath} to ${destPath}:`, err);
+      }
+    }
+  } catch (err) {
+    console.error('Error finding files:', err);
+  }
+}
+
+copyComponentFiles();
