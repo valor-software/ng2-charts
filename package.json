@@ -18,6 +18,7 @@
     "e2e": "nx e2e --skip-nx-cache",
     "e2e:update-snapshots": "nx run ng2-charts-demo:e2e:update-snapshots --skip-nx-cache",
     "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false nx run-many --target=lint --verbose --all",
+    "prepare": "husky",
     "dev:ssr": "ng run ng2-charts-demo:serve-ssr",
     "serve:ssr": "node dist/apps/ng2-charts-demo/server/server.mjs",
     "build:ssr": "ng build && ng run ng2-charts-demo:server"
@@ -89,7 +90,15 @@
     "cross-env": "^7.0.3",
     "eslint": "^9.39.3",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-playwright": "^1.8.3"
+    "eslint-plugin-playwright": "^1.8.3",
+    "husky": "^9.0.10",
+    "jest": "^29.6.1",
+    "jest-canvas-mock": "^2.5.2",
+    "jest-environment-jsdom": "^29.4.1",
+    "jest-environment-node": "^29.4.1",
+    "jest-preset-angular": "^14.6.2",
+    "jest-raw-loader": "^1.0.1",
+    "lint-staged": "^15.2.2"
   },
   "overrides": {
     "chart.js": "^4.0.1"
