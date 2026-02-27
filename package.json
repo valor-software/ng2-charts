@@ -75,7 +75,14 @@
     "@nx/js": "21.3.0",
     "@nx/playwright": "21.3.0",
     "@nx/web": "21.3.0",
-    "@nx/workspace": "21.3.0"
+    "@nx/workspace": "21.3.0",
+    "@playwright/test": "^1.49.1",
+    "@schematics/angular": "20.0.0",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.14",
+    "@types/lodash-es": "^4.17.12",
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.9.3"
   },
   "overrides": {
     "chart.js": "^4.0.1"
