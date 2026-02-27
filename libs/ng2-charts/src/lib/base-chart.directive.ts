@@ -37,10 +37,10 @@ import {
   standalone: true,
 })
 export class BaseChartDirective<
-    TType extends ChartType = ChartType,
-    TData = DefaultDataPoint<TType>,
-    TLabel = unknown,
-  >
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown,
+>
   implements OnDestroy, OnChanges
 {
   @Input() public type: ChartConfiguration<TType, TData, TLabel>['type'] =
