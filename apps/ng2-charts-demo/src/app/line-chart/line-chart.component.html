@@ -1,4 +1,4 @@
-<app-chart-host chartType="line">
+<app-chart-host chartType="line" ngSkipHydration>
   <canvas
     baseChart
     [data]="lineChartData"
@@ -7,7 +7,7 @@
     (chartHover)="chartHovered($event)"
     (chartClick)="chartClicked($event)"
   ></canvas>
-  <table>
+  <table ngSkipHydration>
     <tr>
       @for (label of lineChartData.labels; track label) {
         <th>{{ label }}</th>
