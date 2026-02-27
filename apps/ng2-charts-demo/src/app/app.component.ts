@@ -2,11 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Inject,
   QueryList,
   Renderer2,
   ViewChild,
   ViewChildren,
+  inject,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -99,12 +99,10 @@ export class AppComponent implements AfterViewInit {
     | undefined;
   tabLabels: string[] = [];
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
-    private themeService: ThemeService,
-    private router: Router,
-  ) {}
+  private document = inject(DOCUMENT);
+  private renderer = inject(Renderer2);
+  private themeService = inject(ThemeService);
+  private router = inject(Router);
 
   ngAfterViewInit(): void {
     if (this.tabElements) {
