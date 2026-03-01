@@ -21,6 +21,11 @@ ng add ng2-charts
 The required packages will be automatically installed, and your `app.config.ts` will be updated with the required
 changes to start using the library right away.
 
+If you want to install [schematics](https://www.npmjs.com/package/ng2-charts-schematics) for easier code generation too:
+```bash
+npm install --save-dev ng2-charts-schematics
+```
+
 #### Manual install through package managers
 
 1. You can install **_ng2-charts_** using npm:
