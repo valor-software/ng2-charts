@@ -20,4 +20,18 @@ export default {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  moduleNameMapper: {
+    '^@angular/core/testing$':
+      '<rootDir>/../../node_modules/@angular/core/fesm2022/testing.mjs',
+    '^@angular/common/testing$':
+      '<rootDir>/../../node_modules/@angular/common/fesm2022/testing.mjs',
+    '^@angular/common/http$':
+      '<rootDir>/../../node_modules/@angular/common/fesm2022/http.mjs',
+    '^@angular/common/http/testing$':
+      '<rootDir>/../../node_modules/@angular/common/fesm2022/http-testing.mjs',
+    '^@angular/platform-browser/testing$':
+      '<rootDir>/../../node_modules/@angular/platform-browser/fesm2022/testing.mjs',
+    '^@angular/platform-browser/animations$':
+      '<rootDir>/../../node_modules/@angular/platform-browser/fesm2022/animations.mjs',
+  },
 };
