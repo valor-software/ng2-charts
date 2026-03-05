@@ -13,7 +13,7 @@ import { Schema } from './schema';
 import * as messages from './messages';
 import { addPackageToPackageJson } from '../utils/package-config';
 
-const NG2_CHARTS_VERSION = '5.0.0';
+const NG2_CHARTS_VERSION = '9.0.0';
 const CHARTJS_VERSION = '4.3.0';
 
 /**

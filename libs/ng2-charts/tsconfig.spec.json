@@ -2,8 +2,28 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "module": "commonjs",
-    "types": ["jest", "node"]
+    "module": "ES2022",
+    "types": ["jest", "node"],
+    "paths": {
+      "@angular/core/testing": [
+        "node_modules/@angular/core/types/testing.d.ts"
+      ],
+      "@angular/common/testing": [
+        "node_modules/@angular/common/types/testing.d.ts"
+      ],
+      "@angular/common/http": ["node_modules/@angular/common/types/http.d.ts"],
+      "@angular/common/http/testing": [
+        "node_modules/@angular/common/types/http-testing.d.ts"
+      ],
+      "@angular/platform-browser/testing": [
+        "node_modules/@angular/platform-browser/types/testing.d.ts"
+      ],
+      "@angular/platform-browser/animations": [
+        "node_modules/@angular/platform-browser/types/animations.d.ts"
+      ],
+      "ng2-charts": ["libs/ng2-charts/src/index.ts"],
+      "ng2-charts-schematics": ["libs/ng2-charts-schematics/src/index.ts"]
+    }
   },
   "files": ["src/test-setup.ts"],
   "include": [

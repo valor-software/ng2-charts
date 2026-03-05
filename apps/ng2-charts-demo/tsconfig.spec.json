@@ -2,8 +2,56 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "module": "commonjs",
-    "types": ["jest", "node"]
+    "module": "ES2022",
+    "types": ["jest", "node"],
+    "paths": {
+      "@angular/core/testing": [
+        "node_modules/@angular/core/types/testing.d.ts"
+      ],
+      "@angular/common/testing": [
+        "node_modules/@angular/common/types/testing.d.ts"
+      ],
+      "@angular/common/http": ["node_modules/@angular/common/types/http.d.ts"],
+      "@angular/common/http/testing": [
+        "node_modules/@angular/common/types/http-testing.d.ts"
+      ],
+      "@angular/platform-browser/testing": [
+        "node_modules/@angular/platform-browser/types/testing.d.ts"
+      ],
+      "@angular/platform-browser/animations": [
+        "node_modules/@angular/platform-browser/types/animations.d.ts"
+      ],
+      "@angular/router": ["node_modules/@angular/router/types/router.d.ts"],
+      "@angular/router/testing": [
+        "node_modules/@angular/router/types/testing.d.ts"
+      ],
+      "@angular/material/button": [
+        "node_modules/@angular/material/types/button.d.ts"
+      ],
+      "@angular/material/card": [
+        "node_modules/@angular/material/types/card.d.ts"
+      ],
+      "@angular/material/tabs": [
+        "node_modules/@angular/material/types/tabs.d.ts"
+      ],
+      "@angular/material/divider": [
+        "node_modules/@angular/material/types/divider.d.ts"
+      ],
+      "@angular/material/toolbar": [
+        "node_modules/@angular/material/types/toolbar.d.ts"
+      ],
+      "@angular/material/slide-toggle": [
+        "node_modules/@angular/material/types/slide-toggle.d.ts"
+      ],
+      "@angular/material/menu": [
+        "node_modules/@angular/material/types/menu.d.ts"
+      ],
+      "@angular/material/icon": [
+        "node_modules/@angular/material/types/icon.d.ts"
+      ],
+      "ng2-charts": ["libs/ng2-charts/src/index.ts"],
+      "ng2-charts-schematics": ["libs/ng2-charts-schematics/src/index.ts"]
+    }
   },
   "files": ["src/test-setup.ts"],
   "include": [
