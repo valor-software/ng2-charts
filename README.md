@@ -94,7 +94,7 @@ changes to start using the library right away.
 <table role="table">
  <tbody><tr>
   <td></td>
-  <td colspan="7">ng2-chart version</td>
+  <td colspan="9">ng2-chart version</td>
  </tr>
 
  <tr>
