@@ -108,11 +108,13 @@ changes to start using the library right away.
   <td>v7.x</td>
   <td>v8.x</td>
   <td>v9.x</td>
+  <td>v10.x</td>
  </tr>
 
  <tr>
   <td>2 - 9</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -134,12 +136,14 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>11</td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -160,6 +164,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -167,6 +172,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -186,6 +192,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -194,6 +201,7 @@ changes to start using the library right away.
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -212,6 +220,7 @@ changes to start using the library right away.
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -222,6 +231,7 @@ changes to start using the library right away.
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -238,6 +248,7 @@ changes to start using the library right away.
   <td>✓</td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -251,10 +262,26 @@ changes to start using the library right away.
   <td></td>
   <td>✓</td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>20</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>21</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
