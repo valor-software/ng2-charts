@@ -22,6 +22,7 @@ The required packages will be automatically installed, and your `app.config.ts` 
 changes to start using the library right away.
 
 If you want to install [schematics](https://www.npmjs.com/package/ng2-charts-schematics) for easier code generation too:
+
 ```bash
 npm install --save-dev ng2-charts-schematics
 ```
