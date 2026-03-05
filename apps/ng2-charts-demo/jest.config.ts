@@ -1,4 +1,4 @@
-const esModules = ['lodash-es', 'marked', 'ngx-markdown'].join('|');
+const esModules = ['es-toolkit', 'marked', 'ngx-markdown'].join('|');
 export default {
   displayName: 'ng2-charts',
   preset: '../../jest.preset.js',

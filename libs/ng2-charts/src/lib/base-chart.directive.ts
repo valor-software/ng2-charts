@@ -25,7 +25,7 @@ import {
 import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { merge } from 'lodash-es';
+import { merge } from 'es-toolkit';
 import {
   NG_CHARTS_CONFIGURATION,
   NgChartsConfiguration,
@@ -209,37 +209,33 @@ export class BaseChartDirective<
     TData,
     TLabel
   >['options'] {
-    const baseOptions = {
-      onHover: (event: ChartEvent, active: object[]) => {
-        if (!this.chartHover.observed && !this.chartHover.observers?.length) {
-          return;
-        }
+    return [
+      {
+        onHover: (event: ChartEvent, active: object[]) => {
+          if (!this.chartHover.observed && !this.chartHover.observers?.length) {
+            return;
+          }
 
-        this.zone.run(() => this.chartHover.emit({ event, active }));
-      },
-      onClick: (event?: ChartEvent, active?: object[]) => {
-        if (!this.chartClick.observed && !this.chartClick.observers?.length) {
-          return;
-        }
+          this.zone.run(() => this.chartHover.emit({ event, active }));
+        },
+        onClick: (event?: ChartEvent, active?: object[]) => {
+          if (!this.chartClick.observed && !this.chartClick.observers?.length) {
+            return;
+          }
 
-        this.zone.run(() => this.chartClick.emit({ event, active }));
-      },
-    };
-
-    const legendOptions = {
-      plugins: {
-        legend: {
-          display: this.legend,
+          this.zone.run(() => this.chartClick.emit({ event, active }));
         },
       },
-    };
-
-    return merge(
-      baseOptions,
-      this.themeOverrides || {},
-      this.options || {},
-      legendOptions,
-    ) as ChartConfiguration<TType, TData, TLabel>['options'];
+      this.themeOverrides ?? {},
+      this.options ?? {},
+      {
+        plugins: {
+          legend: {
+            display: this.legend,
+          },
+        },
+      },
+    ].reduce(merge, {}) as ChartConfiguration<TType, TData, TLabel>['options'];
   }
 
   private getChartConfiguration(): ChartConfiguration<TType, TData, TLabel> {
