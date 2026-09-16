@@ -3,12 +3,14 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ng2-charts/src",
   "prefix": "lib",
-  "tags": [],
   "projectType": "library",
+  "tags": [],
+  "implicitDependencies": ["ng2-charts-schematics"],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "libs/ng2-charts/ng-package.json"
       },
@@ -19,8 +21,7 @@
         "development": {
           "tsConfig": "libs/ng2-charts/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -35,6 +36,5 @@
         "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
       }
     }
-  },
-  "implicitDependencies": ["ng2-charts-schematics"]
+  }
 }

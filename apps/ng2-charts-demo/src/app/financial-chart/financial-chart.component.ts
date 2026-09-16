@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import 'chartjs-adapter-date-fns';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration, ChartType } from 'chart.js';
@@ -13,6 +13,7 @@ import financialChartData from './financial-chart.data';
   selector: 'app-financial-chart',
   templateUrl: './financial-chart.component.html',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     MarkdownComponent,
     MatButton,

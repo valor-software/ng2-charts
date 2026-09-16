@@ -55,3 +55,8 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+# Claude Code generated artifacts (skills are committed, reports/plans are not)
+.claude/
+.nx/
+CLAUDE.md

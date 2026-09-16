@@ -5,5 +5,13 @@
     "outDir": "../../out-tsc/server",
     "types": ["node"]
   },
-  "files": ["src/main.server.ts", "server.ts"]
+  "files": ["src/main.server.ts", "server.ts"],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }

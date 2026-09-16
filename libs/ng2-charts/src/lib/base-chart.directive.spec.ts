@@ -7,7 +7,7 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ChartData, ChartDataset } from 'chart.js';
 
 @Component({
@@ -19,6 +19,7 @@ import { ChartData, ChartDataset } from 'chart.js';
     ' (chartClick)="click()"' +
     ' (chartHover)="hover()"></canvas>',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [BaseChartDirective],
 })
 class TestComponent {

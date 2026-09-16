@@ -5,10 +5,12 @@
   "prefix": "app",
   "sourceRoot": "apps/ng2-charts-demo/src",
   "tags": [],
+  "implicitDependencies": ["ng2-charts"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/ng2-charts-demo",
         "index": "apps/ng2-charts-demo/src/index.html",
@@ -53,11 +55,11 @@
           "sourceMap": true,
           "namedChunks": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "defaultConfiguration": "development",
       "configurations": {
         "production": {
           "buildTarget": "ng2-charts-demo:build:production"
@@ -65,8 +67,7 @@
         "development": {
           "buildTarget": "ng2-charts-demo:build:development"
         }
-      },
-      "defaultConfiguration": "development"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -108,9 +109,9 @@
         }
       }
     },
-
     "server": {
       "executor": "@angular-devkit/build-angular:server",
+      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/ng2-charts-demo/server",
         "main": "apps/ng2-charts-demo/server.ts",
@@ -138,12 +139,11 @@
           "extractLicenses": false,
           "vendorChunk": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
-
     "serve-ssr": {
       "executor": "@angular-devkit/build-angular:ssr-dev-server",
+      "defaultConfiguration": "development",
       "configurations": {
         "development": {
           "browserTarget": "ng2-charts-demo:build:development",
@@ -153,12 +153,11 @@
           "browserTarget": "ng2-charts-demo:build:production",
           "serverTarget": "ng2-charts-demo:server:production"
         }
-      },
-      "defaultConfiguration": "development"
+      }
     },
-
     "prerender": {
       "executor": "@angular-devkit/build-angular:prerender",
+      "defaultConfiguration": "production",
       "options": {
         "routes": ["/"]
       },
@@ -171,9 +170,7 @@
           "browserTarget": "ng2-charts-demo:build:development",
           "serverTarget": "ng2-charts-demo:server:development"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     }
-  },
-  "implicitDependencies": ["ng2-charts"]
+  }
 }

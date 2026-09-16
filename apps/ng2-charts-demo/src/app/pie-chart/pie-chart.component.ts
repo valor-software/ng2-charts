@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { MatButton } from '@angular/material/button';
@@ -10,6 +10,7 @@ import { ChartHostComponent } from '../chart-host/chart-host.component';
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatDivider, MatButton, BaseChartDirective, ChartHostComponent],
 })
 export class PieChartComponent {
