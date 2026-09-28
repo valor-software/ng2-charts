@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { MatButton } from '@angular/material/button';
@@ -10,6 +10,7 @@ import { ChartHostComponent } from '../chart-host/chart-host.component';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatButton, BaseChartDirective, ChartHostComponent],
 })
 export class LineChartComponent {

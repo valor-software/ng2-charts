@@ -24,7 +24,10 @@
     "paths": {
       "ng2-charts": ["libs/ng2-charts/src/index.ts"],
       "ng2-charts-schematics": ["libs/ng2-charts-schematics/src/index.ts"]
-    }
+    },
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp"],
   "angularCompilerOptions": {

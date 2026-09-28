@@ -7,6 +7,7 @@ import {
   ViewChild,
   ViewChildren,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -27,6 +28,7 @@ const darkThemeClass = 'dark-theme';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     MatAnchor,
     MatToolbar,
@@ -95,8 +97,7 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup | undefined;
   @ViewChildren('tab', { read: ElementRef }) tabElements:
-    | QueryList<ElementRef>
-    | undefined;
+    QueryList<ElementRef> | undefined;
   tabLabels: string[] = [];
 
   private document = inject(DOCUMENT);

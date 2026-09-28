@@ -100,7 +100,7 @@ npm install --save-dev ng2-charts-schematics
 <table role="table">
  <tbody><tr>
   <td></td>
-  <td colspan="9">ng2-chart version</td>
+  <td colspan="11">ng2-chart version</td>
  </tr>
 
  <tr>
@@ -115,11 +115,13 @@ npm install --save-dev ng2-charts-schematics
   <td>v8.x</td>
   <td>v9.x</td>
   <td>v10.x</td>
+  <td>v11.x</td>
  </tr>
 
  <tr>
   <td>2 - 9</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -143,12 +145,14 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>11</td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -171,6 +175,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -178,6 +183,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -199,6 +205,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -207,6 +214,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -227,6 +235,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -237,6 +246,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td>✓</td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -255,6 +265,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
@@ -267,6 +278,7 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td></td>
   <td>✓</td>
+  <td></td>
   <td></td>
   <td></td>
  </tr>
@@ -283,10 +295,27 @@ npm install --save-dev ng2-charts-schematics
   <td></td>
   <td>✓</td>
   <td></td>
+  <td></td>
  </tr>
 
  <tr>
   <td>21</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+ </tr>
+
+ <tr>
+  <td>22</td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>

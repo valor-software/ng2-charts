@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
@@ -6,6 +6,7 @@ import { MarkdownComponent } from 'ngx-markdown';
   standalone: true,
   imports: [MarkdownComponent],
   templateUrl: './landing.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './landing.component.css',
 })
 export class LandingComponent {}

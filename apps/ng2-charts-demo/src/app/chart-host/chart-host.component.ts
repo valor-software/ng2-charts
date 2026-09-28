@@ -3,6 +3,7 @@ import {
   Component,
   ContentChild,
   Input,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import barTs from '../bar-chart/bar-chart.component.txt';
@@ -88,6 +89,7 @@ export const chartTypes: {
   selector: 'app-chart-host',
   templateUrl: './chart-host.component.html',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatTabGroup, MatTab, MatCard, MatCardContent, Highlight],
 })
 export class ChartHostComponent implements AfterContentInit {

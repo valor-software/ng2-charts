@@ -80,8 +80,7 @@ export class BaseChartDirective<
   private zone = inject(NgZone);
   private themeService = inject(ThemeService);
   private config = inject(NG_CHARTS_CONFIGURATION, { optional: true }) as
-    | NgChartsConfiguration
-    | undefined;
+    NgChartsConfiguration | undefined;
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
 
