@@ -64,7 +64,7 @@
     "@angular-devkit/core": "22.1.8",
     "@angular-devkit/schematics": "22.1.8",
     "@angular-eslint/builder": "22.5.0",
-    "@angular-eslint/eslint-plugin": "22.5.0",
+    "@angular-eslint/eslint-plugin": "22.6.0",
     "@angular-eslint/eslint-plugin-template": "22.5.0",
     "@angular-eslint/schematics": "22.5.0",
     "@angular-eslint/template-parser": "22.5.0",
