@@ -78,7 +78,7 @@
     "@nx/eslint-plugin": "23.2.1",
     "@nx/jest": "23.2.1",
     "@nx/js": "23.2.1",
-    "@nx/playwright": "23.2.1",
+    "@nx/playwright": "23.3.0",
     "@nx/web": "23.2.1",
     "@nx/workspace": "23.2.1",
     "@playwright/test": "^1.49.1",
